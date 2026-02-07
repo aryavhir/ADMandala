@@ -17,7 +17,6 @@ import {
   Users,
   BarChart3,
   Activity,
-  Hexagon,
   CircleDot,
   RadioTower,
 } from 'lucide-react';
@@ -78,130 +77,425 @@ function Decentralization() {
             </div>
           </div>
 
-          {/* Network Visualization */}
+          {/* Hero Visual — 3D Cube + Constellation */}
           <div className="dec-hero-visual animate-on-scroll delay-3" aria-hidden="true">
-            <div className="dec-netvis">
-              <div className="dec-netvis-ring dec-nr-outer" />
-              <div className="dec-netvis-ring dec-nr-mid" />
-              <div className="dec-netvis-ring dec-nr-inner" />
-              {/* Orbiting nodes */}
-              <div className="dec-netvis-node dec-nn-1"><Shield size={16} /></div>
-              <div className="dec-netvis-node dec-nn-2"><Layers size={16} /></div>
-              <div className="dec-netvis-node dec-nn-3"><Eye size={16} /></div>
-              <div className="dec-netvis-node dec-nn-4"><Lock size={16} /></div>
-              <div className="dec-netvis-node dec-nn-5"><Cpu size={16} /></div>
-              <div className="dec-netvis-node dec-nn-6"><Globe size={16} /></div>
-              {/* Center */}
-              <div className="dec-netvis-core">
-                <Hexagon size={28} strokeWidth={1.5} />
+            <div className="dec-vis">
+              {/* Scan line */}
+              <div className="dec-scanline" />
+
+              {/* Constellation star field */}
+              <svg className="dec-constellation" viewBox="0 0 500 500" fill="none">
+                {/* Network connection lines */}
+                <line x1="80" y1="60" x2="180" y2="130" className="dec-con-line dec-cl-1" />
+                <line x1="180" y1="130" x2="250" y2="80" className="dec-con-line dec-cl-2" />
+                <line x1="250" y1="80" x2="400" y2="110" className="dec-con-line dec-cl-3" />
+                <line x1="400" y1="110" x2="440" y2="200" className="dec-con-line dec-cl-4" />
+                <line x1="440" y1="200" x2="420" y2="340" className="dec-con-line dec-cl-5" />
+                <line x1="420" y1="340" x2="350" y2="420" className="dec-con-line dec-cl-6" />
+                <line x1="350" y1="420" x2="200" y2="440" className="dec-con-line dec-cl-7" />
+                <line x1="200" y1="440" x2="90" y2="380" className="dec-con-line dec-cl-8" />
+                <line x1="90" y1="380" x2="60" y2="250" className="dec-con-line dec-cl-9" />
+                <line x1="60" y1="250" x2="80" y2="60" className="dec-con-line dec-cl-10" />
+                {/* Inner cross-links */}
+                <line x1="180" y1="130" x2="350" y2="420" className="dec-con-line dec-cl-cross" />
+                <line x1="400" y1="110" x2="90" y2="380" className="dec-con-line dec-cl-cross" />
+                <line x1="440" y1="200" x2="80" y2="60" className="dec-con-line dec-cl-cross" />
+                <line x1="250" y1="80" x2="200" y2="440" className="dec-con-line dec-cl-cross" />
+                <line x1="420" y1="340" x2="60" y2="250" className="dec-con-line dec-cl-cross" />
+
+                {/* Animated signal pulses along lines */}
+                <circle r="3" fill="#1a7a7a" className="dec-signal">
+                  <animateMotion dur="2.5s" repeatCount="indefinite" path="M80,60 L180,130 L250,80 L400,110" />
+                </circle>
+                <circle r="3" fill="#0f4a4a" className="dec-signal">
+                  <animateMotion dur="3s" repeatCount="indefinite" path="M440,200 L420,340 L350,420 L200,440" />
+                </circle>
+                <circle r="2" fill="#1a7a7a" className="dec-signal" opacity="0.7">
+                  <animateMotion dur="4s" repeatCount="indefinite" path="M200,440 L90,380 L60,250 L80,60" />
+                </circle>
+                <circle r="2.5" fill="#0f4a4a" className="dec-signal" opacity="0.8">
+                  <animateMotion dur="3.5s" repeatCount="indefinite" path="M180,130 L350,420" />
+                </circle>
+                <circle r="2" fill="#1a7a7a" className="dec-signal" opacity="0.6">
+                  <animateMotion dur="5s" repeatCount="indefinite" path="M400,110 L90,380" />
+                </circle>
+
+                {/* Constellation dots (nodes) */}
+                <circle cx="80"  cy="60"  r="4" fill="#0f4a4a" opacity="0.8" />
+                <circle cx="180" cy="130" r="5" fill="#0f4a4a" opacity="0.9" />
+                <circle cx="250" cy="80"  r="3.5" fill="#1a7a7a" opacity="0.7" />
+                <circle cx="400" cy="110" r="5" fill="#0f4a4a" opacity="0.85" />
+                <circle cx="440" cy="200" r="4" fill="#1a7a7a" opacity="0.75" />
+                <circle cx="420" cy="340" r="5" fill="#0f4a4a" opacity="0.9" />
+                <circle cx="350" cy="420" r="4" fill="#1a7a7a" opacity="0.8" />
+                <circle cx="200" cy="440" r="5" fill="#0f4a4a" opacity="0.85" />
+                <circle cx="90"  cy="380" r="4.5" fill="#1a7a7a" opacity="0.8" />
+                <circle cx="60"  cy="250" r="3.5" fill="#0f4a4a" opacity="0.7" />
+
+                {/* Glow halos on key nodes */}
+                <circle cx="180" cy="130" r="14" fill="none" stroke="rgba(15,74,74,0.15)" strokeWidth="1" className="dec-node-halo" />
+                <circle cx="400" cy="110" r="14" fill="none" stroke="rgba(15,74,74,0.15)" strokeWidth="1" className="dec-node-halo" />
+                <circle cx="420" cy="340" r="14" fill="none" stroke="rgba(15,74,74,0.15)" strokeWidth="1" className="dec-node-halo" />
+                <circle cx="200" cy="440" r="14" fill="none" stroke="rgba(15,74,74,0.15)" strokeWidth="1" className="dec-node-halo" />
+
+                {/* Tiny ambient stars */}
+                {[
+                  [45, 150], [130, 30], [320, 50], [460, 160], [470, 300],
+                  [380, 470], [120, 460], [30, 320], [160, 250], [340, 250],
+                  [250, 350], [310, 160], [140, 350], [390, 250], [220, 170],
+                ].map(([cx, cy], i) => (
+                  <circle key={i} cx={cx} cy={cy} r="1.5" fill="#0f4a4a" opacity="0.3" className={`dec-twinkle dec-tw-${(i % 5) + 1}`} />
+                ))}
+              </svg>
+
+              {/* 3D Rotating Cube */}
+              <div className="dec-cube-wrapper">
+                <div className="dec-cube-glow" />
+                <div className="dec-cube-scene">
+                  <div className="dec-cube">
+                    <div className="dec-cube-face dec-face-front">
+                      <Network size={24} />
+                      <span>Protocol</span>
+                    </div>
+                    <div className="dec-cube-face dec-face-back">
+                      <Shield size={24} />
+                      <span>Trust</span>
+                    </div>
+                    <div className="dec-cube-face dec-face-right">
+                      <Eye size={24} />
+                      <span>Verify</span>
+                    </div>
+                    <div className="dec-cube-face dec-face-left">
+                      <Globe size={24} />
+                      <span>Open</span>
+                    </div>
+                    <div className="dec-cube-face dec-face-top">
+                      <Layers size={24} />
+                      <span>Layers</span>
+                    </div>
+                    <div className="dec-cube-face dec-face-bottom">
+                      <Lock size={24} />
+                      <span>Secure</span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              {/* Pulse rings */}
-              <div className="dec-netvis-pulse dec-np-1" />
-              <div className="dec-netvis-pulse dec-np-2" />
+
+              {/* Floating glass data cards */}
+              <div className="dec-datacard dec-dc-1">
+                <div className="dec-dc-row">
+                  <Activity size={12} />
+                  <span className="dec-dc-label">Throughput</span>
+                </div>
+                <span className="dec-dc-value">1.2M <small>req/s</small></span>
+                <div className="dec-dc-bar"><div className="dec-dc-fill" style={{ width: '78%' }} /></div>
+              </div>
+              <div className="dec-datacard dec-dc-2">
+                <div className="dec-dc-row">
+                  <Shield size={12} />
+                  <span className="dec-dc-label">Verified</span>
+                </div>
+                <span className="dec-dc-value">99.97%</span>
+                <div className="dec-dc-bar"><div className="dec-dc-fill" style={{ width: '99%' }} /></div>
+              </div>
+              <div className="dec-datacard dec-dc-3">
+                <div className="dec-dc-row">
+                  <Cpu size={12} />
+                  <span className="dec-dc-label">Nodes</span>
+                </div>
+                <span className="dec-dc-value">248</span>
+                <div className="dec-dc-spark">
+                  {[4,7,5,9,6,8,10,7,9,8,6,10].map((h, i) => (
+                    <div key={i} className="dec-dc-spark-bar" style={{ height: `${h * 10}%` }} />
+                  ))}
+                </div>
+              </div>
+
+              {/* Orbit energy ring */}
+              <div className="dec-energy-ring">
+                <svg viewBox="0 0 400 400" fill="none">
+                  <circle cx="200" cy="200" r="190" stroke="url(#dec-energy-grad)" strokeWidth="1" strokeDasharray="8 12" className="dec-energy-path" />
+                  <circle cx="200" cy="200" r="165" stroke="url(#dec-energy-grad2)" strokeWidth="0.5" strokeDasharray="4 16" className="dec-energy-path-r" />
+                  <defs>
+                    <linearGradient id="dec-energy-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#0f4a4a" stopOpacity="0" />
+                      <stop offset="30%" stopColor="#1a7a7a" stopOpacity="0.5" />
+                      <stop offset="70%" stopColor="#0f4a4a" stopOpacity="0.5" />
+                      <stop offset="100%" stopColor="#1a7a7a" stopOpacity="0" />
+                    </linearGradient>
+                    <linearGradient id="dec-energy-grad2" x1="100%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stopColor="#1a7a7a" stopOpacity="0" />
+                      <stop offset="50%" stopColor="#0f4a4a" stopOpacity="0.3" />
+                      <stop offset="100%" stopColor="#1a7a7a" stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Floating stats */}
-        <div className="content-wrapper">
-          <div className="dec-hero-stats animate-on-scroll delay-3">
-            <div className="dec-stat">
-              <span className="dec-stat-value">3</span>
-              <span className="dec-stat-label">Phases</span>
-            </div>
-            <div className="dec-stat-divider" />
-            <div className="dec-stat">
-              <span className="dec-stat-value">Phase 1</span>
-              <span className="dec-stat-label">Live Today</span>
-            </div>
-            <div className="dec-stat-divider" />
-            <div className="dec-stat">
-              <span className="dec-stat-value">0%</span>
-              <span className="dec-stat-label">Workflow Disruption</span>
-            </div>
-          </div>
-        </div>
+      
       </header>
 
       {/* ══════════ PHILOSOPHY ══════════ */}
       <section className="dec-section dec-philosophy">
+        {/* Ambient background elements */}
+        <div className="dec-phil-bg" aria-hidden="true">
+          <div className="dec-phil-glow dec-phil-glow-1" />
+          <div className="dec-phil-glow dec-phil-glow-2" />
+          <div className="dec-phil-grid-lines" />
+        </div>
+
         <div className="content-wrapper">
-          <div className="dec-section-hdr animate-on-scroll">
+          {/* Section header — large & cinematic */}
+          <div className="dec-phil-header animate-on-scroll">
             <span className="dec-eyebrow"><GitBranch size={14} /> Philosophy</span>
-            <h2>Why Decentralization&nbsp;— And Why<br />Timing Matters More</h2>
+            <h2 className="dec-phil-title">
+              The Philosophy Behind<br />
+              <span className="dec-phil-title-em">Ad Mandala</span>
+            </h2>
+            <p className="dec-phil-subtitle">
+              Why decentralization matters — and why <em>timing</em> matters more.
+            </p>
           </div>
 
-          <div className="dec-phil-grid">
-            <div className="dec-phil-card dec-phil-offers animate-on-scroll">
-              <div className="dec-phil-icon-box offers">
-                <CheckCircle2 size={24} />
+          {/* Guarantees — Three animated cards */}
+          <div className="dec-phil-intro animate-on-scroll delay-1">
+            <p className="dec-phil-lead">Decentralization offers powerful guarantees:</p>
+          </div>
+
+          <div className="dec-phil-guarantees">
+            <div className="dec-phil-guarantee animate-on-scroll delay-1">
+              <div className="dec-phil-guarantee-icon">
+                <Eye size={28} />
+                <div className="dec-phil-guarantee-ring" />
               </div>
-              <h3>Decentralization Offers</h3>
-              <ul className="dec-check-list">
-                <li><CheckCircle2 size={16} /> Independent verification of events</li>
-                <li><CheckCircle2 size={16} /> Reduced trust in intermediaries</li>
-                <li><CheckCircle2 size={16} /> Transparent, auditable settlement</li>
-              </ul>
+              <h3>Independent Verification</h3>
+              <p>Every impression, click, and conversion can be validated by multiple independent parties — no single entity controls truth.</p>
+              <div className="dec-phil-guarantee-shine" />
             </div>
-            <div className="dec-phil-card dec-phil-warn animate-on-scroll" style={{ transitionDelay: '120ms' }}>
-              <div className="dec-phil-icon-box warn">
+
+            <div className="dec-phil-guarantee animate-on-scroll delay-2">
+              <div className="dec-phil-guarantee-icon">
+                <Users size={28} />
+                <div className="dec-phil-guarantee-ring" />
+              </div>
+              <h3>Reduced Trust in Intermediaries</h3>
+              <p>Participants verify outcomes directly. No reliance on opaque middlemen or self-reported metrics that can't be audited.</p>
+              <div className="dec-phil-guarantee-shine" />
+            </div>
+
+            <div className="dec-phil-guarantee animate-on-scroll delay-3">
+              <div className="dec-phil-guarantee-icon">
+                <BarChart3 size={28} />
+                <div className="dec-phil-guarantee-ring" />
+              </div>
+              <h3>Transparent Settlement</h3>
+              <p>Every transaction is recorded, auditable, and deterministic — creating a financial layer built on proof, not promises.</p>
+              <div className="dec-phil-guarantee-shine" />
+            </div>
+          </div>
+
+          {/* The "But" — dramatic transition */}
+          <div className="dec-phil-but animate-on-scroll">
+            <div className="dec-phil-but-line" />
+            <div className="dec-phil-but-content">
+              <div className="dec-phil-but-icon">
                 <Shield size={24} />
               </div>
-              <h3>But Timing Is Everything</h3>
-              <p>Decentralization done prematurely introduces friction, complexity, and fragility. Rushing creates more problems than it solves — every step must be earned.</p>
+              <div className="dec-phil-but-text">
+                <h3>But premature decentralization breaks things.</h3>
+                <p>When systems decentralize before they're ready, they introduce friction, complexity, and fragility — solving theoretical problems while creating real ones. Every step must be <strong>earned</strong>, not rushed.</p>
+              </div>
             </div>
+            <div className="dec-phil-but-line" />
           </div>
 
-          <div className="dec-principle animate-on-scroll">
-            <div className="dec-principle-bar" />
-            <p><strong>Decentralization should emerge from proven infrastructure</strong>&nbsp;— not replace it overnight.</p>
-            <div className="dec-principle-bar" />
+          {/* Principle — cinematic statement */}
+          <div className="dec-phil-principle animate-on-scroll">
+            <div className="dec-phil-principle-inner">
+              <div className="dec-phil-principle-accent" />
+              <div className="dec-phil-principle-body">
+                <span className="dec-phil-principle-label">Ad Mandala is built on a simple principle</span>
+                <blockquote className="dec-phil-principle-quote">
+                  Decentralization should <span className="dec-phil-quote-em">emerge</span> from proven infrastructure — not replace it overnight.
+                </blockquote>
+              </div>
+              <div className="dec-phil-principle-visual" aria-hidden="true">
+                <svg viewBox="0 0 120 120" fill="none" className="dec-phil-principle-svg">
+                  <circle cx="60" cy="60" r="50" stroke="rgba(15,74,74,0.12)" strokeWidth="1" strokeDasharray="4 6" className="dec-svg-spin" />
+                  <circle cx="60" cy="60" r="35" stroke="rgba(15,74,74,0.18)" strokeWidth="1" strokeDasharray="3 5" className="dec-svg-spin-r" />
+                  <circle cx="60" cy="60" r="18" fill="rgba(15,74,74,0.06)" stroke="rgba(15,74,74,0.2)" strokeWidth="1" />
+                  <circle cx="60" cy="60" r="5" fill="#0f4a4a" opacity="0.7" />
+                  {/* Orbiting dots */}
+                  <circle r="3" fill="#0f4a4a" opacity="0.5">
+                    <animateMotion dur="6s" repeatCount="indefinite" path="M60,10 A50,50 0 1,1 59.9,10" />
+                  </circle>
+                  <circle r="2" fill="#1a7a7a" opacity="0.4">
+                    <animateMotion dur="4s" repeatCount="indefinite" path="M60,25 A35,35 0 1,0 60.1,25" />
+                  </circle>
+                </svg>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ══════════ THE MANDALA APPROACH — Split Layout ══════════ */}
+      {/* ══════════ THE MANDALA APPROACH ══════════ */}
       <section className="dec-section dec-approach">
+        {/* Ambient background */}
+        <div className="dec-approach-bg" aria-hidden="true">
+          <div className="dec-approach-orb dec-approach-orb-1" />
+          <div className="dec-approach-orb dec-approach-orb-2" />
+          <div className="dec-approach-dots" />
+        </div>
+
         <div className="content-wrapper">
-          <div className="split-layout split-left animate-on-scroll">
-            <div className="split-content">
-              <span className="dec-eyebrow"><Box size={14} /> The Mandala Approach</span>
-              <h2>Balance. Structure.<br />Interconnected Systems.</h2>
-              <p className="split-description">
-                A mandala represents balance and interconnected systems. Ad Mandala applies this principle by decentralizing only the layers that benefit from it.
-              </p>
-              <ul className="split-features">
-                <li><CheckCircle2 size={20} /><span>Decentralization is additive, never disruptive</span></li>
-                <li><CheckCircle2 size={20} /><span>Usable, scalable and reliable at every stage</span></li>
-                <li><CheckCircle2 size={20} /><span>Each layer improves independently</span></li>
-              </ul>
-              <p className="split-closing">The system grows stronger — each stage building on the last.</p>
-            </div>
-            <div className="split-visual green-accent">
-              {/* Mandala diagram visual */}
-              <div className="dec-mandala-vis">
-                <svg viewBox="0 0 320 320" className="dec-mandala-svg" aria-hidden="true">
-                  <circle cx="160" cy="160" r="148" fill="none" stroke="rgba(15,74,74,0.08)" strokeWidth="1" />
-                  <circle cx="160" cy="160" r="110" fill="none" stroke="rgba(15,74,74,0.12)" strokeWidth="1.5" strokeDasharray="6 4" className="dec-svg-spin" />
-                  <circle cx="160" cy="160" r="72" fill="none" stroke="rgba(15,74,74,0.18)" strokeWidth="1.5" strokeDasharray="4 6" className="dec-svg-spin-r" />
-                  <circle cx="160" cy="160" r="34" fill="#0f4a4a" opacity="0.9" />
-                  <text x="160" y="164" textAnchor="middle" fill="white" fontSize="9" fontWeight="700" letterSpacing="0.5">CORE</text>
-                  {/* Connection lines */}
-                  <line x1="160" y1="12" x2="160" y2="88" stroke="rgba(15,74,74,0.1)" strokeWidth="1" />
-                  <line x1="160" y1="232" x2="160" y2="308" stroke="rgba(15,74,74,0.1)" strokeWidth="1" />
-                  <line x1="12" y1="160" x2="88" y2="160" stroke="rgba(15,74,74,0.1)" strokeWidth="1" />
-                  <line x1="232" y1="160" x2="308" y2="160" stroke="rgba(15,74,74,0.1)" strokeWidth="1" />
-                  {/* Outer dots */}
-                  <circle cx="160" cy="12" r="5" fill="#0f4a4a" opacity="0.3" />
-                  <circle cx="308" cy="160" r="5" fill="#0f4a4a" opacity="0.3" />
-                  <circle cx="160" cy="308" r="5" fill="#0f4a4a" opacity="0.3" />
-                  <circle cx="12" cy="160" r="5" fill="#0f4a4a" opacity="0.3" />
-                  {/* Labels */}
-                  <text x="160" y="63" textAnchor="middle" fill="#0f4a4a" fontSize="7" fontWeight="600" opacity="0.5">VERIFICATION</text>
-                  <text x="265" y="163" textAnchor="middle" fill="#0f4a4a" fontSize="7" fontWeight="600" opacity="0.5">SETTLEMENT</text>
-                  <text x="160" y="268" textAnchor="middle" fill="#0f4a4a" fontSize="7" fontWeight="600" opacity="0.5">GOVERNANCE</text>
-                  <text x="55" y="163" textAnchor="middle" fill="#0f4a4a" fontSize="7" fontWeight="600" opacity="0.5">PARTICIPANTS</text>
+          {/* Section header */}
+          <div className="dec-approach-header animate-on-scroll">
+            <span className="dec-eyebrow"><Box size={14} /> The Mandala Approach</span>
+            <h2 className="dec-approach-title">
+              A Mandala Represents<br />
+              <span className="dec-approach-title-words">
+                <span className="dec-approach-word">Balance.</span>{' '}
+                <span className="dec-approach-word">Structure.</span>{' '}
+                <span className="dec-approach-word dec-approach-word-em">Interconnection.</span>
+              </span>
+            </h2>
+          </div>
+
+          {/* Main content: visual + description side-by-side */}
+          <div className="dec-approach-main">
+            {/* Left side — Large animated Mandala */}
+            <div className="dec-approach-visual animate-on-scroll delay-1" aria-hidden="true">
+              <div className="dec-mandala-container">
+                {/* Outer glow ring */}
+                <div className="dec-mandala-glow" />
+
+                <svg viewBox="0 0 400 400" className="dec-mandala-svg-new" fill="none">
+                  {/* Outermost ring */}
+                  <circle cx="200" cy="200" r="190" stroke="rgba(15,74,74,0.06)" strokeWidth="1" />
+                  {/* Dashed orbit rings */}
+                  <circle cx="200" cy="200" r="160" stroke="rgba(15,74,74,0.1)" strokeWidth="1" strokeDasharray="8 6" className="dec-svg-spin" />
+                  <circle cx="200" cy="200" r="120" stroke="rgba(15,74,74,0.14)" strokeWidth="1.5" strokeDasharray="5 8" className="dec-svg-spin-r" />
+                  <circle cx="200" cy="200" r="80" stroke="rgba(15,74,74,0.18)" strokeWidth="1" strokeDasharray="4 6" className="dec-svg-spin" style={{ animationDuration: '80s' }} />
+
+                  {/* Core */}
+                  <circle cx="200" cy="200" r="42" fill="rgba(15,74,74,0.04)" stroke="rgba(15,74,74,0.2)" strokeWidth="1.5" />
+                  <circle cx="200" cy="200" r="24" fill="#0f4a4a" />
+                  <text x="200" y="197" textAnchor="middle" fill="white" fontSize="7" fontWeight="700" letterSpacing="1.5">AD</text>
+                  <text x="200" y="208" textAnchor="middle" fill="rgba(255,255,255,0.7)" fontSize="6" fontWeight="600" letterSpacing="0.8">MANDALA</text>
+
+                  {/* Layer labels on rings */}
+                  {/* Top — Verification */}
+                  <circle cx="200" cy="40" r="18" fill="white" stroke="rgba(15,74,74,0.15)" strokeWidth="1" />
+                  <text x="200" y="38" textAnchor="middle" fill="#0f4a4a" fontSize="5.5" fontWeight="700">VERIFY</text>
+                  <text x="200" y="47" textAnchor="middle" fill="#0f4a4a" fontSize="4" opacity="0.5">Layer</text>
+
+                  {/* Right — Settlement */}
+                  <circle cx="360" cy="200" r="18" fill="white" stroke="rgba(15,74,74,0.15)" strokeWidth="1" />
+                  <text x="360" y="198" textAnchor="middle" fill="#0f4a4a" fontSize="5.5" fontWeight="700">SETTLE</text>
+                  <text x="360" y="207" textAnchor="middle" fill="#0f4a4a" fontSize="4" opacity="0.5">Layer</text>
+
+                  {/* Bottom — Governance */}
+                  <circle cx="200" cy="360" r="18" fill="white" stroke="rgba(15,74,74,0.15)" strokeWidth="1" />
+                  <text x="200" y="358" textAnchor="middle" fill="#0f4a4a" fontSize="5.5" fontWeight="700">GOVERN</text>
+                  <text x="200" y="367" textAnchor="middle" fill="#0f4a4a" fontSize="4" opacity="0.5">Layer</text>
+
+                  {/* Left — Participants */}
+                  <circle cx="40" cy="200" r="18" fill="white" stroke="rgba(15,74,74,0.15)" strokeWidth="1" />
+                  <text x="40" y="198" textAnchor="middle" fill="#0f4a4a" fontSize="5.5" fontWeight="700">OPEN</text>
+                  <text x="40" y="207" textAnchor="middle" fill="#0f4a4a" fontSize="4" opacity="0.5">Layer</text>
+
+                  {/* Connection lines from core to outer nodes */}
+                  <line x1="200" y1="58" x2="200" y2="158" stroke="rgba(15,74,74,0.08)" strokeWidth="1" />
+                  <line x1="342" y1="200" x2="242" y2="200" stroke="rgba(15,74,74,0.08)" strokeWidth="1" />
+                  <line x1="200" y1="342" x2="200" y2="242" stroke="rgba(15,74,74,0.08)" strokeWidth="1" />
+                  <line x1="58" y1="200" x2="158" y2="200" stroke="rgba(15,74,74,0.08)" strokeWidth="1" />
+
+                  {/* Diagonal cross connections */}
+                  <line x1="260" y1="80" x2="310" y2="130" stroke="rgba(15,74,74,0.05)" strokeWidth="1" strokeDasharray="3 6" />
+                  <line x1="310" y1="270" x2="260" y2="320" stroke="rgba(15,74,74,0.05)" strokeWidth="1" strokeDasharray="3 6" />
+                  <line x1="140" y1="320" x2="90" y2="270" stroke="rgba(15,74,74,0.05)" strokeWidth="1" strokeDasharray="3 6" />
+                  <line x1="90" y1="130" x2="140" y2="80" stroke="rgba(15,74,74,0.05)" strokeWidth="1" strokeDasharray="3 6" />
+
+                  {/* Small dots on intersection rings */}
+                  <circle cx="260" cy="80" r="3" fill="#0f4a4a" opacity="0.25" />
+                  <circle cx="320" cy="140" r="3" fill="#1a7a7a" opacity="0.2" />
+                  <circle cx="320" cy="260" r="3" fill="#0f4a4a" opacity="0.25" />
+                  <circle cx="260" cy="320" r="3" fill="#1a7a7a" opacity="0.2" />
+                  <circle cx="140" cy="320" r="3" fill="#0f4a4a" opacity="0.25" />
+                  <circle cx="80" cy="260" r="3" fill="#1a7a7a" opacity="0.2" />
+                  <circle cx="80" cy="140" r="3" fill="#0f4a4a" opacity="0.25" />
+                  <circle cx="140" cy="80" r="3" fill="#1a7a7a" opacity="0.2" />
+
+                  {/* Animated signal pulses */}
+                  <circle r="3" fill="#0f4a4a" opacity="0.6">
+                    <animateMotion dur="5s" repeatCount="indefinite" path="M200,58 L200,158" />
+                  </circle>
+                  <circle r="2.5" fill="#1a7a7a" opacity="0.5">
+                    <animateMotion dur="4s" repeatCount="indefinite" path="M342,200 L242,200" />
+                  </circle>
+                  <circle r="3" fill="#0f4a4a" opacity="0.6">
+                    <animateMotion dur="6s" repeatCount="indefinite" path="M200,342 L200,242" />
+                  </circle>
+                  <circle r="2.5" fill="#1a7a7a" opacity="0.5">
+                    <animateMotion dur="4.5s" repeatCount="indefinite" path="M58,200 L158,200" />
+                  </circle>
                 </svg>
+
+                {/* Floating status badges around mandala */}
+                <div className="dec-mandala-badge dec-mandala-badge-1">
+                  <Zap size={12} /> Scalable
+                </div>
+                <div className="dec-mandala-badge dec-mandala-badge-2">
+                  <Shield size={12} /> Reliable
+                </div>
+                <div className="dec-mandala-badge dec-mandala-badge-3">
+                  <Activity size={12} /> Usable
+                </div>
+              </div>
+            </div>
+
+            {/* Right side — Description + features */}
+            <div className="dec-approach-copy animate-on-scroll delay-2">
+              <p className="dec-approach-desc">
+                Ad Mandala applies this principle by decentralizing <strong>only the layers that benefit from it</strong> — while keeping the system usable, scalable, and reliable at every stage of growth.
+              </p>
+              <p className="dec-approach-desc-sub">
+                Rather than forcing everything onto a decentralized stack, we selectively layer trust-minimized components where they matter most — verification, settlement, and governance — while the performance-critical exchange layer remains optimized for speed and scale.
+              </p>
+
+              {/* Three pillars — vertical cards */}
+              <div className="dec-approach-pillars">
+                <div className="dec-approach-pillar">
+                  <div className="dec-approach-pillar-num">01</div>
+                  <div className="dec-approach-pillar-body">
+                    <h4>Additive, Never Disruptive</h4>
+                    <p>Decentralized features are layered on top of working infrastructure — never at the cost of existing functionality.</p>
+                  </div>
+                </div>
+                <div className="dec-approach-pillar">
+                  <div className="dec-approach-pillar-num">02</div>
+                  <div className="dec-approach-pillar-body">
+                    <h4>Every Stage Is Production-Ready</h4>
+                    <p>The system works fully at each phase. No "future promises" — every release is usable, stable, and live.</p>
+                  </div>
+                </div>
+                <div className="dec-approach-pillar">
+                  <div className="dec-approach-pillar-num">03</div>
+                  <div className="dec-approach-pillar-body">
+                    <h4>Layers Improve Independently</h4>
+                    <p>Each concentric layer evolves on its own schedule. Upgrades to one never break another.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="dec-approach-closing">
+                <div className="dec-approach-closing-bar" />
+                <p>The system grows stronger — each stage building on the last.</p>
               </div>
             </div>
           </div>
@@ -304,50 +598,54 @@ function Decentralization() {
         <div className="content-wrapper">
           <div className="dec-section-hdr animate-on-scroll">
             <span className="dec-eyebrow"><Cpu size={14} /> Architecture</span>
-            <h2>The Mandala Protocol</h2>
-            <p className="dec-section-sub">Four concentric layers — each one strengthening the system from the inside out.</p>
+            <h2>The Mandala Protocol Architecture</h2>
           </div>
 
-          {/* Architecture visual — layered mockup */}
-          <div className="dec-arch-visual animate-on-scroll">
-            <div className="dec-arch-layers">
-              <div className="dec-al dec-al-4">
-                <span className="dec-al-label">Open Participants</span>
+          <div className="dec-arch-layout">
+            {/* Left — protocol diagram */}
+            <div className="dec-arch-diagram animate-on-scroll">
+              <div className="dec-arch-ring dec-arch-ring-3">
+                <span className="dec-arch-ring-label">Open Participants</span>
+                <div className="dec-arch-ring dec-arch-ring-2">
+                  <span className="dec-arch-ring-label">Verification Nodes</span>
+                  <div className="dec-arch-ring dec-arch-ring-1">
+                    <span className="dec-arch-ring-label">Protocol Logic</span>
+                    <div className="dec-arch-core">
+                      <span>Immutable<br />Event Record</span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="dec-al dec-al-3">
-                <span className="dec-al-label">Verification Nodes</span>
-              </div>
-              <div className="dec-al dec-al-2">
-                <span className="dec-al-label">Protocol Logic</span>
-              </div>
-              <div className="dec-al dec-al-1">
-                <span className="dec-al-label">Immutable Event Record</span>
-              </div>
+            </div>
+
+            {/* Right — text content */}
+            <div className="dec-arch-text">
+              <p className="dec-arch-lead animate-on-scroll">
+                At the core of the protocol lies an immutable record of verified ad events.
+              </p>
+
+              <p className="dec-arch-sub animate-on-scroll">Surrounding this core:</p>
+
+              <ul className="dec-arch-list">
+                <li className="animate-on-scroll">
+                  <span className="dec-arch-bullet" />
+                  Protocol logic governs pricing and settlement
+                </li>
+                <li className="animate-on-scroll delay-1">
+                  <span className="dec-arch-bullet dec-arch-bullet-2" />
+                  Decentralized verification nodes validate events and detect fraud
+                </li>
+                <li className="animate-on-scroll delay-2">
+                  <span className="dec-arch-bullet dec-arch-bullet-3" />
+                  Open participants connect without centralized gatekeeping
+                </li>
+              </ul>
+
+              <p className="dec-arch-closing animate-on-scroll">
+                Together, these layers form a balanced, self-correcting system.
+              </p>
             </div>
           </div>
-
-          {/* Architecture features — bento-style grid */}
-          <div className="dec-arch-grid">
-            <div className="dec-arch-card dec-arch-wide animate-on-scroll">
-              <div className="dec-arch-card-icon"><Cpu size={24} /></div>
-              <div className="dec-arch-card-text">
-                <h4>Protocol Logic</h4>
-                <p>Governs pricing and settlement deterministically — removing the need for opaque intermediary decisions.</p>
-              </div>
-            </div>
-            <div className="dec-arch-card animate-on-scroll" style={{ transitionDelay: '80ms' }}>
-              <div className="dec-arch-card-icon"><Eye size={24} /></div>
-              <h4>Verification Nodes</h4>
-              <p>Validate events independently across the network. No single entity controls truth.</p>
-            </div>
-            <div className="dec-arch-card animate-on-scroll" style={{ transitionDelay: '160ms' }}>
-              <div className="dec-arch-card-icon"><Globe size={24} /></div>
-              <h4>Open Participation</h4>
-              <p>Connect, verify, and transact without centralized gatekeeping or walled gardens.</p>
-            </div>
-          </div>
-
-          <p className="dec-arch-stmt animate-on-scroll">Together, these layers form a balanced, self-correcting system.</p>
         </div>
       </section>
 

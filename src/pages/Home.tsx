@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { MonitorPlay, Target, Network, Shield, TrendingUp, Users, BarChart3, Globe, Lock, CheckCircle2, Sparkles } from 'lucide-react';
+import { MonitorPlay, Target, Network, Shield, TrendingUp, Users, BarChart3, Globe, Lock, CheckCircle2, Sparkles, Zap, Eye, Vote, ArrowRight } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import CardSwap, { Card } from '../components/Live today/CardSwap';
 
 function Home() {
   useScrollAnimation();
@@ -208,135 +209,272 @@ function Home() {
         </div>
       </section>
 
-      <section className="section why-exists">
-        <div className="why-bg-grain"></div>
+      <section className="section why-section">
+        <div className="why-section-deco">
+          <div className="why-deco-circle c1"></div>
+          <div className="why-deco-circle c2"></div>
+        </div>
+
         <div className="content-wrapper">
-          <div className="why-header animate-on-scroll">
-            <h2 className="section-title">Why Ad Mandala Exists</h2>
-            <p className="why-lead">Advertising needs reliability and trust</p>
-            <p className="why-sublead">Digital advertising today faces two competing realities:</p>
+          {/* Header */}
+          <div className="why-heading-block animate-on-scroll">
+            <span className="why-chip">THE TENSION IN AD TECH</span>
+            <h2 className="why-main-title">
+              Why Ad Mandala Exists
+            </h2>
+            <p className="why-tagline">
+              Advertising needs reliability <em>and</em> trust. Today's ecosystem forces a choice between them.
+            </p>
           </div>
 
-          <div className="why-versus animate-on-scroll">
-            <div className="versus-side versus-left">
-              <div className="versus-icon-ring left-ring">
-                <Lock size={22} />
+          {/* The Scale — two sides */}
+          <div className="why-scale animate-on-scroll">
+            {/* Left pillar */}
+            <div className="scale-pillar pillar-left">
+              <div className="pillar-top">
+                <div className="pillar-glyph glyph-perf">
+                  <Lock size={24} />
+                </div>
+                <h3 className="pillar-label">Centralized Performance</h3>
               </div>
-              <p className="versus-text">Scale and performance depend on centralized systems</p>
+              <div className="pillar-body">
+                <p>Scale and speed depend on centralized systems — walled gardens, black-box auctions, and opaque intermediaries that prioritize throughput over accountability.</p>
+              </div>
+              <div className="pillar-traits">
+                <span className="trait"><CheckCircle2 size={13} /> Low latency bidding</span>
+                <span className="trait"><CheckCircle2 size={13} /> Massive scale</span>
+                <span className="trait"><CheckCircle2 size={13} /> Proven infrastructure</span>
+              </div>
+              <div className="pillar-verdict verdict-warn">
+                <span>But —</span> opacity erodes trust
+              </div>
             </div>
 
-            <div className="versus-divider">
-              <div className="divider-line"></div>
-              <span className="versus-label">vs</span>
-              <div className="divider-line"></div>
+            {/* Center balance */}
+            <div className="scale-fulcrum">
+              <div className="fulcrum-bar"></div>
+              <div className="fulcrum-center">
+                <Sparkles size={16} />
+              </div>
+              <div className="fulcrum-bar"></div>
             </div>
 
-            <div className="versus-side versus-right">
-              <div className="versus-icon-ring right-ring">
-                <Globe size={22} />
+            {/* Right pillar */}
+            <div className="scale-pillar pillar-right">
+              <div className="pillar-top">
+                <div className="pillar-glyph glyph-trust">
+                  <Globe size={24} />
+                </div>
+                <h3 className="pillar-label">Decentralized Trust</h3>
               </div>
-              <p className="versus-text">Transparency and trust demand decentralization</p>
+              <div className="pillar-body">
+                <p>Transparency and verification demand open protocols — but raw decentralization can't yet match the millisecond speed programmatic advertising requires.</p>
+              </div>
+              <div className="pillar-traits">
+                <span className="trait"><CheckCircle2 size={13} /> Full transparency</span>
+                <span className="trait"><CheckCircle2 size={13} /> Verifiable delivery</span>
+                <span className="trait"><CheckCircle2 size={13} /> No single point of failure</span>
+              </div>
+              <div className="pillar-verdict verdict-warn">
+                <span>But —</span> speed gaps remain
+              </div>
             </div>
           </div>
 
-          <div className="why-resolution animate-on-scroll delay-1">
-            <div className="resolution-accent"></div>
-            <p className="resolution-text">
-              Ad Mandala bridges this gap by delivering production-grade programmatic infrastructure now, while methodically decentralizing the layers that matter most — verification, settlement, and governance.
+          {/* Resolution strip */}
+          <div className="why-resolution-strip animate-on-scroll delay-1">
+            <div className="resolution-icon-row">
+              <div className="res-icon-pip"><Shield size={18} /></div>
+              <div className="res-connector"></div>
+              <div className="res-icon-pip"><TrendingUp size={18} /></div>
+              <div className="res-connector"></div>
+              <div className="res-icon-pip"><Users size={18} /></div>
+            </div>
+            <h3 className="resolution-headline">Ad Mandala bridges this gap</h3>
+            <p className="resolution-body">
+              Delivering production-grade programmatic infrastructure <strong>now</strong>, while methodically decentralizing the layers that matter most — <strong>verification</strong>, <strong>settlement</strong>, and <strong>governance</strong>.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="section whats-live">
+      <section className="section whats-live whats-live-dark">
+  <div className="dsp-future-bg">
+          <div className="dsp-future-orb orb-1"></div>
+          <div className="dsp-future-orb orb-2"></div>
+          <div className="dsp-future-grid-lines"></div>
+        </div>
         <div className="content-wrapper">
-          <div className="live-header animate-on-scroll">
-             <div className="live-indicator"><span className="blink"></span> SYSTEM OPERATIONAL</div>
-             <h2 className="section-title">What’s Live Today</h2>
+          <div className="live-split-layout">
+            <div className="live-left-content animate-on-scroll">
+              <div className="live-indicator"><span className="blink"></span> SYSTEM OPERATIONAL</div>
+              <h2 className="live-title-large">What's Live Today</h2>
+              <p className="live-description-text">
+                Our centralized exchange is processing real programmatic trades right now — building the operational foundation that will inform every layer of future decentralization.
+              </p>
+              <p className="live-description-sub">
+                Each component represents a live system actively serving the programmatic advertising ecosystem.
+              </p>
+            </div>
+            
+            <div className="live-right-animation animate-on-scroll delay-1">
+              <div className="card-swap-wrapper">
+                <CardSwap
+                  width={420}
+                  height={520}
+                  cardDistance={55}
+                  verticalDistance={65}
+                  delay={5000}
+                  pauseOnHover={true}
+                  skewAmount={3}
+                  easing="elastic"
+                >
+                  <Card >
+                    <div className="system-card-inner">
+
+                      <div className="card-icon-wrapper">
+                        <Network size={48} className="card-main-icon" strokeWidth={1.5} />
+                      </div>
+                  
+                    </div>
+                  </Card>
+                  
+                  <Card>
+                    <div className="system-card-inner">
+          
+                      <div className="card-icon-wrapper">
+                        <Users size={48} className="card-main-icon" strokeWidth={1.5} />
+                      </div>
+                     
+                    </div>
+                  </Card>
+                  
+                  <Card >
+                    <div className="system-card-inner">
+                    
+                      <div className="card-icon-wrapper">
+                        <Shield size={48} className="card-main-icon" strokeWidth={1.5} />
+                      </div>
+                     
+                    </div>
+                  </Card>
+                  
+                  <Card>
+                    <div className="system-card-inner">
+              
+                      <div className="card-icon-wrapper">
+                        <BarChart3 size={48} className="card-main-icon" strokeWidth={1.5} />
+                      </div>
+                     
+                    </div>
+                  </Card>
+                </CardSwap>
+              </div>
+            </div>
           </div>
           
-          <div className="system-grid">
-            <div className="system-card animate-on-scroll delay-1">
-               <div className="card-header">
-                  <Network size={20} className="sys-icon"/>
-                  <span>EXCHANGE CORE</span>
-               </div>
-               <h3>Centralized Exchange</h3>
-               <div className="status-badge">ACTIVE</div>
-            </div>
-
-            <div className="system-card animate-on-scroll delay-2">
-               <div className="card-header">
-                  <Users size={20} className="sys-icon"/>
-                  <span>PARTNERS</span>
-               </div>
-               <h3>Publisher & DSP Integrations</h3>
-               <div className="status-badge">ONBOARDING</div>
-            </div>
-
-            <div className="system-card animate-on-scroll delay-3">
-               <div className="card-header">
-                  <Shield size={20} className="sys-icon"/>
-                  <span>SECURITY</span>
-               </div>
-               <h3>Traffic Quality Enforcement</h3>
-               <div className="status-badge">ENFORCING</div>
-            </div>
-
-            <div className="system-card animate-on-scroll delay-4">
-               <div className="card-header">
-                  <BarChart3 size={20} className="sys-icon"/>
-                  <span>REVENUE</span>
-               </div>
-               <h3>Performance Reporting</h3>
-               <div className="status-badge">LIVE DATA</div>
-            </div>
-          </div>
-          
-          <div className="live-footer animate-on-scroll">
-            <p>
-              Real data. Real revenue. Real scale. <br/>
-              <span className="sub">Informing the next phase of the protocol.</span>
-            </p>
-          </div>
+         
         </div>
       </section>
 
-      <section className="section long-term"  style={{background: '#fffdf7'}}>
-        <div className="floating-shape shape-2"></div>
+      <section className="section roadmap-section">
+        <div className="roadmap-bg-shapes">
+          <div className="rm-shape rm-shape-1"></div>
+          <div className="rm-shape rm-shape-2"></div>
+          <div className="rm-shape rm-shape-3"></div>
+        </div>
+
         <div className="content-wrapper">
-          <h2 className="section-title animate-on-scroll">Built for the Long Term</h2>
-          <h3 className="section-subtitle animate-on-scroll">A deliberate path to decentralization</h3>
-          <p className="animate-on-scroll">Ad Mandala is not decentralizing for ideology — but for outcomes.</p>
-          
-          
-          <div className="timeline-container animate-on-scroll">
-             <div className="timeline-item">
-                <span className="timeline-date">Phase 1: Now</span>
-                <div className="timeline-content">
-                   <h4>Centralized Performance</h4>
-                   <p>Integrating seamlessly with existing SSPs and DSPs to ensure high-speed, reliable programmatic trading.</p>
-                </div>
-             </div>
-             <div className="timeline-item">
-                <span className="timeline-date">Phase 2: Hybrid</span>
-                <div className="timeline-content">
-                   <h4>On-Chain Verification</h4>
-                   <p>Posting cryptographic proofs of ad impressions to a public ledger for transparency without slowing down bidding.</p>
-                </div>
-             </div>
-             <div className="timeline-item">
-                <span className="timeline-date">Phase 3: Future</span>
-                <div className="timeline-content">
-                   <h4>Decentralized Settlement</h4>
-                   <p>Gradually moving payment layers and governance to smart contracts as the ecosystem matures.</p>
-                </div>
-             </div>
+          {/* Header */}
+          <div className="roadmap-header animate-on-scroll">
+            <span className="roadmap-chip">OUR APPROACH</span>
+            <h2 className="roadmap-title">Built for the Long Term</h2>
+            <p className="roadmap-subtitle">
+              Ad Mandala is not decentralizing for ideology — but for outcomes.<br />
+              A deliberate, phased path where each layer earns its place.
+            </p>
           </div>
-          
-          <p className="conclusion-text animate-on-scroll">
-            Decentralization is introduced only where it improves trust without degrading performance.
-          </p>
+
+          {/* Journey Track */}
+          <div className="journey-track animate-on-scroll">
+            {/* Track line behind cards */}
+            <div className="track-line">
+              <div className="track-line-fill"></div>
+            </div>
+
+            {/* Phase 1 */}
+            <div className="journey-phase phase-active">
+              <div className="phase-beacon">
+                <div className="beacon-ring"></div>
+                <div className="beacon-dot"><Zap size={18} /></div>
+              </div>
+              <div className="phase-card">
+                <div className="phase-tag tag-live"><span className="tag-dot"></span> Live Now</div>
+                <h3 className="phase-name">Centralized Performance</h3>
+                <p className="phase-desc">
+                  Integrating seamlessly with existing SSPs and DSPs to ensure high-speed, reliable programmatic trading.
+                </p>
+                <div className="phase-features">
+                  <div className="pf-item"><Network size={14} /><span>Real-time bidding</span></div>
+                  <div className="pf-item"><BarChart3 size={14} /><span>Analytics & reporting</span></div>
+                  <div className="pf-item"><Shield size={14} /><span>Fraud prevention</span></div>
+                </div>
+              </div>
+            </div>
+
+            {/* Arrow connector */}
+            <div className="journey-arrow"><ArrowRight size={16} /></div>
+
+            {/* Phase 2 */}
+            <div className="journey-phase phase-next">
+              <div className="phase-beacon">
+                <div className="beacon-dot"><Eye size={18} /></div>
+              </div>
+              <div className="phase-card">
+                <div className="phase-tag tag-next">Up Next</div>
+                <h3 className="phase-name">On-Chain Verification</h3>
+                <p className="phase-desc">
+                  Posting cryptographic proofs of ad impressions to a public ledger for transparency — without slowing down bidding.
+                </p>
+                <div className="phase-features">
+                  <div className="pf-item"><Lock size={14} /><span>Cryptographic proofs</span></div>
+                  <div className="pf-item"><Globe size={14} /><span>Public ledger</span></div>
+                  <div className="pf-item"><CheckCircle2 size={14} /><span>Verifiable delivery</span></div>
+                </div>
+              </div>
+            </div>
+
+            {/* Arrow connector */}
+            <div className="journey-arrow"><ArrowRight size={16} /></div>
+
+            {/* Phase 3 */}
+            <div className="journey-phase phase-future">
+              <div className="phase-beacon">
+                <div className="beacon-dot"><Vote size={18} /></div>
+              </div>
+              <div className="phase-card">
+                <div className="phase-tag tag-future">Horizon</div>
+                <h3 className="phase-name">Decentralized Settlement</h3>
+                <p className="phase-desc">
+                  Gradually moving payment layers and governance to smart contracts as the ecosystem matures.
+                </p>
+                <div className="phase-features">
+                  <div className="pf-item"><TrendingUp size={14} /><span>Smart contract payments</span></div>
+                  <div className="pf-item"><Users size={14} /><span>Community governance</span></div>
+                  <div className="pf-item"><Sparkles size={14} /><span>Token incentives</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom principle */}
+          <div className="roadmap-principle animate-on-scroll delay-1">
+            <div className="principle-line"></div>
+            <p className="principle-text">
+              Decentralization is introduced only where it <strong>improves trust</strong> without degrading <strong>performance</strong>.
+            </p>
+            <div className="principle-line"></div>
+          </div>
         </div>
       </section>
 
