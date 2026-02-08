@@ -329,43 +329,67 @@ function Home() {
                   skewAmount={3}
                   easing="elastic"
                 >
-                  <Card >
+                  <Card>
                     <div className="system-card-inner">
-
                       <div className="card-icon-wrapper">
-                        <Network size={48} className="card-main-icon" strokeWidth={1.5} />
+                        <Network size={44} className="card-main-icon" strokeWidth={1.5} />
                       </div>
-                  
+                      <div className="card-text-content">
+                        <h3 className="card-title">Centralized Programmatic Exchange</h3>
+                        <p className="card-description">Real-time bidding infrastructure processing live programmatic trades</p>
+                      </div>
+                      <div className="card-status-badge">
+                        <span className="status-dot-mini" />
+                        <span>Live</span>
+                      </div>
                     </div>
                   </Card>
                   
                   <Card>
                     <div className="system-card-inner">
-          
                       <div className="card-icon-wrapper">
-                        <Users size={48} className="card-main-icon" strokeWidth={1.5} />
+                        <Users size={44} className="card-main-icon" strokeWidth={1.5} />
                       </div>
-                     
-                    </div>
-                  </Card>
-                  
-                  <Card >
-                    <div className="system-card-inner">
-                    
-                      <div className="card-icon-wrapper">
-                        <Shield size={48} className="card-main-icon" strokeWidth={1.5} />
+                      <div className="card-text-content">
+                        <h3 className="card-title">Publisher &amp; Demand-Side Integrations</h3>
+                        <p className="card-description">Seamless connections with SSPs, DSPs, and advertising partners</p>
                       </div>
-                     
+                      <div className="card-status-badge">
+                        <span className="status-dot-mini" />
+                        <span>Active</span>
+                      </div>
                     </div>
                   </Card>
                   
                   <Card>
                     <div className="system-card-inner">
-              
                       <div className="card-icon-wrapper">
-                        <BarChart3 size={48} className="card-main-icon" strokeWidth={1.5} />
+                        <Shield size={44} className="card-main-icon" strokeWidth={1.5} />
                       </div>
-                     
+                      <div className="card-text-content">
+                        <h3 className="card-title">Traffic Quality Enforcement</h3>
+                        <p className="card-description">Advanced fraud detection and invalid traffic prevention</p>
+                      </div>
+                      <div className="card-status-badge">
+                        <span className="status-dot-mini" />
+                        <span>Enforcing</span>
+                      </div>
+                    </div>
+                  </Card>
+                  
+                  <Card>
+                    <div className="system-card-inner">
+                      <div className="card-icon-wrapper">
+                        <BarChart3 size={44} className="card-main-icon" strokeWidth={1.5} />
+                      </div>
+                      <div className="card-text-content">
+                        <h3 className="card-title">Performance Reporting &amp; Monetization</h3>
+                        <p className="card-description">Real-time analytics and revenue optimization tools</p>
+                      </div>
+                      <div className="card-status-badge">
+                        <span className="status-dot-mini" />
+                        <span>Tracking</span>
+                      </div>
                     </div>
                   </Card>
                 </CardSwap>

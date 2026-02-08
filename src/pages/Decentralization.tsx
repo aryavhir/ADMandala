@@ -514,14 +514,24 @@ function Decentralization() {
           <div className="dec-phases">
             {/* Phase 1 */}
             <div className="dec-phase-card animate-on-scroll">
-              <div className="dec-phase-top">
-                <div className="dec-phase-badge live">
-                  <span className="dec-badge-pulse" />
-                  Phase 1 — Live
+              <div className="dec-phase-border" />
+              <div className="dec-phase-content">
+                <div className="dec-phase-logo">
+                  <div className="dec-phase-icon">
+                    <span className="dec-phase-number">01</span>
+                  </div>
+                  <div className="dec-phase-title-reveal">
+                    <h3>Centralized Exchange</h3>
+                    <div className="dec-phase-badge live">
+                      <span className="dec-badge-pulse" />
+                      Live
+                    </div>
+                  </div>
+                  <span className="dec-phase-trail" />
                 </div>
+                <span className="dec-phase-subtitle">Programmatic Ad Exchange</span>
               </div>
-              <div className="dec-phase-body">
-                <h3>Centralized Exchange</h3>
+              <div className="dec-phase-details">
                 <p>Ad Mandala operates today as a centralized programmatic exchange to ensure reliability and real-world validation.</p>
                 <ul className="dec-check-list compact">
                   <li><CheckCircle2 size={16} /> Seamless SSP &amp; DSP integration</li>
@@ -534,6 +544,7 @@ function Decentralization() {
                   This phase grounds the protocol in operational reality.
                 </div>
               </div>
+              <span className="dec-phase-bottom-label">Phase 1 — Centralized Exchange</span>
               <div className="dec-phase-progress">
                 <div className="dec-progress-fill" style={{ width: '100%' }} />
               </div>
@@ -541,13 +552,23 @@ function Decentralization() {
 
             {/* Phase 2 */}
             <div className="dec-phase-card animate-on-scroll" style={{ transitionDelay: '120ms' }}>
-              <div className="dec-phase-top">
-                <div className="dec-phase-badge progress">
-                  Phase 2 — In Progress
+              <div className="dec-phase-border" />
+              <div className="dec-phase-content">
+                <div className="dec-phase-logo">
+                  <div className="dec-phase-icon">
+                    <span className="dec-phase-number">02</span>
+                  </div>
+                  <div className="dec-phase-title-reveal">
+                    <h3>Decentralized Verification</h3>
+                    <div className="dec-phase-badge progress">
+                      In Progress
+                    </div>
+                  </div>
+                  <span className="dec-phase-trail" />
                 </div>
+                <span className="dec-phase-subtitle">Independent Node Validation</span>
               </div>
-              <div className="dec-phase-body">
-                <h3>Decentralized Verification</h3>
+              <div className="dec-phase-details">
                 <p>Independent verification is introduced — shifting trust away from a single operator.</p>
                 <ul className="dec-check-list compact">
                   <li><CheckCircle2 size={16} /> Impressions &amp; clicks validated by nodes</li>
@@ -559,6 +580,7 @@ function Decentralization() {
                   Trust begins shifting from platform to protocol.
                 </div>
               </div>
+              <span className="dec-phase-bottom-label">Phase 2 — Decentralized Verification</span>
               <div className="dec-phase-progress">
                 <div className="dec-progress-fill" style={{ width: '35%' }} />
               </div>
@@ -566,13 +588,23 @@ function Decentralization() {
 
             {/* Phase 3 */}
             <div className="dec-phase-card animate-on-scroll" style={{ transitionDelay: '240ms' }}>
-              <div className="dec-phase-top">
-                <div className="dec-phase-badge future">
-                  Phase 3 — Upcoming
+              <div className="dec-phase-border" />
+              <div className="dec-phase-content">
+                <div className="dec-phase-logo">
+                  <div className="dec-phase-icon">
+                    <span className="dec-phase-number">03</span>
+                  </div>
+                  <div className="dec-phase-title-reveal">
+                    <h3>Settlement &amp; Governance</h3>
+                    <div className="dec-phase-badge future">
+                      Upcoming
+                    </div>
+                  </div>
+                  <span className="dec-phase-trail" />
                 </div>
+                <span className="dec-phase-subtitle">Trust-Minimized Protocol</span>
               </div>
-              <div className="dec-phase-body">
-                <h3>Protocol-Level Settlement &amp; Governance</h3>
+              <div className="dec-phase-details">
                 <p>Ad Mandala becomes a trust-minimized protocol — resilient and community-governed.</p>
                 <ul className="dec-check-list compact">
                   <li><CheckCircle2 size={16} /> Deterministic pricing &amp; settlement</li>
@@ -585,6 +617,7 @@ function Decentralization() {
                   If Ad Mandala disappears, the protocol continues.
                 </div>
               </div>
+              <span className="dec-phase-bottom-label">Phase 3 — Protocol Settlement</span>
               <div className="dec-phase-progress">
                 <div className="dec-progress-fill" style={{ width: '0%' }} />
               </div>
@@ -595,56 +628,175 @@ function Decentralization() {
 
       {/* ══════════ PROTOCOL ARCHITECTURE ══════════ */}
       <section className="dec-section dec-architecture" id="architecture">
+        {/* Ambient background */}
+        <div className="dec-arch-bg" aria-hidden="true">
+          <div className="dec-arch-glow dec-arch-glow-1" />
+          <div className="dec-arch-glow dec-arch-glow-2" />
+          <div className="dec-arch-grid-bg" />
+        </div>
+
         <div className="content-wrapper">
           <div className="dec-section-hdr animate-on-scroll">
             <span className="dec-eyebrow"><Cpu size={14} /> Architecture</span>
             <h2>The Mandala Protocol Architecture</h2>
+            <p className="dec-section-sub">Four layers, one protocol — built from the ground up.</p>
           </div>
 
-          <div className="dec-arch-layout">
-            {/* Left — protocol diagram */}
-            <div className="dec-arch-diagram animate-on-scroll">
-              <div className="dec-arch-ring dec-arch-ring-3">
-                <span className="dec-arch-ring-label">Open Participants</span>
-                <div className="dec-arch-ring dec-arch-ring-2">
-                  <span className="dec-arch-ring-label">Verification Nodes</span>
-                  <div className="dec-arch-ring dec-arch-ring-1">
-                    <span className="dec-arch-ring-label">Protocol Logic</span>
-                    <div className="dec-arch-core">
-                      <span>Immutable<br />Event Record</span>
-                    </div>
+          {/* Protocol Stack — vertical layers with animated connectors */}
+          <div className="dec-stack">
+
+            {/* Layer 4 — Open Participants (outermost) */}
+            <div className="dec-stack-layer animate-on-scroll">
+              <div className="dec-stack-indicator">
+                <span className="dec-stack-num">04</span>
+                <div className="dec-stack-line" />
+              </div>
+              <div className="dec-stack-card tier-4">
+                <div className="dec-stack-card-glow" />
+                <div className="dec-stack-left">
+                  <div className="dec-stack-icon-wrap tier-4">
+                    <Globe size={24} />
+                  </div>
+                  <div className="dec-stack-info">
+                    <span className="dec-stack-tag">Access Layer</span>
+                    <h3>Open Participants</h3>
+                    <p>Publishers, advertisers, and DSPs connect directly — no centralized gatekeeping, no walled gardens.</p>
+                  </div>
+                </div>
+                <div className="dec-stack-right">
+                  <div className="dec-stack-stat">
+                    <Users size={14} />
+                    <span>SSPs, DSPs, Publishers</span>
+                  </div>
+                  <div className="dec-stack-stat">
+                    <ArrowRight size={14} />
+                    <span>Direct integration</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Right — text content */}
-            <div className="dec-arch-text">
-              <p className="dec-arch-lead animate-on-scroll">
-                At the core of the protocol lies an immutable record of verified ad events.
-              </p>
-
-              <p className="dec-arch-sub animate-on-scroll">Surrounding this core:</p>
-
-              <ul className="dec-arch-list">
-                <li className="animate-on-scroll">
-                  <span className="dec-arch-bullet" />
-                  Protocol logic governs pricing and settlement
-                </li>
-                <li className="animate-on-scroll delay-1">
-                  <span className="dec-arch-bullet dec-arch-bullet-2" />
-                  Decentralized verification nodes validate events and detect fraud
-                </li>
-                <li className="animate-on-scroll delay-2">
-                  <span className="dec-arch-bullet dec-arch-bullet-3" />
-                  Open participants connect without centralized gatekeeping
-                </li>
-              </ul>
-
-              <p className="dec-arch-closing animate-on-scroll">
-                Together, these layers form a balanced, self-correcting system.
-              </p>
+            {/* Connector — animated data flow */}
+            <div className="dec-stack-connector animate-on-scroll" aria-hidden="true">
+              <div className="dec-stack-connector-line" />
+              <div className="dec-stack-packet dec-packet-1" />
+              <div className="dec-stack-packet dec-packet-2" />
+              <div className="dec-stack-packet dec-packet-3" />
+              <span className="dec-stack-connector-label">Events flow down ↓</span>
             </div>
+
+            {/* Layer 3 — Verification Nodes */}
+            <div className="dec-stack-layer animate-on-scroll" style={{ transitionDelay: '80ms' }}>
+              <div className="dec-stack-indicator">
+                <span className="dec-stack-num">03</span>
+                <div className="dec-stack-line" />
+              </div>
+              <div className="dec-stack-card tier-3">
+                <div className="dec-stack-card-glow" />
+                <div className="dec-stack-left">
+                  <div className="dec-stack-icon-wrap tier-3">
+                    <Eye size={24} />
+                  </div>
+                  <div className="dec-stack-info">
+                    <span className="dec-stack-tag">Validation Layer</span>
+                    <h3>Verification Nodes</h3>
+                    <p>Independent nodes validate impressions, clicks, and conversions — distributed fraud detection at scale.</p>
+                  </div>
+                </div>
+                <div className="dec-stack-right">
+                  <div className="dec-stack-stat">
+                    <Shield size={14} />
+                    <span>Fraud detection</span>
+                  </div>
+                  <div className="dec-stack-stat">
+                    <Activity size={14} />
+                    <span>Multi-node consensus</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Connector */}
+            <div className="dec-stack-connector animate-on-scroll" aria-hidden="true">
+              <div className="dec-stack-connector-line" />
+              <div className="dec-stack-packet dec-packet-1" />
+              <div className="dec-stack-packet dec-packet-2" />
+              <span className="dec-stack-connector-label">Verified data ↓</span>
+            </div>
+
+            {/* Layer 2 — Protocol Logic */}
+            <div className="dec-stack-layer animate-on-scroll" style={{ transitionDelay: '160ms' }}>
+              <div className="dec-stack-indicator">
+                <span className="dec-stack-num">02</span>
+                <div className="dec-stack-line" />
+              </div>
+              <div className="dec-stack-card tier-2">
+                <div className="dec-stack-card-glow" />
+                <div className="dec-stack-left">
+                  <div className="dec-stack-icon-wrap tier-2">
+                    <Cpu size={24} />
+                  </div>
+                  <div className="dec-stack-info">
+                    <span className="dec-stack-tag">Logic Layer</span>
+                    <h3>Protocol Logic</h3>
+                    <p>Deterministic rules for pricing, matching, and settlement — no human interpretation, no ambiguity.</p>
+                  </div>
+                </div>
+                <div className="dec-stack-right">
+                  <div className="dec-stack-stat">
+                    <Zap size={14} />
+                    <span>Deterministic pricing</span>
+                  </div>
+                  <div className="dec-stack-stat">
+                    <Layers size={14} />
+                    <span>Automated settlement</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Connector */}
+            <div className="dec-stack-connector animate-on-scroll" aria-hidden="true">
+              <div className="dec-stack-connector-line" />
+              <div className="dec-stack-packet dec-packet-1" />
+              <span className="dec-stack-connector-label">Settlement records ↓</span>
+            </div>
+
+            {/* Layer 1 — Immutable Event Record (core) */}
+            <div className="dec-stack-layer animate-on-scroll" style={{ transitionDelay: '240ms' }}>
+              <div className="dec-stack-indicator">
+                <span className="dec-stack-num">01</span>
+              </div>
+              <div className="dec-stack-card tier-1">
+                <div className="dec-stack-card-glow" />
+                <div className="dec-stack-left">
+                  <div className="dec-stack-icon-wrap tier-1">
+                    <Lock size={24} />
+                  </div>
+                  <div className="dec-stack-info">
+                    <span className="dec-stack-tag">Foundation</span>
+                    <h3>Immutable Event Record</h3>
+                    <p>The innermost core — a tamper-proof ledger of every verified ad event. The single source of truth.</p>
+                  </div>
+                </div>
+                <div className="dec-stack-right">
+                  <div className="dec-stack-stat">
+                    <CheckCircle2 size={14} />
+                    <span>Tamper-proof</span>
+                  </div>
+                  <div className="dec-stack-stat">
+                    <BarChart3 size={14} />
+                    <span>Fully auditable</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom statement */}
+          <div className="dec-arch-statement animate-on-scroll">
+            <div className="dec-arch-statement-bar" />
+            <p>Together, these layers form a <strong>balanced, self-correcting system</strong> — where each layer evolves independently yet strengthens the whole.</p>
           </div>
         </div>
       </section>
@@ -691,34 +843,50 @@ function Decentralization() {
 
       {/* ══════════ UNCHANGED / COMPATIBILITY ══════════ */}
       <section className="dec-section dec-compat">
+        {/* Animated background */}
+        <div className="dec-compat-bg" aria-hidden="true">
+          <div className="dec-compat-orb dec-compat-orb-1" />
+          <div className="dec-compat-orb dec-compat-orb-2" />
+          <div className="dec-compat-grid" />
+        </div>
+
         <div className="content-wrapper">
-          <div className="split-layout split-right animate-on-scroll">
-            <div className="split-visual blue-accent">
-              <div className="dec-compat-visual">
-                <div className="dec-compat-mockup">
-                  <div className="dec-compat-dot green" />
-                  <div className="dec-compat-row"><span className="dec-compat-key">SSP Workflow</span><span className="dec-compat-val">Unchanged</span></div>
-                  <div className="dec-compat-row"><span className="dec-compat-key">DSP Workflow</span><span className="dec-compat-val">Unchanged</span></div>
-                  <div className="dec-compat-row"><span className="dec-compat-key">Integration Methods</span><span className="dec-compat-val">Unchanged</span></div>
-                  <div className="dec-compat-row"><span className="dec-compat-key">Buying &amp; Selling UX</span><span className="dec-compat-val">Unchanged</span></div>
-                  <div className="dec-compat-row"><span className="dec-compat-key">Ad Serving Flow</span><span className="dec-compat-val">Unchanged</span></div>
-                  <div className="dec-compat-divider" />
-                  <div className="dec-compat-row highlight"><span className="dec-compat-key">Trust Layer</span><span className="dec-compat-val upgrade">Upgraded</span></div>
-                </div>
+          {/* Header */}
+          <div className="dec-compat-header animate-on-scroll">
+            <span className="dec-eyebrow"><Lock size={14} /> Compatibility</span>
+            <h2 className="dec-compat-title">
+              What Decentralization
+              <span className="dec-compat-title-em"> Does Not Change</span>
+            </h2>
+          </div>
+
+          {/* Minimal feature cards */}
+          <div className="dec-compat-features animate-on-scroll">
+            <div className="dec-compat-feature">
+              <div className="dec-compat-feature-icon">
+                <CheckCircle2 size={24} />
               </div>
+              <span>Existing SSP and DSP workflows</span>
             </div>
-            <div className="split-content">
-              <span className="dec-eyebrow"><Lock size={14} /> Compatibility</span>
-              <h2>What Decentralization<br />Does Not Change</h2>
-              <p className="split-description">
-                Existing workflows remain exactly the same. Decentralization improves trust without breaking usability — it's an invisible upgrade to the infrastructure layer.
-              </p>
-              <ul className="split-features">
-                <li><CheckCircle2 size={20} /><span>Existing SSP and DSP workflows</span></li>
-                <li><CheckCircle2 size={20} /><span>Standard integration methods</span></li>
-                <li><CheckCircle2 size={20} /><span>Day-to-day buying and selling experience</span></li>
-              </ul>
+            <div className="dec-compat-feature">
+              <div className="dec-compat-feature-icon">
+                <CheckCircle2 size={24} />
+              </div>
+              <span>Integration methods</span>
             </div>
+            <div className="dec-compat-feature">
+              <div className="dec-compat-feature-icon">
+                <CheckCircle2 size={24} />
+              </div>
+              <span>Day-to-day buying and selling experience</span>
+            </div>
+          </div>
+
+          {/* Bottom statement */}
+          <div className="dec-compat-statement animate-on-scroll">
+            <div className="dec-compat-statement-line" />
+            <p>Decentralization <strong>improves trust</strong> without <strong>breaking usability</strong>.</p>
+            <div className="dec-compat-statement-line" />
           </div>
         </div>
       </section>
@@ -742,25 +910,85 @@ function Decentralization() {
 
       {/* ══════════ CTA ══════════ */}
       <section className="dec-section dec-cta">
+        {/* Animated background */}
+        <div className="dec-cta-bg" aria-hidden="true">
+          <div className="dec-cta-orb dec-cta-orb-1" />
+          <div className="dec-cta-orb dec-cta-orb-2" />
+          <div className="dec-cta-orb dec-cta-orb-3" />
+          <div className="dec-cta-grid" />
+        </div>
+
         <div className="content-wrapper">
           <div className="dec-cta-container animate-on-scroll">
-            <h2>Be Early. Be Aligned.</h2>
-            <p className="dec-cta-sub">Ad Mandala is decentralizing in phases — early participants help shape the network.</p>
+            {/* Eyebrow */}
+            <div className="dec-cta-eyebrow">
+              <Network size={14} />
+              <span>Join the Network</span>
+            </div>
 
-            <div className="dec-cta-benefits">
-              <h4>Early participants gain:</h4>
-              <div className="dec-cta-benefit-grid">
-                <div className="dec-cta-benefit"><CheckCircle2 size={16} /> Priority access to protocol features</div>
-                <div className="dec-cta-benefit"><CheckCircle2 size={16} /> Early integration into decentralized verification</div>
-                <div className="dec-cta-benefit"><CheckCircle2 size={16} /> Influence on network standards &amp; governance</div>
-                <div className="dec-cta-benefit"><CheckCircle2 size={16} /> A head start as the exchange becomes a protocol</div>
+            <h2 className="dec-cta-title">
+              Be Early.
+              <span className="dec-cta-title-em"> Be Aligned.</span>
+            </h2>
+            <p className="dec-cta-sub">
+              Ad Mandala is decentralizing in phases — early participants help shape the network.
+            </p>
+
+            {/* Benefits in a sleek grid */}
+            <div className="dec-cta-benefit-grid">
+              <div className="dec-cta-benefit">
+                <div className="dec-cta-benefit-icon">
+                  <Zap size={18} />
+                </div>
+                <div className="dec-cta-benefit-text">
+                  <strong>Priority Access</strong>
+                  <span>First to use new protocol features</span>
+                </div>
+              </div>
+              <div className="dec-cta-benefit">
+                <div className="dec-cta-benefit-icon">
+                  <Eye size={18} />
+                </div>
+                <div className="dec-cta-benefit-text">
+                  <strong>Early Verification</strong>
+                  <span>Integrate into decentralized validation</span>
+                </div>
+              </div>
+              <div className="dec-cta-benefit">
+                <div className="dec-cta-benefit-icon">
+                  <Users size={18} />
+                </div>
+                <div className="dec-cta-benefit-text">
+                  <strong>Shape Governance</strong>
+                  <span>Influence network standards &amp; rules</span>
+                </div>
+              </div>
+              <div className="dec-cta-benefit">
+                <div className="dec-cta-benefit-icon">
+                  <ArrowRight size={18} />
+                </div>
+                <div className="dec-cta-benefit-text">
+                  <strong>Head Start</strong>
+                  <span>Lead as the exchange becomes a protocol</span>
+                </div>
               </div>
             </div>
 
+            {/* Action buttons */}
             <div className="dec-cta-actions">
-              <button className="btn btn-primary">Register as a Publisher / SSP</button>
-              <button className="btn btn-primary">Register as a DSP / Advertiser</button>
-              <button className="btn btn-ghost">Register Interest as Network Participant</button>
+              <button className="btn btn-primary dec-cta-btn">
+                Register as a Publisher / SSP
+                <ArrowRight size={16} />
+              </button>
+              <button className="btn btn-primary dec-cta-btn">
+                Register as a DSP / Advertiser
+                <ArrowRight size={16} />
+              </button>
+            </div>
+            <div className="dec-cta-secondary">
+              <button className="btn btn-ghost dec-cta-btn-ghost">
+                Register Interest as Network Participant
+              </button>
             </div>
           </div>
         </div>

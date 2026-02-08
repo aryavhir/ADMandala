@@ -1471,19 +1471,84 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
   z-index: 2;
+  gap: 1.5rem;
 }
 
-
-
-
-
-
+.card-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
 
 .card-main-icon {
   color: #ffffff;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.card-text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: 320px;
+}
+
+.card-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.card-description {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.card-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 100px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: auto;
+}
+
+.status-dot-mini {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #48bb78;
+  box-shadow: 0 0 6px #48bb78;
+  animation: statusBlink 1.5s ease-in-out infinite;
+}
+
+@keyframes statusBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
 }
 
 
@@ -1589,20 +1654,22 @@
   }
   
   .system-card-inner {
-    padding: 2rem 1.75rem;
+    padding: 2rem 1.5rem;
+    gap: 1.25rem;
   }
   
   .card-icon-wrapper {
-    width: 85px;
-    height: 85px;
+    width: 70px;
+    height: 70px;
+    border-radius: 16px;
   }
   
   .card-title {
-    font-size: 1.3rem;
+    font-size: 1.15rem;
   }
   
   .card-description {
-    font-size: 0.92rem;
+    font-size: 0.85rem;
   }
   
   .callout-content {
@@ -2466,9 +2533,9 @@ text-align: left;
 }
 
 .card-title {
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: #1a1a1a;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #ffffff;
 }
 
 .card-dropdown {
@@ -4552,7 +4619,7 @@ text-align: left;
   width: 100%;
   padding: 1.75rem 1.5rem;
   border-radius: 20px;
-  background: var(--bg-card);
+  background: white;
   border: 1px solid rgb(var(--primary-brand-rgb) / 0.07);
   text-align: center;
   transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.45s ease, border-color 0.35s ease;
