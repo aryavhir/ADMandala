@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { BarChart3, Shield, TrendingUp, Network, CheckCircle2} from 'lucide-react';
+import Footer from '../components/Footer';
 
 function Publishers() {
   useScrollAnimation();
@@ -315,46 +316,7 @@ function Publishers() {
         </div>
       </section>
 
-      <footer className="main-footer-new">
-        <div className="footer-gradient"></div>
-        <div className="content-wrapper">
-          <div className="footer-grid">
-            <div className="footer-brand">
-              <h3 className="footer-logo">Ad Mandala</h3>
-              <p className="footer-tagline">Programmatic advertising built to evolve into a decentralized, verifiable protocol.</p>
-              <div className="footer-social">
-                <div className="social-badge">Built on Transparency</div>
-              </div>
-            </div>
-            <div className="footer-column">
-              <h4>Platform</h4>
-              <Link to="/publishers">Publishers &amp; SSPs</Link>
-              <Link to="/advertisers">DSPs &amp; Advertisers</Link>
-              <Link to="/decentralization">Decentralization</Link>
-            </div>
-            <div className="footer-column">
-              <h4>Resources</h4>
-              <a href="#">Documentation</a>
-              <a href="#">API Reference</a>
-              <a href="#">Whitepaper</a>
-            </div>
-            <div className="footer-column">
-              <h4>Company</h4>
-              <a href="#">About Us</a>
-              <a href="#">Team</a>
-              <a href="#">Contact</a>
-            </div>
-          </div>
-          <div className="footer-bottom">
-            <div className="copyright-new">&copy; {new Date().getFullYear()} Ad Mandala. All rights reserved.</div>
-            <div className="footer-legal">
-              <a href="#">Privacy Policy</a>
-              <span className="separator">&bull;</span>
-              <a href="#">Terms of Service</a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
