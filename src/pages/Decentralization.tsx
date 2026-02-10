@@ -978,7 +978,7 @@ function Decentralization() {
             {/* Action buttons */}
             <div className="dec-cta-actions">
               <button className="btn btn-primary dec-cta-btn">
-                Register as a Publisher / SSP
+                Register as a Publisher
                 <ArrowRight size={16} />
               </button>
               <button className="btn btn-primary dec-cta-btn">
@@ -986,11 +986,7 @@ function Decentralization() {
                 <ArrowRight size={16} />
               </button>
             </div>
-            <div className="dec-cta-secondary">
-              <button className="btn btn-ghost dec-cta-btn-ghost">
-                Register Interest as Network Participant
-              </button>
-            </div>
+          
           </div>
         </div>
       </section>

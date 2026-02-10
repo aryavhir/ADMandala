@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { MonitorPlay, Target, Network, Shield, TrendingUp, Users, BarChart3, Globe, Lock, CheckCircle2, Sparkles, Zap, Eye, Vote, ArrowRight } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import CardSwap, { Card } from '../components/Live today/CardSwap';
@@ -134,26 +134,55 @@ function Home() {
         </div>
       </header>
 
-      <div className="ecosystem-ticker">
-        <div className="ticker-track">
-          {[...Array(4)].map((_, i) => (
-             <span key={i} className="ticker-group">
-                <span className="ticker-item">Transparency First</span>
-                <span className="ticker-item">•</span>
-                <span className="ticker-item">Zero-Knowledge Proofs</span>
-                <span className="ticker-item">•</span>
-                <span className="ticker-item">Real-time Settlement</span>
-                <span className="ticker-item">•</span>
-                <span className="ticker-item">Decentralized Identity</span>
-                <span className="ticker-item">•</span>
-                <span className="ticker-item">Verifiable Ad Tech</span>
-                <span className="ticker-item">•</span>
-                <span className="ticker-item">Fraud Prevention</span>
-                <span className="ticker-item">•</span>
-             </span>
-          ))}
-        </div>
-      </div>
+      {/* Scrolling feature strips */}
+      {
+        (() => {
+          const scrollingRef1 = useRef<HTMLDivElement | null>(null);
+          const scrollingRef2 = useRef<HTMLDivElement | null>(null);
+
+          const featurePills = [
+            'Transparency First',
+            'Zero-Knowledge Proofs',
+            'Real-time Settlement',
+            'Decentralized Identity',
+            'Verifiable Ad Tech',
+            'Fraud Prevention',
+          ];
+
+          const secondRowPills = [
+            'Centralized Performance',
+            'Verified Delivery',
+            'Traffic Quality',
+            'Reliable Payouts',
+            'Contextual Suitability',
+            'Yield Optimization',
+          ];
+
+          return (
+            <>
+              <div ref={scrollingRef1} className="scrolling-features hidden-mobile">
+                <div className="scrolling-features-row">
+                  {[...featurePills, ...featurePills, ...featurePills].map((pill, index) => (
+                    <div key={index} className="feature-pill">
+                      {pill}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div ref={scrollingRef2} className="scrolling-features hidden-mobile" >
+                <div className="scrolling-features-row" style={{ animationDirection: 'reverse' }}>
+                  {[...secondRowPills, ...secondRowPills, ...secondRowPills].map((pill, index) => (
+                    <div key={index} className="feature-pill">
+                      {pill}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </>
+          );
+        })()
+      }
 
       <section className="section what-is animate-on-scroll">
         <div className="content-wrapper">

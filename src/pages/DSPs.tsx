@@ -34,7 +34,7 @@ function DSPs() {
             </p>
             <div className="adv-cta-row animate-on-scroll delay-2">
               <button className="btn btn-primary">Register as a DSP / Advertiser</button>
-              <a href="#" className="btn btn-ghost">Contact our partnerships team</a>
+              <a href="mailto:partners@admandala.com" className="btn btn-ghost">Contact our partnerships team</a>
             </div>
           </div>
           <div className="adv-hero-visual-new animate-on-scroll delay-2" aria-hidden="true">

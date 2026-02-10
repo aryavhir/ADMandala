@@ -1,35 +1,34 @@
 import { Link } from 'react-router-dom';
+import privacyPdf from '../assets/AdMandala_Privacy_Policy (2).pdf';
+import termsPdf from '../assets/Ad_Mandala_Publisher_Terms_and_Conditions (2).pdf';
 
 function Footer() {
   return (
-    <footer className="main-footer-new">
-      <div className="footer-gradient"></div>
+    <footer className="main-footer-new footer-compact">
       <div className="content-wrapper">
-        <div className="footer-content-centered">
-          <div className="footer-main">
-            <h3 className="footer-logo">Ad Mandala</h3>
-            <p className="footer-tagline">Programmatic advertising built to evolve into a decentralized, verifiable protocol.</p>
-            <div className="footer-badge-wrapper">
-              <div className="social-badge">Built on Transparency</div>
+        <div className="footer-row">
+          <div className="footer-brand">
+            <h4 className="footer-logo">Ad Mandala</h4>
+            <div className="footer-badge-inline">Built on Transparency</div>
+          </div>
+
+          <nav className="footer-nav" aria-label="Footer navigation">
+            <Link to="/publishers" className="footer-link">Publishers</Link>
+            <Link to="/advertisers" className="footer-link">Advertisers</Link>
+            <Link to="/decentralization" className="footer-link">Decentralization</Link>
+          </nav>
+
+          <div className="footer-actions">
+            <div className="footer-legal">
+              <a href={privacyPdf} target="_blank" rel="noopener noreferrer">Privacy</a>
+              <span className="separator">•</span>
+              <a href={termsPdf} target="_blank" rel="noopener noreferrer">Terms</a>
             </div>
           </div>
-          
-          <div className="footer-links">
-            <Link to="/publishers" className="footer-link">Publishers &amp; SSPs</Link>
-            <span className="footer-link-separator">•</span>
-            <Link to="/advertisers" className="footer-link">DSPs &amp; Advertisers</Link>
-            <span className="footer-link-separator">•</span>
-            <Link to="/decentralization" className="footer-link">Decentralization</Link>
-          </div>
         </div>
-        
-        <div className="footer-bottom">
-          <div className="copyright-new">© {new Date().getFullYear()} Ad Mandala. All rights reserved.</div>
-          <div className="footer-legal">
-            <a href="#">Privacy Policy</a>
-            <span className="separator">•</span>
-            <a href="#">Terms of Service</a>
-          </div>
+
+        <div className="footer-bottom footer-bottom-compact">
+          <div className="copyright-new">© {new Date().getFullYear()} Ad Mandala</div>
         </div>
       </div>
     </footer>

@@ -11,6 +11,7 @@ import p6 from '../assets/r6.png';
 import p7 from '../assets/r1.png';
 function Publishers() {
   useScrollAnimation();
+  const registrationUrl = import.meta.env.VITE_PUBLISHER_REGISTRATION_URL ?? '#';
 
   return (
     <div className="landing-page publishers-page">
@@ -32,8 +33,8 @@ function Publishers() {
               Connect your inventory to a programmatic exchange built for performance today — and transparency tomorrow.
             </p>
             <div className="adv-cta-row animate-on-scroll delay-2">
-              <button className="btn btn-primary">Register as a Publisher / SSP</button>
-              <a href="#" className="btn btn-ghost">Talk to our team</a>
+              <a href={registrationUrl} className="btn btn-primary" target="_blank" rel="noopener noreferrer">Register as a Publisher</a>
+              <a href="mailto:publisher@admandala.com" className="btn btn-ghost">Talk to our team / SSP inquiries</a>
             </div>
           </div>
           <div className="pub-hero-visual animate-on-scroll delay-2" aria-hidden="true">
@@ -317,7 +318,7 @@ function Publishers() {
           <div className="dsp-cta-box animate-on-scroll">
             <h2 className="dsp-cta-headline">Start Monetizing Today</h2>
             <p className="dsp-cta-sub">Join as a Publisher or SSP and grow with verifiable revenue.</p>
-            <button className="dsp-cta-button">Register as a Publisher / SSP</button>
+            <button className="dsp-cta-button">Register as a Publisher</button>
           </div>
         </div>
       </section>
