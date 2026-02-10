@@ -2,7 +2,13 @@ import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { BarChart3, Shield, TrendingUp, Network, CheckCircle2} from 'lucide-react';
 import Footer from '../components/Footer';
-
+import p1 from '../assets/l1.png';
+import p2 from '../assets/l2.png';
+import p3 from '../assets/l3.png';
+import p4 from '../assets/l4.png';
+import p5 from '../assets/l5.png';
+import p6 from '../assets/l6.png';
+import p7 from '../assets/l7.png';
 function Publishers() {
   useScrollAnimation();
 
@@ -143,7 +149,7 @@ function Publishers() {
               <p className="split-closing">You stay focused on content — we handle the exchange layer.</p>
             </div>
             <div className="split-visual purple-accent">
-              <img src='' alt="Integration Dashboard" className="split-visual-image" />
+              <img src={p1} alt="Integration Dashboard" className="split-visual-image" />
             </div>
           </div>
         </div>
@@ -154,7 +160,7 @@ function Publishers() {
         <div className="content-wrapper">
           <div className="split-layout split-right animate-on-scroll">
             <div className="split-visual blue-accent">
-              <img src='' alt="Quality Controls" className="split-visual-image" />
+              <img src={p2} alt="Quality Controls" className="split-visual-image" />
             </div>
             <div className="split-content">
               <h2>Traffic Quality First</h2>
@@ -204,7 +210,7 @@ function Publishers() {
               </ul>
             </div>
             <div className="split-visual green-accent">
-              <img src='' alt="Transparency Dashboard" className="split-visual-image" />
+              <img src={p3} alt="Transparency Dashboard" className="split-visual-image" />
             </div>
           </div>
         </div>
@@ -220,7 +226,7 @@ function Publishers() {
           <div className="who-cards-grid">
             <div className="who-card-pro animate-on-scroll">
               <div className="who-card-visual">
-                <img src='' alt="Independent Publishers" className="who-visual-image" />
+                <img src={p4} alt="Independent Publishers" className="who-visual-image" />
               </div>
               <div className="who-card-content">
                 <h3>Independent Publishers</h3>
@@ -234,7 +240,7 @@ function Publishers() {
 
             <div className="who-card-pro animate-on-scroll" style={{ transitionDelay: '100ms' }}>
               <div className="who-card-visual">
-                <img src='' alt="Media Networks" className="who-visual-image" />
+                <img src={p5} alt="Media Networks" className="who-visual-image" />
               </div>
               <div className="who-card-content">
                 <h3>Media Networks</h3>
@@ -248,7 +254,7 @@ function Publishers() {
 
             <div className="who-card-pro animate-on-scroll" style={{ transitionDelay: '200ms' }}>
               <div className="who-card-visual">
-                <img src='' alt="Programmatic-First Properties" className="who-visual-image" />
+                <img src={p6} alt="Programmatic-First Properties" className="who-visual-image" />
               </div>
               <div className="who-card-content">
                 <h3>Programmatic-First Properties</h3>
@@ -262,7 +268,7 @@ function Publishers() {
 
             <div className="who-card-pro animate-on-scroll" style={{ transitionDelay: '300ms' }}>
               <div className="who-card-visual">
-                <img src='' alt="SSPs & Supply Partners" className="who-visual-image" />
+                <img src={p7} alt="SSPs & Supply Partners" className="who-visual-image" />
               </div>
               <div className="who-card-content">
                 <h3>SSPs & Supply Partners</h3>

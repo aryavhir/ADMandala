@@ -5781,18 +5781,6 @@ font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
 }
 
-.purple-accent {
-  background: linear-gradient(135deg, #f3e7ff 0%, #e9d5ff 100%);
-}
-
-.blue-accent {
-  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
-}
-
-.green-accent {
-  background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
-}
-
 /* Visual Mockup */
 .visual-mockup {
   background: white;
