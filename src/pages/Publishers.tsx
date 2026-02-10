@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { BarChart3, Shield, TrendingUp, Network, CheckCircle2} from 'lucide-react';
 import Footer from '../components/Footer';
-import p1 from '../assets/l1.png';
-import p2 from '../assets/l2.png';
-import p3 from '../assets/l3.png';
-import p4 from '../assets/l4.png';
-import p5 from '../assets/l5.png';
-import p6 from '../assets/l6.png';
-import p7 from '../assets/l7.png';
+import p1 from '../assets/r7.png';
+import p2 from '../assets/r2.png';
+import p3 from '../assets/r3.png';
+import p4 from '../assets/r4.png';
+import p5 from '../assets/r5.png';
+import p6 from '../assets/r6.png';
+import p7 from '../assets/r1.png';
 function Publishers() {
   useScrollAnimation();
 

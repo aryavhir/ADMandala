@@ -3,13 +3,13 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { Shield, BarChart3, Lock, Target, CheckCircle2} from 'lucide-react';
 import Footer from '../components/Footer';
 import img1 from '../assets/img1.png';
-import imgs1 from '../assets/r1.png';
-import img2 from '../assets/r2.png';
-import img3 from '../assets/r3.png';
-import img4 from '../assets/r4.png';
-import imgX from '../assets/r5.png';
-import imgY from '../assets/r6.png';
-import imgZ from '../assets/r7.png';
+import imgs1 from '../assets/l1.png';
+import img2 from '../assets/l2.png';
+import img3 from '../assets/l3.png';
+import img4 from '../assets/l4.png';
+import imgX from '../assets/l5.png';
+import imgY from '../assets/l6.png';
+import imgZ from '../assets/l7.png';
 function DSPs() {
   useScrollAnimation();
 
