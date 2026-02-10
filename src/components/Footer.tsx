@@ -1,8 +1,22 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import privacyPdf from '../assets/AdMandala_Privacy_Policy (2).pdf';
 import termsPdf from '../assets/Ad_Mandala_Publisher_Terms_and_Conditions (2).pdf';
 
 function Footer() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleDecentralizationClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const path = '/decentralization';
+    if (location.pathname === path) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    navigate(path);
+    setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 50);
+  };
+
   return (
     <footer className="main-footer-new footer-compact">
       <div className="content-wrapper">
@@ -15,7 +29,7 @@ function Footer() {
           <nav className="footer-nav" aria-label="Footer navigation">
             <Link to="/publishers" className="footer-link">Publishers</Link>
             <Link to="/advertisers" className="footer-link">Advertisers</Link>
-            <Link to="/decentralization" className="footer-link">Decentralization</Link>
+            <a href="/decentralization" onClick={handleDecentralizationClick} className="footer-link">Decentralization</a>
           </nav>
 
           <div className="footer-actions">

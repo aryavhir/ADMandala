@@ -1,7 +1,9 @@
 ﻿import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { Shield, BarChart3, Lock, Target, CheckCircle2} from 'lucide-react';
 import Footer from '../components/Footer';
+import ContactForm from '../components/ContactForm';
 import img1 from '../assets/img1.png';
 import imgs1 from '../assets/l1.png';
 import img2 from '../assets/l2.png';
@@ -12,6 +14,7 @@ import imgY from '../assets/l6.png';
 import imgZ from '../assets/l7.png';
 function DSPs() {
   useScrollAnimation();
+  const [showContactModal, setShowContactModal] = useState(false);
 
   return (
     <div className="landing-page advertisers-page">
@@ -33,7 +36,7 @@ function DSPs() {
               Access programmatic supply through a centralized exchange with strong quality controls — and a clear path toward verifiable delivery.
             </p>
             <div className="adv-cta-row animate-on-scroll delay-2">
-              <button className="btn btn-primary">Register as a DSP / Advertiser</button>
+              <button className="btn btn-primary" onClick={() => setShowContactModal(true)}>Register as a DSP / Advertiser</button>
               <a href="mailto:partners@admandala.com" className="btn btn-ghost">Contact our partnerships team</a>
             </div>
           </div>
@@ -288,12 +291,21 @@ function DSPs() {
           <div className="dsp-cta-box animate-on-scroll">
             <h2 className="dsp-cta-headline">Access Quality Supply Today</h2>
             <p className="dsp-cta-sub">Join as a DSP or Advertiser and grow with verifiable delivery.</p>
-            <button className="dsp-cta-button">Register as a DSP / Advertiser</button>
+            <button className="dsp-cta-button" onClick={() => setShowContactModal(true)}>Register as a DSP / Advertiser</button>
           </div>
         </div>
       </section>
 
       <Footer />
+      {showContactModal && (
+        <div className="modal-overlay" onClick={() => setShowContactModal(false)}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={() => setShowContactModal(false)} aria-label="Close">×</button>
+            <h3 style={{ marginTop: 0 }}>Register as a DSP / Advertiser</h3>
+            <ContactForm onSuccess={() => setShowContactModal(false)} />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
