@@ -51,20 +51,86 @@ function Publishers() {
                   <div className="sidebar-item"></div>
                 </div>
                 <div className="mockup-main">
-                  <div className="mockup-header-row">
-                    <div className="header-title-blob"></div>
+                  {/* Top date filters row */}
+                  <div className="pub-filters-row">
+                    <div className="pub-filter">
+                      <span className="pub-filter-label">Start Date</span>
+                      <span className="pub-filter-value">01/01/2024</span>
+                    </div>
+                    <div className="pub-filter">
+                      <span className="pub-filter-label">End Date</span>
+                      <span className="pub-filter-value">01/02/2025</span>
+                    </div>
+                    <button className="pub-apply-btn">Apply</button>
                   </div>
-                  <div className="dashboard-grid">
-                    <div className="dash-card big-chart">
-                      <div className="chart-line-svg">
-                        <svg viewBox="0 0 100 40" className="trend-line">
-                          <path d="M0,35 Q20,35 25,20 T50,25 T75,10 T100,5" fill="none" stroke="#2b6cb0" strokeWidth="3" />
-                          <path d="M0,35 Q20,35 25,20 T50,25 T75,10 T100,5 V40 H0 Z" fill="rgba(43, 108, 176, 0.10)" />
-                        </svg>
+
+                  {/* Summary metric cards row */}
+                  <div className="pub-summary-row">
+                    <div className="pub-summary-card revenue">
+                      <div className="pub-summary-label">Total Revenue</div>
+                      <div className="pub-summary-value">$88.9</div>
+                      <div className="pub-summary-sub">1 active site</div>
+                    </div>
+                    <div className="pub-summary-card">
+                      <div className="pub-summary-label">Total Impressions</div>
+                      <div className="pub-summary-value">3,300</div>
+                      <div className="pub-summary-sub">Last 764 days</div>
+                    </div>
+                    <div className="pub-summary-card">
+                      <div className="pub-summary-label">Total Clicks</div>
+                      <div className="pub-summary-value">255</div>
+                      <div className="pub-summary-sub">Performance snapshot</div>
+                    </div>
+                    <div className="pub-summary-card">
+                      <div className="pub-summary-label">Active Sites</div>
+                      <div className="pub-summary-value">1</div>
+                      <div className="pub-summary-sub">out of 2 total</div>
+                    </div>
+                  </div>
+
+                  {/* Lower traffic tables row */}
+                  <div className="pub-traffic-row">
+                    <div className="pub-traffic-card">
+                      <div className="pub-traffic-header">
+                        <span className="pub-traffic-title">Traffic by Country</span>
+                        <span className="pub-traffic-subtitle">Geographic distribution</span>
+                      </div>
+                      <div className="pub-traffic-table">
+                        <div className="pub-traffic-row-item">
+                          <span className="pub-traffic-label">CA</span>
+                          <span className="pub-traffic-pill">200 • 9.1%</span>
+                        </div>
+                        <div className="pub-traffic-row-item">
+                          <span className="pub-traffic-label">UK</span>
+                          <span className="pub-traffic-pill">500 • 22.7%</span>
+                        </div>
+                        <div className="pub-traffic-row-item">
+                          <span className="pub-traffic-label">US</span>
+                          <span className="pub-traffic-pill">1,500 • 68.2%</span>
+                        </div>
                       </div>
                     </div>
-                    <div className="dash-card small-metric"></div>
-                    <div className="dash-card small-metric"></div>
+
+                    <div className="pub-traffic-card">
+                      <div className="pub-traffic-header">
+                        <span className="pub-traffic-title">Traffic by Device</span>
+                        <span className="pub-traffic-subtitle">Impressions by device</span>
+                      </div>
+                      <div className="pub-traffic-table">
+                        <div className="pub-traffic-row-item">
+                          <span className="pub-traffic-label">Mobile</span>
+                          <span className="pub-traffic-pill">800 • 36.4%</span>
+                        </div>
+                        <div className="pub-traffic-row-item">
+                          <span className="pub-traffic-label">Tablet</span>
+                          <span className="pub-traffic-pill">100 • 4.5%</span>
+                        </div>
+                        <div className="pub-traffic-row-item">
+                          <span className="pub-traffic-label">Desktop</span>
+                          <span className="pub-traffic-pill">1,300 • 59.1%</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
