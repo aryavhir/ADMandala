@@ -3925,6 +3925,7 @@ text-align: left;
 }
 
 .dsp-cta-button {
+   text-decoration: none;
   background: rgb(46, 46, 46);
   color: white;
   padding: 0.95rem 1.5rem;

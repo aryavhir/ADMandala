@@ -384,7 +384,7 @@ function Publishers() {
           <div className="dsp-cta-box animate-on-scroll">
             <h2 className="dsp-cta-headline">Start Monetizing Today</h2>
             <p className="dsp-cta-sub">Join as a Publisher or SSP and grow with verifiable revenue.</p>
-            <button className="dsp-cta-button">Register as a Publisher</button>
+ <a href={registrationUrl} className="dsp-cta-button" target="_blank" rel="noopener noreferrer">Register as a Publisher</a>
           </div>
         </div>
       </section>

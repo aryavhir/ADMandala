@@ -26,6 +26,7 @@ import './Decentralization.css';
 function Decentralization() {
   useScrollAnimation();
   const [scrollProgress, setScrollProgress] = useState(0);
+  const registrationUrl = import.meta.env.VITE_PUBLISHER_REGISTRATION_URL ?? '#';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -977,14 +978,14 @@ function Decentralization() {
 
             {/* Action buttons */}
             <div className="dec-cta-actions">
-              <button className="btn btn-primary dec-cta-btn">
+              <a href={registrationUrl} className="btn btn-primary dec-cta-btn" target="_blank" rel="noopener noreferrer">
                 Register as a Publisher
                 <ArrowRight size={16} />
-              </button>
-              <button className="btn btn-primary dec-cta-btn">
+              </a>
+              <Link to="/advertisers" className="btn btn-primary dec-cta-btn">
                 Register as a DSP / Advertiser
                 <ArrowRight size={16} />
-              </button>
+              </Link>
             </div>
           
           </div>
