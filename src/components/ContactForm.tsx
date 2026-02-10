@@ -14,7 +14,7 @@ export default function ContactForm({ onSuccess }: { onSuccess?: () => void }) {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await fetch('https://cms-backend-ha13.onrender.com/api/contact-submissions', {
+      const res = await fetch('https://cms-backend-mnan.onrender.com/api/contact-submissions', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ data: form }),
