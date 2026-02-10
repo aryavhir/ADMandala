@@ -3851,6 +3851,7 @@ text-align: left;
 }
 
 .dsp-cta-box {
+  text-align: center;
   background: linear-gradient(135deg, 
     color-mix(in srgb, var(--primary-brand) 95%, black) 0%, 
     color-mix(in srgb, var(--primary-brand) 85%, black) 100%);
@@ -3894,20 +3895,7 @@ text-align: left;
 .cf-actions { display:flex; justify-content:flex-end; margin-top: 6px; }
  
 
-.dsp-cta-box::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(
-    circle at center,
-    rgba(255, 255, 255, 0.1) 0%,
-    transparent 70%
-  );
-  animation: shimmer 8s ease-in-out infinite;
-}
+
 
 @keyframes shimmer {
   0%, 100% { transform: translate(0, 0) rotate(0deg); }
