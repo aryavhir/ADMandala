@@ -9,6 +9,11 @@ function Home() {
   useScrollAnimation();
   const [scrollProgress, setScrollProgress] = useState(0);
 
+  // Wake up backend service when homepage is visited
+  useEffect(() => {
+    fetch('https://cms-backend-mnan.onrender.com/').catch(() => {});
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       const totalScroll = document.documentElement.scrollTop;
