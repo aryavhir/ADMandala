@@ -14,10 +14,17 @@ export default function ContactForm({ onSuccess }: { onSuccess?: () => void }) {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await fetch('https://cms-backend-mnan.onrender.com/api/contact-submissions', {
+      const payload = {
+        name: form.name,
+        email: form.email,
+        company_website: form.companyWebsite,
+        message: '',
+        notes: ''
+      };
+      const res = await fetch('https://dev-publisher-dashboard-backend.admandala.com/api/v1/auth/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ data: form }),
+        body: JSON.stringify(payload),
       });
 
       if (res.ok) {
