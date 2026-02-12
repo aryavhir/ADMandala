@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useEffect, useState } from 'react';
 import Footer from '../components/Footer';
+import ContactForm from '../components/ContactForm';
 import {
   ArrowRight,
   CheckCircle2,
@@ -26,6 +27,7 @@ import './Decentralization.css';
 function Decentralization() {
   useScrollAnimation();
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [showContactModal, setShowContactModal] = useState(false);
   const registrationUrl = import.meta.env.VITE_PUBLISHER_REGISTRATION_URL ?? '#';
 
   useEffect(() => {
@@ -982,15 +984,31 @@ function Decentralization() {
                 Register as a Publisher
                 <ArrowRight size={16} />
               </a>
-              <Link to="/advertisers" className="btn btn-primary dec-cta-btn">
+              <button
+                className="btn btn-primary dec-cta-btn"
+                type="button"
+                onClick={() => setShowContactModal(true)}
+              >
                 Register as a DSP / Advertiser
                 <ArrowRight size={16} />
-              </Link>
+              </button>
             </div>
           
           </div>
         </div>
       </section>
+
+
+      {/* Modal for DSP/Advertiser registration */}
+      {showContactModal && (
+        <div className="modal-overlay" onClick={() => setShowContactModal(false)}>
+          <div className="modal" onClick={e => e.stopPropagation()}>
+            <button className="modal-close" onClick={() => setShowContactModal(false)} aria-label="Close">×</button>
+            <h3 style={{ marginTop: 0 }}>Register as a DSP / Advertiser</h3>
+            <ContactForm onSuccess={() => setShowContactModal(false)} />
+          </div>
+        </div>
+      )}
 
       {/* ══════════ FOOTER ══════════ */}
       <Footer />
