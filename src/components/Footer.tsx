@@ -1,5 +1,5 @@
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import privacyPdf from '../assets/AdMandala_Privacy_Policy (2).pdf';
+import privacyPdf from '../assets/Ad_mandala_PP.pdf';
 import termsPdf from '../assets/Ad_Mandala_Publisher_Terms_and_Conditions (2).pdf';
 
 function Footer() {
