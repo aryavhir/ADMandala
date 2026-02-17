@@ -4,6 +4,7 @@ import { BarChart3, Shield, TrendingUp, Network, CheckCircle2} from 'lucide-reac
 import Footer from '../components/Footer';
 import p1 from '../assets/r7.png';
 import p2 from '../assets/r2.png';
+import FAQs from '../components/FAQs';
 import p3 from '../assets/r3.png';
 import p4 from '../assets/r4.png';
 import p5 from '../assets/r5.png';
@@ -377,7 +378,7 @@ function Publishers() {
           </div>
         </div>
       </section>
-
+<FAQs />
       {/* SECTION 7: CTA */}
       <section className="section dsp-cta-section">
         <div className="content-wrapper">
