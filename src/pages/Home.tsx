@@ -28,7 +28,7 @@ function Home() {
         <title>AdMandala | Programmatic Advertising.Built to Evolve.</title>
         <meta
           name="description"
-          content="AdMandala helps publishers and advertisers maximize revenue through decentralized ad infrastructure."
+          content="AdMandala aims to help publishers and advertisers maximize revenue through decentralized ad infrastructure."
         />
       </Helmet>
       <div className="scroll-progress" style={{ width: `${scrollProgress * 100}%` }}></div>
