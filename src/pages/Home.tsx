@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { MonitorPlay, Target, Network, Shield, TrendingUp, Users, BarChart3, Globe, Lock, CheckCircle2, Sparkles, Zap, Eye, Vote, ArrowRight } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import CardSwap, { Card } from '../components/Live today/CardSwap';
@@ -23,8 +24,15 @@ function Home() {
 
   return (
     <div className="landing-page">
+      <Helmet>
+        <title>AdMandala | Programmatic Advertising.Built to Evolve.</title>
+        <meta
+          name="description"
+          content="AdMandala aims to help publishers and advertisers maximize revenue through decentralized ad infrastructure."
+        />
+      </Helmet>
       <div className="scroll-progress" style={{ width: `${scrollProgress * 100}%` }}></div>
-      
+
       <header className="hero-section">
         <div className="hero-background">
           <div className="tech-grid"></div>
@@ -61,31 +69,31 @@ function Home() {
                 <Link to="/publishers" className="pane-btn btn-blue">Publisher Access</Link>
               </div>
               <div className="pane-visual visual-light">
-                 {/* Dashboard Mockup */}
-                 <div className="mockup-window light-window">
-                    <div className="mockup-sidebar">
-                      <div className="sidebar-item active"></div>
-                      <div className="sidebar-item"></div>
-                      <div className="sidebar-item"></div>
+                {/* Dashboard Mockup */}
+                <div className="mockup-window light-window">
+                  <div className="mockup-sidebar">
+                    <div className="sidebar-item active"></div>
+                    <div className="sidebar-item"></div>
+                    <div className="sidebar-item"></div>
+                  </div>
+                  <div className="mockup-main">
+                    <div className="mockup-header-row">
+                      <div className="header-title-blob"></div>
                     </div>
-                    <div className="mockup-main">
-                       <div className="mockup-header-row">
-                          <div className="header-title-blob"></div>
-                       </div>
-                       <div className="dashboard-grid">
-                          <div className="dash-card big-chart">
-                            <div className="chart-line-svg">
-                              <svg viewBox="0 0 100 40" className="trend-line">
-                                <path d="M0,35 Q20,35 25,20 T50,25 T75,10 T100,5" fill="none" stroke="#2b6cb0" strokeWidth="3" />
-                                <path d="M0,35 Q20,35 25,20 T50,25 T75,10 T100,5 V40 H0 Z" fill="rgba(43, 108, 176, 0.1)" />
-                              </svg>
-                            </div>
-                          </div>
-                          <div className="dash-card small-metric"></div>
-                          <div className="dash-card small-metric"></div>
-                       </div>
+                    <div className="dashboard-grid">
+                      <div className="dash-card big-chart">
+                        <div className="chart-line-svg">
+                          <svg viewBox="0 0 100 40" className="trend-line">
+                            <path d="M0,35 Q20,35 25,20 T50,25 T75,10 T100,5" fill="none" stroke="#2b6cb0" strokeWidth="3" />
+                            <path d="M0,35 Q20,35 25,20 T50,25 T75,10 T100,5 V40 H0 Z" fill="rgba(43, 108, 176, 0.1)" />
+                          </svg>
+                        </div>
+                      </div>
+                      <div className="dash-card small-metric"></div>
+                      <div className="dash-card small-metric"></div>
                     </div>
-                 </div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -98,36 +106,36 @@ function Home() {
                 <Link to="/advertisers" className="pane-btn btn-white">Advertiser Access</Link>
               </div>
               <div className="pane-visual visual-dark">
-                 {/* Analytics Dashboard Mockup */}
-                 <div className="mockup-window dark-window">
-                    <div className="analytics-panel">
-                       <div className="metrics-row">
-                          <div className="metric-box">
-                            <div className="metric-label"></div>
-                            <div className="metric-value large"></div>
-                          </div>
-                          <div className="metric-box">
-                            <div className="metric-label"></div>
-                            <div className="metric-value"></div>
-                          </div>
-                       </div>
-                       <div className="chart-area">
-                          <div className="bar-chart">
-                            <div className="bar" style={{"--height": "60%"} as React.CSSProperties}></div>
-                            <div className="bar" style={{"--height": "85%"} as React.CSSProperties}></div>
-                            <div className="bar" style={{"--height": "45%"} as React.CSSProperties}></div>
-                            <div className="bar" style={{"--height": "75%"} as React.CSSProperties}></div>
-                            <div className="bar" style={{"--height": "95%"} as React.CSSProperties}></div>
-                            <div className="bar" style={{"--height": "50%"} as React.CSSProperties}></div>
-                          </div>
-                       </div>
-                       <div className="geo-map">
-                          <div className="map-dot" style={{"left": "30%", "top": "40%"}}></div>
-                          <div className="map-dot" style={{"left": "60%", "top": "25%"}}></div>
-                          <div className="map-dot" style={{"left": "75%", "top": "55%"}}></div>
-                       </div>
+                {/* Analytics Dashboard Mockup */}
+                <div className="mockup-window dark-window">
+                  <div className="analytics-panel">
+                    <div className="metrics-row">
+                      <div className="metric-box">
+                        <div className="metric-label"></div>
+                        <div className="metric-value large"></div>
+                      </div>
+                      <div className="metric-box">
+                        <div className="metric-label"></div>
+                        <div className="metric-value"></div>
+                      </div>
                     </div>
-                 </div>
+                    <div className="chart-area">
+                      <div className="bar-chart">
+                        <div className="bar" style={{ "--height": "60%" } as React.CSSProperties}></div>
+                        <div className="bar" style={{ "--height": "85%" } as React.CSSProperties}></div>
+                        <div className="bar" style={{ "--height": "45%" } as React.CSSProperties}></div>
+                        <div className="bar" style={{ "--height": "75%" } as React.CSSProperties}></div>
+                        <div className="bar" style={{ "--height": "95%" } as React.CSSProperties}></div>
+                        <div className="bar" style={{ "--height": "50%" } as React.CSSProperties}></div>
+                      </div>
+                    </div>
+                    <div className="geo-map">
+                      <div className="map-dot" style={{ "left": "30%", "top": "40%" }}></div>
+                      <div className="map-dot" style={{ "left": "60%", "top": "25%" }}></div>
+                      <div className="map-dot" style={{ "left": "75%", "top": "55%" }}></div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -330,7 +338,7 @@ function Home() {
       </section>
 
       <section className="section whats-live whats-live-dark">
-  <div className="dsp-future-bg">
+        <div className="dsp-future-bg">
           <div className="dsp-future-orb orb-1"></div>
           <div className="dsp-future-orb orb-2"></div>
           <div className="dsp-future-grid-lines"></div>
@@ -347,7 +355,7 @@ function Home() {
                 Each component represents a live system actively serving the programmatic advertising ecosystem.
               </p>
             </div>
-            
+
             <div className="live-right-animation animate-on-scroll delay-1">
               <div className="card-swap-wrapper">
                 <CardSwap
@@ -375,7 +383,7 @@ function Home() {
                       </div>
                     </div>
                   </Card>
-                  
+
                   <Card>
                     <div className="system-card-inner">
                       <div className="card-icon-wrapper">
@@ -391,7 +399,7 @@ function Home() {
                       </div>
                     </div>
                   </Card>
-                  
+
                   <Card>
                     <div className="system-card-inner">
                       <div className="card-icon-wrapper">
@@ -407,7 +415,7 @@ function Home() {
                       </div>
                     </div>
                   </Card>
-                  
+
                   <Card>
                     <div className="system-card-inner">
                       <div className="card-icon-wrapper">
@@ -427,8 +435,8 @@ function Home() {
               </div>
             </div>
           </div>
-          
-         
+
+
         </div>
       </section>
 
@@ -597,7 +605,7 @@ function Home() {
         </div>
       </section>
 
-         <section className="section dsp-future-section">
+      <section className="section dsp-future-section">
         <div className="dsp-future-bg">
           <div className="dsp-future-orb orb-1"></div>
           <div className="dsp-future-orb orb-2"></div>
@@ -607,19 +615,19 @@ function Home() {
           <div className="dsp-future-content animate-on-scroll">
             <h2 className="dsp-future-title">Looking Ahead</h2>
             <p className="dsp-future-desc">Ad Mandala is evolving from a centralized exchange into a verifiable advertising protocol. See how verification and settlement decentralize — without disrupting your buying workflows.</p>
-           <div className="decentralization-link-wrapper animate-on-scroll delay-2">
-            <Link to="/decentralization" className="explore-button">
-              <span className="explore-button__icon-wrapper" aria-hidden="true">
-                <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="explore-button__icon-svg" width={12}>
-                  <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" fill="currentColor" />
-                </svg>
-                <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="explore-button__icon-svg explore-button__icon-svg--copy" width={12}>
-                  <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" fill="currentColor" />
-                </svg>
-              </span>
-              <span className="explore-button__label">Explore the decentralization roadmap</span>
-            </Link>
-          </div>
+            <div className="decentralization-link-wrapper animate-on-scroll delay-2">
+              <Link to="/decentralization" className="explore-button">
+                <span className="explore-button__icon-wrapper" aria-hidden="true">
+                  <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="explore-button__icon-svg" width={12}>
+                    <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" fill="currentColor" />
+                  </svg>
+                  <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="explore-button__icon-svg explore-button__icon-svg--copy" width={12}>
+                    <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" fill="currentColor" />
+                  </svg>
+                </span>
+                <span className="explore-button__label">Explore the decentralization roadmap</span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

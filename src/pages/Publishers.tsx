@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import { BarChart3, Shield, TrendingUp, Network, CheckCircle2} from 'lucide-react';
+import { BarChart3, Shield, TrendingUp, Network, CheckCircle2 } from 'lucide-react';
 import Footer from '../components/Footer';
 import p1 from '../assets/r7.png';
 import p2 from '../assets/r2.png';
@@ -16,19 +17,26 @@ function Publishers() {
 
   return (
     <div className="landing-page publishers-page">
-       <nav className="top-nav">
-          <div className="content-wrapper nav-flex">
-              <Link to="/" className="back-link">&larr; Back Home</Link>
-          </div>
+      <Helmet>
+        <title>Monetize With Confidence | AdMandala</title>
+        <meta
+          name="description"
+          content="Monetize your traffic with high performance demand partners and transparent revenue optimization."
+        />
+      </Helmet>
+      <nav className="top-nav">
+        <div className="content-wrapper nav-flex">
+          <Link to="/" className="back-link">&larr; Back Home</Link>
+        </div>
       </nav>
 
       {/* HERO */}
       <header className="hero-section advertisers-hero">
         <div className="content-wrapper adv-hero-grid">
           <div className="adv-hero-copy">
-           
+
             <h1 className="hero-headline-new animate-on-scroll">
-              Monetize<br/>With Confidence
+              Monetize<br />With Confidence
             </h1>
             <p className="hero-subheadline animate-on-scroll delay-1">
               Connect your inventory to a programmatic exchange built for performance today — and transparency tomorrow.
@@ -144,7 +152,7 @@ function Publishers() {
       <section className="section dsp-why-section-minimal">
         <div className="content-wrapper">
           <div className="why-minimal-header animate-on-scroll">
-            <h2>Why Publishers Choose<br/>Ad Mandala</h2>
+            <h2>Why Publishers Choose<br />Ad Mandala</h2>
             <p className="why-subtitle">Ad Mandala is designed to help publishers monetize efficiently while maintaining control over quality and performance.</p>
           </div>
 
@@ -362,30 +370,30 @@ function Publishers() {
           <div className="dsp-future-content animate-on-scroll">
             <h2 className="dsp-future-title">Looking Ahead</h2>
             <p className="dsp-future-desc">Ad Mandala is evolving from a centralized exchange into a verifiable advertising protocol. See how verification and settlement decentralize — without disrupting your monetization workflows.</p>
-           <div className="decentralization-link-wrapper animate-on-scroll delay-2">
-            <Link to="/decentralization" className="explore-button">
-              <span className="explore-button__icon-wrapper" aria-hidden="true">
-                <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="explore-button__icon-svg" width={12}>
-                  <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" fill="currentColor" />
-                </svg>
-                <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="explore-button__icon-svg explore-button__icon-svg--copy" width={12}>
-                  <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" fill="currentColor" />
-                </svg>
-              </span>
-              <span className="explore-button__label">Explore the decentralization roadmap</span>
-            </Link>
-          </div>
+            <div className="decentralization-link-wrapper animate-on-scroll delay-2">
+              <Link to="/decentralization" className="explore-button">
+                <span className="explore-button__icon-wrapper" aria-hidden="true">
+                  <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="explore-button__icon-svg" width={12}>
+                    <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" fill="currentColor" />
+                  </svg>
+                  <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="explore-button__icon-svg explore-button__icon-svg--copy" width={12}>
+                    <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" fill="currentColor" />
+                  </svg>
+                </span>
+                <span className="explore-button__label">Explore the decentralization roadmap</span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
-<FAQs />
+      <FAQs />
       {/* SECTION 7: CTA */}
       <section className="section dsp-cta-section">
         <div className="content-wrapper">
           <div className="dsp-cta-box animate-on-scroll">
             <h2 className="dsp-cta-headline">Start Monetizing Today</h2>
             <p className="dsp-cta-sub">Join as a Publisher or SSP and grow with verifiable revenue.</p>
- <a href={registrationUrl} className="dsp-cta-button" target="_blank" rel="noopener noreferrer">Register as a Publisher</a>
+            <a href={registrationUrl} className="dsp-cta-button" target="_blank" rel="noopener noreferrer">Register as a Publisher</a>
           </div>
         </div>
       </section>
