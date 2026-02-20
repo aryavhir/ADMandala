@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import Footer from '../components/Footer';
 import ContactForm from '../components/ContactForm';
 import {
@@ -42,6 +43,13 @@ function Decentralization() {
 
   return (
     <div className="landing-page dec-page">
+      <Helmet>
+        <title>Decentralized Advertising Infrastructure | AdMandala</title>
+        <meta
+          name="description"
+          content="Learn how AdMandala leverages decentralized systems to improve transparency and efficiency in digital advertising."
+        />
+      </Helmet>
       <div className="dec-scroll-progress" style={{ width: `${scrollProgress * 100}%` }} />
 
       {/* NAV */}
@@ -125,16 +133,16 @@ function Decentralization() {
                 </circle>
 
                 {/* Constellation dots (nodes) */}
-                <circle cx="80"  cy="60"  r="4" fill="#0f4a4a" opacity="0.8" />
+                <circle cx="80" cy="60" r="4" fill="#0f4a4a" opacity="0.8" />
                 <circle cx="180" cy="130" r="5" fill="#0f4a4a" opacity="0.9" />
-                <circle cx="250" cy="80"  r="3.5" fill="#1a7a7a" opacity="0.7" />
+                <circle cx="250" cy="80" r="3.5" fill="#1a7a7a" opacity="0.7" />
                 <circle cx="400" cy="110" r="5" fill="#0f4a4a" opacity="0.85" />
                 <circle cx="440" cy="200" r="4" fill="#1a7a7a" opacity="0.75" />
                 <circle cx="420" cy="340" r="5" fill="#0f4a4a" opacity="0.9" />
                 <circle cx="350" cy="420" r="4" fill="#1a7a7a" opacity="0.8" />
                 <circle cx="200" cy="440" r="5" fill="#0f4a4a" opacity="0.85" />
-                <circle cx="90"  cy="380" r="4.5" fill="#1a7a7a" opacity="0.8" />
-                <circle cx="60"  cy="250" r="3.5" fill="#0f4a4a" opacity="0.7" />
+                <circle cx="90" cy="380" r="4.5" fill="#1a7a7a" opacity="0.8" />
+                <circle cx="60" cy="250" r="3.5" fill="#0f4a4a" opacity="0.7" />
 
                 {/* Glow halos on key nodes */}
                 <circle cx="180" cy="130" r="14" fill="none" stroke="rgba(15,74,74,0.15)" strokeWidth="1" className="dec-node-halo" />
@@ -209,7 +217,7 @@ function Decentralization() {
                 </div>
                 <span className="dec-dc-value">248</span>
                 <div className="dec-dc-spark">
-                  {[4,7,5,9,6,8,10,7,9,8,6,10].map((h, i) => (
+                  {[4, 7, 5, 9, 6, 8, 10, 7, 9, 8, 6, 10].map((h, i) => (
                     <div key={i} className="dec-dc-spark-bar" style={{ height: `${h * 10}%` }} />
                   ))}
                 </div>
@@ -240,7 +248,7 @@ function Decentralization() {
         </div>
 
         {/* Floating stats */}
-      
+
       </header>
 
       {/* ══════════ PHILOSOPHY ══════════ */}
@@ -993,7 +1001,7 @@ function Decentralization() {
                 <ArrowRight size={16} />
               </button>
             </div>
-          
+
           </div>
         </div>
       </section>

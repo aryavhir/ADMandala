@@ -1,7 +1,8 @@
 ﻿import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import { Shield, BarChart3, Lock, Target, CheckCircle2} from 'lucide-react';
+import { Shield, BarChart3, Lock, Target, CheckCircle2 } from 'lucide-react';
 import Footer from '../components/Footer';
 import ContactForm from '../components/ContactForm';
 import img1 from '../assets/img1.png';
@@ -18,19 +19,26 @@ function DSPs() {
 
   return (
     <div className="landing-page advertisers-page">
-       <nav className="top-nav">
-          <div className="content-wrapper nav-flex">
-              <Link to="/" className="back-link">&larr; Back Home</Link>
-          </div>
+      <Helmet>
+        <title>Buy Media You Can Trust | AdMandala</title>
+        <meta
+          name="description"
+          content="Access premium publisher inventory and scale campaigns with performance-driven optimization."
+        />
+      </Helmet>
+      <nav className="top-nav">
+        <div className="content-wrapper nav-flex">
+          <Link to="/" className="back-link">&larr; Back Home</Link>
+        </div>
       </nav>
 
       {/* HERO */}
       <header className="hero-section advertisers-hero">
         <div className="content-wrapper adv-hero-grid">
           <div className="adv-hero-copy">
-           
+
             <h1 className="hero-headline-new animate-on-scroll">
-              Buy Media<br/>You Can Trust
+              Buy Media<br />You Can Trust
             </h1>
             <p className="hero-subheadline animate-on-scroll delay-1">
               Access programmatic supply through a centralized exchange with strong quality controls — and a clear path toward verifiable delivery.
@@ -50,7 +58,7 @@ function DSPs() {
       <section className="section dsp-why-section-minimal">
         <div className="content-wrapper">
           <div className="why-minimal-header animate-on-scroll">
-            <h2>Why DSPs Choose<br/>Ad Mandala</h2>
+            <h2>Why DSPs Choose<br />Ad Mandala</h2>
             <p className="why-subtitle">Ad Mandala is built for advertisers and demand partners who care about performance today — and trust tomorrow.</p>
           </div>
 
@@ -268,19 +276,19 @@ function DSPs() {
           <div className="dsp-future-content animate-on-scroll">
             <h2 className="dsp-future-title">Looking Ahead</h2>
             <p className="dsp-future-desc">Ad Mandala is evolving from a centralized exchange into a verifiable advertising protocol. See how verification and settlement decentralize — without disrupting your buying workflows.</p>
-           <div className="decentralization-link-wrapper animate-on-scroll delay-2">
-            <Link to="/decentralization" className="explore-button">
-              <span className="explore-button__icon-wrapper" aria-hidden="true">
-                <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="explore-button__icon-svg" width={12}>
-                  <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" fill="currentColor" />
-                </svg>
-                <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="explore-button__icon-svg explore-button__icon-svg--copy" width={12}>
-                  <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" fill="currentColor" />
-                </svg>
-              </span>
-              <span className="explore-button__label">Explore the decentralization roadmap</span>
-            </Link>
-          </div>
+            <div className="decentralization-link-wrapper animate-on-scroll delay-2">
+              <Link to="/decentralization" className="explore-button">
+                <span className="explore-button__icon-wrapper" aria-hidden="true">
+                  <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="explore-button__icon-svg" width={12}>
+                    <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" fill="currentColor" />
+                  </svg>
+                  <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="explore-button__icon-svg explore-button__icon-svg--copy" width={12}>
+                    <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" fill="currentColor" />
+                  </svg>
+                </span>
+                <span className="explore-button__label">Explore the decentralization roadmap</span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
