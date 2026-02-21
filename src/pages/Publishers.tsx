@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
 import FAQs from '../components/FAQs';
 
 // Sub-components
@@ -26,11 +26,7 @@ function Publishers() {
         />
       </Helmet>
 
-      <nav className="top-nav">
-        <div className="content-wrapper nav-flex">
-          <Link to="/" className="back-link">&larr; Back Home</Link>
-        </div>
-      </nav>
+      <Navbar />
 
       <HeroSection registrationUrl={registrationUrl} />
       <WhyPublishers />

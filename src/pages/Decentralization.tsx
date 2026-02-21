@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
 import ContactForm from '../components/ContactForm';
 
 // Sub-components
@@ -44,13 +44,8 @@ function Decentralization() {
         />
       </Helmet>
 
+      <Navbar />
       <div className="dec-scroll-progress" style={{ width: `${scrollProgress * 100}%` }} />
-
-      <nav className="top-nav">
-        <div className="content-wrapper nav-flex">
-          <Link to="/" className="back-link">&larr; Back Home</Link>
-        </div>
-      </nav>
 
       <HeroSection />
       <PhilosophySection />

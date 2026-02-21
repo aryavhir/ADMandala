@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
 
 // Sub-components
 import HeroSection from './home/HeroSection';
@@ -38,6 +39,7 @@ function Home() {
         />
       </Helmet>
 
+      <Navbar />
       <div className="scroll-progress" style={{ width: `${scrollProgress * 100}%` }}></div>
 
       <HeroSection />

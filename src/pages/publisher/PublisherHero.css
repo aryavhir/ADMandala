@@ -1,0 +1,339 @@
+/* ════════════════════════════════════════════════════
+   PUBLISHER HERO — 1:1 Framer "Convert" Template
+   ════════════════════════════════════════════════════ */
+
+.pub-hero {
+    position: relative;
+    padding: 10rem 2rem 0;
+    background: #ffffff;
+    overflow: visible;
+    gap: 32px;
+    /* Important for pinning overflow */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: min-content;
+    /* Restored for scroll-driven pinning/fade room */
+}
+
+/* ── Background Circle ── */
+.pub-hero-circle-wrap {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.pub-hero-circle {
+    position: absolute;
+    top: 5%;
+    /* Adjusted for better framing */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    border-radius: 100%;
+    /* Brand-themed color from the Spec */
+    background-color: rgba(15, 74, 74, 0.2);
+    /* Framer Radial Mask for smooth feathered edges */
+    -webkit-mask: radial-gradient(50% 50%, rgba(0, 0, 0, 0) 20.6011%, rgba(0, 0, 0, 0.6) 100%);
+    mask: radial-gradient(50% 50%, rgba(0, 0, 0, 0) 20.6011%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 0;
+    pointer-events: none;
+    will-change: transform;
+    transform-origin: center center;
+}
+
+/* ── Content ── */
+.pub-hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+    z-index: 5;
+    position: relative;
+    /* Pinning handled via GSAP */
+}
+
+.pub-hero-h1 {
+    font-family: "Inter Display", "Inter", sans-serif;
+    font-size: 48px;
+    font-weight: 400;
+    /* As requested in the manual css edit */
+    line-height: 1.1;
+    letter-spacing: -0.05em;
+    color: #101010;
+    margin-bottom: 1.25rem;
+    text-wrap: balance;
+}
+
+.pub-hero-h1 span {
+    display: inline;
+    color: #1a1a1a;
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    background-clip: unset;
+}
+
+.pub-hero-desc {
+    font-size: 20px;
+    color: #000000;
+    max-width: 540px;
+    margin: 0 auto 1.5rem;
+    /* Reduced bottom margin */
+    line-height: 1.4;
+    font-weight: 400;
+    letter-spacing: -.04em;
+    line-height: 1.3em;
+
+}
+
+/* ── CTA Button ── */
+.pub-hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    /* Tighter gap to image */
+}
+
+.pub-hero-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    background-color: var(--brand, #0f4a4a);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    /* Matched to spec */
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: visible;
+    /* Changed to visible to show outer shadows */
+
+    /* Framer Outer Shadows */
+    box-shadow:
+        rgba(0, 0, 0, 0.13) 0.301px 0.602px 0.673px -0.833px,
+        rgba(0, 0, 0, 0.13) 1.144px 2.289px 2.559px -1.667px,
+        rgba(0, 0, 0, 0.13) 5px 10px 11.18px -2.5px;
+}
+
+.pub-hero-cta-inner {
+    position: relative;
+    height: 1.2em;
+    /* Explicit height to match line-height */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 6px;
+    /* Spec inner layer radius */
+
+    /* Framer Inset Shadows applied here */
+    box-shadow:
+        rgba(0, 0, 0, 0.16) 0px -0.361px 0.939px -1.083px inset,
+        rgba(0, 0, 0, 0.15) 0px -1.373px 3.570px -2.167px inset,
+        rgba(0, 0, 0, 0.09) 0px -6px 15.6px -3.25px inset;
+}
+
+.pub-hero-cta-text,
+.pub-hero-cta-text-hover {
+    display: block;
+    font-family: "Inter Display", "Inter", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 1.1em;
+    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+    white-space: nowrap;
+}
+
+.pub-hero-cta-text-hover {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+}
+
+.pub-hero-cta:hover .pub-hero-cta-text {
+    transform: translateY(-100%);
+}
+
+.pub-hero-cta:hover .pub-hero-cta-text-hover {
+    transform: translateY(-100%);
+}
+
+.pub-hero-cta:hover {
+    transform: translateY(-1px);
+    opacity: 0.98;
+    box-shadow:
+        rgba(0, 0, 0, 0.18) 0.301px 0.602px 0.8px -0.833px,
+        rgba(0, 0, 0, 0.18) 1.144px 2.289px 3px -1.667px,
+        rgba(0, 0, 0, 0.18) 5px 12px 14px -2.5px,
+        0 8px 24px rgba(15, 74, 74, 0.2);
+}
+
+.pub-hero-cta-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: transparent;
+    color: #1a1a1a;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 12px;
+    text-decoration: none;
+    border: 1px solid #e5e7eb;
+    transition: all 0.25s ease;
+}
+
+.pub-hero-cta-ghost:hover {
+    background: #f9fafb;
+    border-color: #d1d5db;
+}
+
+/* ── Mockup Window (4-Level Structure) ── */
+.pub-hero-mockup-wrap {
+    flex-flow: column;
+    flex: none;
+    place-content: center flex-start;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+    max-width: 1000px;
+    height: min-content;
+    padding: 0;
+    display: flex;
+    position: relative;
+    overflow: visible;
+    margin: 0 auto;
+    z-index: 20;
+    /* Higher priority to stand IN FRONT */
+}
+
+.pub-hero-mockup {
+    /* 2nd Div - Animation Target */
+    opacity: 1;
+    transform: perspective(1000px) translateY(-120px) scale(0.8) rotateX(30deg);
+    will-change: transform;
+    height: min-content;
+    transform-style: preserve-3d;
+    z-index: 1;
+    border-radius: 12px;
+    flex-flow: row;
+    flex: none;
+    place-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+
+    display: flex;
+    position: relative;
+    overflow: visible;
+    background: #000000;
+    /* Border color fallback */
+    border: 6px solid #101010;
+    /* Framer border spec */
+}
+
+.pub-mockup-inner {
+    /* 3rd Div */
+    aspect-ratio: 1.66667;
+    height: 593px;
+    border-radius: 12px;
+    flex: 1 0 0;
+    width: 1px;
+    position: relative;
+    overflow: visible;
+}
+
+.pub-mockup-image-container {
+    /* 4th Div */
+    position: absolute;
+    border-radius: inherit;
+    inset: 0px;
+    overflow: hidden;
+}
+
+.pub-mockup-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    object-position: left top;
+    object-fit: cover;
+}
+
+@media (min-width: 900px) and (max-width: 1399.98px) {
+    .pub-mockup-inner {
+        height: 494px;
+    }
+}
+
+/* ── Trusted By ── */
+.pub-trusted {
+    margin-top: 6rem;
+    padding-top: 2rem;
+    width: 100%;
+    z-index: 10;
+    position: relative;
+}
+
+.pub-trusted-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: #9ca3af;
+    margin-bottom: 1.5rem;
+}
+
+.pub-trusted-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+    opacity: 0.4;
+}
+
+.pub-trusted-item {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #6b7280;
+    letter-spacing: 0.02em;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .pub-hero {
+        padding: 7rem 1.5rem 0;
+        min-height: auto;
+    }
+
+    .pub-hero::before {
+        width: 500px;
+        height: 500px;
+        top: -5%;
+    }
+
+    .pub-hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pub-hero-cta,
+    .pub-hero-cta-ghost {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .pub-trusted-grid {
+        gap: 1.5rem;
+    }
+}
