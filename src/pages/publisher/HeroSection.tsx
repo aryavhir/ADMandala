@@ -3,6 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './PublisherHero.css';
+import '../../styles/premium-buttons.css';
 import dashboardImg from '../../assets/12.png';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -114,13 +115,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({ registrationUrl }) => {
                 <div className="pub-hero-actions">
                     <a
                         href={registrationUrl}
-                        className="pub-hero-cta"
+                        className="btn-premium-primary"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <div className="pub-hero-cta-inner">
-                            <span className="pub-hero-cta-text">Register as a Publisher</span>
-                            <span className="pub-hero-cta-text-hover">Register as a Publisher</span>
+                        <div className="btn-premium-inner">
+                            <span className="btn-premium-text">Register as a Publisher</span>
+                            <span className="btn-premium-text-hover">Register as a Publisher</span>
                         </div>
                     </a>
                     <a href="mailto:publisher@admandala.com" className="pub-hero-cta-ghost">

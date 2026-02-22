@@ -3,6 +3,8 @@ import { Link, useLocation } from 'react-router-dom';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import './Navbar.css';
 
+import logoImg from '../assets/logow.jpg';
+
 const Navbar: React.FC = () => {
     const [hidden, setHidden] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
@@ -35,21 +37,14 @@ const Navbar: React.FC = () => {
         setMobileOpen(false);
     }, [location.pathname]);
 
-    const registrationUrl = (import.meta as any).env?.VITE_PUBLISHER_REGISTRATION_URL ?? '#';
 
     return (
         <nav className={`site-navbar ${hidden ? 'site-navbar--hidden' : ''}`}>
             <div className="site-navbar-container">
                 {/* Logo */}
                 <Link to="/" className="navbar-logo">
-                    <div className="navbar-logo-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#FF5722" />
-                            <path d="M2 17L12 22L22 17" stroke="#FF5722" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                            <path d="M2 12L12 17L22 12" stroke="#FF5722" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                    </div>
-                    <span className="navbar-logo-text">Convert</span>
+                    <img src={logoImg} alt="Ad Mandala Logo" className="navbar-logo-img" />
+                    <span className="navbar-logo-text">Ad Mandala</span>
                 </Link>
 
                 {/* Nav Links - Desktop */}
@@ -65,18 +60,7 @@ const Navbar: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Actions */}
-                <div className="navbar-actions">
-                    <Link to="#" className="navbar-btn-login">Log in</Link>
-                    <a
-                        href={registrationUrl}
-                        className="navbar-btn-signup"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Sign up
-                    </a>
-                </div>
+
 
                 {/* Mobile Toggle */}
                 <button
@@ -97,8 +81,7 @@ const Navbar: React.FC = () => {
                     <Link to="#" className="mobile-link">Contact</Link>
                     <Link to="#" className="mobile-link">Docs</Link>
                     <Link to="#" className="mobile-link">Blog</Link>
-                    <Link to="#" className="mobile-link">Log in</Link>
-                    <a href={registrationUrl} className="mobile-btn-signup">Sign up</a>
+
                 </div>
             )}
         </nav>

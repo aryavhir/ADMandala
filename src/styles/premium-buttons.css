@@ -1,0 +1,74 @@
+/* premium-buttons.css - Reusable High-Fidelity Button Styles */
+
+.btn-premium-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 26px;
+    font-weight: 500;
+    background-color: var(--brand, #0f4a4a);
+    color: #ffffff;
+    font-size: 18px;
+    letter-spacing: -.04em;
+    border-radius: 8px;
+    font-family: "Inter Display", "Inter", sans-serif;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: visible;
+
+    /* Framer Outer Shadows */
+    box-shadow:
+        rgba(0, 0, 0, 0.13) 0.301px 0.602px 0.673px -0.833px,
+        rgba(0, 0, 0, 0.13) 1.144px 2.289px 2.559px -1.667px,
+        rgba(0, 0, 0, 0.13) 5px 10px 11.18px -2.5px;
+}
+
+.btn-premium-inner {
+    position: relative;
+    height: 1.2em;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 6px;
+
+    /* Framer Inset Shadows */
+    box-shadow:
+        rgba(0, 0, 0, 0.16) 0px -0.361px 0.939px -1.083px inset,
+        rgba(0, 0, 0, 0.15) 0px -1.373px 3.570px -2.167px inset,
+        rgba(0, 0, 0, 0.09) 0px -6px 15.6px -3.25px inset;
+}
+
+.btn-premium-text,
+.btn-premium-text-hover {
+    display: block;
+    font-family: "Inter Display", "Inter", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 1.1em;
+    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+    white-space: nowrap;
+}
+
+.btn-premium-text-hover {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+}
+
+.btn-premium-primary:hover .btn-premium-text {
+    transform: translateY(-100%);
+}
+
+.btn-premium-primary:hover .btn-premium-text-hover {
+    transform: translateY(-100%);
+}
+
+.btn-premium-primary:hover {
+    transform: scale(1.02);
+}

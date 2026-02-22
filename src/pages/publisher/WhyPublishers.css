@@ -1,0 +1,109 @@
+/* WhyPublishers.css - Convert Template Style */
+.pub-why-section {
+    padding: 120px 2rem;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.pub-why-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #FFEC D3;
+    /* Light orange tint from hero */
+    color: #0f4a4a;
+    /* Orange from hero */
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 100px;
+    margin-bottom: 24px;
+    border: 2px solid rgba(1, 67, 54, 0.2);
+}
+
+.pub-why-title {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    text-align: center;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    max-width: 800px;
+    margin-bottom: 80px;
+    text-wrap: balance;
+    width: 100%;
+}
+
+.pub-why-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.pub-why-card {
+    background: #F7F7F7;
+    border-radius: 24px;
+    padding: 48px;
+    text-align: left;
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    border: 1px solid transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.pub-why-card:hover {
+    background: #ffffff;
+    border-color: #e5e5e5;
+    box-shadow:
+        rgba(0, 0, 0, 0.04) 0px 4px 16px,
+        rgba(0, 0, 0, 0.02) 0px 8px 32px;
+    transform: translateY(-4px);
+}
+
+.pub-why-icon-wrap {
+    width: 48px;
+    height: 48px;
+    background: #ffffff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0f4a4a;
+    /* Brand color */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.pub-why-card h3 {
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: #101010;
+    margin: 0;
+}
+
+.pub-why-card p {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #666666;
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .pub-why-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pub-why-title {
+        font-size: 40px;
+        margin-bottom: 48px;
+    }
+
+    .pub-why-section {
+        padding: 80px 1.5rem;
+    }
+}

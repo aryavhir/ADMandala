@@ -1,104 +1,154 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { CheckCircle2 } from 'lucide-react';
-import p1 from '../../assets/r7.png';
-import p2 from '../../assets/r2.png';
-import p3 from '../../assets/r3.png';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import './FeatureSplits.css';
+import p1 from '../../assets/pub1.png';
+import p2 from '../../assets/pub2.png';
+import p3 from '../../assets/pub3.png';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const FeatureSplits: React.FC = () => {
+    const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+    useEffect(() => {
+        sectionRefs.current.forEach((section, index) => {
+            if (!section) return;
+
+            const image = section.querySelector('.pub-split-visual-inner');
+            if (!image) return;
+
+            // Determine slide direction based on even/odd (mirroring)
+            // Sections: 0 (even layout), 1 (odd layout - mirrored), 2 (even layout)
+            // The CSS nth-child(even) targets the 2nd section (index 1)
+            const isMirrored = index === 1;
+
+            gsap.fromTo(image,
+                {
+                    x: isMirrored ? -80 : 80,
+                    y: 80,
+                    opacity: 0,
+                    scale: 0.9
+                },
+                {
+                    x: 0,
+                    y: 0,
+                    opacity: 1,
+                    scale: 1,
+                    duration: 1.2,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top 80%",
+                        end: "top 20%",
+                        scrub: 1,
+                    }
+                }
+            );
+        });
+
+        return () => {
+            ScrollTrigger.getAll().forEach(t => t.kill());
+        };
+    }, []);
+
     return (
-        <>
-            {/* SECTION 2: INTEGRATION - Split Layout */}
-            <section className="section dsp-split-section">
-                <div className="content-wrapper">
-                    <div className="split-layout split-left animate-on-scroll">
-                        <div className="split-content">
-                            <h2>Simple Integration</h2>
-                            <p className="split-subtitle">Works with your current setup</p>
-                            <p className="split-description">Ad Mandala integrates using standard programmatic workflows, enabling:</p>
-                            <ul className="split-features">
-                                <li>
-                                    <CheckCircle2 size={20} />
-                                    <span>Compatible with existing SSP setups</span>
-                                </li>
-                                <li>
-                                    <CheckCircle2 size={20} />
-                                    <span>Standard ad serving and reporting flows</span>
-                                </li>
-                                <li>
-                                    <CheckCircle2 size={20} />
-                                    <span>Minimal technical overhead</span>
-                                </li>
-                            </ul>
-                            <p className="split-closing">You stay focused on content — we handle the exchange layer.</p>
-                        </div>
-                        <div className="split-visual purple-accent">
-                            <img src={p1} alt="Integration Dashboard" className="split-visual-image" />
+        <div className="pub-features-container">
+            {/* Split 1: Integration */}
+            <section className="pub-split-section" ref={(el) => { sectionRefs.current[0] = el as HTMLDivElement; }}>
+                <div className="pub-split-layout">
+                    <div className="pub-split-content">
+                        <h2>Simple Integration</h2>
+                        <p className="pub-split-description">Works with your current setup using standard programmatic workflows.</p>
+                        <ul className="pub-split-features">
+                            <li>
+                                <CheckCircle2 size={18} />
+                                <span>Compatible with existing SSP setups</span>
+                            </li>
+                            <li>
+                                <CheckCircle2 size={18} />
+                                <span>Standard ad serving and reporting flows</span>
+                            </li>
+                            <li>
+                                <CheckCircle2 size={18} />
+                                <span>Minimal technical overhead</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="pub-split-visual">
+                        <div className="pub-split-visual-inner">
+                            <div className="pub-split-image-wrapper">
+                                <img src={p1} alt="Integration Dashboard" className="pub-split-image" />
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* SECTION 3: QUALITY - Split Layout (Mirrored) */}
-            <section className="section dsp-split-section">
-                <div className="content-wrapper">
-                    <div className="split-layout split-right animate-on-scroll">
-                        <div className="split-visual blue-accent">
-                            <img src={p2} alt="Quality Controls" className="split-visual-image" />
-                        </div>
-                        <div className="split-content">
-                            <h2>Traffic Quality First</h2>
-                            <p className="split-subtitle">Quality is enforced — not assumed</p>
-                            <p className="split-description">Ad Mandala applies centralized traffic quality controls to:</p>
-                            <ul className="split-features">
-                                <li>
-                                    <CheckCircle2 size={20} />
-                                    <span>Detect and filter invalid traffic</span>
-                                </li>
-                                <li>
-                                    <CheckCircle2 size={20} />
-                                    <span>Protect advertiser trust</span>
-                                </li>
-                                <li>
-                                    <CheckCircle2 size={20} />
-                                    <span>Improve long-term demand value</span>
-                                </li>
-                            </ul>
-                            <p className="split-closing">This approach ensures sustainable monetization, not short-term arbitrage.</p>
+            {/* Split 2: Quality */}
+            <section className="pub-split-section" ref={(el) => { sectionRefs.current[1] = el as HTMLDivElement; }}>
+                <div className="pub-split-layout">
+                    <div className="pub-split-content">
+
+                        <h2>Traffic Quality First</h2>
+                        <p className="pub-split-description">Quality is enforced with centralized traffic controls.</p>
+                        <ul className="pub-split-features">
+                            <li>
+                                <CheckCircle2 size={18} />
+                                <span>Detect and filter invalid traffic</span>
+                            </li>
+                            <li>
+                                <CheckCircle2 size={18} />
+                                <span>Protect advertiser trust automatically</span>
+                            </li>
+                            <li>
+                                <CheckCircle2 size={18} />
+                                <span>Improve long-term demand value</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="pub-split-visual">
+                        <div className="pub-split-visual-inner">
+                            <div className="pub-split-image-wrapper">
+                                <img src={p2} alt="Quality Controls" className="pub-split-image" />
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* SECTION 4: TRANSPARENCY - Split Layout */}
-            <section className="section dsp-split-section">
-                <div className="content-wrapper">
-                    <div className="split-layout split-left animate-on-scroll">
-                        <div className="split-content">
-                            <h2>Transparent Performance</h2>
-                            <p className="split-description">Publishers get clear visibility into demand sources, fill rates, CPM performance, and traffic quality signals.</p>
-                            <p className="split-subheading">What this means for publishers:</p>
-                            <ul className="split-features">
-                                <li>
-                                    <CheckCircle2 size={20} />
-                                    <span>Moving from opaque metrics to independently verifiable data</span>
-                                </li>
-                                <li>
-                                    <CheckCircle2 size={20} />
-                                    <span>Increased confidence in revenue reporting</span>
-                                </li>
-                                <li>
-                                    <CheckCircle2 size={20} />
-                                    <span>Greater clarity in how value is distributed</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="split-visual green-accent">
-                            <img src={p3} alt="Transparency Dashboard" className="split-visual-image" />
+            {/* Split 3: Transparency */}
+            <section className="pub-split-section" ref={(el) => { sectionRefs.current[2] = el as HTMLDivElement; }}>
+                <div className="pub-split-layout">
+                    <div className="pub-split-content">
+                        <h2>Transparent Performance</h2>
+                        <p className="pub-split-description">Get clear visibility into demand sources and CPM performance.</p>
+                        <ul className="pub-split-features">
+                            <li>
+                                <CheckCircle2 size={18} />
+                                <span>Independently verifiable traffic data</span>
+                            </li>
+                            <li>
+                                <CheckCircle2 size={18} />
+                                <span>Confidence in revenue reporting</span>
+                            </li>
+                            <li>
+                                <CheckCircle2 size={18} />
+                                <span>Clear distribution of value</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="pub-split-visual">
+                        <div className="pub-split-visual-inner">
+                            <div className="pub-split-image-wrapper">
+                                <img src={p3} alt="Transparency Dashboard" className="pub-split-image" />
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
-        </>
+        </div>
     );
 };
 
