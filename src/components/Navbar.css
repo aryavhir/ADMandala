@@ -54,11 +54,11 @@
 }
 
 .navbar-logo-text {
-    font-size: 1.35rem;
-    font-weight: 700;
+    font-size: 1.55rem;
+    font-weight: 500;
     color: #0f4a4a;
     /* Brand color */
-    letter-spacing: -0.03em;
+    letter-spacing: -0.04em;
     font-family: "Inter Display", "Inter", sans-serif;
 }
 

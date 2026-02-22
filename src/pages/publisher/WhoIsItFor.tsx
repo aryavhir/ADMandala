@@ -11,6 +11,7 @@ interface CategoryData {
     description: string;
     image: string;
     icon: React.ReactNode;
+    bgColor: string;
 }
 
 const categories: CategoryData[] = [
@@ -19,21 +20,24 @@ const categories: CategoryData[] = [
         title: "Categorize contacts",
         description: "Monitor your team's productivity by viewing completed tasks and active projects.",
         image: p4,
-        icon: <Users size={22} />
+        icon: <Users size={22} />,
+        bgColor: "rgb(230, 230, 250)" // Lavender
     },
     {
         id: 1,
         title: "Organize meeting notes",
         description: "Use detailed task views, checklists, and due dates to stay on top of your projects.",
         image: p5,
-        icon: <FileText size={22} />
+        icon: <FileText size={22} />,
+        bgColor: "rgb(250, 240, 230)" // Peach
     },
     {
         id: 2,
         title: "Collaborate in real time",
         description: "Assign tasks, share notes, and engage in real-time discussions with your team.",
         image: p6,
-        icon: <Share2 size={22} />
+        icon: <Share2 size={22} />,
+        bgColor: "rgb(230, 245, 255)" // Sky
     }
 ];
 
@@ -106,7 +110,10 @@ const WhoIsItFor: React.FC = () => {
                     ))}
                 </div>
 
-                <div className="who-tabs-visual animate-on-scroll">
+                <div
+                    className="who-tabs-visual animate-on-scroll"
+                    style={{ backgroundColor: categories[activeTab].bgColor }}
+                >
                     <div className="who-visual-inner">
                         <div className="who-visual-image-wrapper">
                             {categories.map((cat, index) => (

@@ -57,7 +57,9 @@ const FeatureSplits: React.FC = () => {
         <div className="pub-features-container">
             {/* Split 1: Integration */}
             <section className="pub-split-section" ref={(el) => { sectionRefs.current[0] = el as HTMLDivElement; }}>
+
                 <div className="pub-split-layout">
+
                     <div className="pub-split-content">
                         <h2>Simple Integration</h2>
                         <p className="pub-split-description">Works with your current setup using standard programmatic workflows.</p>
@@ -76,7 +78,7 @@ const FeatureSplits: React.FC = () => {
                             </li>
                         </ul>
                     </div>
-                    <div className="pub-split-visual">
+                    <div className="pub-split-visual" style={{ backgroundColor: 'rgb(230, 230, 250)' }}>
                         <div className="pub-split-visual-inner">
                             <div className="pub-split-image-wrapper">
                                 <img src={p1} alt="Integration Dashboard" className="pub-split-image" />
@@ -108,7 +110,7 @@ const FeatureSplits: React.FC = () => {
                             </li>
                         </ul>
                     </div>
-                    <div className="pub-split-visual">
+                    <div className="pub-split-visual" style={{ backgroundColor: 'rgb(250, 240, 230)' }}>
                         <div className="pub-split-visual-inner">
                             <div className="pub-split-image-wrapper">
                                 <img src={p2} alt="Quality Controls" className="pub-split-image" />
@@ -139,7 +141,7 @@ const FeatureSplits: React.FC = () => {
                             </li>
                         </ul>
                     </div>
-                    <div className="pub-split-visual">
+                    <div className="pub-split-visual" style={{ backgroundColor: 'rgb(230, 245, 255)' }}>
                         <div className="pub-split-visual-inner">
                             <div className="pub-split-image-wrapper">
                                 <img src={p3} alt="Transparency Dashboard" className="pub-split-image" />

@@ -1,6 +1,6 @@
 /* WhoIsItFor.css */
 .pub-who-tabs-section {
-    padding: 120px 2rem;
+    padding: 80px 2rem;
     background: #ffffff;
     display: flex;
     flex-direction: column;
@@ -146,7 +146,7 @@
 
 .who-tab-progress-bar {
     height: 100%;
-    background: #FF5400;
+    background: #0f4a4a;
     /* Target orange */
     width: 0;
     transition: width 0.1s linear;
@@ -156,8 +156,6 @@
 .who-tabs-visual {
     position: relative;
     border-radius: 20px;
-    background-color: rgb(230, 230, 250);
-    /* Synced with upper section purple */
     padding: 40px 0 0 40px;
     display: flex;
     overflow: hidden;

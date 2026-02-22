@@ -1,6 +1,6 @@
 /* FeatureSplits.css - Convert Template Style */
 .pub-split-section {
-    padding: 100px 2rem;
+    padding: 80px 2rem;
     background: #ffffff;
     display: flex;
     justify-content: center;
@@ -86,8 +86,6 @@
 .pub-split-visual {
     position: relative;
     border-radius: 20px;
-    background-color: rgb(230, 230, 250);
-    /* Light Purple */
     padding: 40px 0 0 40px;
     /* Exact Framer Padding */
     display: flex;

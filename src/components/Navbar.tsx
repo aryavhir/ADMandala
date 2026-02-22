@@ -44,7 +44,7 @@ const Navbar: React.FC = () => {
                 {/* Logo */}
                 <Link to="/" className="navbar-logo">
                     <img src={logoImg} alt="Ad Mandala Logo" className="navbar-logo-img" />
-                    <span className="navbar-logo-text">Ad Mandala</span>
+                    <span className="navbar-logo-text">AdMandala</span>
                 </Link>
 
                 {/* Nav Links - Desktop */}
