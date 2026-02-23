@@ -4,13 +4,12 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import ContactForm from '../components/ContactForm';
+import FAQs from '../components/FAQs';
 
 // Sub-components
 import HeroSection from './dsp/HeroSection';
 import WhySection from './dsp/WhySection';
-import QualityControlled from './dsp/QualityControlled';
-import FamiliarExperience from './dsp/FamiliarExperience';
-import ProgressiveTransparency from './dsp/ProgressiveTransparency';
+import FeatureSplits from './dsp/FeatureSplits';
 import WhoIsItFor from './dsp/WhoIsItFor';
 import LookingAhead from '../components/LookingAhead';
 import RegisterCTA from './dsp/RegisterCTA';
@@ -33,11 +32,13 @@ function DSPs() {
 
       <HeroSection onRegisterClick={() => setShowContactModal(true)} />
       <WhySection />
-      <QualityControlled />
-      <FamiliarExperience />
-      <ProgressiveTransparency />
+      <FeatureSplits />
       <WhoIsItFor />
-      <LookingAhead id="future-view" />
+      <LookingAhead
+        id="future-view"
+        description="Ad Mandala is evolving into a verifiable advertising protocol. See how our roadmap leads to a future where every impression and click is independently validated."
+      />
+      <FAQs />
       <RegisterCTA onRegisterClick={() => setShowContactModal(true)} />
 
       <Footer />
@@ -56,3 +57,4 @@ function DSPs() {
 }
 
 export default DSPs;
+

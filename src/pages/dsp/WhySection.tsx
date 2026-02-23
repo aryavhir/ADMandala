@@ -1,58 +1,65 @@
-import { Shield, Lock, Target, BarChart3 } from 'lucide-react';
+import React from 'react';
+import './WhySection.css';
 
-const WhySection = () => {
+const WhySection: React.FC = () => {
+    const reasons = [
+        {
+            title: "Quality Publisher Inventory",
+            content: "Access curated, continuously-ranked supply from verified publishers. Every impression is vetted for quality—no remnant inventory.",
+            bgColor: "rgb(230, 230, 250)", // Lavender
+        },
+        {
+            title: "Fraud & Quality Enforcement",
+            content: "Sophisticated IVT filtering protects every bid request before it reaches your DSP. Reduce wasted spend and improve performance.",
+            bgColor: "rgb(250, 240, 230)", // Peach
+        },
+        {
+            title: "Brand-Safe Environments",
+            content: "Advanced inventory suitability scoring ensures your campaigns run only in contextually appropriate, brand-safe environments.",
+            bgColor: "rgb(230, 245, 255)", // Sky
+        },
+        {
+            title: "Standard Buying Workflows",
+            content: "No experimental models. Plug into standard RTB workflows and optimize with your existing tools and strategies.",
+            bgColor: "rgb(230, 250, 240)", // Mint
+        }
+    ];
+
     return (
-        <section id="why-advertisers" className="section dsp-why-section-minimal">
-            <div className="content-wrapper">
-                <div className="why-minimal-header animate-on-scroll">
-                    <h2>Why DSPs Choose<br />Ad Mandala</h2>
-                    <p className="why-subtitle">Ad Mandala is built for advertisers and demand partners who care about performance today — and trust tomorrow.</p>
-                </div>
+        <section id="why-advertisers" className="dsp-why-section">
+            <div className="who-tabs-header animate-on-scroll">
+                <div className="who-tabs-badge">Why AdMandala</div>
+                <h2>
+                    Why DSPs Choose <span className="text-teal">AdMandala</span>
+                </h2>
+                <p className="who-header-subtitle" style={{ marginTop: '16px' }}>
+                    Ad Mandala is built for demand partners who care about performance today — and trust tomorrow.
+                </p>
+            </div>
 
-                <div className="why-minimal-list">
-                    <div className="why-list-item animate-on-scroll">
-                        <div className="why-item-icon">
-                            <Shield size={24} />
-                        </div>
-                        <div className="why-item-content">
-                            <h3>Quality Publisher Inventory</h3>
-                            <p>Access curated, continuously-ranked supply from verified publishers. Every impression is vetted for quality—no remnant inventory.</p>
+            <div className="dsp-why-grid">
+                {reasons.map((reason, idx) => (
+                    <div
+                        key={idx}
+                        className="dsp-why-card animate-on-scroll"
+                        style={{
+                            transitionDelay: `${idx * 100}ms`,
+                            backgroundColor: reason.bgColor
+                        }}
+                    >
+                        <div className="dsp-why-border" />
+                        <div className="dsp-why-card-content">
+                            <h3 className="dsp-why-card-title">{reason.title}</h3>
+                            <div className="dsp-why-reveal-zone">
+                                <p className="dsp-why-desc">{reason.content}</p>
+                            </div>
                         </div>
                     </div>
-
-                    <div className="why-list-item animate-on-scroll" style={{ transitionDelay: '100ms' }}>
-                        <div className="why-item-icon">
-                            <Lock size={24} />
-                        </div>
-                        <div className="why-item-content">
-                            <h3>Centralized Fraud & Traffic Quality Enforcement</h3>
-                            <p>Sophisticated IVT filtering protects every bid request before it reaches your DSP. Reduce wasted spend and improve campaign performance.</p>
-                        </div>
-                    </div>
-
-                    <div className="why-list-item animate-on-scroll" style={{ transitionDelay: '200ms' }}>
-                        <div className="why-item-icon">
-                            <Target size={24} />
-                        </div>
-                        <div className="why-item-content">
-                            <h3>Brand-Safe Environments</h3>
-                            <p>Advanced inventory suitability scoring ensures your campaigns run only in contextually appropriate, brand-safe environments.</p>
-                        </div>
-                    </div>
-
-                    <div className="why-list-item animate-on-scroll" style={{ transitionDelay: '300ms' }}>
-                        <div className="why-item-icon">
-                            <BarChart3 size={24} />
-                        </div>
-                        <div className="why-item-content">
-                            <h3>Familiar Programmatic Buying Workflows</h3>
-                            <p>No experimental models. No workflow disruption. Plug into standard RTB workflows and optimize with your existing tools and strategies.</p>
-                        </div>
-                    </div>
-                </div>
+                ))}
             </div>
         </section>
     );
 };
 
 export default WhySection;
+

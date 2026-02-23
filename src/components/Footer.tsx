@@ -1,4 +1,4 @@
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Linkedin } from 'lucide-react';
 import './Footer.css';
 import privacyPdf from '../assets/Ad_mandala_PP.pdf';
@@ -6,8 +6,6 @@ import termsPdf from '../assets/Ad_Mandala_Publisher_Terms_and_Conditions (2).pd
 import logo from '../assets/fixed-logo.png';
 
 function Footer() {
-  const navigate = useNavigate();
-  const location = useLocation();
 
   return (
     <footer className="footer-convert">
@@ -48,9 +46,9 @@ function Footer() {
               <h6>Advertisers</h6>
               <div className="footer-links-list">
                 <Link to="/advertisers#why-advertisers">Why AdMandala</Link>
-                <Link to="/advertisers#quality-control">Quality Control</Link>
-                <Link to="/advertisers#familiar-ui">Familiar UI</Link>
-                <Link to="/advertisers#audience">Audience</Link>
+                <Link to="/advertisers#target-audience">Target Audience</Link>
+                <Link to="/advertisers#future-view">Future View</Link>
+                <Link to="/advertisers#faqs">Queries</Link>
               </div>
             </div>
 
