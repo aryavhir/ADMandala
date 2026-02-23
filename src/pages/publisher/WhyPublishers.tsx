@@ -65,11 +65,11 @@ const WhyPublishers: React.FC = () => {
     ];
 
     return (
-        <section className="pub-why-section">
+        <section id="why-publishers" className="pub-why-section">
             <div className="who-tabs-header animate-on-scroll">
                 <div className="who-tabs-badge">Why AdMandala</div>
                 <h2>
-                    Why Publishers Choose Ad Mandala
+                    Why Publishers Choose <span className="text-teal">AdMandala</span>
                 </h2>
             </div>
 

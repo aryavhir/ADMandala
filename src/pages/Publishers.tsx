@@ -9,7 +9,7 @@ import HeroSection from './publisher/HeroSection';
 import WhyPublishers from './publisher/WhyPublishers';
 import FeatureSplits from './publisher/FeatureSplits';
 import WhoIsItFor from './publisher/WhoIsItFor';
-import LookingAhead from './publisher/LookingAhead';
+import LookingAhead from '../components/LookingAhead';
 import RegisterCTA from './publisher/RegisterCTA';
 
 function Publishers() {
@@ -32,7 +32,10 @@ function Publishers() {
       <WhyPublishers />
       <FeatureSplits />
       <WhoIsItFor />
-      <LookingAhead />
+      <LookingAhead
+        id="future-view"
+        description="Ad Mandala is evolving from a centralized exchange into a verifiable advertising protocol. See how verification and settlement decentralize — without disrupting your monetization workflows."
+      />
       <FAQs />
       <RegisterCTA registrationUrl={registrationUrl} />
 

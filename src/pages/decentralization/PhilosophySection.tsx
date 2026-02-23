@@ -2,7 +2,7 @@ import { GitBranch, Eye, Users, BarChart3, Shield } from 'lucide-react';
 
 const PhilosophySection = () => {
     return (
-        <section className="dec-section dec-philosophy">
+        <section id="philosophy" className="dec-section dec-philosophy">
             {/* Ambient background elements */}
             <div className="dec-phil-bg" aria-hidden="true">
                 <div className="dec-phil-glow dec-phil-glow-1" />

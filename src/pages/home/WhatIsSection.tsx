@@ -3,7 +3,7 @@ import { MonitorPlay, Target, Shield, BarChart3, Network, TrendingUp, Users, Glo
 
 const WhatIsSection: React.FC = () => {
     return (
-        <section className="section what-is animate-on-scroll">
+        <section id="what-is" className="section what-is animate-on-scroll">
             <div className="content-wrapper">
                 <div className="what-is-layout">
                     <div className="what-is-text">

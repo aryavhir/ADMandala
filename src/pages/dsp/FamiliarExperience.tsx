@@ -3,7 +3,7 @@ import imgY from '../../assets/l6.png';
 
 const FamiliarExperience = () => {
     return (
-        <section className="section dsp-split-section">
+        <section id="familiar-ui" className="section dsp-split-section">
             <div className="content-wrapper">
                 <div className="split-layout split-right animate-on-scroll">
                     <div className="split-visual blue-accent">

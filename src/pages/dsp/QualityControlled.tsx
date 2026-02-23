@@ -3,7 +3,7 @@ import imgZ from '../../assets/l7.png';
 
 const QualityControlled = () => {
     return (
-        <section className="section dsp-split-section">
+        <section id="quality-control" className="section dsp-split-section">
             <div className="content-wrapper">
                 <div className="split-layout split-left animate-on-scroll">
                     <div className="split-content">

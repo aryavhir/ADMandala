@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronDown, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import './Navbar.css';
 
-import logoImg from '../assets/logow.jpg';
+import logoImg from '../assets/fixed-logo.png';
 
 const Navbar: React.FC = () => {
     const [hidden, setHidden] = useState(false);
@@ -38,6 +38,24 @@ const Navbar: React.FC = () => {
     }, [location.pathname]);
 
 
+    const handleAboutClick = (e: React.MouseEvent) => {
+        if (location.pathname === '/') {
+            e.preventDefault();
+            document.getElementById('what-is')?.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            // Let the link navigate to / and then we'll handle scroll on the Home page if needed
+            // But usually a Simple /#id works if the browser handles it.
+            // Let's use internal state or just /#what-is
+        }
+    };
+
+    const handleFAQClick = (e: React.MouseEvent) => {
+        if (location.pathname === '/publishers') {
+            e.preventDefault();
+            document.getElementById('faqs')?.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <nav className={`site-navbar ${hidden ? 'site-navbar--hidden' : ''}`}>
             <div className="site-navbar-container">
@@ -48,19 +66,14 @@ const Navbar: React.FC = () => {
                 </Link>
 
                 {/* Nav Links - Desktop */}
-                <div className="navbar-links-center">
-                    <Link to="#" className="navbar-link">Features</Link>
-                    <Link to="#" className="navbar-link">Pricing</Link>
-                    <Link to="#" className="navbar-link">About</Link>
-                    <Link to="#" className="navbar-link">Contact</Link>
-                    <Link to="#" className="navbar-link">Docs</Link>
-                    <Link to="#" className="navbar-link">Blog</Link>
-                    <div className="navbar-link navbar-dropdown-toggle">
-                        All pages <ChevronDown size={14} />
-                    </div>
+                <div className="navbar-links-right">
+                    <Link to="/" className="navbar-link">Home</Link>
+                    <Link to="/#what-is" className="navbar-link" onClick={handleAboutClick}>About</Link>
+                    <Link to="/publishers" className="navbar-link">Publishers</Link>
+                    <Link to="/advertisers" className="navbar-link">Advertisers</Link>
+                    <Link to="/decentralization" className="navbar-link">Roadmap</Link>
+                    <Link to="/publishers#faqs" className="navbar-link" onClick={handleFAQClick}>FAQ</Link>
                 </div>
-
-
 
                 {/* Mobile Toggle */}
                 <button
@@ -75,13 +88,12 @@ const Navbar: React.FC = () => {
             {/* Mobile Menu */}
             {mobileOpen && (
                 <div className="navbar-mobile-menu">
-                    <Link to="#" className="mobile-link">Features</Link>
-                    <Link to="#" className="mobile-link">Pricing</Link>
-                    <Link to="#" className="mobile-link">About</Link>
-                    <Link to="#" className="mobile-link">Contact</Link>
-                    <Link to="#" className="mobile-link">Docs</Link>
-                    <Link to="#" className="mobile-link">Blog</Link>
-
+                    <Link to="/" className="mobile-link">Home</Link>
+                    <Link to="/#what-is" className="mobile-link" onClick={handleAboutClick}>About</Link>
+                    <Link to="/publishers" className="mobile-link">Publishers</Link>
+                    <Link to="/advertisers" className="mobile-link">Advertisers</Link>
+                    <Link to="/decentralization" className="mobile-link">Roadmap</Link>
+                    <Link to="/publishers#faqs" className="mobile-link" onClick={handleFAQClick}>FAQ</Link>
                 </div>
             )}
         </nav>

@@ -13,7 +13,7 @@ import RoadmapSection from './decentralization/RoadmapSection';
 import ArchitectureSection from './decentralization/ArchitectureSection';
 import EcosystemSection from './decentralization/EcosystemSection';
 import CompatibilitySection from './decentralization/CompatibilitySection';
-import LookingAhead from './decentralization/LookingAhead';
+import LookingAhead from '../components/LookingAhead';
 import CtaSection from './decentralization/CtaSection';
 
 import './Decentralization.css';
@@ -54,7 +54,12 @@ function Decentralization() {
       <ArchitectureSection />
       <EcosystemSection />
       <CompatibilitySection />
-      <LookingAhead />
+      <LookingAhead
+        description={
+          <>Ad Mandala is not racing toward decentralization — it is <strong>progressing</strong> toward it. Each step is introduced only when it strengthens the network without disrupting existing workflows.</>
+        }
+        showButton={false}
+      />
       <CtaSection
         registrationUrl={registrationUrl}
         onRegisterClick={() => setShowContactModal(true)}

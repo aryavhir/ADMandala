@@ -84,9 +84,9 @@ export default function FAQs() {
     <section ref={sectionRef} className="faqs-section" id="faqs">
       <div className="faqs-container">
         <div ref={headingRef} className="faqs-heading-content">
-          <span className="section-badge">Your Queries, Simplified</span>
+          <div className="who-tabs-badge">Your Queries, Simplified</div>
           <h2 className="faq-heading">Questions? Answers!</h2>
-          <p className="features-description">
+          <p className="who-header-subtitle">
             Find quick answers to the most common questions about our platform
           </p>
         </div>

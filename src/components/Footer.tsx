@@ -3,37 +3,11 @@ import { Linkedin } from 'lucide-react';
 import './Footer.css';
 import privacyPdf from '../assets/Ad_mandala_PP.pdf';
 import termsPdf from '../assets/Ad_Mandala_Publisher_Terms_and_Conditions (2).pdf';
+import logo from '../assets/fixed-logo.png';
 
 function Footer() {
   const navigate = useNavigate();
   const location = useLocation();
-
-  const handleDecentralizationClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const path = '/decentralization';
-    if (location.pathname === path) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    }
-    navigate(path);
-    setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 50);
-  };
-
-  const handleFAQClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const faqSection = document.getElementById('faqs');
-    if (faqSection) {
-      faqSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else {
-      navigate('/publishers');
-      setTimeout(() => {
-        const section = document.getElementById('faqs');
-        if (section) {
-          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }, 300);
-    }
-  };
 
   return (
     <footer className="footer-convert">
@@ -41,41 +15,42 @@ function Footer() {
         <div className="footer-top">
           <div className="footer-brand-side">
             <div className="footer-logo-wrap">
-
+              <img src={logo} alt="Ad Mandala Logo" className="footer-logo-img" />
               <span className="footer-logo-text">Ad Mandala</span>
             </div>
             <p className="footer-tagline">
               The transparent ad exchange platform for the decentralized era.
             </p>
-
           </div>
 
           <div className="footer-links-side">
             <div className="footer-links-col">
-              <h6>Product</h6>
+              <h6>Publishers</h6>
               <div className="footer-links-list">
-                <Link to="/publishers">Publishers</Link>
-                <Link to="/advertisers">Advertisers</Link>
-                <a href="/decentralization" onClick={handleDecentralizationClick}>Decentralization</a>
-                <a href="#changelog">Changelog</a>
+                <Link to="/publishers#why-publishers">Why AdMandala</Link>
+                <Link to="/publishers#target-audience">Target Audience</Link>
+                <Link to="/publishers#future-view">Future View</Link>
+                <Link to="/publishers#faqs">Queries</Link>
               </div>
             </div>
 
             <div className="footer-links-col">
-              <h6>Resources</h6>
+              <h6>Roadmap</h6>
               <div className="footer-links-list">
-                <a href="#docs">API Docs</a>
-                <a href="#blog">Blogs</a>
-                <a href="#faqs" onClick={handleFAQClick}>FAQs</a>
+                <Link to="/decentralization#philosophy">Philosophy</Link>
+                <Link to="/decentralization#approach">Approach</Link>
+                <Link to="/decentralization#architecture">Architecture</Link>
+                <Link to="/decentralization#ecosystem">Ecosystem</Link>
               </div>
             </div>
 
             <div className="footer-links-col">
-              <h6>Company</h6>
+              <h6>Advertisers</h6>
               <div className="footer-links-list">
-                <Link to="/about">About</Link>
-                <Link to="/careers">Careers</Link>
-                <Link to="/contact">Contact</Link>
+                <Link to="/advertisers#why-advertisers">Why AdMandala</Link>
+                <Link to="/advertisers#quality-control">Quality Control</Link>
+                <Link to="/advertisers#familiar-ui">Familiar UI</Link>
+                <Link to="/advertisers#audience">Audience</Link>
               </div>
             </div>
 
@@ -84,7 +59,6 @@ function Footer() {
               <div className="footer-links-list">
                 <a href={termsPdf} target="_blank" rel="noopener noreferrer">Terms</a>
                 <a href={privacyPdf} target="_blank" rel="noopener noreferrer">Privacy</a>
-                <a href="#cookie">Cookie Policy</a>
               </div>
             </div>
           </div>

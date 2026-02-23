@@ -12,7 +12,7 @@ import WhySection from './home/WhySection';
 import WhatsLiveSection from './home/WhatsLiveSection';
 import RoadmapSection from './home/RoadmapSection';
 import AudiencePanels from './home/AudiencePanels';
-import LookingAhead from './home/LookingAhead';
+import LookingAhead from '../components/LookingAhead';
 
 function Home() {
   useScrollAnimation();

@@ -11,6 +11,10 @@
     --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+.text-teal {
+    color: #117373;
+}
+
 .pub-why-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

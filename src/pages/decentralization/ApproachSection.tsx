@@ -2,7 +2,7 @@ import { Box, Zap, Shield, Activity } from 'lucide-react';
 
 const ApproachSection = () => {
     return (
-        <section className="dec-section dec-approach">
+        <section id="approach" className="dec-section dec-approach">
             {/* Ambient background */}
             <div className="dec-approach-bg" aria-hidden="true">
                 <div className="dec-approach-orb dec-approach-orb-1" />

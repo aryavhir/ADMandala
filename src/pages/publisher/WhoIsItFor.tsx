@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Users, FileText, Share2 } from 'lucide-react';
+import { Users, Globe, Shield } from 'lucide-react';
 import './WhoIsItFor.css';
 import p4 from '../../assets/pub1.png';
 import p5 from '../../assets/pub2.png';
@@ -17,26 +17,26 @@ interface CategoryData {
 const categories: CategoryData[] = [
     {
         id: 0,
-        title: "Categorize contacts",
-        description: "Monitor your team's productivity by viewing completed tasks and active projects.",
+        title: "Independent Publishers",
+        description: "Seeking quality-focused demand with transparent reporting, reliable payouts, and access to premium advertisers. Connect your inventory and start monetizing within minutes.",
         image: p4,
         icon: <Users size={22} />,
         bgColor: "rgb(230, 230, 250)" // Lavender
     },
     {
         id: 1,
-        title: "Organize meeting notes",
-        description: "Use detailed task views, checklists, and due dates to stay on top of your projects.",
+        title: "Media Networks",
+        description: "Managing multiple properties and seeking centralized quality enforcement. Get consistent traffic filtering, unified reporting, and scalable monetization infrastructure.",
         image: p5,
-        icon: <FileText size={22} />,
+        icon: <Globe size={22} />,
         bgColor: "rgb(250, 240, 230)" // Peach
     },
     {
         id: 2,
-        title: "Collaborate in real time",
-        description: "Assign tasks, share notes, and engage in real-time discussions with your team.",
+        title: "SSPs & Supply Partners",
+        description: "Who value stability, clear demand relationships, and future-proof infrastructure. Access quality-focused advertisers today with a clear roadmap toward decentralized verification.",
         image: p6,
-        icon: <Share2 size={22} />,
+        icon: <Shield size={22} />,
         bgColor: "rgb(230, 245, 255)" // Sky
     }
 ];
@@ -72,7 +72,7 @@ const WhoIsItFor: React.FC = () => {
     };
 
     return (
-        <section className="pub-who-tabs-section">
+        <section id="target-audience" className="pub-who-tabs-section">
             <div className="who-tabs-header animate-on-scroll">
                 <div className="who-tabs-badge">Audience</div>
                 <h2>Who This Is For</h2>

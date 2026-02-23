@@ -34,14 +34,10 @@
     gap: 10px;
 }
 
-.footer-logo-icon {
-    width: 24px;
-    height: 24px;
-    background: linear-gradient(135deg, #FF5400 0%, #FF8A00 100%);
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.footer-logo-img {
+    width: 32px;
+    height: auto;
+    display: block;
 }
 
 .footer-logo-text {

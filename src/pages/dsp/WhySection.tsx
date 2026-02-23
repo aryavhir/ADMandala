@@ -2,7 +2,7 @@ import { Shield, Lock, Target, BarChart3 } from 'lucide-react';
 
 const WhySection = () => {
     return (
-        <section className="section dsp-why-section-minimal">
+        <section id="why-advertisers" className="section dsp-why-section-minimal">
             <div className="content-wrapper">
                 <div className="why-minimal-header animate-on-scroll">
                     <h2>Why DSPs Choose<br />Ad Mandala</h2>

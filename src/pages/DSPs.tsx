@@ -12,7 +12,7 @@ import QualityControlled from './dsp/QualityControlled';
 import FamiliarExperience from './dsp/FamiliarExperience';
 import ProgressiveTransparency from './dsp/ProgressiveTransparency';
 import WhoIsItFor from './dsp/WhoIsItFor';
-import LookingAhead from './dsp/LookingAhead';
+import LookingAhead from '../components/LookingAhead';
 import RegisterCTA from './dsp/RegisterCTA';
 
 function DSPs() {
@@ -37,7 +37,7 @@ function DSPs() {
       <FamiliarExperience />
       <ProgressiveTransparency />
       <WhoIsItFor />
-      <LookingAhead />
+      <LookingAhead id="future-view" />
       <RegisterCTA onRegisterClick={() => setShowContactModal(true)} />
 
       <Footer />

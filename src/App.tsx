@@ -10,9 +10,21 @@ import Decentralization from './pages/Decentralization';
 // Wrapper to scroll to top on route change
 const ScrollToTop = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
+
   useLayoutEffect(() => {
-    document.documentElement.scrollTo(0, 0);
-  }, [location.pathname]);
+    if (!location.hash) {
+      document.documentElement.scrollTo(0, 0);
+    } else {
+      setTimeout(() => {
+        const id = location.hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, [location.pathname, location.hash]);
+
   return children;
 };
 
@@ -20,7 +32,7 @@ function App() {
   return (
     <Router>
       <div className="app-background">
-         {/* Background Animation Elements exist globally */}
+        {/* Background Animation Elements exist globally */}
         <div className="bg-orb orb-1"></div>
         <div className="bg-orb orb-2"></div>
       </div>

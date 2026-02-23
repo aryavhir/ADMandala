@@ -5,7 +5,7 @@ import img4 from '../../assets/l4.png';
 
 const WhoIsItFor = () => {
     return (
-        <section className="section dsp-who-section">
+        <section id="audience" className="section dsp-who-section">
             <div className="content-wrapper">
                 <div className="who-header animate-on-scroll">
                     <h2>Who This Is For</h2>
