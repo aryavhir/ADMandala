@@ -21,11 +21,10 @@ import l6 from '../assets/pub2.png';
 import l5 from '../assets/pub3.png';
 import l1 from '../assets/pub1.png';
 import l2 from '../assets/pub2.png';
-import l3 from '../assets/pub3.png';
 import l4 from '../assets/pub1.png';
 
 // Icons
-import { Users, BarChart, Shield, Layout } from 'lucide-react';
+import { Users, BarChart, Layout } from 'lucide-react';
 
 function DSPs() {
   useScrollAnimation();
