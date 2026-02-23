@@ -13,7 +13,7 @@ import PremiumWhoIsItFor from '../components/premium/PremiumWhoIsItFor';
 import PremiumCTA from '../components/premium/PremiumCTA';
 
 // Assets
-import dashboardImg from '../assets/12.png';
+import dashboardImg from '../assets/Screenshot 2026-02-23 171204.png';
 import p1 from '../assets/pub1.png';
 import p2 from '../assets/pub2.png';
 import p3 from '../assets/pub3.png';
