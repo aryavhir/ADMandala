@@ -1,0 +1,761 @@
+/* ════════════════════════════════════════════════════
+   PREMIUM SHARED LAYOUTS
+   ════════════════════════════════════════════════════ */
+
+:root {
+    --brand: #0f4a4a;
+    --brand-rgb: 15, 74, 74;
+    --ease-premium: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* ── Premium Hero ── */
+.prem-hero {
+    position: relative;
+    padding: 10rem 2rem 0;
+    background: #ffffff;
+    overflow: visible;
+    gap: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: min-content;
+}
+
+.prem-hero-circle-wrap {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.prem-hero-circle {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    border-radius: 100%;
+    background-color: rgba(15, 74, 74, 0.2);
+    -webkit-mask: radial-gradient(50% 50%, rgba(0, 0, 0, 0) 20.6011%, rgba(0, 0, 0, 0.6) 100%);
+    mask: radial-gradient(50% 50%, rgba(0, 0, 0, 0) 20.6011%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 0;
+    pointer-events: none;
+    will-change: transform;
+    transform-origin: center center;
+}
+
+.prem-hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+    z-index: 5;
+    position: relative;
+}
+
+.prem-hero-h1 {
+    font-family: "Inter Display", "Inter", sans-serif;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.05em;
+    color: #101010;
+    margin-bottom: 16px;
+    text-wrap: balance;
+}
+
+.prem-hero-h1 span {
+    display: inline;
+    color: #1a1a1a;
+}
+
+.prem-hero-desc {
+    font-size: 20px;
+    color: #000000;
+    max-width: 540px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.3em;
+    font-weight: 400;
+    letter-spacing: -.04em;
+}
+
+.prem-hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.prem-hero-cta-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 26px;
+    background: transparent;
+    color: #1a1a1a;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 12px;
+    text-decoration: none;
+    border: 1px solid #e5e7eb;
+    transition: all 0.25s ease;
+}
+
+.prem-hero-cta-ghost:hover {
+    background: #f9fafb;
+    border-color: #d1d5db;
+}
+
+.prem-hero-mockup-wrap {
+    flex-flow: column;
+    flex: none;
+    place-content: center flex-start;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+    max-width: 1000px;
+    height: min-content;
+    padding: 0;
+    display: flex;
+    position: relative;
+    overflow: visible;
+    margin: 0 auto;
+    z-index: 20;
+}
+
+.prem-hero-mockup {
+    opacity: 1;
+    transform: perspective(1000px) translateY(-120px) scale(0.8) rotateX(30deg);
+    will-change: transform;
+    height: min-content;
+    transform-style: preserve-3d;
+    z-index: 1;
+    border-radius: 12px;
+    width: 100%;
+    display: flex;
+    position: relative;
+    overflow: visible;
+    background: #000000;
+    border: 6px solid #101010;
+}
+
+.prem-mockup-inner {
+    aspect-ratio: 1.66667;
+    height: 593px;
+    border-radius: 12px;
+    flex: 1 0 0;
+    width: 1px;
+    position: relative;
+    overflow: visible;
+}
+
+.prem-mockup-img-container {
+    position: absolute;
+    border-radius: inherit;
+    inset: 0px;
+    overflow: hidden;
+}
+
+.prem-mockup-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    object-position: left top;
+    object-fit: cover;
+}
+
+@media (min-width: 900px) and (max-width: 1399.98px) {
+    .prem-mockup-inner {
+        height: 494px;
+    }
+}
+
+@media (max-width: 768px) {
+    .prem-hero {
+        padding: 7rem 1.5rem 0;
+        min-height: auto;
+    }
+
+    .prem-hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .prem-hero-cta-ghost {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ── Premium Why Grid ── */
+.prem-why-section {
+    padding: 80px 2rem;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.prem-why-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.prem-why-card {
+    position: relative;
+    border: 1px solid rgba(15, 74, 74, 0.05);
+    border-radius: 12px;
+    padding: 60px 40px;
+    min-height: 320px;
+    cursor: default;
+    transition: all 0.7s var(--ease-premium);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.prem-why-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(15, 74, 74, 0.08), 0 4px 12px rgba(15, 74, 74, 0.03);
+    border-color: rgba(15, 74, 74, 0.2);
+}
+
+.prem-why-border {
+    position: absolute;
+    inset: 16px;
+    border: 1px solid var(--brand);
+    opacity: 0;
+    transform: scale(0.92);
+    transition: all 0.6s var(--ease-premium);
+    pointer-events: none;
+    z-index: 5;
+}
+
+.prem-why-card:hover .prem-why-border {
+    opacity: 0.12;
+    transform: scale(1);
+}
+
+.prem-why-card-content {
+    position: relative;
+    z-index: 2;
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.prem-why-card-title {
+    font-size: 26px;
+    font-weight: 500;
+    color: #101010;
+    margin: 0;
+    letter-spacing: -0.04em;
+    line-height: 1.2;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.6s var(--ease-premium);
+    max-width: 90%;
+}
+
+.prem-why-card:hover .prem-why-card-title {
+    transform: translateY(-60px);
+}
+
+.prem-why-reveal-zone {
+    position: absolute;
+    top: 45%;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s var(--ease-premium);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+}
+
+.prem-why-card:hover .prem-why-reveal-zone {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.prem-why-desc {
+    font-size: 1.05rem;
+    color: #101010;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 90%;
+    opacity: 0.8;
+}
+
+@media (max-width: 900px) {
+    .prem-why-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+
+    .prem-why-card {
+        min-height: auto;
+        padding: 60px 32px;
+    }
+
+    .prem-why-card-title {
+        transform: none !important;
+        margin-bottom: 30px;
+        font-size: 24px !important;
+    }
+
+    .prem-why-reveal-zone {
+        position: relative;
+        top: 0;
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+    }
+}
+
+/* ── Premium Feature Splits ── */
+.prem-split-section {
+    padding: 80px 2rem;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+}
+
+.prem-split-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.prem-split-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: left;
+    padding-top: 40px;
+}
+
+.prem-split-content h2 {
+    font-size: 36px;
+    font-weight: 500;
+    letter-spacing: -.04em;
+    margin: 0;
+    line-height: 1.3em;
+    color: #101010;
+}
+
+.prem-split-desc {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #000000;
+    margin: 0;
+}
+
+.prem-split-features {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.prem-split-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #000000;
+}
+
+.prem-split-features li svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: var(--brand);
+}
+
+.prem-split-visual {
+    position: relative;
+    border-radius: 20px;
+    padding: 40px 0 0 40px;
+    display: flex;
+    overflow: hidden;
+    border: 1px solid rgba(184, 184, 184, 0.2);
+    aspect-ratio: 1.33333;
+    will-change: transform;
+}
+
+.prem-split-visual-inner {
+    flex: 1;
+    display: flex;
+    background: #ffffff;
+    border-top: 2px solid rgba(184, 184, 184, 0.2);
+    border-left: 2px solid rgba(184, 184, 184, 0.2);
+    border-bottom: 2px solid rgba(184, 184, 184, 0.2);
+    border-top-left-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    will-change: transform;
+}
+
+.prem-split-img-wrapper {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    overflow: hidden;
+}
+
+.prem-split-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left top;
+    display: block;
+}
+
+.prem-split-section:nth-child(even) .prem-split-layout .prem-split-visual {
+    order: -1;
+    padding: 40px 40px 0 0;
+}
+
+.prem-split-section:nth-child(even) .prem-split-visual-inner {
+    border-left: none;
+    border-right: 2px solid rgba(184, 184, 184, 0.2);
+    border-top-left-radius: 0;
+    border-top-right-radius: 12px;
+}
+
+@media (max-width: 900px) {
+    .prem-split-layout {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .prem-split-section:nth-child(even) .prem-split-layout .prem-split-visual {
+        order: 0;
+    }
+
+    .prem-split-content h2 {
+        font-size: 32px;
+    }
+
+    .prem-split-section {
+        padding: 60px 1.5rem;
+    }
+
+    .prem-split-visual {
+        padding: 24px;
+    }
+}
+
+/* ── Premium Tabbing (Who Is It For) ── */
+.prem-who-tabs-section {
+    padding: 80px 2rem;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.prem-tabs-header {
+    text-align: center;
+    max-width: 800px;
+    margin-bottom: 80px;
+}
+
+.prem-tabs-badge {
+    display: inline-flex;
+    padding: 6px 16px;
+    background: #101010;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 100px;
+    margin-bottom: 32px;
+}
+
+.prem-tabs-header h2 {
+    font-size: 36px !important;
+    line-height: 1.3;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: -0.07em;
+    color: #101010;
+    margin-bottom: 16px;
+}
+
+.prem-tabs-subtitle {
+    font-size: 20px;
+    line-height: 1.4;
+    color: #000000;
+    margin: 0;
+    letter-spacing: -0.04em;
+    font-weight: 400;
+}
+
+.prem-tabs-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    max-width: 1000px;
+    width: 100%;
+    align-items: flex-start;
+}
+
+.prem-tabs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+}
+
+.prem-tab-item {
+    padding: 24px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    opacity: 0.5;
+}
+
+.prem-tab-item:hover,
+.prem-tab-item.active {
+    opacity: 1;
+}
+
+.prem-tab-item:last-child {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.prem-tab-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.prem-tab-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.prem-tab-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666666;
+    transition: color 0.3s ease;
+}
+
+.prem-tab-item.active .prem-tab-icon {
+    color: #101010;
+}
+
+.prem-tab-title {
+    font-size: 20px;
+    font-weight: 500;
+    color: #666666;
+    margin: 0;
+    letter-spacing: -0.04em;
+    transition: color 0.3s ease;
+}
+
+.prem-tab-item.active .prem-tab-title {
+    color: #000000;
+}
+
+.prem-tab-desc {
+    font-size: 16px;
+    line-height: 1.3;
+    color: #666666;
+    max-width: 440px;
+    overflow: hidden;
+    letter-spacing: -0.04em;
+}
+
+.prem-tab-progress-wrap {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 400px;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.prem-tab-progress-bar {
+    height: 100%;
+    background: var(--brand);
+    width: 0;
+    transition: width 0.1s linear;
+}
+
+.prem-tabs-visual {
+    position: relative;
+    border-radius: 20px;
+    padding: 40px 0 0 40px;
+    display: flex;
+    overflow: hidden;
+    border: 1px solid rgba(184, 184, 184, 0.2);
+    aspect-ratio: 1.33333;
+    will-change: transform;
+}
+
+.prem-visual-inner {
+    flex: 1;
+    display: flex;
+    background: #ffffff;
+    border-top: 2px solid rgba(184, 184, 184, 0.2);
+    border-left: 2px solid rgba(184, 184, 184, 0.2);
+    border-bottom: 2px solid rgba(184, 184, 184, 0.2);
+    border-top-left-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.prem-tab-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left top;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.prem-tab-img.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 1024px) {
+    .prem-tabs-container {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .prem-who-tabs-section {
+        padding: 60px 1.5rem;
+    }
+
+    .prem-tabs-header h2 {
+        font-size: 32px;
+    }
+}
+
+/* ── Premium CTA ── */
+.prem-cta-section {
+    padding: 70px 2rem 100px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.prem-cta-container {
+    max-width: 1100px;
+    width: 100%;
+    background-color: var(--brand);
+    border-radius: 40px;
+    position: relative;
+    padding: 80px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.prem-cta-inner-bg {
+    position: absolute;
+    width: 60%;
+    height: 150%;
+    background-color: #f2fffd;
+    border-radius: 1000px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 60px rgba(0, 0, 0, 0.05);
+    z-index: 1;
+}
+
+.prem-cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 580px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.prem-cta-badge {
+    background-color: rgb(16, 16, 16);
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.prem-cta-content h2 {
+    font-size: 36px !important;
+    line-height: 1.3;
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    color: #101010;
+    margin: 0;
+}
+
+.prem-cta-desc {
+    font-size: 20px;
+    line-height: 1.3;
+    color: #333333;
+    margin: 0;
+    letter-spacing: -0.04em;
+}
+
+@media (max-width: 900px) {
+    .prem-cta-inner-bg {
+        width: 85%;
+    }
+
+    .prem-cta-container {
+        padding: 60px 24px;
+        border-radius: 32px;
+    }
+}
+
+@media (max-width: 600px) {
+    .prem-cta-inner-bg {
+        width: 140%;
+        height: 120%;
+    }
+
+    .prem-cta-section {
+        padding: 60px 1rem;
+    }
+}
