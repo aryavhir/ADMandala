@@ -17,7 +17,7 @@
     right: 0;
     height: var(--navbar-height);
     background: #ffffff;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid rgba(16, 16, 16, 0.2);
     z-index: 2000;
     transition: transform 0.3s ease-in-out;
     display: flex;

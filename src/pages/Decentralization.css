@@ -28,7 +28,7 @@
   --radius-sm: 10px;
   --radius-md: 16px;
   --radius-lg: 24px;
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
   --shadow-md: 0 8px 30px rgba(15, 74, 74, 0.06);
   --shadow-lg: 0 20px 60px rgba(15, 74, 74, 0.08);
   --shadow-xl: 0 30px 80px rgba(15, 74, 74, 0.12);
@@ -175,7 +175,6 @@
 .dec-hero-layout {
   display: flex;
   align-items: center;
-  gap: 4rem;
   position: relative;
   z-index: 2;
 }
@@ -238,49 +237,20 @@
 }
 
 /* ══════════════════════════════════════════════
-   HERO VISUAL — 3D Cube + Constellation
+   HERO VISUAL — 3-Step Curved Line Animation
    ══════════════════════════════════════════════ */
 .dec-hero-visual {
   flex-shrink: 0;
   position: relative;
 }
 
-.dec-vis {
+.dec-step-visual {
   position: relative;
-  width: 500px;
-  height: 500px;
+  width: 620px;
+  height: 440px;
 }
 
-/* ── Scan Line ── */
-.dec-scanline {
-  position: absolute;
-  inset: 0;
-  z-index: 10;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.dec-scanline::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(var(--brand-rgb), 0.25), rgba(var(--brand-rgb), 0.5), rgba(var(--brand-rgb), 0.25), transparent);
-  box-shadow: 0 0 20px 4px rgba(var(--brand-rgb), 0.15);
-  animation: dec-scan 4s ease-in-out infinite;
-}
-
-@keyframes dec-scan {
-  0%, 100% { top: -2px; opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { top: 100%; opacity: 0; }
-}
-
-/* ── Constellation SVG ── */
-.dec-constellation {
+.dec-step-svg {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -288,290 +258,168 @@
   z-index: 1;
 }
 
-.dec-con-line {
-  stroke: rgba(var(--brand-rgb), 0.1);
-  stroke-width: 1;
-  stroke-dasharray: 200;
-  stroke-dashoffset: 200;
-  animation: dec-line-draw 2s ease forwards, dec-line-pulse 6s ease-in-out infinite 2s;
+/* Light grey base path — always visible */
+.dec-step-base-path {
+  fill: none;
+  stroke: #e8e8e8;
+  stroke-width: 3;
+  stroke-linecap: round;
 }
 
-.dec-cl-1  { animation-delay: 0s, 2s; }
-.dec-cl-2  { animation-delay: 0.1s, 2.1s; }
-.dec-cl-3  { animation-delay: 0.2s, 2.2s; }
-.dec-cl-4  { animation-delay: 0.3s, 2.3s; }
-.dec-cl-5  { animation-delay: 0.4s, 2.4s; }
-.dec-cl-6  { animation-delay: 0.5s, 2.5s; }
-.dec-cl-7  { animation-delay: 0.6s, 2.6s; }
-.dec-cl-8  { animation-delay: 0.7s, 2.7s; }
-.dec-cl-9  { animation-delay: 0.8s, 2.8s; }
-.dec-cl-10 { animation-delay: 0.9s, 2.9s; }
-
-.dec-cl-cross {
-  stroke: rgba(var(--brand-rgb), 0.05);
-  stroke-width: 0.5;
-  stroke-dasharray: 300;
-  stroke-dashoffset: 300;
-  animation: dec-line-draw 3s ease forwards 1s, dec-line-pulse 8s ease-in-out infinite 4s;
+/* Animated coloured stroke overlay */
+.dec-step-anim-path {
+  fill: none;
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 1400;
+  animation: dec-stroke-draw 11s ease-in-out forwards;
 }
 
-@keyframes dec-line-draw {
-  to { stroke-dashoffset: 0; }
+@keyframes dec-stroke-draw {
+  0% {
+    stroke-dashoffset: 1400;
+  }
+
+  /* Reach Step 1 Peak (~25% of x-space, but path is longer) */
+  22% {
+    stroke-dashoffset: 1050;
+  }
+
+  /* Pause at Step 1 */
+  32% {
+    stroke-dashoffset: 1050;
+  }
+
+  /* Reach Step 2 Peak (~55% of x-space) */
+  55% {
+    stroke-dashoffset: 600;
+  }
+
+  /* Pause at Step 2 */
+  65% {
+    stroke-dashoffset: 600;
+  }
+
+  /* Reach Step 3 Peak (~85% of x-space) */
+  88% {
+    stroke-dashoffset: 180;
+  }
+
+  /* Complete to end */
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
 
-@keyframes dec-line-pulse {
-  0%, 100% { stroke-opacity: 0.4; }
-  50% { stroke-opacity: 1; }
-}
-
-/* Signal dots traveling on paths */
-.dec-signal {
-  filter: drop-shadow(0 0 3px rgba(var(--brand-rgb), 0.4));
-}
-
-/* Node halos */
-.dec-node-halo {
-  animation: dec-halo-pulse 3s ease-in-out infinite;
-}
-
-@keyframes dec-halo-pulse {
-  0%, 100% { r: 14; opacity: 0.15; }
-  50% { r: 20; opacity: 0.35; }
-}
-
-/* Twinkle stars */
-.dec-twinkle { animation: dec-twinkle-anim 4s ease-in-out infinite; }
-.dec-tw-1 { animation-delay: 0s; }
-.dec-tw-2 { animation-delay: 0.8s; }
-.dec-tw-3 { animation-delay: 1.6s; }
-.dec-tw-4 { animation-delay: 2.4s; }
-.dec-tw-5 { animation-delay: 3.2s; }
-
-@keyframes dec-twinkle-anim {
-  0%, 100% { opacity: 0.1; r: 1; }
-  50% { opacity: 0.6; r: 2.5; }
-}
-
-/* ── 3D Rotating Cube ── */
-.dec-cube-wrapper {
+/* ── Step Groups ── */
+.dec-step-group {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   z-index: 5;
-}
-
-.dec-cube-glow {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(var(--brand-rgb), 0.15) 0%, rgba(var(--brand-rgb), 0.05) 40%, transparent 70%);
-  border-radius: 50%;
-  animation: dec-glow-breathe 4s ease-in-out infinite;
-  pointer-events: none;
-}
-
-@keyframes dec-glow-breathe {
-  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
-  50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
-}
-
-.dec-cube-scene {
-  width: 110px;
-  height: 110px;
-  perspective: 600px;
-}
-
-.dec-cube {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  animation: dec-cube-rotate 20s ease-in-out infinite;
-}
-
-@keyframes dec-cube-rotate {
-  0%   { transform: rotateX(-20deg) rotateY(0deg); }
-  25%  { transform: rotateX(-10deg) rotateY(90deg); }
-  50%  { transform: rotateX(-25deg) rotateY(180deg); }
-  75%  { transform: rotateX(-15deg) rotateY(270deg); }
-  100% { transform: rotateX(-20deg) rotateY(360deg); }
-}
-
-.dec-cube-face {
-  position: absolute;
-  width: 110px;
-  height: 110px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 6px;
-  border: 1px solid rgba(var(--brand-rgb), 0.2);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  color: var(--brand);
-  font-size: 0.6rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  box-shadow: inset 0 0 30px rgba(var(--brand-rgb), 0.04);
+  text-align: center;
+  opacity: 0;
 }
 
-.dec-face-front  { transform: rotateY(0deg) translateZ(55px); background: rgba(255,255,255,0.85); border-color: rgba(var(--brand-rgb), 0.25); }
-.dec-face-back   { transform: rotateY(180deg) translateZ(55px); background: rgba(255,255,255,0.75); }
-.dec-face-right  { transform: rotateY(90deg) translateZ(55px); background: rgba(255,255,255,0.80); }
-.dec-face-left   { transform: rotateY(-90deg) translateZ(55px); background: rgba(255,255,255,0.80); }
-.dec-face-top    { transform: rotateX(90deg) translateZ(55px); background: rgba(255,255,255,0.70); }
-.dec-face-bottom { transform: rotateX(-90deg) translateZ(55px); background: rgba(255,255,255,0.70); }
-
-.dec-cube-face svg {
-  opacity: 0.85;
-}
-
-/* ── Floating Glass Data Cards ── */
-.dec-datacard {
+.dec-step-number {
   position: absolute;
-  z-index: 8;
-  padding: 10px 14px;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(var(--brand-rgb), 0.12);
-  border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(255,255,255,0.5) inset;
-  min-width: 120px;
-  animation: dec-card-float 6s ease-in-out infinite;
+  bottom: 24px;
+  /* Above the line */
+  font-size: 5.5rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  opacity: 0.12;
+  transition: opacity 0.4s ease;
 }
 
-.dec-dc-row {
+.dec-step-content {
+  position: absolute;
+  top: 18px;
+  /* Below the line */
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 5px;
-  margin-bottom: 4px;
-  color: var(--brand);
+  width: 240px;
 }
 
-.dec-dc-label {
-  font-size: 0.6rem;
-  font-weight: 700;
+.dec-step-title {
+  font-size: 1.05rem;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--text-muted);
+  margin-bottom: 6px;
 }
 
-.dec-dc-value {
-  font-size: 1.1rem;
-  font-weight: 900;
-  color: var(--brand);
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  display: block;
+.dec-step-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary, #4a5568);
+  line-height: 1.6;
 }
 
-.dec-dc-value small {
-  font-size: 0.55rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  letter-spacing: 0;
+/* Step Colors */
+.dec-sn-1 {
+  color: #5ba3cf;
 }
 
-.dec-dc-bar {
-  height: 3px;
-  background: rgba(var(--brand-rgb), 0.08);
-  border-radius: 4px;
-  margin-top: 6px;
-  overflow: hidden;
+.dec-step-1 .dec-step-title {
+  color: #4a90c4;
 }
 
-.dec-dc-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--brand), var(--brand-light));
-  border-radius: 4px;
-  animation: dec-bar-grow 2s ease forwards;
+.dec-sn-2 {
+  color: #38b2ac;
 }
 
-@keyframes dec-bar-grow {
-  from { width: 0 !important; }
+.dec-step-2 .dec-step-title {
+  color: #319795;
 }
 
-/* Spark chart in the Nodes card */
-.dec-dc-spark {
-  display: flex;
-  align-items: flex-end;
-  gap: 2px;
-  height: 24px;
-  margin-top: 6px;
+.dec-sn-3 {
+  color: #48bb78;
 }
 
-.dec-dc-spark-bar {
-  flex: 1;
-  background: linear-gradient(to top, var(--brand), var(--brand-light));
-  border-radius: 2px;
-  opacity: 0.6;
-  animation: dec-spark-rise 1.5s ease forwards;
-  transform-origin: bottom;
+.dec-step-3 .dec-step-title {
+  color: #38a169;
 }
 
-@keyframes dec-spark-rise {
-  from { transform: scaleY(0); }
-  to { transform: scaleY(1); }
+/* Peak positions: x corresponds to left %, y corresponds to bottom % */
+/* 
+   viewBox 1000 x 400
+   Peak 1: (250, 240) -> x=25%, y=160 (from bottom) -> bottom=40%
+   Peak 2: (550, 180) -> x=55%, y=220 (from bottom) -> bottom=55%
+   Peak 3: (850, 100) -> x=85%, y=300 (from bottom) -> bottom=75%
+*/
+
+.dec-step-1 {
+  left: 25%;
+  bottom: 40%;
+  animation: dec-step-reveal 0.4s ease-out 3.2s forwards;
 }
 
-.dec-dc-1 {
-  top: 6%;
-  right: -5%;
-  animation-delay: 0s;
+.dec-step-2 {
+  left: 55%;
+  bottom: 55%;
+  animation: dec-step-reveal 0.4s ease-out 6.8s forwards;
 }
 
-.dec-dc-2 {
-  bottom: 14%;
-  left: -6%;
-  animation-delay: 1.5s;
+.dec-step-3 {
+  left: 85%;
+  bottom: 75%;
+  animation: dec-step-reveal 0.4s ease-out 9.5s forwards;
 }
 
-.dec-dc-3 {
-  bottom: 4%;
-  right: 2%;
-  animation-delay: 3s;
-}
+@keyframes dec-step-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
 
-@keyframes dec-card-float {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  33% { transform: translateY(-8px) rotate(0.5deg); }
-  66% { transform: translateY(4px) rotate(-0.3deg); }
-}
-
-/* ── Orbit Energy Ring ── */
-.dec-energy-ring {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.dec-energy-ring svg {
-  width: 100%;
-  height: 100%;
-}
-
-.dec-energy-path {
-  transform-origin: center;
-  animation: dec-orbit-spin 25s linear infinite;
-}
-
-.dec-energy-path-r {
-  transform-origin: center;
-  animation: dec-orbit-spin 35s linear infinite reverse;
-}
-
-@keyframes dec-orbit-spin {
-  to { transform: rotate(360deg); }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ── Hero Stats Bar ── */
@@ -660,8 +508,15 @@
 }
 
 @keyframes dec-phil-float {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(30px, -20px) scale(1.05); }
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(30px, -20px) scale(1.05);
+  }
 }
 
 .dec-phil-grid-lines {
@@ -804,12 +659,10 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(15, 74, 74, 0.04) 50%,
-    transparent 100%
-  );
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(15, 74, 74, 0.04) 50%,
+      transparent 100%);
   opacity: 0;
   transition: transform 0.8s var(--ease), opacity 0.3s;
   pointer-events: none;
@@ -1071,8 +924,17 @@
 }
 
 @keyframes dec-mandala-pulse {
-  0%, 100% { opacity: 0.5; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.05); }
+
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
 }
 
 .dec-mandala-svg-new {
@@ -1120,8 +982,15 @@
 }
 
 @keyframes dec-badge-bob {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
 }
 
 /* Keep old svg spin for backward compat */
@@ -1144,7 +1013,9 @@
 }
 
 @keyframes dec-slow-spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* ── Copy side ── */
@@ -1482,8 +1353,17 @@
 }
 
 @keyframes dec-pulse-dot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.7); }
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.4;
+    transform: scale(0.7);
+  }
 }
 
 /* ── Details panel ── */
@@ -1588,10 +1468,21 @@
 /* ═══ Keyframes ═══ */
 
 @keyframes dec-phase-opacity {
-  0%   { border-right: 1px solid transparent; }
-  10%  { border-right: 1px solid var(--brand); }
-  80%  { border-right: 1px solid var(--brand); }
-  100% { border-right: 1px solid transparent; }
+  0% {
+    border-right: 1px solid transparent;
+  }
+
+  10% {
+    border-right: 1px solid var(--brand);
+  }
+
+  80% {
+    border-right: 1px solid var(--brand);
+  }
+
+  100% {
+    border-right: 1px solid transparent;
+  }
 }
 
 @keyframes dec-phase-trail {
@@ -1599,14 +1490,17 @@
     background: linear-gradient(90deg, rgba(15, 74, 74, 0) 90%, rgba(15, 74, 74, 0.15) 100%);
     opacity: 0;
   }
+
   30% {
     background: linear-gradient(90deg, rgba(15, 74, 74, 0) 70%, rgba(15, 74, 74, 0.15) 100%);
     opacity: 1;
   }
+
   70% {
     background: linear-gradient(90deg, rgba(15, 74, 74, 0) 70%, rgba(15, 74, 74, 0.15) 100%);
     opacity: 1;
   }
+
   95% {
     background: linear-gradient(90deg, rgba(15, 74, 74, 0) 90%, rgba(15, 74, 74, 0.15) 100%);
     opacity: 0;
@@ -1755,10 +1649,21 @@
   width: 6px;
 }
 
-.tier-1 > .dec-stack-card-glow { background: linear-gradient(180deg, var(--brand), var(--brand-light)); }
-.tier-2 > .dec-stack-card-glow { background: linear-gradient(180deg, var(--brand-light), #2d9d9d); }
-.tier-3 > .dec-stack-card-glow { background: linear-gradient(180deg, #2d9d9d, #3db5b5); }
-.tier-4 > .dec-stack-card-glow { background: linear-gradient(180deg, #3db5b5, #5cc8c8); }
+.tier-1>.dec-stack-card-glow {
+  background: linear-gradient(180deg, var(--brand), var(--brand-light));
+}
+
+.tier-2>.dec-stack-card-glow {
+  background: linear-gradient(180deg, var(--brand-light), #2d9d9d);
+}
+
+.tier-3>.dec-stack-card-glow {
+  background: linear-gradient(180deg, #2d9d9d, #3db5b5);
+}
+
+.tier-4>.dec-stack-card-glow {
+  background: linear-gradient(180deg, #3db5b5, #5cc8c8);
+}
 
 /* Left side: icon + text */
 .dec-stack-left {
@@ -1879,7 +1784,8 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 0 0 0 72px; /* aligned to the card area */
+  padding: 0 0 0 72px;
+  /* aligned to the card area */
   height: 48px;
   position: relative;
 }
@@ -1928,12 +1834,15 @@
     top: -2px;
     opacity: 0;
   }
+
   15% {
     opacity: 1;
   }
+
   85% {
     opacity: 1;
   }
+
   100% {
     top: 46px;
     opacity: 0;
@@ -2043,7 +1952,7 @@
   margin: 0 0 0.6rem;
 }
 
-.dec-eco-card > p {
+.dec-eco-card>p {
   font-size: 0.92rem;
   color: var(--text-secondary);
   line-height: 1.65;
@@ -2098,8 +2007,15 @@
 }
 
 @keyframes compatOrbFloat {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-20px, 15px) scale(1.03); }
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(-20px, 15px) scale(1.03);
+  }
 }
 
 .dec-compat-grid {
@@ -2304,9 +2220,19 @@
 }
 
 @keyframes ctaOrbFloat {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(20px, -15px) scale(1.05); }
-  66% { transform: translate(-15px, 10px) scale(0.97); }
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(20px, -15px) scale(1.05);
+  }
+
+  66% {
+    transform: translate(-15px, 10px) scale(0.97);
+  }
 }
 
 .dec-cta-grid {
@@ -2498,7 +2424,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
   opacity: 0;
   transition: opacity 0.35s ease;
 }
@@ -2563,27 +2489,10 @@
     justify-content: center;
   }
 
-  .dec-vis {
+  .dec-step-visual {
     width: 400px;
-    height: 400px;
+    height: 340px;
   }
-
-  .dec-cube-scene {
-    width: 90px;
-    height: 90px;
-  }
-
-  .dec-cube-face {
-    width: 90px;
-    height: 90px;
-  }
-
-  .dec-face-front  { transform: rotateY(0deg) translateZ(45px); }
-  .dec-face-back   { transform: rotateY(180deg) translateZ(45px); }
-  .dec-face-right  { transform: rotateY(90deg) translateZ(45px); }
-  .dec-face-left   { transform: rotateY(-90deg) translateZ(45px); }
-  .dec-face-top    { transform: rotateX(90deg) translateZ(45px); }
-  .dec-face-bottom { transform: rotateX(-90deg) translateZ(45px); }
 
   .dec-phases {
     grid-template-columns: 1fr;
@@ -2779,10 +2688,17 @@
     height: 300px;
   }
 
-  .dec-datacard { display: none; }
-  .dec-scanline { display: none; }
+  .dec-datacard {
+    display: none;
+  }
 
-  .dec-mandala-badge { display: none; }
+  .dec-scanline {
+    display: none;
+  }
+
+  .dec-mandala-badge {
+    display: none;
+  }
 
   .dec-mandala-container {
     max-width: 260px;
@@ -2808,10 +2724,27 @@
     height: 16px;
   }
 
-  .dec-face-front  { transform: rotateY(0deg) translateZ(35px); }
-  .dec-face-back   { transform: rotateY(180deg) translateZ(35px); }
-  .dec-face-right  { transform: rotateY(90deg) translateZ(35px); }
-  .dec-face-left   { transform: rotateY(-90deg) translateZ(35px); }
-  .dec-face-top    { transform: rotateX(90deg) translateZ(35px); }
-  .dec-face-bottom { transform: rotateX(-90deg) translateZ(35px); }
+  .dec-face-front {
+    transform: rotateY(0deg) translateZ(35px);
+  }
+
+  .dec-face-back {
+    transform: rotateY(180deg) translateZ(35px);
+  }
+
+  .dec-face-right {
+    transform: rotateY(90deg) translateZ(35px);
+  }
+
+  .dec-face-left {
+    transform: rotateY(-90deg) translateZ(35px);
+  }
+
+  .dec-face-top {
+    transform: rotateX(90deg) translateZ(35px);
+  }
+
+  .dec-face-bottom {
+    transform: rotateX(-90deg) translateZ(35px);
+  }
 }

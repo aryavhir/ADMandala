@@ -18,6 +18,7 @@ interface PremiumHeroProps {
     secondaryCtaHref: string;
     mockupImage: string;
     mockupAlt: string;
+    accentColor?: string;
 }
 
 const PremiumHero: React.FC<PremiumHeroProps> = ({
@@ -30,7 +31,8 @@ const PremiumHero: React.FC<PremiumHeroProps> = ({
     secondaryCtaText,
     secondaryCtaHref,
     mockupImage,
-    mockupAlt
+    mockupAlt,
+    accentColor
 }) => {
     const mockupRef = useRef<HTMLDivElement>(null);
     const circleRef = useRef<HTMLDivElement>(null);
@@ -139,7 +141,11 @@ const PremiumHero: React.FC<PremiumHeroProps> = ({
     return (
         <header className="prem-hero">
             <div className="prem-hero-circle-wrap">
-                <div className="prem-hero-circle" ref={circleRef}></div>
+                <div
+                    className="prem-hero-circle"
+                    ref={circleRef}
+                    style={accentColor ? { backgroundColor: accentColor } : {}}
+                ></div>
             </div>
 
             <div className="prem-hero-content">

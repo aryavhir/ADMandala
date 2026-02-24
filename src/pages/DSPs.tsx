@@ -136,8 +136,8 @@ function DSPs() {
       <Navbar />
 
       <PremiumHero
-        title={<>Buy Media</>}
-        subtitle={<>You Can Trust</>}
+        title={<>Buy Media You</>}
+        subtitle={<>Can Trust</>}
         description="Access programmatic supply through a centralized exchange with strong quality controls — and a clear path toward verifiable delivery."
         primaryCtaText="Register as a DSP / Advertiser"
         onPrimaryCtaClick={() => setShowContactModal(true)}
@@ -145,6 +145,7 @@ function DSPs() {
         secondaryCtaHref="mailto:partners@admandala.com"
         mockupImage={img1}
         mockupAlt="Advertiser Dashboard"
+        accentColor="rgba(30, 41, 150, 0.15)"
       />
 
       <PremiumWhyGrid
