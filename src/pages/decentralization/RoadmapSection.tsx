@@ -1,13 +1,13 @@
-import { Activity, CheckCircle2, Zap, Eye, Network } from 'lucide-react';
+import { CheckCircle2, Zap, Eye, Network } from 'lucide-react';
 
 const RoadmapSection = () => {
     return (
         <section className="dec-section dec-evolution" id="evolution">
             <div className="content-wrapper">
-                <div className="dec-section-hdr animate-on-scroll">
-                    <span className="dec-eyebrow"><Activity size={14} /> Roadmap</span>
-                    <h2>The Evolution of the Network</h2>
-                    <p className="dec-section-sub">Three carefully planned phases — each introduced only when it strengthens the whole.</p>
+                <div className="dec-section-hdr">
+                    <span className="prem-badge animate-premium">Roadmap</span>
+                    <h2 className="section-title animate-premium">The Evolution of the Network</h2>
+                    <p className="prem-subtext animate-premium">Three carefully planned phases — each introduced only when it strengthens the whole.</p>
                 </div>
 
                 <div className="dec-phases">

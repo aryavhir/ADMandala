@@ -1,12 +1,12 @@
-import { Users, BarChart3, CheckCircle2, Shield, RadioTower } from 'lucide-react';
+import { BarChart3, CheckCircle2, Shield, RadioTower } from 'lucide-react';
 
 const EcosystemSection = () => {
     return (
         <section id="ecosystem" className="dec-section dec-ecosystem">
             <div className="content-wrapper">
-                <div className="dec-section-hdr animate-on-scroll">
-                    <span className="dec-eyebrow"><Users size={14} /> Ecosystem</span>
-                    <h2>What This Means for You</h2>
+                <div className="dec-section-hdr">
+                    <span className="prem-badge animate-premium">Ecosystem</span>
+                    <h2 className="section-title animate-premium">What This Means for You</h2>
                 </div>
 
                 <div className="dec-eco-cards">

@@ -1,44 +1,69 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import '../../styles/premium-buttons.css';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const HeroSection: React.FC = () => {
+    const contentRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (!contentRef.current) return;
+
+        const elements = contentRef.current.querySelectorAll('.animate-premium');
+        gsap.fromTo(elements,
+            { opacity: 0, y: 30 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                stagger: 0.12,
+                ease: 'power2.out',
+                delay: 0.2
+            }
+        );
+    }, []);
+
     return (
         <header className="hero-section">
             <div className="hero-background">
                 <div className="tech-grid"></div>
             </div>
-            <div className="content-wrapper">
-                <h1 className="hero-headline animate-on-scroll">
+            <div className="content-wrapper" ref={contentRef}>
+                <h1 className="hero-headline animate-premium">
                     <span className="gradient-text">Programmatic Advertising.</span><br />
                     Built to Evolve.
                 </h1>
-                <p className="hero-subheadline animate-on-scroll delay-1">
+                <p className="hero-subheadline animate-premium">
                     Ad Mandala is a live, centralized programmatic advertising exchange — designed from day one to transition into a decentralized, verifiable protocol.
                 </p>
-                <div className="decentralization-link-wrapper animate-on-scroll delay-2">
-                    <Link to="/decentralization" className="explore-button">
-                        <span className="explore-button__icon-wrapper" aria-hidden="true">
-                            <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="explore-button__icon-svg" width={12}>
-                                <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" fill="currentColor" />
-                            </svg>
-                            <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="explore-button__icon-svg explore-button__icon-svg--copy" width={12}>
-                                <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" fill="currentColor" />
-                            </svg>
-                        </span>
-                        <span className="explore-button__label">Explore the decentralization roadmap</span>
+                <div className="decentralization-link-wrapper animate-premium">
+                    <Link to="/decentralization" className="btn-premium-primary">
+                        <div className="btn-premium-inner">
+                            <span className="btn-premium-text">Explore the decentralization roadmap</span>
+                            <span className="btn-premium-text-hover">Explore the decentralization roadmap</span>
+                        </div>
                     </Link>
                 </div>
 
-                <div className="hero-split-container animate-on-scroll delay-3">
+                <div className="hero-split-container animate-premium">
                     {/* Left Pane: Publishers */}
                     <div className="split-pane pane-left">
                         <div className="pane-content">
                             <div className="pane-label">FOR PUBLISHERS / SSPS</div>
                             <h3 className="pane-title">Monetize Inventory Responsibly</h3>
                             <p className="pane-desc">Maximize yield through a reliable programmatic exchange today — and secure your place in a transparent future.</p>
-                            <Link to="/publishers" className="pane-btn btn-blue">Publisher Access</Link>
+                            <Link to="/publishers" className="btn-premium-primary">
+                                <div className="btn-premium-inner">
+                                    <span className="btn-premium-text">Publisher Access</span>
+                                    <span className="btn-premium-text-hover">Publisher Access</span>
+                                </div>
+                            </Link>
                         </div>
                         <div className="pane-visual visual-light">
+                            {/* ... mockup omitted for brevity in replace, but keeping structure ... */}
                             <div className="mockup-window light-window">
                                 <div className="mockup-sidebar">
                                     <div className="sidebar-item active"></div>
@@ -72,7 +97,12 @@ const HeroSection: React.FC = () => {
                             <div className="pane-label">FOR DSPS / ADVERTISERS</div>
                             <h3 className="pane-title">Access Verified Quality Supply</h3>
                             <p className="pane-desc">Target premium audiences with centralized enforcement today — and verifiable delivery on-chain tomorrow.</p>
-                            <Link to="/advertisers" className="pane-btn btn-white">Advertiser Access</Link>
+                            <Link to="/advertisers" className="btn-premium-primary">
+                                <div className="btn-premium-inner">
+                                    <span className="btn-premium-text">Advertiser Access</span>
+                                    <span className="btn-premium-text-hover">Advertiser Access</span>
+                                </div>
+                            </Link>
                         </div>
                         <div className="pane-visual visual-dark">
                             <div className="mockup-window dark-window">

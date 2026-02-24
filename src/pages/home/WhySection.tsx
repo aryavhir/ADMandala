@@ -10,12 +10,12 @@ const WhySection: React.FC = () => {
             </div>
 
             <div className="content-wrapper">
-                <div className="why-heading-block animate-on-scroll">
-                    <span className="why-chip">THE TENSION IN AD TECH</span>
-                    <h2 className="why-main-title">
+                <div className="why-heading-block">
+                    <span className="prem-badge animate-premium">THE TENSION IN AD TECH</span>
+                    <h2 className="section-title animate-premium">
                         Why Ad Mandala Exists
                     </h2>
-                    <p className="why-tagline">
+                    <p className="prem-subtext animate-premium">
                         Advertising needs reliability <em>and</em> trust. Today's ecosystem forces a choice between them.
                     </p>
                 </div>

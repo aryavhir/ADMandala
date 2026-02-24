@@ -1,29 +1,50 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-export function useScrollAnimation() {
-  const observerRef = useRef<IntersectionObserver | null>(null);
+gsap.registerPlugin(ScrollTrigger);
 
+export const useScrollAnimation = () => {
   useEffect(() => {
-    // Disconnect old observer if exists
-    if (observerRef.current) {
-      observerRef.current.disconnect();
-    }
-
-    observerRef.current = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    // Standard IntersectionObserver for .animate-on-scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
         }
       });
     }, { threshold: 0.1 });
 
-    const hiddenElements = document.querySelectorAll('.animate-on-scroll');
-    hiddenElements.forEach((el) => observerRef.current?.observe(el));
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
 
-    // Cleanup function
+    // GSAP ScrollTrigger for .animate-premium
+    // We group them by their closest section to stagger them correctly
+    const sections = document.querySelectorAll('section, header');
+
+    sections.forEach(section => {
+      const premiumElements = section.querySelectorAll('.animate-premium');
+      if (premiumElements.length > 0) {
+        gsap.fromTo(premiumElements,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.12,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: section,
+              start: 'top 85%',
+              toggleActions: 'play none none none'
+            }
+          }
+        );
+      }
+    });
+
     return () => {
-      observerRef.current?.disconnect();
+      observer.disconnect();
+      ScrollTrigger.getAll().forEach(t => t.kill());
     };
-  }, []); // Empty dependency array means this runs once on mount
-  // Note: In a real app with dynamic content, you might need to re-run this when content changes
-}
+  }, []);
+};

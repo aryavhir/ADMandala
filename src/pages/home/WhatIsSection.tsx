@@ -7,14 +7,12 @@ const WhatIsSection: React.FC = () => {
             <div className="content-wrapper">
                 <div className="what-is-layout">
                     <div className="what-is-text">
-                        <h2 className="what-is-heading">What Is Ad Mandala?</h2>
-                        <p className="what-is-body">
+                        <span className="prem-badge animate-premium">Context</span>
+                        <h2 className="section-title animate-premium">What Is Ad Mandala?</h2>
+                        <p className="prem-subtext animate-premium">
                             Ad Mandala is a programmatic advertising exchange that connects publishers and demand partners through a reliable, centralized system — while preparing the foundation for a more transparent, decentralized future.
                         </p>
-                        <p className="what-is-body what-is-emphasis">
-                            The platform enables efficient monetization and performance today, without forcing the ecosystem to adopt unproven infrastructure prematurely.
-                        </p>
-                        <div className="what-is-tags">
+                        <div className="what-is-tags animate-premium">
                             <span className="what-is-tag"><Shield size={14} /> Centralized Today</span>
                             <span className="what-is-tag"><Shield size={14} /> Verifiable Tomorrow</span>
                             <span className="what-is-tag"><TrendingUp size={14} /> Built to Scale</span>

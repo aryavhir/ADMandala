@@ -1,4 +1,4 @@
-import { GitBranch, Eye, Users, BarChart3, Shield } from 'lucide-react';
+import { Eye, Users, BarChart3, Shield } from 'lucide-react';
 
 const PhilosophySection = () => {
     return (
@@ -12,13 +12,13 @@ const PhilosophySection = () => {
 
             <div className="content-wrapper">
                 {/* Section header — large & cinematic */}
-                <div className="dec-phil-header animate-on-scroll">
-                    <span className="dec-eyebrow"><GitBranch size={14} /> Philosophy</span>
-                    <h2 className="dec-phil-title">
+                <div className="dec-phil-header">
+                    <span className="prem-badge animate-premium">Philosophy</span>
+                    <h2 className="section-title animate-premium">
                         The Philosophy Behind<br />
                         <span className="dec-phil-title-em">Ad Mandala</span>
                     </h2>
-                    <p className="dec-phil-subtitle">
+                    <p className="prem-subtext animate-premium">
                         Why decentralization matters — and why <em>timing</em> matters more.
                     </p>
                 </div>

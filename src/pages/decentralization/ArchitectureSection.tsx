@@ -11,10 +11,10 @@ const ArchitectureSection = () => {
             </div>
 
             <div className="content-wrapper">
-                <div className="dec-section-hdr animate-on-scroll">
-                    <span className="dec-eyebrow"><Cpu size={14} /> Architecture</span>
-                    <h2>The Mandala Protocol Architecture</h2>
-                    <p className="dec-section-sub">Four layers, one protocol — built from the ground up.</p>
+                <div className="dec-section-hdr">
+                    <span className="prem-badge animate-premium">Architecture</span>
+                    <h2 className="section-title animate-premium">The Mandala Protocol Architecture</h2>
+                    <p className="prem-subtext animate-premium">Four layers, one protocol — built from the ground up.</p>
                 </div>
 
                 {/* Protocol Stack — vertical layers with animated connectors */}

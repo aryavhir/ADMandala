@@ -11,11 +11,11 @@ const RoadmapSection: React.FC = () => {
             </div>
 
             <div className="content-wrapper">
-                <div className="roadmap-header animate-on-scroll">
-                    <span className="roadmap-chip">OUR APPROACH</span>
-                    <h2 className="roadmap-title">Built for the Long Term</h2>
-                    <p className="roadmap-subtitle">
-                        Ad Mandala is not decentralizing for ideology — but for outcomes.<br />
+                <div className="roadmap-header">
+                    <span className="prem-badge animate-premium">OUR APPROACH</span>
+                    <h2 className="section-title animate-premium">Built for the Long Term</h2>
+                    <p className="prem-subtext animate-premium">
+                        Ad Mandala is not decentralizing for ideology — but for outcomes.
                         A deliberate, phased path where each layer earns its place.
                     </p>
                 </div>

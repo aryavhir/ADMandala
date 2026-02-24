@@ -1,4 +1,4 @@
-import { Network, Zap, Eye, Users, ArrowRight } from 'lucide-react';
+import { Zap, Eye, Users, ArrowRight } from 'lucide-react';
 
 interface CtaSectionProps {
     registrationUrl: string;
@@ -17,18 +17,14 @@ const CtaSection = ({ registrationUrl, onRegisterClick }: CtaSectionProps) => {
             </div>
 
             <div className="content-wrapper">
-                <div className="dec-cta-container animate-on-scroll">
-                    {/* Eyebrow */}
-                    <div className="dec-cta-eyebrow">
-                        <Network size={14} />
-                        <span>Join the Network</span>
-                    </div>
+                <div className="dec-cta-container">
+                    <span className="prem-badge animate-premium">Join the Network</span>
 
-                    <h2 className="dec-cta-title">
+                    <h2 className="section-title animate-premium" style={{ color: 'white' }}>
                         Be Early.
                         <span className="dec-cta-title-em"> Be Aligned.</span>
                     </h2>
-                    <p className="dec-cta-sub">
+                    <p className="prem-subtext animate-premium" style={{ color: 'rgba(255,255,255,0.7)', margin: '0 auto 2.5rem' }}>
                         Ad Mandala is decentralizing in phases — early participants help shape the network.
                     </p>
 
@@ -73,18 +69,22 @@ const CtaSection = ({ registrationUrl, onRegisterClick }: CtaSectionProps) => {
                     </div>
 
                     {/* Action buttons */}
-                    <div className="dec-cta-actions">
-                        <a href={registrationUrl} className="btn btn-primary dec-cta-btn" target="_blank" rel="noopener noreferrer">
-                            Register as a Publisher
-                            <ArrowRight size={16} />
+                    <div className="dec-cta-actions animate-premium">
+                        <a href={registrationUrl} className="btn-premium-primary" target="_blank" rel="noopener noreferrer">
+                            <div className="btn-premium-inner">
+                                <span className="btn-premium-text">Register as a Publisher</span>
+                                <span className="btn-premium-text-hover">Register as a Publisher</span>
+                            </div>
                         </a>
                         <button
-                            className="btn btn-primary dec-cta-btn"
+                            className="btn-premium-primary"
                             type="button"
                             onClick={onRegisterClick}
                         >
-                            Register as a DSP / Advertiser
-                            <ArrowRight size={16} />
+                            <div className="btn-premium-inner">
+                                <span className="btn-premium-text">Register as a DSP / Advertiser</span>
+                                <span className="btn-premium-text-hover">Register as a DSP / Advertiser</span>
+                            </div>
                         </button>
                     </div>
                 </div>

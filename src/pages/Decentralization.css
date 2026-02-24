@@ -175,79 +175,93 @@
 .dec-hero-layout {
   display: flex;
   align-items: center;
+  justify-content: center;
   position: relative;
   z-index: 2;
+  text-align: center;
 }
 
 .dec-hero-copy {
   flex: 1;
-  max-width: 600px;
+  max-width: 700px;
+  /* Aligned with PremiumHero.tsx */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .dec-hero-eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.8rem;
-  font-weight: 700;
+  font-size: 0.82rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   color: var(--brand);
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  opacity: 0.8;
 }
 
 .dec-hero-eyebrow svg {
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 .dec-hero-h1 {
-  font-size: clamp(2.8rem, 6.5vw, 4.5rem);
-  font-weight: 900;
-  color: var(--text-primary);
-  line-height: 1.05;
-  letter-spacing: -0.04em;
-  margin: 0 0 1.5rem;
+  font-family: "Inter Display", "Inter", sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+  color: #101010;
+  margin-bottom: 1.5rem;
+  text-wrap: balance;
 }
 
 .dec-h1-em {
-  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-light) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #1a1a1a;
+  background: none;
+  -webkit-text-fill-color: initial;
 }
 
 .dec-hero-sub {
-  font-size: 1.15rem;
-  color: var(--text-secondary);
-  line-height: 1.75;
-  margin: 0 0 2rem;
-  max-width: 520px;
+  font-size: 20px;
+  color: #000000;
+  max-width: 540px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.3em;
+  font-weight: 400;
+  letter-spacing: -.04em;
+  text-wrap: balance;
 }
 
 .dec-hero-actions {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-.dec-hero-actions .btn {
-  display: inline-flex;
+  justify-content: center;
   align-items: center;
-  gap: 0.4rem;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
 }
 
 /* ══════════════════════════════════════════════
    HERO VISUAL — 3-Step Curved Line Animation
    ══════════════════════════════════════════════ */
 .dec-hero-visual {
-  flex-shrink: 0;
-  position: relative;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .dec-step-visual {
   position: relative;
-  width: 620px;
+  width: 1200px;
   height: 440px;
+  flex-shrink: 0;
 }
 
 .dec-step-svg {
@@ -258,55 +272,55 @@
   z-index: 1;
 }
 
-/* Light grey base path — always visible */
+/* Light grey base path — softened for background */
 .dec-step-base-path {
   fill: none;
-  stroke: #e8e8e8;
+  stroke: #f2f2f2;
   stroke-width: 3;
   stroke-linecap: round;
 }
 
-/* Animated coloured stroke overlay */
+/* Animated coloured stroke overlay — softened for background */
 .dec-step-anim-path {
   fill: none;
   stroke-width: 3.5;
   stroke-linecap: round;
-  stroke-dasharray: 1400;
-  stroke-dashoffset: 1400;
-  animation: dec-stroke-draw 11s ease-in-out forwards;
+  stroke-dasharray: 1600;
+  stroke-dashoffset: 1600;
+  opacity: 0.6;
+  animation: dec-stroke-draw 12s ease-in-out forwards;
 }
 
 @keyframes dec-stroke-draw {
   0% {
-    stroke-dashoffset: 1400;
+    stroke-dashoffset: 1600;
   }
 
-  /* Reach Step 1 Peak (~25% of x-space, but path is longer) */
+  /* Step 1 Peak at x=300 (25% of 1200) */
   22% {
-    stroke-dashoffset: 1050;
+    stroke-dashoffset: 1250;
   }
 
-  /* Pause at Step 1 */
+  /* Pause Step 1 */
   32% {
-    stroke-dashoffset: 1050;
+    stroke-dashoffset: 1250;
   }
 
-  /* Reach Step 2 Peak (~55% of x-space) */
+  /* Step 2 Peak at x=660 (55% of 1200) */
   55% {
-    stroke-dashoffset: 600;
+    stroke-dashoffset: 720;
   }
 
-  /* Pause at Step 2 */
+  /* Pause Step 2 */
   65% {
-    stroke-dashoffset: 600;
+    stroke-dashoffset: 720;
   }
 
-  /* Reach Step 3 Peak (~85% of x-space) */
+  /* Step 3 Peak at x=1020 (85% of 1200) */
   88% {
-    stroke-dashoffset: 180;
+    stroke-dashoffset: 240;
   }
 
-  /* Complete to end */
   100% {
     stroke-dashoffset: 0;
   }
@@ -331,7 +345,8 @@
   font-weight: 900;
   line-height: 1;
   letter-spacing: -0.06em;
-  opacity: 0.12;
+  opacity: 0.08;
+  /* Very subtle for background */
   transition: opacity 0.4s ease;
 }
 
@@ -351,12 +366,16 @@
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin-bottom: 6px;
+  opacity: 0.6;
+  /* Subdued for background */
 }
 
 .dec-step-desc {
   font-size: 0.88rem;
   color: var(--text-secondary, #4a5568);
   line-height: 1.6;
+  opacity: 0.5;
+  /* Subdued for background */
 }
 
 /* Step Colors */
@@ -384,14 +403,7 @@
   color: #38a169;
 }
 
-/* Peak positions: x corresponds to left %, y corresponds to bottom % */
-/* 
-   viewBox 1000 x 400
-   Peak 1: (250, 240) -> x=25%, y=160 (from bottom) -> bottom=40%
-   Peak 2: (550, 180) -> x=55%, y=220 (from bottom) -> bottom=55%
-   Peak 3: (850, 100) -> x=85%, y=300 (from bottom) -> bottom=75%
-*/
-
+/* Positions spanning 1200px centered */
 .dec-step-1 {
   left: 25%;
   bottom: 40%;

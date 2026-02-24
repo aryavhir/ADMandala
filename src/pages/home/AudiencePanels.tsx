@@ -6,8 +6,9 @@ const AudiencePanels: React.FC = () => {
     return (
         <section className="section target-audience">
             <div className="content-wrapper">
-                <div className="audience-header animate-on-scroll">
-                    <h2 className="section-title">Who Ad Mandala Is For</h2>
+                <div className="audience-header">
+                    <span className="prem-badge animate-premium">Ecosystem Partners</span>
+                    <h2 className="section-title animate-premium">Who Ad Mandala Is For</h2>
                 </div>
 
                 <div className="audience-panels">

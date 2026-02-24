@@ -1,4 +1,4 @@
-import { Box, Zap, Shield, Activity } from 'lucide-react';
+import { Zap, Shield, Activity } from 'lucide-react';
 
 const ApproachSection = () => {
     return (
@@ -12,9 +12,9 @@ const ApproachSection = () => {
 
             <div className="content-wrapper">
                 {/* Section header */}
-                <div className="dec-approach-header animate-on-scroll">
-                    <span className="dec-eyebrow"><Box size={14} /> The Mandala Approach</span>
-                    <h2 className="dec-approach-title">
+                <div className="dec-approach-header">
+                    <span className="prem-badge animate-premium">The Mandala Approach</span>
+                    <h2 className="section-title animate-premium">
                         A Mandala Represents<br />
                         <span className="dec-approach-title-words">
                             <span className="dec-approach-word">Balance.</span>{' '}
