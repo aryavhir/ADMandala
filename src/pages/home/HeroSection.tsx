@@ -1,102 +1,226 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ArrowRight, Search, Mic } from 'lucide-react';
 import '../../styles/premium-buttons.css';
+import '../../styles/PremiumLayouts.css'; // Import premium layouts
 
 gsap.registerPlugin(ScrollTrigger);
 
-const HeroSection: React.FC = () => {
+interface HeroSectionProps {
+    onIntroComplete?: () => void;
+}
+
+const HeroSection: React.FC<HeroSectionProps> = ({ onIntroComplete }) => {
+    const [isIntroActive, setIsIntroActive] = useState(false); // Set to false to bypass animation
     const contentRef = useRef<HTMLDivElement>(null);
+    const introRef = useRef<HTMLDivElement>(null);
+    const googleRef = useRef<HTMLDivElement>(null);
+    const cursorRef = useRef<HTMLDivElement>(null);
+    const inputRef = useRef<HTMLSpanElement>(null);
+    const circleRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        if (!contentRef.current) return;
+        /* 
+        // TEMPORARILY COMMENTED OUT GOOGLE ANIMATION
+        if (!contentRef.current || !introRef.current) return;
 
-        const elements = contentRef.current.querySelectorAll('.animate-premium');
-        gsap.fromTo(elements,
-            { opacity: 0, y: 30 },
-            {
-                opacity: 1,
-                y: 0,
-                duration: 0.8,
-                stagger: 0.12,
-                ease: 'power2.out',
-                delay: 0.2
+        // 0. Lock scroll
+        document.body.style.overflow = 'hidden';
+
+        // Initial states: Content is clipped and starts behind mockup visually (until reveal starts)
+        gsap.set(contentRef.current, {
+            clipPath: 'circle(0% at 50% 44%)',
+            scale: 0.9,
+            opacity: 1
+        });
+        gsap.set('.animate-premium', { opacity: 0, y: 30 });
+        gsap.set(rippleRef.current, { scale: 0, opacity: 1 });
+
+        const tl = gsap.timeline({
+            onComplete: () => {
+                document.body.style.overflow = '';
+                setTimeout(() => {
+                    setIsIntroActive(false);
+                    onIntroComplete?.();
+                }, 300);
             }
-        );
-    }, []);
+        });
+
+        // 1. Initial State
+        tl.set(cursorRef.current, { x: 0, y: 100, opacity: 0 });
+        if (inputRef.current) inputRef.current.innerText = ""; // Ensure it's empty
+
+        // 2. Reveal Google and Cursor
+        tl.to(googleRef.current, { opacity: 1, duration: 0.8, delay: 0.5 });
+        tl.to(cursorRef.current, { opacity: 1, duration: 0.4 }, "-=0.2");
+
+        // 3. Move cursor to input
+        tl.to(cursorRef.current, { x: -60, y: -45, duration: 1.2, ease: "power3.inOut" });
+
+        // 4. Simulate Typing: admandala.com
+        const textToType = "admandala.com";
+        textToType.split("").forEach((_, i) => {
+            tl.to({}, {
+                duration: 0.08,
+                onStart: () => {
+                    if (inputRef.current) {
+                        inputRef.current.innerText = textToType.substring(0, i + 1);
+                    }
+                }
+            });
+        });
+
+        // 5. Short pause after typing
+        tl.to({}, { duration: 0.6 });
+
+        // 6. Move cursor to button
+        tl.to(cursorRef.current, { x: -70, y: 65, duration: 0.8, ease: "power3.inOut" });
+
+        // 7. Click effect
+        tl.to(cursorRef.current, { scale: 0.8, duration: 0.1 });
+        tl.to(cursorRef.current, { scale: 1, duration: 0.1 });
+
+        // 8. Cinematic Mask Reveal (The "Ripple" brings the site)
+        tl.addLabel("reveal");
+
+        // The green ripple expands
+        tl.to(rippleRef.current, {
+            scale: 850,
+            duration: 2.5,
+            ease: "expo.inOut",
+            onStart: () => {
+                gsap.to(cursorRef.current, { opacity: 0, duration: 0.2 });
+            }
+        }, "reveal");
+
+        // The actual site content expands with it
+        tl.to(contentRef.current, {
+            clipPath: 'circle(150% at 50% 44%)',
+            scale: 1,
+            duration: 2.5,
+            ease: "expo.inOut"
+        }, "reveal");
+
+        // 9. Fade out Google layer as site reveal completes
+        tl.to(introRef.current, {
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out"
+        }, "-=1.5");
+
+        // 10. Staggered reveal of interior elements
+        const elements = contentRef.current.querySelectorAll('.animate-premium');
+        tl.to(elements, {
+            opacity: 1,
+            y: 0,
+            duration: 1.2,
+            stagger: 0.12,
+            ease: 'power3.out'
+        }, "-=1.5");
+
+        // Cleanup
+        return () => {
+            document.body.style.overflow = '';
+        };
+        */
+
+        // Ensure home content is visible and scroll is unlocked
+        document.body.style.overflow = '';
+        if (contentRef.current) {
+            gsap.set(contentRef.current, {
+                clipPath: 'none',
+                scale: 1,
+                opacity: 1
+            });
+            gsap.set('.animate-premium', { opacity: 1, y: 0 });
+        }
+
+        // Circle expanding effect on scroll
+        if (circleRef.current) {
+            gsap.to(circleRef.current, {
+                scale: 2.5,
+                opacity: 0.1,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: ".prem-hero",
+                    start: "top top",
+                    end: "top -40%",
+                    scrub: 1,
+                }
+            });
+        }
+
+        onIntroComplete?.();
+
+        return () => {
+            ScrollTrigger.getAll().forEach(st => st.kill());
+        };
+    }, [onIntroComplete]);
 
     return (
         <header className="hero-section">
             <div className="hero-background">
                 <div className="tech-grid"></div>
             </div>
-            <div className="content-wrapper" ref={contentRef}>
-                <h1 className="hero-headline animate-premium">
-                    <span className="gradient-text">Programmatic Advertising.</span><br />
-                    Built to Evolve.
-                </h1>
-                <p className="hero-subheadline animate-premium">
-                    Ad Mandala is a live, centralized programmatic advertising exchange — designed from day one to transition into a decentralized, verifiable protocol.
-                </p>
-                <div className="decentralization-link-wrapper animate-premium">
-                    <Link to="/decentralization" className="btn-premium-primary">
-                        <div className="btn-premium-inner">
-                            <span className="btn-premium-text">Explore the decentralization roadmap</span>
-                            <span className="btn-premium-text-hover">Explore the decentralization roadmap</span>
+
+            {/* Intro Animation Overlay (Google Layer) */}
+            {isIntroActive && (
+                <div className="hero-intro-container active" ref={introRef}>
+                    <div className="google-mockup" ref={googleRef} style={{ opacity: 0 }}>
+                        <div className="google-logo-text">
+                            <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
                         </div>
-                    </Link>
+                        <div className="google-search-bar">
+                            <Search className="search-icon-mock" size={18} />
+                            <span className="search-input-mock" ref={inputRef}></span>
+                            <Mic className="search-mic-mock" size={18} />
+                        </div>
+                        <div className="google-buttons-mock">
+                            <div className="google-btn-mock">Google Search</div>
+                            <div className="google-btn-mock">I'm Feeling Lucky</div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            <header
+                className="prem-hero"
+                ref={contentRef}
+                style={{
+                    position: 'relative',
+                    zIndex: 100, // Lowered to stay below Navbar (2000)
+                    width: '100%',
+                    background: '#ffffff',
+                    paddingBottom: '10rem'
+                }}
+            >
+                <div className="prem-hero-circle-wrap">
+                    <div
+                        className="prem-hero-circle"
+                        ref={circleRef}
+                        style={{ backgroundColor: "rgba(13, 148, 136, 0.15)" }}
+                    ></div>
                 </div>
 
-                <div className="hero-split-container animate-premium">
-                    {/* Left Pane: Publishers */}
-                    <div className="split-pane pane-left">
-                        <div className="pane-content">
-                            <div className="pane-label">FOR PUBLISHERS / SSPS</div>
-                            <h3 className="pane-title">Monetize Inventory Responsibly</h3>
-                            <p className="pane-desc">Maximize yield through a reliable programmatic exchange today — and secure your place in a transparent future.</p>
+                <div className="content-wrapper">
+                    <div className="prem-hero-content">
+                        <h1 className="prem-hero-h1 animate-premium">
+                            <span className="gradient-text">Programmatic Advertising.</span><br />
+                            Built to Evolve.
+                        </h1>
+                        <p className="prem-hero-desc animate-premium">
+                            Ad Mandala is a live, centralized programmatic advertising exchange — designed from day one to transition into a decentralized, verifiable protocol.
+                        </p>
+
+                        <div className="prem-hero-actions animate-premium">
                             <Link to="/publishers" className="btn-premium-primary">
                                 <div className="btn-premium-inner">
                                     <span className="btn-premium-text">Publisher Access</span>
                                     <span className="btn-premium-text-hover">Publisher Access</span>
                                 </div>
                             </Link>
-                        </div>
-                        <div className="pane-visual visual-light">
-                            {/* ... mockup omitted for brevity in replace, but keeping structure ... */}
-                            <div className="mockup-window light-window">
-                                <div className="mockup-sidebar">
-                                    <div className="sidebar-item active"></div>
-                                    <div className="sidebar-item"></div>
-                                    <div className="sidebar-item"></div>
-                                </div>
-                                <div className="mockup-main">
-                                    <div className="mockup-header-row">
-                                        <div className="header-title-blob"></div>
-                                    </div>
-                                    <div className="dashboard-grid">
-                                        <div className="dash-card big-chart">
-                                            <div className="chart-line-svg">
-                                                <svg viewBox="0 0 100 40" className="trend-line">
-                                                    <path d="M0,35 Q20,35 25,20 T50,25 T75,10 T100,5" fill="none" stroke="#2b6cb0" strokeWidth="3" />
-                                                    <path d="M0,35 Q20,35 25,20 T50,25 T75,10 T100,5 V40 H0 Z" fill="rgba(43, 108, 176, 0.1)" />
-                                                </svg>
-                                            </div>
-                                        </div>
-                                        <div className="dash-card small-metric"></div>
-                                        <div className="dash-card small-metric"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Right Pane: Advertisers */}
-                    <div className="split-pane pane-right">
-                        <div className="pane-content">
-                            <div className="pane-label">FOR DSPS / ADVERTISERS</div>
-                            <h3 className="pane-title">Access Verified Quality Supply</h3>
-                            <p className="pane-desc">Target premium audiences with centralized enforcement today — and verifiable delivery on-chain tomorrow.</p>
                             <Link to="/advertisers" className="btn-premium-primary">
                                 <div className="btn-premium-inner">
                                     <span className="btn-premium-text">Advertiser Access</span>
@@ -104,40 +228,17 @@ const HeroSection: React.FC = () => {
                                 </div>
                             </Link>
                         </div>
-                        <div className="pane-visual visual-dark">
-                            <div className="mockup-window dark-window">
-                                <div className="analytics-panel">
-                                    <div className="metrics-row">
-                                        <div className="metric-box">
-                                            <div className="metric-label"></div>
-                                            <div className="metric-value large"></div>
-                                        </div>
-                                        <div className="metric-box">
-                                            <div className="metric-label"></div>
-                                            <div className="metric-value"></div>
-                                        </div>
-                                    </div>
-                                    <div className="chart-area">
-                                        <div className="bar-chart">
-                                            <div className="bar" style={{ "--height": "60%" } as React.CSSProperties}></div>
-                                            <div className="bar" style={{ "--height": "85%" } as React.CSSProperties}></div>
-                                            <div className="bar" style={{ "--height": "45%" } as React.CSSProperties}></div>
-                                            <div className="bar" style={{ "--height": "75%" } as React.CSSProperties}></div>
-                                            <div className="bar" style={{ "--height": "95%" } as React.CSSProperties}></div>
-                                            <div className="bar" style={{ "--height": "50%" } as React.CSSProperties}></div>
-                                        </div>
-                                    </div>
-                                    <div className="geo-map">
-                                        <div className="map-dot" style={{ "left": "30%", "top": "40%" }}></div>
-                                        <div className="map-dot" style={{ "left": "60%", "top": "25%" }}></div>
-                                        <div className="map-dot" style={{ "left": "75%", "top": "55%" }}></div>
-                                    </div>
-                                </div>
-                            </div>
+
+                        <div className="decentralization-link-wrapper animate-premium" style={{ marginTop: '0.5rem' }}>
+                            <Link to="/decentralization" className="prem-hero-cta-ghost">
+                                Explore the decentralization roadmap
+                                <ArrowRight size={16} />
+                            </Link>
                         </div>
                     </div>
                 </div>
-            </div>
+            </header>
+            {isIntroActive && <div className="fake-cursor" ref={cursorRef}></div>}
         </header>
     );
 };

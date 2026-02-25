@@ -96,10 +96,7 @@ const HeroSection: React.FC = () => {
 
             <div className="content-wrapper dec-hero-layout">
                 <div className="dec-hero-copy" ref={copyRef}>
-                    <div className="dec-hero-eyebrow animate-premium">
-                        <CircleDot size={14} />
-                        <span>The Decentralization Roadmap</span>
-                    </div>
+
                     <h1 className="dec-hero-h1 animate-premium">
                         From <span className="dec-h1-em">Platform</span><br />
                         <span>to Protocol</span>

@@ -136,8 +136,8 @@ function DSPs() {
       <Navbar />
 
       <PremiumHero
-        title={<>Buy Media You</>}
-        subtitle={<>Can Trust</>}
+        title={<>Buy Media</>}
+        subtitle={<>You Can Trust</>}
         description="Access programmatic supply through a centralized exchange with strong quality controls — and a clear path toward verifiable delivery."
         primaryCtaText="Register as a DSP / Advertiser"
         onPrimaryCtaClick={() => setShowContactModal(true)}

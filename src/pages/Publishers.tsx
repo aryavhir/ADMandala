@@ -139,6 +139,7 @@ function Publishers() {
         secondaryCtaHref="mailto:publisher@admandala.com"
         mockupImage={dashboardImg}
         mockupAlt="Publisher Dashboard"
+        accentColor="rgba(147, 51, 234, 0.15)"
       />
 
       <PremiumWhyGrid

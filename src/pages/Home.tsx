@@ -17,6 +17,7 @@ import LookingAhead from '../components/LookingAhead';
 function Home() {
   useScrollAnimation();
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isIntroActive, setIsIntroActive] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,10 +40,10 @@ function Home() {
         />
       </Helmet>
 
-      <Navbar />
+      {!isIntroActive && <Navbar />}
       <div className="scroll-progress" style={{ width: `${scrollProgress * 100}%` }}></div>
 
-      <HeroSection />
+      <HeroSection onIntroComplete={() => setIsIntroActive(false)} />
       <ScrollingFeatures />
       <WhatIsSection />
       <WhySection />
