@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import Footer from '../components/Footer';
@@ -6,7 +6,6 @@ import Navbar from '../components/Navbar';
 
 // Sub-components
 import HeroSection from './home/HeroSection';
-import ScrollingFeatures from './home/ScrollingFeatures';
 import WhatIsSection from './home/WhatIsSection';
 import WhySection from './home/WhySection';
 import WhatsLiveSection from './home/WhatsLiveSection';
@@ -19,14 +18,25 @@ function Home() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isIntroActive, setIsIntroActive] = useState(true);
 
+  const handleIntroComplete = useCallback(() => {
+    setIsIntroActive(false);
+  }, []);
+
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      const totalScroll = document.documentElement.scrollTop;
-      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scroll = totalScroll / (windowHeight || 1);
-      setScrollProgress(scroll);
-    }
-    window.addEventListener('scroll', handleScroll);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const totalScroll = window.scrollY;
+          const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const progress = totalScroll / (windowHeight || 1);
+          setScrollProgress(progress);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -43,14 +53,22 @@ function Home() {
       {!isIntroActive && <Navbar />}
       <div className="scroll-progress" style={{ width: `${scrollProgress * 100}%` }}></div>
 
-      <HeroSection onIntroComplete={() => setIsIntroActive(false)} />
-      <ScrollingFeatures />
+      <HeroSection onIntroComplete={handleIntroComplete} />
+
+      <div className="content-wrapper" style={{ marginBlock: '2rem', textAlign: 'center' }}>
+        <h2 className="prem-hero-h1" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', color: '#101010', maxWidth: '1000px', margin: '0 auto' }}>
+          Programmatic Advertising.<br />
+          Built to Evolve.
+        </h2>
+      </div>
+
       <WhatIsSection />
       <WhySection />
       <WhatsLiveSection />
       <RoadmapSection />
-      <AudiencePanels />
       <LookingAhead />
+      <AudiencePanels />
+
 
       <Footer />
     </div>

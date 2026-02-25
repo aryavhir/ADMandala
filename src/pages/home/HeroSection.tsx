@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight, Search, Mic } from 'lucide-react';
+import ScrollingFeatures from './ScrollingFeatures';
 import '../../styles/premium-buttons.css';
 import '../../styles/PremiumLayouts.css'; // Import premium layouts
 
@@ -138,13 +139,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onIntroComplete }) => {
         }
 
         // Circle expanding effect on scroll
-        if (circleRef.current) {
+        if (circleRef.current && contentRef.current) {
             gsap.to(circleRef.current, {
                 scale: 2.5,
                 opacity: 0.1,
                 ease: 'none',
                 scrollTrigger: {
-                    trigger: ".prem-hero",
+                    trigger: contentRef.current,
                     start: "top top",
                     end: "top -40%",
                     scrub: 1,
@@ -193,7 +194,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onIntroComplete }) => {
                     zIndex: 100, // Lowered to stay below Navbar (2000)
                     width: '100%',
                     background: '#ffffff',
-                    paddingBottom: '10rem'
+                    paddingBottom: '2rem'
                 }}
             >
                 <div className="prem-hero-circle-wrap">
@@ -236,6 +237,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onIntroComplete }) => {
                             </Link>
                         </div>
                     </div>
+                </div>
+
+                <div className="hero-scroll-features-wrapper" style={{ width: '100%', marginTop: '4rem' }}>
+                    <ScrollingFeatures />
                 </div>
             </header>
             {isIntroActive && <div className="fake-cursor" ref={cursorRef}></div>}
