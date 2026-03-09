@@ -13,7 +13,7 @@ interface LookingAheadProps {
 const LookingAhead: React.FC<LookingAheadProps> = ({
     id,
     title = "Looking Ahead",
-    description = "Ad Mandala is evolving from a centralized exchange into a verifiable advertising protocol. See how verification and settlement decentralize — without disrupting your buying workflows.",
+    description = "AdMandala is evolving from a centralized exchange into a verifiable advertising protocol. See how verification and settlement decentralize — without disrupting your buying workflows.",
     buttonText = "Explore the decentralization roadmap",
     buttonLink = "/decentralization",
     showButton = true

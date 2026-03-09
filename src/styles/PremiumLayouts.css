@@ -12,7 +12,7 @@
 .prem-hero {
     position: relative;
     padding: 10rem 2rem 0;
-    background: #ffffff;
+    background: rgb(248 255 253);
     overflow: visible;
     gap: 32px;
     display: flex;
@@ -92,7 +92,7 @@
     align-items: center;
     gap: 8px;
     padding: 10px 26px;
-    background: transparent;
+    background: white;
     color: #1a1a1a;
     font-size: 1rem;
     font-weight: 500;
@@ -464,6 +464,68 @@
         padding: 24px;
     }
 }
+
+/* ── What Is / Why Section Split Overrides ── */
+
+/* Shared: widen the grid for these hero-level sections */
+.what-is-split,
+.why-split {
+    max-width: 1200px;
+    gap: 80px;
+    align-items: center;
+}
+
+/* What Is: text left, mandala right */
+.what-is-visual-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 420px;
+}
+
+/* Why: visual left, text right — visual panel fills height */
+.why-visual-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 420px;
+    border-radius: 20px;
+    background: rgba(15, 74, 74, 0.03);
+    border: 1px solid rgba(15, 74, 74, 0.08);
+    padding: 2rem;
+}
+
+/* Why section – subtle alt bg to separate it */
+.why-split-section {
+    background: rgb(248, 255, 253);
+}
+
+/* Tighten split content padding for these larger sections */
+.what-is-split .prem-split-content,
+.why-split .prem-split-content {
+    padding-top: 0;
+    gap: 20px;
+}
+
+.what-is-split .prem-split-features li,
+.why-split .prem-split-features li {
+    font-size: 16px;
+    color: #374151;
+}
+
+@media (max-width: 900px) {
+
+    .what-is-split,
+    .why-split {
+        gap: 40px;
+    }
+
+    .what-is-visual-panel,
+    .why-visual-panel {
+        min-height: 320px;
+    }
+}
+
 
 /* ── Premium Tabbing (Who Is It For) ── */
 .prem-who-tabs-section {

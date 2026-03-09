@@ -16,7 +16,7 @@ const PhilosophySection = () => {
                     <span className="prem-badge animate-premium">Philosophy</span>
                     <h2 className="section-title animate-premium">
                         The Philosophy Behind<br />
-                        <span className="dec-phil-title-em">Ad Mandala</span>
+                        <span className="dec-phil-title-em">AdMandala</span>
                     </h2>
                     <p className="prem-subtext animate-premium">
                         Why decentralization matters — and why <em>timing</em> matters more.
@@ -80,7 +80,7 @@ const PhilosophySection = () => {
                     <div className="dec-phil-principle-inner">
                         <div className="dec-phil-principle-accent" />
                         <div className="dec-phil-principle-body">
-                            <span className="dec-phil-principle-label">Ad Mandala is built on a simple principle</span>
+                            <span className="dec-phil-principle-label">AdMandala is built on a simple principle</span>
                             <blockquote className="dec-phil-principle-quote">
                                 Decentralization should <span className="dec-phil-quote-em">emerge</span> from proven infrastructure — not replace it overnight.
                             </blockquote>

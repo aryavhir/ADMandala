@@ -14,11 +14,11 @@ const WhatsLiveSection: React.FC = () => {
                 <div className="live-split-layout">
                     <div className="live-left-content animate-on-scroll">
                         <div className="live-indicator"><span className="blink"></span> SYSTEM OPERATIONAL</div>
-                        <h2 className="live-title-large">What's Live Today</h2>
-                        <p className="live-description-text">
+                        <h2 className="section-title animate-premium" style={{ color: "white " }}>What's Live Today</h2>
+                        <p className="prem-subtext" style={{ color: "white", textAlign: "left" }}>
                             Our centralized exchange is processing real programmatic trades right now — building the operational foundation that will inform every layer of future decentralization.
                         </p>
-                        <p className="live-description-sub">
+                        <p className="prem-subtext" style={{ color: "white", textAlign: "left" }}>
                             Each component represents a live system actively serving the programmatic advertising ecosystem.
                         </p>
                     </div>

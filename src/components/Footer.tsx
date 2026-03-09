@@ -13,8 +13,8 @@ function Footer() {
         <div className="footer-top">
           <div className="footer-brand-side">
             <div className="footer-logo-wrap">
-              <img src={logo} alt="Ad Mandala Logo" className="footer-logo-img" />
-              <span className="footer-logo-text">Ad Mandala</span>
+              <img src={logo} alt="AdMandala Logo" className="footer-logo-img" />
+              <span className="footer-logo-text">AdMandala</span>
             </div>
             <p className="footer-tagline">
               The transparent ad exchange platform for the decentralized era.
@@ -70,7 +70,7 @@ function Footer() {
 
         <div className="footer-bottom">
           <div className="copyright-convert">
-            Copyright © {new Date().getFullYear()} Ad Mandala LLC. All rights reserved.
+            Copyright © {new Date().getFullYear()} AdMandala LLC. All rights reserved.
           </div>
           <div className="footer-legal-links">
             <a href={termsPdf} target="_blank" rel="noopener noreferrer">Terms</a>

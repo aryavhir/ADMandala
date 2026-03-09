@@ -120,7 +120,7 @@ const ApproachSection = () => {
                     {/* Right side — Description + features */}
                     <div className="dec-approach-copy animate-on-scroll delay-2">
                         <p className="dec-approach-desc">
-                            Ad Mandala applies this principle by decentralizing <strong>only the layers that benefit from it</strong> — while keeping the system usable, scalable, and reliable at every stage of growth.
+                            AdMandala applies this principle by decentralizing <strong>only the layers that benefit from it</strong> — while keeping the system usable, scalable, and reliable at every stage of growth.
                         </p>
                         <p className="dec-approach-desc-sub">
                             Rather than forcing everything onto a decentralized stack, we selectively layer trust-minimized components where they matter most — verification, settlement, and governance — while the performance-critical exchange layer remains optimized for speed and scale.

@@ -8,7 +8,7 @@ const AudiencePanels: React.FC = () => {
             <div className="content-wrapper">
                 <div className="audience-header">
                     <span className="prem-badge animate-premium">Ecosystem Partners</span>
-                    <h2 className="section-title animate-premium">Who Ad Mandala Is For</h2>
+                    <h2 className="section-title animate-premium">Who AdMandala Is For</h2>
                 </div>
 
                 <div className="audience-panels">

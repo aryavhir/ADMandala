@@ -207,22 +207,22 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onIntroComplete }) => {
 
                 <div className="content-wrapper">
                     <div className="prem-hero-content">
-                        <h1 className="prem-hero-h1 animate-premium">
+                        <h1 className="prem-hero-h1 animate-premium" style={{ marginBlock: '2.2rem' }}>
                             <span className="gradient-text">Programmatic Advertising.</span><br />
                             Built to Evolve.
                         </h1>
                         <p className="prem-hero-desc animate-premium">
-                            Ad Mandala is a live, centralized programmatic advertising exchange — designed from day one to transition into a decentralized, verifiable protocol.
+                            AdMandala is a live, centralized programmatic advertising exchange — designed from day one to transition into a decentralized, verifiable protocol.
                         </p>
 
-                        <div className="prem-hero-actions animate-premium">
+                        <div className="prem-hero-actions animate-premium" style={{ marginBottom: '1.5rem' }}>
                             <Link to="/publishers" className="btn-premium-primary">
                                 <div className="btn-premium-inner">
                                     <span className="btn-premium-text">Publisher Access</span>
                                     <span className="btn-premium-text-hover">Publisher Access</span>
                                 </div>
                             </Link>
-                            <Link to="/advertisers" className="btn-premium-primary">
+                            <Link to="/advertisers" className="btn-premium-primary" style={{ backgroundColor: '#000000ff' }}>
                                 <div className="btn-premium-inner">
                                     <span className="btn-premium-text">Advertiser Access</span>
                                     <span className="btn-premium-text-hover">Advertiser Access</span>

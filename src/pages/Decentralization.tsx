@@ -56,7 +56,7 @@ function Decentralization() {
       <CompatibilitySection />
       <LookingAhead
         description={
-          <>Ad Mandala is not racing toward decentralization — it is <strong>progressing</strong> toward it. Each step is introduced only when it strengthens the network without disrupting existing workflows.</>
+          <>AdMandala is not racing toward decentralization — it is <strong>progressing</strong> toward it. Each step is introduced only when it strengthens the network without disrupting existing workflows.</>
         }
         showButton={false}
       />

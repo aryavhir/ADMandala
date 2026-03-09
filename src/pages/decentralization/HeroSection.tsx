@@ -102,7 +102,7 @@ const HeroSection: React.FC = () => {
                         <span>to Protocol</span>
                     </h1>
                     <p className="dec-hero-sub animate-premium">
-                        Ad Mandala is evolving from a centralized programmatic exchange into a decentralized advertising network&nbsp;— without compromising performance or usability.
+                        AdMandala is evolving from a centralized programmatic exchange into a decentralized advertising network&nbsp;— without compromising performance or usability.
                     </p>
                     <div className="dec-hero-actions animate-premium">
                         <a href="#evolution" className="btn-premium-primary">

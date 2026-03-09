@@ -57,7 +57,7 @@ function DSPs() {
     {
       id: "quality-control",
       title: "Quality-Controlled Supply",
-      description: "Performance over volume. Ad Mandala prioritizes traffic quality and advertiser outcomes.",
+      description: "Performance over volume. AdMandala prioritizes traffic quality and advertiser outcomes.",
       listItems: [
         "Enforcing centralized quality checks",
         "Actively filtering invalid traffic",
@@ -83,7 +83,7 @@ function DSPs() {
     {
       id: "transparency",
       title: "Progressive Transparency",
-      description: "While the exchange operates centrally today, Ad Mandala is designed to progressively reduce trust assumptions.",
+      description: "While the exchange operates centrally today, AdMandala is designed to progressively reduce trust assumptions.",
       listItems: [
         "Independently verifiable ad events",
         "Increased confidence in delivery and performance",
@@ -152,7 +152,7 @@ function DSPs() {
         id="why-advertisers"
         badge="Why AdMandala"
         title={<>Why DSPs Choose <span className="text-teal">AdMandala</span></>}
-        subtitle="Ad Mandala is built for demand partners who care about performance today — and trust tomorrow."
+        subtitle="AdMandala is built for demand partners who care about performance today — and trust tomorrow."
         reasons={whyReasons}
       />
 
@@ -168,7 +168,7 @@ function DSPs() {
 
       <LookingAhead
         id="future-view"
-        description="Ad Mandala is evolving into a verifiable advertising protocol. See how our roadmap leads to a future where every impression and click is independently validated."
+        description="AdMandala is evolving into a verifiable advertising protocol. See how our roadmap leads to a future where every impression and click is independently validated."
       />
       <FAQs />
 

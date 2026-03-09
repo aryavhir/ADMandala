@@ -75,7 +75,7 @@ export function AnimatedBeamDemo() {
                 {/* Center Column: Ad Mandala (No circle wrapper, larger) */}
                 <div className="flex flex-col justify-center">
                     <div ref={centerRef} className="z-10 size-32 p-2">
-                        <img src={logoImg} alt="Ad Mandala" className="w-full h-full object-contain" />
+                        <img src={logoImg} alt="AdMandala" className="w-full h-full object-contain" />
                     </div>
                 </div>
 

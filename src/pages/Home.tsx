@@ -55,13 +55,6 @@ function Home() {
 
       <HeroSection onIntroComplete={handleIntroComplete} />
 
-      <div className="content-wrapper" style={{ marginBlock: '2rem', textAlign: 'center' }}>
-        <h2 className="prem-hero-h1" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', color: '#101010', maxWidth: '1000px', margin: '0 auto' }}>
-          Programmatic Advertising.<br />
-          Built to Evolve.
-        </h2>
-      </div>
-
       <WhatIsSection />
       <WhySection />
       <WhatsLiveSection />

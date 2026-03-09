@@ -15,7 +15,7 @@ const RoadmapSection: React.FC = () => {
                     <span className="prem-badge animate-premium">OUR APPROACH</span>
                     <h2 className="section-title animate-premium">Built for the Long Term</h2>
                     <p className="prem-subtext animate-premium">
-                        Ad Mandala is not decentralizing for ideology — but for outcomes.
+                        AdMandala is not decentralizing for ideology — but for outcomes.
                         A deliberate, phased path where each layer earns its place.
                     </p>
                 </div>

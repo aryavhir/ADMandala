@@ -31,7 +31,7 @@ const RoadmapSection = () => {
                             <span className="dec-phase-subtitle">Programmatic Ad Exchange</span>
                         </div>
                         <div className="dec-phase-details">
-                            <p>Ad Mandala operates today as a centralized programmatic exchange to ensure reliability and real-world validation.</p>
+                            <p>AdMandala operates today as a centralized programmatic exchange to ensure reliability and real-world validation.</p>
                             <ul className="dec-check-list compact">
                                 <li><CheckCircle2 size={16} /> Seamless SSP &amp; DSP integration</li>
                                 <li><CheckCircle2 size={16} /> Strong traffic quality enforcement</li>
@@ -104,7 +104,7 @@ const RoadmapSection = () => {
                             <span className="dec-phase-subtitle">Trust-Minimized Protocol</span>
                         </div>
                         <div className="dec-phase-details">
-                            <p>Ad Mandala becomes a trust-minimized protocol — resilient and community-governed.</p>
+                            <p>AdMandala becomes a trust-minimized protocol — resilient and community-governed.</p>
                             <ul className="dec-check-list compact">
                                 <li><CheckCircle2 size={16} /> Deterministic pricing &amp; settlement</li>
                                 <li><CheckCircle2 size={16} /> Transparent, auditable event records</li>
@@ -113,7 +113,7 @@ const RoadmapSection = () => {
                             </ul>
                             <div className="dec-phase-quote">
                                 <Network size={14} />
-                                If Ad Mandala disappears, the protocol continues.
+                                If AdMandala disappears, the protocol continues.
                             </div>
                         </div>
                         <span className="dec-phase-bottom-label">Phase 3 — Protocol Settlement</span>

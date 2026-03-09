@@ -162,14 +162,14 @@ function Publishers() {
 
       <LookingAhead
         id="future-view"
-        description="Ad Mandala is evolving from a centralized exchange into a verifiable advertising protocol. See how verification and settlement decentralize — without disrupting your monetization workflows."
+        description="AdMandala is evolving from a centralized exchange into a verifiable advertising protocol. See how verification and settlement decentralize — without disrupting your monetization workflows."
       />
       <FAQs />
 
       <PremiumCTA
         badge="Join Other Publishers"
         title="Start Monetizing Today"
-        description="Publishers with Ad Mandala's transparency and unified demand reporting—focus on your content."
+        description="Publishers with AdMandala's transparency and unified demand reporting—focus on your content."
         buttonText="Register as a Publisher"
         onButtonClick={() => window.open(registrationUrl, '_blank')}
       />
