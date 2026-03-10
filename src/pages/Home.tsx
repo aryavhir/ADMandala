@@ -57,6 +57,7 @@ function Home() {
 
       <WhatIsSection />
       <WhySection />
+
       <WhatsLiveSection />
       <RoadmapSection />
       <LookingAhead />

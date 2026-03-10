@@ -24,7 +24,6 @@ const LogoConstructionAnimation: React.FC = () => {
 
         const ctx = gsap.context(() => {
             const waveformPath = containerRef.current!.querySelector('.waveform-path') as SVGPathElement;
-            const arrowStart = containerRef.current!.querySelector('.arrow-start') as SVGElement;
             const arrowEnd = containerRef.current!.querySelector('.arrow-end') as SVGElement;
 
             // Measure waveform path length for draw animation
@@ -41,7 +40,6 @@ const LogoConstructionAnimation: React.FC = () => {
             gsap.set('.logo-circle', { scale: 0, transformOrigin: '50% 50%' });
             gsap.set('.circle-shadow', { scale: 0, opacity: 0, transformOrigin: '50% 50%' });
             gsap.set(waveformPath, { opacity: 0 });
-            gsap.set(arrowStart, { opacity: 0, scale: 0, transformOrigin: '50% 50%' });
             gsap.set(arrowEnd, { opacity: 0, scale: 0, transformOrigin: '50% 50%' });
             gsap.set('.construction-label', { opacity: 0, y: 20 });
             gsap.set('.dot-origin', { scale: 1, opacity: 1 });
@@ -81,14 +79,6 @@ const LogoConstructionAnimation: React.FC = () => {
                     duration: 1,
                     ease: 'elastic.out(1, 0.8)',
                 }, '-=0.7');
-
-            // Stage 3: Arrow enters from bottom-left
-            tl.to(arrowStart, {
-                opacity: 1,
-                scale: 1,
-                duration: 0.4,
-                ease: 'back.out(2)',
-            }, '-=0.2');
 
             // Stage 4: Waveform draws across
             tl.to(waveformPath, {
@@ -137,18 +127,12 @@ const LogoConstructionAnimation: React.FC = () => {
     // Coordinates are relative to a 400×400 viewBox, circle centered at 200,200 r=130
     // The waveform enters from bottom-left, goes up, zigzags, exits top-right
     const waveformD = [
-        'M 85 290',       // start: bottom-left outside circle
-        'Q 95 275 105 250', // curve into circle
-        'L 130 165',      // up to first peak
-        'Q 135 150 140 165', // smooth peak
-        'L 170 310',      // down to valley
-        'Q 175 330 180 310', // smooth valley
-        'L 210 120',      // up to second peak  
-        'Q 215 105 220 120', // smooth peak
-        'L 250 280',      // down to second valley
-        'Q 255 295 260 280', // smooth valley
-        'L 290 155',      // up toward exit
-        'Q 300 130 315 110', // curve out of circle top-right
+        'M 70 320',         // Start bottom-left
+        'C 80 300, 90 220, 110 240',  // First curve up
+        'S 130 350, 150 280',         // Down to deep valley
+        'C 170 180, 190 60, 210 120', // HIGH PEAK (The signature "M" peak)
+        'S 240 330, 260 250',         // Down to medium valley
+        'C 280 150, 310 130, 340 100'  // Final climb to arrow tip
     ].join(' ');
 
     return (
@@ -187,39 +171,24 @@ const LogoConstructionAnimation: React.FC = () => {
                     </defs>
                     <circle cx="200" cy="200" r="130" fill="url(#circleDepth)" className="logo-circle" />
 
-                    {/* Arrow start (bottom-left, pointing into the waveform entry) */}
-                    <g className="arrow-start">
-                        <line x1="78" y1="298" x2="88" y2="286" stroke="white" strokeWidth="4" strokeLinecap="round" />
-                        <polyline
-                            points="75,288 78,298 89,296"
-                            fill="none"
-                            stroke="white"
-                            strokeWidth="3.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        />
-                    </g>
-
                     {/* Waveform path — THE signature line */}
                     <path
                         className="waveform-path"
                         d={waveformD}
                         fill="none"
                         stroke="white"
-                        strokeWidth="5.5"
+                        strokeWidth="7"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                     />
 
                     {/* Arrow end (top-right, pointing out from exit) */}
                     <g className="arrow-end">
-                        <line x1="310" y1="115" x2="320" y2="105" stroke="white" strokeWidth="4" strokeLinecap="round" />
-                        <polyline
-                            points="312,103 320,105 318,114"
-                            fill="none"
+                        <path
+                            d="M 325 115 L 345 95 L 335 125 Z"
+                            fill="white"
                             stroke="white"
-                            strokeWidth="3.5"
-                            strokeLinecap="round"
+                            strokeWidth="2"
                             strokeLinejoin="round"
                         />
                     </g>

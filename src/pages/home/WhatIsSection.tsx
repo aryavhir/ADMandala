@@ -1,6 +1,7 @@
 import React from 'react';
 import { Shield, CheckCircle2, TrendingUp } from 'lucide-react';
-import LogoConstructionAnimation from '../../components/ParticleMandalaCanvas';
+import Lottie from 'lottie-react';
+import showreelAnimation from '../../assets/Showreel.json';
 
 const WhatIsSection: React.FC = () => {
     return (
@@ -22,9 +23,15 @@ const WhatIsSection: React.FC = () => {
                         </ul>
                     </div>
 
-                    {/* RIGHT: Logo Animation */}
+                    {/* RIGHT: Lottie Animation */}
                     <div className="what-is-visual-panel animate-premium">
-                        <LogoConstructionAnimation />
+                        <div style={{ width: '100%', maxWidth: '500px' }}>
+                            <Lottie
+                                animationData={showreelAnimation}
+                                loop={true}
+                                autoplay={true}
+                            />
+                        </div>
                     </div>
 
                 </div>
