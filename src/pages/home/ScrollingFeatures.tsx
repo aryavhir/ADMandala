@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from 'react';
-import gsap from 'gsap';
+import React, { useRef } from 'react';
+
 
 const ScrollingFeatures: React.FC = () => {
     const track1Ref = useRef<HTMLDivElement>(null);
@@ -27,39 +27,10 @@ const ScrollingFeatures: React.FC = () => {
         'Live Tracking',
     ];
 
-    useEffect(() => {
-        if (!track1Ref.current || !track2Ref.current) return;
+    // No GSAP needed - handling perfectly with pure CSS keyframes instead for zero-gap infinite scrolling.
 
-        const createMarquee = (track: HTMLElement, duration: number, reverse: boolean) => {
-            const totalWidth = track.scrollWidth / 2;
-
-            return gsap.to(track, {
-                x: reverse ? totalWidth : -totalWidth,
-                duration: duration,
-                ease: 'none',
-                repeat: -1,
-                modifiers: {
-                    x: gsap.utils.unitize(x => {
-                        const val = parseFloat(x);
-                        return reverse
-                            ? (val <= 0 ? val + totalWidth : val) % totalWidth
-                            : (val <= -totalWidth ? val + totalWidth : val) % totalWidth;
-                    })
-                }
-            });
-        };
-
-        const anim1 = createMarquee(track1Ref.current, 40, false);
-        const anim2 = createMarquee(track2Ref.current, 45, true);
-
-        return () => {
-            anim1.kill();
-            anim2.kill();
-        };
-    }, []);
-
-    const renderPills = (items: string[]) => (
-        <div className="simple-marquee-track">
+    const renderPills = (items: string[], reverse: boolean) => (
+        <div className={`simple-marquee-track ${reverse ? 'reverse' : ''}`}>
             {[...items, ...items].map((item, i) => (
                 <div key={i} className="simple-pill">
                     {item}
@@ -72,10 +43,10 @@ const ScrollingFeatures: React.FC = () => {
         <div className="simple-marquee-section">
             <div className="simple-marquee-container">
                 <div className="simple-marquee-row" ref={track1Ref}>
-                    {renderPills(featurePills)}
+                    {renderPills(featurePills, false)}
                 </div>
                 <div className="simple-marquee-row" ref={track2Ref} style={{ marginTop: '16px' }}>
-                    {renderPills(secondRowPills)}
+                    {renderPills(secondRowPills, true)}
                 </div>
             </div>
         </div>

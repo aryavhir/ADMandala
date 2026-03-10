@@ -17,7 +17,7 @@ const WhySection: React.FC = () => {
                     {/* RIGHT: Text */}
                     <div className="prem-split-content animate-on-scroll">
                         <span className="prem-badge">The Tension In Ad Tech</span>
-                        <h2 className="section-title">Why AdMandala<br />Exists</h2>
+                        <h2 className="section-title">Why AdMandala Exists</h2>
                         <p className="prem-subtext">
                             Advertising needs reliability <em>and</em> trust. Today's ecosystem forces a choice between them. We're building the infrastructure that refuses that tradeoff.
                         </p>

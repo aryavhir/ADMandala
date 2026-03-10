@@ -4,7 +4,6 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import ContactForm from '../components/ContactForm';
-import FAQs from '../components/FAQs';
 import LookingAhead from '../components/LookingAhead';
 
 // Premium Components
@@ -170,7 +169,6 @@ function DSPs() {
         id="future-view"
         description="AdMandala is evolving into a verifiable advertising protocol. See how our roadmap leads to a future where every impression and click is independently validated."
       />
-      <FAQs />
 
       <PremiumCTA
         badge="Join Other Demand Partners"

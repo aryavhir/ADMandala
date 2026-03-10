@@ -72,9 +72,8 @@ export function AnimatedBeamDemo() {
                     </div>
                 </div>
 
-                {/* Center Column: Ad Mandala (No circle wrapper, larger) */}
                 <div className="flex flex-col justify-center">
-                    <div ref={centerRef} className="z-10 size-32 p-2">
+                    <div ref={centerRef} className="z-10 size-24 p-2">
                         <img src={logoImg} alt="AdMandala" className="w-full h-full object-contain" />
                     </div>
                 </div>
@@ -102,7 +101,6 @@ export function AnimatedBeamDemo() {
                 </div>
             </div>
 
-            {/* Beams from DSPs to Center */}
             <AnimatedBeam
                 containerRef={containerRef}
                 fromRef={dsp1Ref}
@@ -111,7 +109,7 @@ export function AnimatedBeamDemo() {
                 endYOffset={-10}
                 pathColor="#e5e7eb"
                 gradientColors={gradientColors}
-                duration={5}
+                duration={7}
             />
             <AnimatedBeam
                 containerRef={containerRef}
@@ -119,7 +117,7 @@ export function AnimatedBeamDemo() {
                 toRef={centerRef}
                 pathColor="#e5e7eb"
                 gradientColors={gradientColors}
-                duration={4}
+                duration={6}
             />
             <AnimatedBeam
                 containerRef={containerRef}
@@ -129,10 +127,9 @@ export function AnimatedBeamDemo() {
                 endYOffset={10}
                 pathColor="#e5e7eb"
                 gradientColors={gradientColors}
-                duration={6}
+                duration={8}
             />
 
-            {/* Beams from Center to Publishers */}
             <AnimatedBeam
                 containerRef={containerRef}
                 fromRef={centerRef}
@@ -141,7 +138,7 @@ export function AnimatedBeamDemo() {
                 endYOffset={-10}
                 pathColor="#e5e7eb"
                 gradientColors={gradientColors}
-                duration={5}
+                duration={7}
             />
             <AnimatedBeam
                 containerRef={containerRef}
@@ -149,7 +146,7 @@ export function AnimatedBeamDemo() {
                 toRef={pub2Ref}
                 pathColor="#e5e7eb"
                 gradientColors={gradientColors}
-                duration={4}
+                duration={6}
             />
             <AnimatedBeam
                 containerRef={containerRef}
@@ -159,7 +156,7 @@ export function AnimatedBeamDemo() {
                 endYOffset={10}
                 pathColor="#e5e7eb"
                 gradientColors={gradientColors}
-                duration={6}
+                duration={8}
             />
         </div>
     );

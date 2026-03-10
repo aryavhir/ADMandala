@@ -14,7 +14,7 @@ interface HeroSectionProps {
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({ onIntroComplete }) => {
-    const [isIntroActive, setIsIntroActive] = useState(false); // Set to false to bypass animation
+    const [isIntroActive, setIsIntroActive] = useState(true); // Set to true to bypass animation
     const contentRef = useRef<HTMLDivElement>(null);
     const introRef = useRef<HTMLDivElement>(null);
     const googleRef = useRef<HTMLDivElement>(null);
@@ -23,8 +23,40 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onIntroComplete }) => {
     const circleRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        /* 
-        // TEMPORARILY COMMENTED OUT GOOGLE ANIMATION
+        if (!isIntroActive) {
+            // Ensure home content is visible and scroll is unlocked
+            document.body.style.overflow = '';
+            if (contentRef.current) {
+                gsap.set(contentRef.current, {
+                    clipPath: 'none',
+                    scale: 1,
+                    opacity: 1
+                });
+                gsap.set('.animate-premium', { opacity: 1, y: 0 });
+            }
+
+            // Circle expanding effect on scroll
+            if (circleRef.current && contentRef.current) {
+                gsap.to(circleRef.current, {
+                    scale: 2.5,
+                    opacity: 0.1,
+                    ease: 'none',
+                    scrollTrigger: {
+                        trigger: contentRef.current,
+                        start: "top top",
+                        end: "top -40%",
+                        scrub: 1,
+                    }
+                });
+            }
+
+            onIntroComplete?.();
+
+            return () => {
+                ScrollTrigger.getAll().forEach(st => st.kill());
+            };
+        }
+
         if (!contentRef.current || !introRef.current) return;
 
         // 0. Lock scroll
@@ -37,7 +69,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onIntroComplete }) => {
             opacity: 1
         });
         gsap.set('.animate-premium', { opacity: 0, y: 30 });
-        gsap.set(rippleRef.current, { scale: 0, opacity: 1 });
 
         const tl = gsap.timeline({
             onComplete: () => {
@@ -50,15 +81,16 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onIntroComplete }) => {
         });
 
         // 1. Initial State
-        tl.set(cursorRef.current, { x: 0, y: 100, opacity: 0 });
+        if (cursorRef.current) tl.set(cursorRef.current, { x: 0, y: 100, opacity: 0 });
         if (inputRef.current) inputRef.current.innerText = ""; // Ensure it's empty
 
         // 2. Reveal Google and Cursor
-        tl.to(googleRef.current, { opacity: 1, duration: 0.8, delay: 0.5 });
-        tl.to(cursorRef.current, { opacity: 1, duration: 0.4 }, "-=0.2");
-
-        // 3. Move cursor to input
-        tl.to(cursorRef.current, { x: -60, y: -45, duration: 1.2, ease: "power3.inOut" });
+        if (googleRef.current) tl.to(googleRef.current, { opacity: 1, duration: 0.8, delay: 0.5 });
+        if (cursorRef.current) {
+            tl.to(cursorRef.current, { opacity: 1, duration: 0.4 }, "-=0.2");
+            // 3. Move cursor to input
+            tl.to(cursorRef.current, { x: -60, y: -45, duration: 1.2, ease: "power3.inOut" });
+        }
 
         // 4. Simulate Typing: admandala.com
         const textToType = "admandala.com";
@@ -77,65 +109,49 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onIntroComplete }) => {
         tl.to({}, { duration: 0.6 });
 
         // 6. Move cursor to button
-        tl.to(cursorRef.current, { x: -70, y: 65, duration: 0.8, ease: "power3.inOut" });
+        if (cursorRef.current) {
+            tl.to(cursorRef.current, { x: -70, y: 65, duration: 0.8, ease: "power3.inOut" });
 
-        // 7. Click effect
-        tl.to(cursorRef.current, { scale: 0.8, duration: 0.1 });
-        tl.to(cursorRef.current, { scale: 1, duration: 0.1 });
+            // 7. Click effect
+            tl.to(cursorRef.current, { scale: 0.8, duration: 0.1 });
+            tl.to(cursorRef.current, { scale: 1, duration: 0.1 });
+        }
 
         // 8. Cinematic Mask Reveal (The "Ripple" brings the site)
         tl.addLabel("reveal");
-
-        // The green ripple expands
-        tl.to(rippleRef.current, {
-            scale: 850,
-            duration: 2.5,
-            ease: "expo.inOut",
-            onStart: () => {
-                gsap.to(cursorRef.current, { opacity: 0, duration: 0.2 });
-            }
-        }, "reveal");
 
         // The actual site content expands with it
         tl.to(contentRef.current, {
             clipPath: 'circle(150% at 50% 44%)',
             scale: 1,
             duration: 2.5,
-            ease: "expo.inOut"
+            ease: "expo.inOut",
+            onStart: () => {
+                if (cursorRef.current) gsap.to(cursorRef.current, { opacity: 0, duration: 0.2 });
+            }
         }, "reveal");
 
         // 9. Fade out Google layer as site reveal completes
-        tl.to(introRef.current, {
-            opacity: 0,
-            duration: 1,
-            ease: "power2.out"
-        }, "-=1.5");
+        if (introRef.current) {
+            tl.to(introRef.current, {
+                opacity: 0,
+                duration: 1,
+                ease: "power2.out"
+            }, "-=1.5");
+        }
 
         // 10. Staggered reveal of interior elements
-        const elements = contentRef.current.querySelectorAll('.animate-premium');
-        tl.to(elements, {
-            opacity: 1,
-            y: 0,
-            duration: 1.2,
-            stagger: 0.12,
-            ease: 'power3.out'
-        }, "-=1.5");
-
-        // Cleanup
-        return () => {
-            document.body.style.overflow = '';
-        };
-        */
-
-        // Ensure home content is visible and scroll is unlocked
-        document.body.style.overflow = '';
         if (contentRef.current) {
-            gsap.set(contentRef.current, {
-                clipPath: 'none',
-                scale: 1,
-                opacity: 1
-            });
-            gsap.set('.animate-premium', { opacity: 1, y: 0 });
+            const elements = contentRef.current.querySelectorAll('.animate-premium');
+            if (elements.length > 0) {
+                tl.to(elements, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1.2,
+                    stagger: 0.12,
+                    ease: 'power3.out'
+                }, "-=1.5");
+            }
         }
 
         // Circle expanding effect on scroll
@@ -153,12 +169,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onIntroComplete }) => {
             });
         }
 
-        onIntroComplete?.();
-
+        // Cleanup
         return () => {
+            document.body.style.overflow = '';
             ScrollTrigger.getAll().forEach(st => st.kill());
+            if (tl) tl.kill();
         };
-    }, [onIntroComplete]);
+    }, []);
 
     return (
         <header className="hero-section">

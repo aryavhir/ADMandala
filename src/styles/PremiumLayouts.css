@@ -91,20 +91,34 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 10px 26px;
-    background: white;
-    color: #1a1a1a;
-    font-size: 1rem;
+    padding: 12px 28px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: #111827;
+    font-size: 0.95rem;
     font-weight: 500;
-    border-radius: 12px;
+    border-radius: 100px;
     text-decoration: none;
-    border: 1px solid #e5e7eb;
-    transition: all 0.25s ease;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.prem-hero-cta-ghost svg {
+    transition: transform 0.3s ease;
 }
 
 .prem-hero-cta-ghost:hover {
-    background: #f9fafb;
-    border-color: #d1d5db;
+    background: #111827;
+    color: #ffffff;
+    border-color: #111827;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.prem-hero-cta-ghost:hover svg {
+    transform: translateX(4px);
 }
 
 .prem-hero-mockup-wrap {
@@ -488,11 +502,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 420px;
-    border-radius: 20px;
-    background: rgba(15, 74, 74, 0.03);
-    border: 1px solid rgba(15, 74, 74, 0.08);
-    padding: 2rem;
+    min-height: 450px;
+    padding: 3rem;
+    position: relative;
+    /* Removed background box per user audio request */
 }
 
 /* Why section – subtle alt bg to separate it */
