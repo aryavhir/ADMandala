@@ -2,7 +2,6 @@ import React, { forwardRef, useRef } from "react";
 import { cn } from "../../lib/utils";
 import { AnimatedBeam } from "../ui/AnimatedBeam";
 import { Target, Building2, Globe, MonitorPlay, Layout, Users } from "lucide-react";
-import logoImg from "../../assets/fixed-logo.png";
 
 const Circle = forwardRef<
     HTMLDivElement,
@@ -73,8 +72,10 @@ export function AnimatedBeamDemo() {
                 </div>
 
                 <div className="flex flex-col justify-center">
-                    <div ref={centerRef} className="z-10 size-24 p-2">
-                        <img src={logoImg} alt="AdMandala" className="w-full h-full object-contain" />
+                    <div ref={centerRef} className="z-10 flex size-24 items-center justify-center rounded-full border-2 border-gray-100 bg-white p-2 shadow-lg">
+                        <span className="text-sm font-bold tracking-tight text-[#0f4a4a]">
+                            AdMandala
+                        </span>
                     </div>
                 </div>
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Shield, CheckCircle2, TrendingUp } from 'lucide-react';
 import Lottie from 'lottie-react';
 import showreelAnimation from '../../assets/Showreel.json';
 
@@ -15,12 +14,9 @@ const WhatIsSection: React.FC = () => {
                         <h2 className="section-title animate-premium">What Is AdMandala?</h2>
                         <p className="prem-subtext animate-premium">
                             AdMandala is a programmatic advertising exchange that connects publishers and demand partners through a reliable, centralized system — while preparing the foundation for a more transparent, decentralized future.
+                            <br />     <br /> The platform enables efficient monetization and performance today, without forcing the ecosystem to adopt unproven infrastructure prematurely.
                         </p>
-                        <ul className="prem-split-features animate-premium">
-                            <li><Shield size={16} /><span>Centralized today — reliable, high-speed auctions running right now</span></li>
-                            <li><CheckCircle2 size={16} /><span>Verifiable tomorrow — architected for on-chain proof and trust</span></li>
-                            <li><TrendingUp size={16} /><span>Built to scale with every publisher and demand partner</span></li>
-                        </ul>
+
                     </div>
 
                     {/* RIGHT: Lottie Animation */}

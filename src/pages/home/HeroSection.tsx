@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
+import Lottie from 'lottie-react';
+import cascadingTextAnimation from '../../assets/Cascading-text-remix.json';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight, Search, Mic } from 'lucide-react';
+import { Search, Mic } from 'lucide-react';
 import ScrollingFeatures from './ScrollingFeatures';
 import '../../styles/premium-buttons.css';
 import '../../styles/PremiumLayouts.css'; // Import premium layouts
@@ -14,13 +16,10 @@ interface HeroSectionProps {
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({ onIntroComplete }) => {
-    const [isIntroActive, setIsIntroActive] = useState(true); // Set to true to bypass animation
+    const [isIntroActive, setIsIntroActive] = useState(false); // Set to true to bypass animation
     const contentRef = useRef<HTMLDivElement>(null);
-    const introRef = useRef<HTMLDivElement>(null);
     const googleRef = useRef<HTMLDivElement>(null);
-    const cursorRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLSpanElement>(null);
-    const circleRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         if (!isIntroActive) {
@@ -35,20 +34,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onIntroComplete }) => {
                 gsap.set('.animate-premium', { opacity: 1, y: 0 });
             }
 
-            // Circle expanding effect on scroll
-            if (circleRef.current && contentRef.current) {
-                gsap.to(circleRef.current, {
-                    scale: 2.5,
-                    opacity: 0.1,
-                    ease: 'none',
-                    scrollTrigger: {
-                        trigger: contentRef.current,
-                        start: "top top",
-                        end: "top -40%",
-                        scrub: 1,
-                    }
-                });
-            }
+
 
             onIntroComplete?.();
 
@@ -57,22 +43,17 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onIntroComplete }) => {
             };
         }
 
-        if (!contentRef.current || !introRef.current) return;
-
-        // 0. Lock scroll
-        document.body.style.overflow = 'hidden';
+        if (!contentRef.current) return;
 
         // Initial states: Content is clipped and starts behind mockup visually (until reveal starts)
         gsap.set(contentRef.current, {
-            clipPath: 'circle(0% at 50% 44%)',
-            scale: 0.9,
+            clipPath: 'circle(0% at 50% 50%)',
             opacity: 1
         });
         gsap.set('.animate-premium', { opacity: 0, y: 30 });
 
         const tl = gsap.timeline({
             onComplete: () => {
-                document.body.style.overflow = '';
                 setTimeout(() => {
                     setIsIntroActive(false);
                     onIntroComplete?.();
@@ -81,16 +62,21 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onIntroComplete }) => {
         });
 
         // 1. Initial State
-        if (cursorRef.current) tl.set(cursorRef.current, { x: 0, y: 100, opacity: 0 });
-        if (inputRef.current) inputRef.current.innerText = ""; // Ensure it's empty
+        if (inputRef.current) inputRef.current.innerText = "|"; // Start with cursor
 
         // 2. Reveal Google and Cursor
         if (googleRef.current) tl.to(googleRef.current, { opacity: 1, duration: 0.8, delay: 0.5 });
-        if (cursorRef.current) {
-            tl.to(cursorRef.current, { opacity: 1, duration: 0.4 }, "-=0.2");
-            // 3. Move cursor to input
-            tl.to(cursorRef.current, { x: -60, y: -45, duration: 1.2, ease: "power3.inOut" });
-        }
+
+        // Blink cursor a few times before typing
+        tl.to({}, {
+            duration: 1.2,
+            onUpdate: function () {
+                if (inputRef.current) {
+                    // Blinking effect based on time
+                    inputRef.current.innerText = Math.floor(this.time() * 3) % 2 === 0 ? "|" : "";
+                }
+            }
+        });
 
         // 4. Simulate Typing: admandala.com
         const textToType = "admandala.com";
@@ -99,46 +85,54 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onIntroComplete }) => {
                 duration: 0.08,
                 onStart: () => {
                     if (inputRef.current) {
-                        inputRef.current.innerText = textToType.substring(0, i + 1);
+                        inputRef.current.innerText = textToType.substring(0, i + 1) + "|";
                     }
                 }
             });
         });
 
-        // 5. Short pause after typing
-        tl.to({}, { duration: 0.6 });
+        // 5. Short pause after typing, keeping cursor solid
+        tl.to({}, {
+            duration: 0.6,
+            onStart: () => {
+                if (inputRef.current) inputRef.current.innerText = "admandala.com"; // Remove cursor
+            }
+        });
 
-        // 6. Move cursor to button
-        if (cursorRef.current) {
-            tl.to(cursorRef.current, { x: -70, y: 65, duration: 0.8, ease: "power3.inOut" });
+        // 6. Fast zoom towards the button, centering it completely
+        tl.addLabel("zoomToButton");
 
-            // 7. Click effect
-            tl.to(cursorRef.current, { scale: 0.8, duration: 0.1 });
-            tl.to(cursorRef.current, { scale: 1, duration: 0.1 });
+        if (googleRef.current) {
+            // Precise coordinates to center the "Google Search" button
+            // Given the button's layout, shifting X to ~110 and Y to ~170 usually centers the left button
+            // To bring the button to center: 
+            // - The button is naturally in the middle horizontally, slightly to the left.
+            //   So X needs to shift right.
+            // - The button is naturally lower half of the screen.
+            //   So Y needs to shift significantly UP.
+            tl.to(googleRef.current, { scale: 3.8, x: 230, y: -420, duration: 1.2, ease: "power3.inOut" }, "zoomToButton");
         }
+
+        // 7. Click effect (Simulate auto-click on center)
+        tl.to(".google-btn-mock:first-child", { backgroundColor: "#e8eaed", borderColor: "#dadce0", duration: 0.1 }, "+=0.2");
+        tl.to(".google-btn-mock:first-child", { backgroundColor: "#f8f9fa", borderColor: "#f8f9fa", duration: 0.1 }, "+=0.1");
+
+        // Short pause to register the click before reveal
+        tl.to({}, { duration: 0.2 });
 
         // 8. Cinematic Mask Reveal (The "Ripple" brings the site)
         tl.addLabel("reveal");
 
         // The actual site content expands with it
         tl.to(contentRef.current, {
-            clipPath: 'circle(150% at 50% 44%)',
-            scale: 1,
-            duration: 2.5,
-            ease: "expo.inOut",
-            onStart: () => {
-                if (cursorRef.current) gsap.to(cursorRef.current, { opacity: 0, duration: 0.2 });
-            }
+            clipPath: 'circle(150% at 50% 50%)',
+            opacity: 1,
+            // 👇 THIS CONTROLS THE REVEAL SPEED (higher value = slower expansion, 2.4 is half the speed of 1.2)
+            duration: 1.4,
+            ease: "power4.in"
         }, "reveal");
 
-        // 9. Fade out Google layer as site reveal completes
-        if (introRef.current) {
-            tl.to(introRef.current, {
-                opacity: 0,
-                duration: 1,
-                ease: "power2.out"
-            }, "-=1.5");
-        }
+        // 9. Fade out Google layer as site reveal completes - REMOVED for persistent BG
 
         // 10. Staggered reveal of interior elements
         if (contentRef.current) {
@@ -154,38 +148,24 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onIntroComplete }) => {
             }
         }
 
-        // Circle expanding effect on scroll
-        if (circleRef.current && contentRef.current) {
-            gsap.to(circleRef.current, {
-                scale: 2.5,
-                opacity: 0.1,
-                ease: 'none',
-                scrollTrigger: {
-                    trigger: contentRef.current,
-                    start: "top top",
-                    end: "top -40%",
-                    scrub: 1,
-                }
-            });
-        }
+
 
         // Cleanup
         return () => {
-            document.body.style.overflow = '';
             ScrollTrigger.getAll().forEach(st => st.kill());
             if (tl) tl.kill();
         };
     }, []);
 
     return (
-        <header className="hero-section">
+        <header className="hero-section" style={{ position: 'relative', overflow: 'hidden', minHeight: '100vh' }}>
             <div className="hero-background">
                 <div className="tech-grid"></div>
             </div>
 
             {/* Intro Animation Overlay (Google Layer) */}
             {isIntroActive && (
-                <div className="hero-intro-container active" ref={introRef}>
+                <div className="hero-intro-container active">
                     <div className="google-mockup" ref={googleRef} style={{ opacity: 0 }}>
                         <div className="google-logo-text">
                             <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
@@ -196,34 +176,50 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onIntroComplete }) => {
                             <Mic className="search-mic-mock" size={18} />
                         </div>
                         <div className="google-buttons-mock">
-                            <div className="google-btn-mock">Google Search</div>
+                            <div className="google-btn-mock" style={{ transition: 'background-color 0.1s, border-color 0.1s' }}>Google Search</div>
                             <div className="google-btn-mock">I'm Feeling Lucky</div>
                         </div>
                     </div>
                 </div>
             )}
 
-            <header
-                className="prem-hero"
+            <div
+                className="home-hero"
                 ref={contentRef}
                 style={{
                     position: 'relative',
-                    zIndex: 100, // Lowered to stay below Navbar (2000)
+                    zIndex: 3000, // Above Google layer (2500)
                     width: '100%',
                     background: '#ffffff',
                     paddingBottom: '2rem'
                 }}
             >
-                <div className="prem-hero-circle-wrap">
-                    <div
-                        className="prem-hero-circle"
-                        ref={circleRef}
-                        style={{ backgroundColor: "rgba(13, 148, 136, 0.15)" }}
-                    ></div>
+                <div
+                    className="hero-lottie-bg"
+                    style={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        width: '100%',
+                        height: '100%',
+                        zIndex: 0,
+                        pointerEvents: 'none',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        overflow: 'hidden'
+                    }}
+                >
+                    <Lottie
+                        animationData={cascadingTextAnimation}
+                        loop={true}
+                        rendererSettings={{ preserveAspectRatio: 'xMidYMid slice' }}
+                        style={{ width: '100%', height: '100%' }}
+                    />
                 </div>
-
-                <div className="content-wrapper">
-                    <div className="prem-hero-content">
+                <div className="content-wrapper" style={{ position: 'relative', zIndex: 10 }}>
+                    <div className="home-hero-content">
                         <h1 className="prem-hero-h1 animate-premium" style={{ marginBlock: '2.2rem' }}>
                             <span className="gradient-text">Programmatic Advertising.</span><br />
                             Built to Evolve.
@@ -248,9 +244,16 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onIntroComplete }) => {
                         </div>
 
                         <div className="decentralization-link-wrapper animate-premium" style={{ marginTop: '0.5rem' }}>
-                            <Link to="/decentralization" className="prem-hero-cta-ghost">
-                                Explore the decentralization roadmap
-                                <ArrowRight size={16} />
+                            <Link to="/decentralization" className="explore-button">
+                                <span className="explore-button__icon-wrapper" aria-hidden="true">
+                                    <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="explore-button__icon-svg" width={12}>
+                                        <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" fill="currentColor" />
+                                    </svg>
+                                    <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="explore-button__icon-svg explore-button__icon-svg--copy" width={12}>
+                                        <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" fill="currentColor" />
+                                    </svg>
+                                </span>
+                                <span className="explore-button__label">Explore the decentralized roadmap</span>
                             </Link>
                         </div>
                     </div>
@@ -259,8 +262,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onIntroComplete }) => {
                 <div className="hero-scroll-features-wrapper" style={{ width: '100%', marginTop: '4rem' }}>
                     <ScrollingFeatures />
                 </div>
-            </header>
-            {isIntroActive && <div className="fake-cursor" ref={cursorRef}></div>}
+            </div>
         </header>
     );
 };

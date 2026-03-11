@@ -31,10 +31,13 @@ const ScrollingFeatures: React.FC = () => {
 
     const renderPills = (items: string[], reverse: boolean) => (
         <div className={`simple-marquee-track ${reverse ? 'reverse' : ''}`}>
-            {[...items, ...items].map((item, i) => (
-                <div key={i} className="simple-pill">
-                    {item}
-                </div>
+            {[...items, ...items, ...items].map((item, i) => (
+                <React.Fragment key={i}>
+                    <span className={`marquee-item ${i % 2 === 0 ? 'solid-dark' : 'solid-green'}`}>
+                        {item}
+                    </span>
+                    <span className="marquee-separator">✦</span>
+                </React.Fragment>
             ))}
         </div>
     );
@@ -45,7 +48,7 @@ const ScrollingFeatures: React.FC = () => {
                 <div className="simple-marquee-row" ref={track1Ref}>
                     {renderPills(featurePills, false)}
                 </div>
-                <div className="simple-marquee-row" ref={track2Ref} style={{ marginTop: '16px' }}>
+                <div className="simple-marquee-row" ref={track2Ref} style={{ marginTop: '24px' }}>
                     {renderPills(secondRowPills, true)}
                 </div>
             </div>
