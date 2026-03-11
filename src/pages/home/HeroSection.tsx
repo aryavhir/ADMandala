@@ -20,6 +20,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onIntroComplete }) => {
     const contentRef = useRef<HTMLDivElement>(null);
     const googleRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLSpanElement>(null);
+    const circleRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         if (!isIntroActive) {
@@ -150,6 +151,21 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onIntroComplete }) => {
 
 
 
+        // 11. Expanding Circle Animation (Matches subpages)
+        if (circleRef.current) {
+            gsap.to(circleRef.current, {
+                scale: 3,
+                opacity: 0.15,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: ".hero-section",
+                    start: "top top",
+                    end: "top -50%",
+                    scrub: 1,
+                }
+            });
+        }
+
         // Cleanup
         return () => {
             ScrollTrigger.getAll().forEach(st => st.kill());
@@ -218,17 +234,23 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onIntroComplete }) => {
                         style={{ width: '100%', height: '100%' }}
                     />
                 </div>
+                <div className="prem-hero-circle-wrap" style={{ zIndex: 1 }}>
+                    <div
+                        className="prem-hero-circle"
+                        ref={circleRef}
+                    ></div>
+                </div>
                 <div className="content-wrapper" style={{ position: 'relative', zIndex: 10 }}>
-                    <div className="home-hero-content">
-                        <h1 className="prem-hero-h1 animate-premium" style={{ marginBlock: '2.2rem' }}>
-                            <span className="gradient-text">Programmatic Advertising.</span><br />
-                            Built to Evolve.
+                    <div className="prem-hero-content">
+                        <h1 className="prem-hero-h1 animate-premium">
+                            Programmatic Advertising.<br />
+                            <span>Built to Evolve.</span>
                         </h1>
                         <p className="prem-hero-desc animate-premium">
                             AdMandala is a live, centralized programmatic advertising exchange — designed from day one to transition into a decentralized, verifiable protocol.
                         </p>
 
-                        <div className="prem-hero-actions animate-premium" style={{ marginBottom: '1.5rem' }}>
+                        <div className="prem-hero-actions animate-premium">
                             <Link to="/publishers" className="btn-premium-primary">
                                 <div className="btn-premium-inner">
                                     <span className="btn-premium-text">Publisher Access</span>

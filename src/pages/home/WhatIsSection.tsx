@@ -11,7 +11,7 @@ const WhatIsSection: React.FC = () => {
                     {/* LEFT: Text */}
                     <div className="prem-split-content">
                         <span className="prem-badge animate-premium">Context</span>
-                        <h2 className="section-title animate-premium">What Is AdMandala?</h2>
+                        <h2 className="section-title animate-premium">What Is  <span className="dec-approach-word dec-approach-word-em">Admandala</span> ?</h2>
                         <p className="prem-subtext animate-premium">
                             AdMandala is a programmatic advertising exchange that connects publishers and demand partners through a reliable, centralized system — while preparing the foundation for a more transparent, decentralized future.
                             <br />     <br /> The platform enables efficient monetization and performance today, without forcing the ecosystem to adopt unproven infrastructure prematurely.

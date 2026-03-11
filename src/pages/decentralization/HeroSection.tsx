@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { HexagonBackground } from '../../components/animate-ui/components/backgrounds/hexagon';
 import '../../styles/premium-buttons.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -39,64 +40,17 @@ const HeroSection: React.FC = () => {
                 <div className="dec-mesh-line dec-ml-3" />
                 <div className="dec-mesh-line dec-ml-4" />
             </div>
+
+            <HexagonBackground
+                className="absolute inset-0 z-0 opacity-40 dark:opacity-20"
+                hexagonSize={60}
+                hexagonMargin={2}
+            />
+
             <div className="dec-hero-radial" aria-hidden="true" />
 
-            {/* Hero Background Visual — Move to bg layer */}
-            <div className="dec-hero-visual" aria-hidden="true">
-                <div className="dec-step-visual">
-                    <svg className="dec-step-svg" viewBox="0 0 1200 400" fill="none" preserveAspectRatio="xMidYMid meet">
-                        <defs>
-                            <linearGradient id="dec-line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" stopColor="#5ba3cf" />
-                                <stop offset="50%" stopColor="#38b2ac" />
-                                <stop offset="100%" stopColor="#48bb78" />
-                            </linearGradient>
-                        </defs>
-                        {/* Base grey path (Wavy Journey) spanning 1200px */}
-                        <path
-                            d="M 0 350 C 120 350, 180 240, 300 240 S 480 340, 660 180 S 840 280, 1020 100 L 1200 80"
-                            className="dec-step-base-path"
-                        />
-                        {/* Animated colour stroke */}
-                        <path
-                            d="M 0 350 C 120 350, 180 240, 300 240 S 480 340, 660 180 S 840 280, 1020 100 L 1200 80"
-                            className="dec-step-anim-path"
-                            stroke="url(#dec-line-grad)"
-                        />
-                    </svg>
-
-                    {/* Step 1 Peak at roughly x=300 (25% of 1200) */}
-                    <div className="dec-step-group dec-step-1">
-                        <span className="dec-step-number dec-sn-1">1</span>
-                        <div className="dec-step-content">
-                            <span className="dec-step-title">Step One</span>
-                            <span className="dec-step-desc">The team should conduct a<br />proof of concept.</span>
-                        </div>
-                    </div>
-
-                    {/* Step 2 Peak at roughly x=660 (55% of 1200) */}
-                    <div className="dec-step-group dec-step-2">
-                        <span className="dec-step-number dec-sn-2">2</span>
-                        <div className="dec-step-content">
-                            <span className="dec-step-title">Step Two</span>
-                            <span className="dec-step-desc">The team should start by outlining<br />the milestones.</span>
-                        </div>
-                    </div>
-
-                    {/* Step 3 Peak at roughly x=1020 (85% of 1200) */}
-                    <div className="dec-step-group dec-step-3">
-                        <span className="dec-step-number dec-sn-3">3</span>
-                        <div className="dec-step-content">
-                            <span className="dec-step-title">Step Three</span>
-                            <span className="dec-step-desc">The team should monitor the<br />process efficiency.</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div className="content-wrapper dec-hero-layout">
+            <div className="content-wrapper dec-hero-layout relative z-10">
                 <div className="dec-hero-copy" ref={copyRef}>
-
                     <h1 className="dec-hero-h1 animate-premium">
                         From <span className="dec-h1-em">Platform</span><br />
                         <span>to Protocol</span>

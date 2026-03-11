@@ -15,7 +15,7 @@ const WhySection: React.FC = () => {
                     {/* RIGHT: Text */}
                     <div className="prem-split-content animate-on-scroll">
                         <span className="prem-badge">The Tension In Ad Tech</span>
-                        <h2 className="section-title">Why AdMandala Exists</h2>
+                        <h2 className="section-title">Why <span className="dec-approach-word dec-approach-word-em">Admandala</span> Exists</h2>
                         <p className="prem-subtext">
                             Advertising needs reliability <em>and</em> trust. Today's ecosystem forces a choice between them. We're building the infrastructure that refuses that tradeoff.
                             <br />     <br />  Ad Mandala bridges this gap by delivering production-grade programmatic infrastructure now, while methodically decentralizing the layers that matter most — verification, settlement, and governance.
