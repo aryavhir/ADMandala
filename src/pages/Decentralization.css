@@ -119,128 +119,224 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 6rem 2rem 4rem;
+  padding: 8rem 0 4rem;
   overflow: hidden;
-  background: linear-gradient(175deg, #f0f9f9 0%, #ffffff 40%, #fafbfc 100%);
+  background: #ffffff;
 }
 
-/* Mesh background lines */
-.dec-hero-mesh {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.dec-mesh-line {
-  position: absolute;
-  background: rgba(var(--brand-rgb), 0.04);
-}
-
-.dec-ml-1 {
-  width: 1px;
-  height: 100%;
-  left: 20%;
-}
-
-.dec-ml-2 {
-  width: 1px;
-  height: 100%;
-  left: 50%;
-}
-
-.dec-ml-3 {
-  width: 1px;
-  height: 100%;
-  left: 80%;
-}
-
-.dec-ml-4 {
-  width: 100%;
-  height: 1px;
-  top: 60%;
-}
-
-.dec-hero-radial {
-  position: absolute;
-  width: 900px;
-  height: 900px;
-  top: 50%;
-  left: 60%;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(var(--brand-rgb), 0.04) 0%, transparent 65%);
-  pointer-events: none;
-}
-
+/* ── Hero Layout ── */
 .dec-hero-layout {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
   align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 2;
-  text-align: center;
+  gap: 4rem;
+  z-index: 10;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
 }
 
 .dec-hero-copy {
-  flex: 1;
-  max-width: 700px;
-  /* Aligned with PremiumHero.tsx */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.dec-hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--brand);
-  margin-bottom: 2rem;
-  opacity: 0.8;
-}
-
-.dec-hero-eyebrow svg {
-  opacity: 0.8;
+  max-width: 580px;
 }
 
 .dec-hero-h1 {
   font-family: "Inter Display", "Inter", sans-serif;
-  font-size: 48px;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 400;
   line-height: 1.1;
   letter-spacing: -0.05em;
   color: #101010;
   margin-bottom: 1.5rem;
-  text-wrap: balance;
 }
 
 .dec-h1-em {
-  color: #1a1a1a;
-  background: none;
-  -webkit-text-fill-color: initial;
+  color: var(--brand);
 }
 
 .dec-hero-sub {
-  font-size: 20px;
-  color: #000000;
-  max-width: 540px;
-  margin: 0 auto 2.5rem;
-  line-height: 1.3em;
-  font-weight: 400;
-  letter-spacing: -.04em;
-  text-wrap: balance;
+  font-size: 1.15rem;
+  color: #4a5568;
+  max-width: 500px;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
 }
 
 .dec-hero-actions {
   display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 1.25rem;
-  margin-top: 0.5rem;
+}
+
+/* ── Mockup Container (The Tab) ── */
+.dec-hero-mockup-container {
+  position: relative;
+  perspective: 2000px;
+}
+
+/* ── Custom Mockup Overrides for Decentralization ── */
+.dec-page .prem-hero-mockup {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-radius: 24px !important;
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.04),
+    0 20px 80px rgba(15, 74, 74, 0.06) !important;
+  height: 520px !important;
+  /* Fixed height for consistency */
+  display: flex !important;
+  flex-direction: column !important;
+  transform: perspective(2000px) rotateX(0deg) translateY(0) scale(1) !important;
+  /* Force stability */
+  transform-style: preserve-3d;
+  overflow: hidden !important;
+}
+
+.dec-page .prem-mockup-inner {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+
+.dec-step-journey-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.dec-tab-header {
+  background: #f8fafb;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.dec-tab-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.dec-tab-dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.dec-tab-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+/* ── Step Visuals (Inside Mockup) ── */
+.dec-step-visual {
+  flex: 1;
+  position: relative;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 50%, rgba(45, 189, 189, 0.03) 0%, transparent 70%);
+}
+
+.dec-step-svg {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 95%;
+  max-width: 900px;
+  height: auto;
+  opacity: 0.2;
+  filter: blur(0.5px);
+}
+
+.dec-step-base-path {
+  stroke: rgba(15, 74, 74, 0.08);
+  stroke-width: 1.5;
+  fill: none;
+}
+
+.dec-step-anim-path {
+  stroke-width: 2.5;
+  fill: none;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 8px rgba(45, 189, 189, 0.3));
+}
+
+.dec-step-group {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0.8rem 1.5rem;
+  border-radius: 16px;
+  border: 1px solid rgba(15, 74, 74, 0.08);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.04),
+    0 4px 10px rgba(15, 74, 74, 0.02);
+  z-index: 5;
+  width: max-content;
+  transition: all 0.4s var(--ease-premium);
+}
+
+.dec-step-group:hover {
+  background: #ffffff;
+  transform: scale(1.02) translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border-color: rgba(45, 189, 189, 0.3);
+}
+
+.dec-step-1 {
+  top: 72%;
+  left: 8%;
+}
+
+.dec-step-2 {
+  top: 42%;
+  left: 42%;
+}
+
+.dec-step-3 {
+  top: 18%;
+  right: 8%;
+}
+
+.dec-step-number {
+  width: 24px;
+  height: 24px;
+  background: var(--brand);
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.dec-step-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.dec-step-title {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #000000;
+  line-height: 1.2;
+}
+
+.dec-step-desc {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
 }
 
 /* ══════════════════════════════════════════════

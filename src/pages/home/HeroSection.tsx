@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
-import Lottie from 'lottie-react';
-import cascadingTextAnimation from '../../assets/Cascading-text-remix.json';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Search, Mic } from 'lucide-react';
 import ScrollingFeatures from './ScrollingFeatures';
@@ -210,30 +208,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onIntroComplete }) => {
                     paddingBottom: '2rem'
                 }}
             >
-                <div
-                    className="hero-lottie-bg"
-                    style={{
-                        position: 'absolute',
-                        top: '50%',
-                        left: '50%',
-                        transform: 'translate(-50%, -50%)',
-                        width: '100%',
-                        height: '100%',
-                        zIndex: 0,
-                        pointerEvents: 'none',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        overflow: 'hidden'
-                    }}
-                >
-                    <Lottie
-                        animationData={cascadingTextAnimation}
-                        loop={true}
-                        rendererSettings={{ preserveAspectRatio: 'xMidYMid slice' }}
-                        style={{ width: '100%', height: '100%' }}
-                    />
-                </div>
                 <div className="prem-hero-circle-wrap" style={{ zIndex: 1 }}>
                     <div
                         className="prem-hero-circle"

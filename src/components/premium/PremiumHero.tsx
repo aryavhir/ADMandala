@@ -16,8 +16,9 @@ interface PremiumHeroProps {
     primaryCtaHref?: string;
     secondaryCtaText: string;
     secondaryCtaHref: string;
-    mockupImage: string;
-    mockupAlt: string;
+    mockupImage?: string;
+    mockupAlt?: string;
+    mockupContent?: React.ReactNode;
     accentColor?: string;
 }
 
@@ -32,6 +33,7 @@ const PremiumHero: React.FC<PremiumHeroProps> = ({
     secondaryCtaHref,
     mockupImage,
     mockupAlt,
+    mockupContent,
     accentColor
 }) => {
     const mockupRef = useRef<HTMLDivElement>(null);
@@ -170,13 +172,17 @@ const PremiumHero: React.FC<PremiumHeroProps> = ({
             <div className="prem-hero-mockup-wrap">
                 <div className="prem-hero-mockup" ref={mockupRef}>
                     <div className="prem-mockup-inner">
-                        <div className="prem-mockup-img-container">
-                            <img
-                                src={mockupImage}
-                                alt={mockupAlt}
-                                className="prem-mockup-img"
-                            />
-                        </div>
+                        {mockupContent ? (
+                            mockupContent
+                        ) : (
+                            <div className="prem-mockup-img-container">
+                                <img
+                                    src={mockupImage}
+                                    alt={mockupAlt}
+                                    className="prem-mockup-img"
+                                />
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

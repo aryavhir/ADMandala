@@ -15,7 +15,7 @@ const ApproachSection = () => {
                 <div className="dec-approach-header">
                     <span className="prem-badge animate-premium">The Mandala Approach</span>
                     <h2 className="section-title animate-premium">
-                        A Mandala Represents<br />
+                        AdMandala Represents<br />
                         <span className="dec-approach-title-words">
                             <span className="dec-approach-word">Balance.</span>{' '}
                             <span className="dec-approach-word">Structure.</span>{' '}
