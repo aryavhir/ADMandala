@@ -21,7 +21,7 @@ export default async function handler(
 
     // Set correct headers
     res.setHeader("Content-Type", "application/json");
-    res.setHeader("Cache-Control", "public, max-age=3600, s-maxage=3600");
+    res.setHeader("Cache-Control", "public, max-age=60, s-maxage=60");
 
     // Return raw JSON text as requested
     res.status(200).send(data);
