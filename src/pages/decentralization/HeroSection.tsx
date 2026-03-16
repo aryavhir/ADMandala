@@ -1,19 +1,24 @@
 import React from 'react';
 import PremiumHero from '../../components/premium/PremiumHero';
-import StepJourney from './StepJourney';
+import img1 from '../../assets/12.png';
 
-const HeroSection: React.FC = () => {
+interface HeroSectionProps {
+    onRegisterClick?: () => void;
+}
+
+const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => {
     return (
         <PremiumHero
-            title={<>From <span className="dec-h1-em">Platform</span></>}
-            subtitle={<>to Protocol</>}
-            description="AdMandala is evolving from a centralized programmatic exchange into a decentralized advertising network — without compromising performance or usability."
-            primaryCtaText="Explore the Journey"
-            primaryCtaHref="#evolution"
-            secondaryCtaText="View Architecture"
-            secondaryCtaHref="#architecture"
-            mockupContent={<StepJourney />}
-            accentColor="rgba(45, 189, 189, 0.15)"
+            title={<>Buy Media</>}
+            subtitle={<>You Can Trust</>}
+            description="Access programmatic supply through a centralized exchange with strong quality controls — and a clear path toward verifiable delivery."
+            primaryCtaText="Register as a DSP / Advertiser"
+            onPrimaryCtaClick={onRegisterClick}
+            secondaryCtaText="Contact our partnerships team"
+            secondaryCtaHref="mailto:partners@admandala.com"
+            mockupImage={img1}
+            mockupAlt="Advertiser Dashboard"
+            accentColor="rgba(30, 41, 150, 0.15)"
         />
     );
 };

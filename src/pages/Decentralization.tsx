@@ -46,7 +46,7 @@ function Decentralization() {
       <Navbar />
       <div className="dec-scroll-progress" style={{ width: `${scrollProgress * 100}%` }} />
 
-      <HeroSection />
+      <HeroSection onRegisterClick={() => setShowContactModal(true)} />
       <PhilosophySection />
       <ApproachSection />
       <RoadmapSection />
