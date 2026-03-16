@@ -68,7 +68,3 @@
 .btn-premium-primary:hover .btn-premium-text-hover {
     transform: translateY(-100%);
 }
-
-.btn-premium-primary:hover {
-    transform: scale(1.02);
-}
