@@ -13,7 +13,6 @@ import RoadmapSection from './decentralization/RoadmapSection';
 import ArchitectureSection from './decentralization/ArchitectureSection';
 import EcosystemSection from './decentralization/EcosystemSection';
 import CompatibilitySection from './decentralization/CompatibilitySection';
-import LookingAhead from '../components/LookingAhead';
 import CtaSection from './decentralization/CtaSection';
 
 import './Decentralization.css';
@@ -37,7 +36,7 @@ function Decentralization() {
   return (
     <div className="landing-page dec-page">
       <Helmet>
-        <title>Decentralized Advertising Infrastructure | AdMandala</title>
+        <title>AdMandala: Architectural Evolution Protocol</title>
         <meta
           name="description"
           content="Learn how AdMandala leverages decentralized systems to improve transparency and efficiency in digital advertising."
@@ -54,12 +53,7 @@ function Decentralization() {
       <ArchitectureSection />
       <EcosystemSection />
       <CompatibilitySection />
-      <LookingAhead
-        description={
-          <>AdMandala is not racing toward decentralization — it is <strong>progressing</strong> toward it. Each step is introduced only when it strengthens the network without disrupting existing workflows.</>
-        }
-        showButton={false}
-      />
+
       <CtaSection
         registrationUrl={registrationUrl}
         onRegisterClick={() => setShowContactModal(true)}

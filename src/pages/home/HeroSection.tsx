@@ -149,26 +149,29 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onIntroComplete }) => {
 
 
 
-        // 11. Expanding Circle Animation (Matches subpages)
-        if (circleRef.current) {
-            gsap.to(circleRef.current, {
-                scale: 3,
-                opacity: 0.15,
-                ease: 'none',
-                scrollTrigger: {
-                    trigger: ".hero-section",
-                    start: "top top",
-                    end: "top -50%",
-                    scrub: 1,
-                }
-            });
-        }
-
         // Cleanup
         return () => {
             ScrollTrigger.getAll().forEach(st => st.kill());
             if (tl) tl.kill();
         };
+    }, []);
+
+    // 11. Expanding Circle Animation (Matches subpages)
+    // Run independently of intro logic
+    useEffect(() => {
+        if (!circleRef.current) return;
+
+        gsap.to(circleRef.current, {
+            scale: 2.5,
+            opacity: 0.1,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: ".hero-section",
+                start: "top top",
+                end: "top -40%",
+                scrub: 1,
+            }
+        });
     }, []);
 
     return (

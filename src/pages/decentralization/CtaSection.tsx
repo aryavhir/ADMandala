@@ -24,7 +24,7 @@ const CtaSection = ({ registrationUrl, onRegisterClick }: CtaSectionProps) => {
                         Be Early.
                         <span className="dec-cta-title-em"> Be Aligned.</span>
                     </h2>
-                    <p className="prem-subtext animate-premium" style={{ color: 'rgba(255,255,255,0.7)', margin: '0 auto 2.5rem' }}>
+                    <p className="prem-subtext animate-premium" style={{ color: 'rgba(0, 0, 0, 0.7)', margin: '0 auto 2.5rem' }}>
                         AdMandala is decentralizing in phases — early participants help shape the network.
                     </p>
 

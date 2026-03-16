@@ -1,52 +1,61 @@
-import { Lock, CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, Zap, Settings } from 'lucide-react';
 
 const CompatibilitySection = () => {
+    const features = [
+        {
+            title: "Legacy Workflows",
+            desc: "Existing SSP and DSP integrations remain fully supported without modification.",
+            icon: <Settings size={20} />,
+            tags: ["Standardized", "Oasis", "VAST/RTB"]
+        },
+        {
+            title: "Integration Methods",
+            desc: "No new complex SDKs or proprietary APIs required for existing participants.",
+            icon: <Zap size={20} />,
+            tags: ["Plug & Play", "REST", "Low-Level"]
+        },
+        {
+            title: "User Experience",
+            desc: "The day-to-day buying and selling experience remains intuitive and familiar.",
+            icon: <CheckCircle2 size={20} />,
+            tags: ["Seamless", "Familiar", "High-Sync"]
+        }
+    ];
+
     return (
-        <section className="dec-section dec-compat">
-            {/* Animated background */}
-            <div className="dec-compat-bg" aria-hidden="true">
-                <div className="dec-compat-orb dec-compat-orb-1" />
-                <div className="dec-compat-orb dec-compat-orb-2" />
-                <div className="dec-compat-grid" />
-            </div>
-
+        <section className="dec-section dec-compat-refined">
+            <div className="dec-compat-mesh"></div>
             <div className="content-wrapper">
-                {/* Header */}
-                <div className="dec-compat-header animate-on-scroll">
-                    <span className="dec-eyebrow"><Lock size={14} /> Compatibility</span>
-                    <h2 className="dec-compat-title">
-                        What Decentralization
-                        <span className="dec-compat-title-em"> Does Not Change</span>
-                    </h2>
+                <div className="dec-section-hdr">
+                    <span className="prem-badge animate-premium">Stability Suite</span>
+                    <h2 className="section-title">What Decentralization Does Not Change</h2>
+                    <p className="dec-section-sub">
+                        Decentralization improves trust without breaking the tools you already use.
+                    </p>
                 </div>
 
-                {/* Minimal feature cards */}
-                <div className="dec-compat-features animate-on-scroll">
-                    <div className="dec-compat-feature">
-                        <div className="dec-compat-feature-icon">
-                            <CheckCircle2 size={24} />
+                <div className="dec-architectural-grid">
+                    {features.map((f, i) => (
+                        <div key={i} className="dec-blueprint-card animate-on-scroll" style={{ transitionDelay: `${i * 100}ms` }}>
+                            <div className="dec-blueprint-icon-box">
+                                {f.icon}
+                            </div>
+                            <div className="dec-blueprint-info">
+                                <h4>{f.title}</h4>
+                                <p>{f.desc}</p>
+                            </div>
+                            <div className="dec-blueprint-tags">
+                                {f.tags.map((tag, ti) => (
+                                    <span key={ti} className="dec-blueprint-tag">{tag}</span>
+                                ))}
+                            </div>
                         </div>
-                        <span>Existing SSP and DSP workflows</span>
-                    </div>
-                    <div className="dec-compat-feature">
-                        <div className="dec-compat-feature-icon">
-                            <CheckCircle2 size={24} />
-                        </div>
-                        <span>Integration methods</span>
-                    </div>
-                    <div className="dec-compat-feature">
-                        <div className="dec-compat-feature-icon">
-                            <CheckCircle2 size={24} />
-                        </div>
-                        <span>Day-to-day buying and selling experience</span>
-                    </div>
+                    ))}
                 </div>
 
-                {/* Bottom statement */}
-                <div className="dec-compat-statement animate-on-scroll">
-                    <div className="dec-compat-statement-line" />
-                    <p>Decentralization <strong>improves trust</strong> without <strong>breaking usability</strong>.</p>
-                    <div className="dec-compat-statement-line" />
+                <div className="dec-compat-footer animate-on-scroll">
+                    <div className="dec-compat-footer-bar"></div>
+                    <p>Built for performance, designed for stability.</p>
                 </div>
             </div>
         </section>
