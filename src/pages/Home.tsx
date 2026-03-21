@@ -6,7 +6,7 @@ import Navbar from '../components/Navbar';
 // Sub-components
 import HeroSection from './home/HeroSection';
 import WhatIsSection from './home/WhatIsSection';
-import WhySection from './home/WhySection';
+// import WhySection from './home/WhySection'; (Deleted and merged into WhatIsSection)
 import WhatsLiveSection from './home/WhatsLiveSection';
 import RoadmapSection from './home/RoadmapSection';
 import AudiencePanels from './home/AudiencePanels';
@@ -55,7 +55,7 @@ function Home() {
       <HeroSection onIntroComplete={handleIntroComplete} />
 
       <WhatIsSection />
-      <WhySection />
+      {/* <WhySection /> */}
 
       <WhatsLiveSection />
       <RoadmapSection />

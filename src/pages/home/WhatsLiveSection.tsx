@@ -4,7 +4,7 @@ import CardSwap, { Card } from '../../components/Live today/CardSwap';
 
 const WhatsLiveSection: React.FC = () => {
     return (
-        <section className="section whats-live whats-live-dark">
+        <section className="section whats-live whats-live-dark" style={{ position: 'relative', zIndex: 10 }}>
             <div className="dsp-future-bg">
                 <div className="dsp-future-orb orb-1"></div>
                 <div className="dsp-future-orb orb-2"></div>
