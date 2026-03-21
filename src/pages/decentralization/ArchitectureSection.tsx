@@ -14,7 +14,7 @@ const ArchitectureSection = () => {
                 <div className="dec-section-hdr">
                     <span className="prem-badge animate-premium">Architecture</span>
                     <h2 className="section-title animate-premium">The Mandala Protocol Architecture</h2>
-                    <p className="prem-subtext animate-premium">Four layers, one protocol — built from the ground up.</p>
+                    <p className="dec-sub-refined animate-premium">Four layers, one protocol — built from the ground up to be scalable and trust-minimized.</p>
                 </div>
 
                 {/* Protocol Stack — vertical layers with animated connectors */}

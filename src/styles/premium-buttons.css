@@ -68,3 +68,46 @@
 .btn-premium-primary:hover .btn-premium-text-hover {
     transform: translateY(-100%);
 }
+
+/* Black Variant */
+.btn-premium-black {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 26px;
+    font-weight: 500;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 18px;
+    letter-spacing: -.04em;
+    border-radius: 8px;
+    font-family: "Inter Display", "Inter", sans-serif;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: visible;
+
+    /* Framer Outer Shadows */
+    box-shadow:
+        rgba(0, 0, 0, 0.13) 0.301px 0.602px 0.673px -0.833px,
+        rgba(0, 0, 0, 0.13) 1.144px 2.289px 2.559px -1.667px,
+        rgba(0, 0, 0, 0.13) 5px 10px 11.18px -2.5px;
+}
+
+.btn-premium-black:hover {
+    background-color: #1a1a1a;
+    transform: translateY(-2px);
+    box-shadow: 
+        rgba(0, 0, 0, 0.2) 0px 4px 12px,
+        rgba(0, 0, 0, 0.12) 0px 10px 20px;
+}
+
+.btn-premium-black:hover .btn-premium-text {
+    transform: translateY(-100%);
+}
+
+.btn-premium-black:hover .btn-premium-text-hover {
+    transform: translateY(-100%);
+}

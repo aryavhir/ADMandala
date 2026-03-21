@@ -7,7 +7,7 @@ const RoadmapSection = () => {
                 <div className="dec-section-hdr">
                     <span className="prem-badge animate-premium">Roadmap</span>
                     <h2 className="section-title animate-premium">The Evolution of the Network</h2>
-                    <p className="prem-subtext animate-premium">Three carefully planned phases — each introduced only when it strengthens the whole.</p>
+                    <p className="dec-sub-refined animate-premium">Three carefully planned phases — each introduced only when it strengthens the whole.</p>
                 </div>
 
                 <div className="dec-phases">

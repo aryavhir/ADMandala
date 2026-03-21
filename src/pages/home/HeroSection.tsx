@@ -242,7 +242,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onIntroComplete }) => {
                             </Link>
                         </div>
 
-                        <div className="decentralization-link-wrapper animate-premium" style={{ marginTop: '0.5rem' }}>
+                        {/* <div className="decentralization-link-wrapper animate-premium" style={{ marginTop: '0.5rem' }}>
                             <Link to="/decentralization" className="explore-button">
                                 <span className="explore-button__icon-wrapper" aria-hidden="true">
                                     <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="explore-button__icon-svg" width={12}>
@@ -254,7 +254,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onIntroComplete }) => {
                                 </span>
                                 <span className="explore-button__label">Explore the decentralized roadmap</span>
                             </Link>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 

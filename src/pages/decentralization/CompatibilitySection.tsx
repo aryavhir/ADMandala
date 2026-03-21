@@ -28,8 +28,8 @@ const CompatibilitySection = () => {
             <div className="content-wrapper">
                 <div className="dec-section-hdr">
                     <span className="prem-badge animate-premium">Stability Suite</span>
-                    <h2 className="section-title">What Decentralization Does Not Change</h2>
-                    <p className="dec-section-sub">
+                    <h2 className="section-title animate-premium">What Decentralization Does Not Change</h2>
+                    <p className="dec-sub-refined animate-premium">
                         Decentralization improves trust without breaking the tools you already use.
                     </p>
                 </div>

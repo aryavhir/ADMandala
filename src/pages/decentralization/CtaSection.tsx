@@ -1,4 +1,4 @@
-import { Zap, Eye, Users, ArrowRight } from 'lucide-react';
+import { Sparkles, ShieldCheck, Landmark, Rocket } from 'lucide-react';
 
 interface CtaSectionProps {
     registrationUrl: string;
@@ -20,11 +20,11 @@ const CtaSection = ({ registrationUrl, onRegisterClick }: CtaSectionProps) => {
                 <div className="dec-cta-container">
                     <span className="prem-badge animate-premium">Join the Network</span>
 
-                    <h2 className="section-title animate-premium" style={{ color: 'white' }}>
+                    <h2 className="section-title animate-premium">
                         Be Early.
                         <span className="dec-cta-title-em"> Be Aligned.</span>
                     </h2>
-                    <p className="prem-subtext animate-premium" style={{ color: 'rgba(0, 0, 0, 0.7)', margin: '0 auto 2.5rem' }}>
+                    <p className="dec-sub-refined animate-premium">
                         AdMandala is decentralizing in phases — early participants help shape the network.
                     </p>
 
@@ -32,7 +32,7 @@ const CtaSection = ({ registrationUrl, onRegisterClick }: CtaSectionProps) => {
                     <div className="dec-cta-benefit-grid">
                         <div className="dec-cta-benefit">
                             <div className="dec-cta-benefit-icon">
-                                <Zap size={18} />
+                                <Sparkles size={20} />
                             </div>
                             <div className="dec-cta-benefit-text">
                                 <strong>Priority Access</strong>
@@ -41,7 +41,7 @@ const CtaSection = ({ registrationUrl, onRegisterClick }: CtaSectionProps) => {
                         </div>
                         <div className="dec-cta-benefit">
                             <div className="dec-cta-benefit-icon">
-                                <Eye size={18} />
+                                <ShieldCheck size={20} />
                             </div>
                             <div className="dec-cta-benefit-text">
                                 <strong>Early Verification</strong>
@@ -50,7 +50,7 @@ const CtaSection = ({ registrationUrl, onRegisterClick }: CtaSectionProps) => {
                         </div>
                         <div className="dec-cta-benefit">
                             <div className="dec-cta-benefit-icon">
-                                <Users size={18} />
+                                <Landmark size={20} />
                             </div>
                             <div className="dec-cta-benefit-text">
                                 <strong>Shape Governance</strong>
@@ -59,7 +59,7 @@ const CtaSection = ({ registrationUrl, onRegisterClick }: CtaSectionProps) => {
                         </div>
                         <div className="dec-cta-benefit">
                             <div className="dec-cta-benefit-icon">
-                                <ArrowRight size={18} />
+                                <Rocket size={20} />
                             </div>
                             <div className="dec-cta-benefit-text">
                                 <strong>Head Start</strong>
@@ -77,7 +77,7 @@ const CtaSection = ({ registrationUrl, onRegisterClick }: CtaSectionProps) => {
                             </div>
                         </a>
                         <button
-                            className="btn-premium-primary"
+                            className="btn-premium-black"
                             type="button"
                             onClick={onRegisterClick}
                         >

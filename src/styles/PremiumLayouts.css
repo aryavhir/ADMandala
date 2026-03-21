@@ -832,3 +832,42 @@
         padding: 60px 1rem;
     }
 }
+
+/* ── Premium Dual CTA (Home Page Support) ── */
+.prem-dual-cta-grid {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    padding: 0 40px;
+}
+
+.prem-cta-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.prem-cta-column h2 {
+    font-size: 32px !important;
+    line-height: 1.2;
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    color: #101010;
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .prem-dual-cta-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+        padding: 0;
+    }
+
+    .prem-cta-column h2 {
+        font-size: 28px !important;
+    }
+}
