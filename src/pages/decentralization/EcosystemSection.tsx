@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { CheckCircle2 } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import p1 from '../../assets/pub1.png';
-import p2 from '../../assets/pub2.png';
-import p3 from '../../assets/pub3.png';
+import p1 from '../../assets/new/fpub.png';
+import p2 from '../../assets/new/fadver.png';
+import p3 from '../../assets/new/fifra.png';
 import '../../styles/PremiumLayouts.css';
 
 gsap.registerPlugin(ScrollTrigger);

@@ -16,6 +16,7 @@ interface PremiumWhoIsItForProps {
     title: string;
     subtitle: string;
     categories: CategoryData[];
+    footerText?: string;
     autoSwitchInterval?: number;
 }
 
@@ -25,6 +26,7 @@ const PremiumWhoIsItFor: React.FC<PremiumWhoIsItForProps> = ({
     title,
     subtitle,
     categories,
+    footerText,
     autoSwitchInterval = 10000
 }) => {
     const [activeTab, setActiveTab] = useState(0);
@@ -111,6 +113,12 @@ const PremiumWhoIsItFor: React.FC<PremiumWhoIsItForProps> = ({
                     </div>
                 </div>
             </div>
+
+            {footerText && (
+                <div className="prem-tabs-footer animate-on-scroll">
+                    <p>{footerText}</p>
+                </div>
+            )}
         </section>
     );
 };

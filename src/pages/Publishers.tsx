@@ -14,9 +14,12 @@ import PremiumCTA from '../components/premium/PremiumCTA';
 
 // Assets
 import dashboardImg from '../assets/Screenshot 2026-02-23 171204.png';
-import p1 from '../assets/pub1.png';
-import p2 from '../assets/pub2.png';
-import p3 from '../assets/pub3.png';
+import x1 from '../assets/new/si.png';
+import x2 from '../assets/new/tqf.png';
+import x3 from '../assets/new/tp.png';
+import p1 from '../assets/new/Earning through clicks illustration.png';
+import p2 from '../assets/new/Media Networks promotional banner design.png';
+import p3 from '../assets/new/SSP advertising ecosystem in action.png';
 
 // Icons
 import { Users, Globe, Shield } from 'lucide-react';
@@ -58,7 +61,7 @@ function Publishers() {
         "Standard ad serving and reporting flows",
         "Minimal technical overhead"
       ],
-      image: p1,
+      image: x1,
       imageAlt: "Integration Dashboard",
       bgColor: 'rgb(230, 230, 250)'
     },
@@ -71,7 +74,7 @@ function Publishers() {
         "Protect advertiser trust automatically",
         "Improve long-term demand value"
       ],
-      image: p2,
+      image: x2,
       imageAlt: "Quality Controls",
       bgColor: 'rgb(250, 240, 230)'
     },
@@ -84,7 +87,7 @@ function Publishers() {
         "Confidence in revenue reporting",
         "Clear distribution of value"
       ],
-      image: p3,
+      image: x3,
       imageAlt: "Transparency Dashboard",
       bgColor: 'rgb(230, 245, 255)'
     }

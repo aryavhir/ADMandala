@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet-async';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
-
 // Sub-components
 import HeroSection from './home/HeroSection';
 import WhatIsSection from './home/WhatIsSection';
@@ -11,7 +10,7 @@ import WhySection from './home/WhySection';
 import WhatsLiveSection from './home/WhatsLiveSection';
 import RoadmapSection from './home/RoadmapSection';
 import AudiencePanels from './home/AudiencePanels';
-import LookingAhead from '../components/LookingAhead';
+
 
 function Home() {
   useScrollAnimation();
@@ -60,9 +59,7 @@ function Home() {
 
       <WhatsLiveSection />
       <RoadmapSection />
-      <LookingAhead />
       <AudiencePanels />
-
 
       <Footer />
     </div>
