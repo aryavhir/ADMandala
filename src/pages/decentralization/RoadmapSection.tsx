@@ -1,126 +1,90 @@
 import { CheckCircle2, Zap, Eye, Network } from 'lucide-react';
+import Expandable from '../../components/animata/carousel/expandable';
 
 const RoadmapSection = () => {
+    const phases = [
+        {
+            color: "#0a0b10", // Glossy Black/Slate
+            title: "Centralized Exchange",
+            subtitle: "Programmatic Ad Exchange",
+            badge: { text: "Live", className: "bg-emerald-500/20 text-emerald-400 border border-emerald-500/50" },
+            icon: <Zap size={24} />,
+            progress: 100,
+            description: (
+                <div className="space-y-4 text-white/80">
+                    <p>AdMandala operates today as a centralized programmatic exchange to ensure reliability and real-world validation.</p>
+                    <ul className="grid grid-cols-1 gap-2 md:grid-cols-2">
+                        <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-emerald-400" /> Seamless SSP & DSP integration</li>
+                        <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-emerald-400" /> Traffic quality enforcement</li>
+                        <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-emerald-400" /> Reliable performance</li>
+                        <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-emerald-400" /> Real-world revenue</li>
+                    </ul>
+                    <div className="mt-4 flex items-center gap-2 text-xs font-semibold italic text-white/40">
+                        <Zap size={12} />
+                        This phase grounds the protocol in operational reality.
+                    </div>
+                </div>
+            )
+        },
+        {
+            color: "#091428", // Glossy Deep Blue
+            title: "Decentralized Verification",
+            subtitle: "Independent Node Validation",
+            badge: { text: "In Progress", className: "bg-sky-500/20 text-sky-400 border border-sky-500/50" },
+            icon: <Eye size={24} />,
+            progress: 35,
+            description: (
+                <div className="space-y-4 text-white/80">
+                    <p>Independent verification is introduced — shifting trust away from a single operator to a network of nodes.</p>
+                    <ul className="grid grid-cols-1 gap-2 md:grid-cols-2">
+                        <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-sky-400" /> Event validation by nodes</li>
+                        <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-sky-400" /> Distributed fraud detection</li>
+                        <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-sky-400" /> Verifiable performance metrics</li>
+                        <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-sky-400" /> Multi-node consensus</li>
+                    </ul>
+                    <div className="mt-4 flex items-center gap-2 text-xs font-semibold italic text-white/40">
+                        <Eye size={12} />
+                        Trust begins shifting from platform to protocol.
+                    </div>
+                </div>
+            )
+        },
+        {
+            color: "#160d2b", // Glossy Deep Purple/Indigo
+            title: "Settlement & Governance",
+            subtitle: "Trust-Minimized Protocol",
+            badge: { text: "Upcoming", className: "bg-indigo-500/20 text-indigo-400 border border-indigo-500/50" },
+            icon: <Network size={24} />,
+            progress: 0,
+            description: (
+                <div className="space-y-4">
+                    <p>AdMandala becomes a trust-minimized protocol — resilient, community-governed, and immutable.</p>
+                    <ul className="grid grid-cols-1 gap-2 md:grid-cols-2">
+                        <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-indigo-400" /> Deterministic settlement</li>
+                        <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-indigo-400" /> Immutable event records</li>
+                        <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-indigo-400" /> Distributed governance</li>
+                        <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-indigo-400" /> Infinite resilience</li>
+                    </ul>
+                    <div className="mt-4 flex items-center gap-2 text-xs font-semibold italic text-white/50">
+                        <Network size={12} />
+                        If AdMandala disappears, the protocol continues.
+                    </div>
+                </div>
+            )
+        }
+    ];
+
     return (
         <section className="dec-section dec-evolution" id="evolution">
             <div className="content-wrapper">
                 <div className="dec-section-hdr">
-                    <span className="prem-badge animate-premium">Roadmap</span>
-                    <h2 className="section-title animate-premium">The Evolution of the Network</h2>
-                    <p className="dec-sub-refined animate-premium">Three carefully planned phases — each introduced only when it strengthens the whole.</p>
+                    <span className="prem-badge">Roadmap</span>
+                    <h2 className="section-title">The Evolution of the Network</h2>
+                    <p className="dec-sub-refined">Three carefully planned phases — each introduced only when it strengthens the whole.</p>
                 </div>
 
-                <div className="dec-phases">
-                    {/* Phase 1 */}
-                    <div className="dec-phase-card animate-on-scroll">
-                        <div className="dec-phase-border" />
-                        <div className="dec-phase-content">
-                            <div className="dec-phase-logo">
-                                <div className="dec-phase-icon">
-                                    <span className="dec-phase-number">01</span>
-                                </div>
-                                <div className="dec-phase-title-reveal">
-                                    <h3>Centralized Exchange</h3>
-                                    <div className="dec-phase-badge live">
-                                        <span className="dec-badge-pulse" />
-                                        Live
-                                    </div>
-                                </div>
-                                <span className="dec-phase-trail" />
-                            </div>
-                            <span className="dec-phase-subtitle">Programmatic Ad Exchange</span>
-                        </div>
-                        <div className="dec-phase-details">
-                            <p>AdMandala operates today as a centralized programmatic exchange to ensure reliability and real-world validation.</p>
-                            <ul className="dec-check-list compact">
-                                <li><CheckCircle2 size={16} /> Seamless SSP &amp; DSP integration</li>
-                                <li><CheckCircle2 size={16} /> Strong traffic quality enforcement</li>
-                                <li><CheckCircle2 size={16} /> Reliable performance &amp; uptime</li>
-                                <li><CheckCircle2 size={16} /> Real-world data &amp; revenue</li>
-                            </ul>
-                            <div className="dec-phase-quote">
-                                <Zap size={14} />
-                                This phase grounds the protocol in operational reality.
-                            </div>
-                        </div>
-                        <span className="dec-phase-bottom-label">Phase 1 — Centralized Exchange</span>
-                        <div className="dec-phase-progress">
-                            <div className="dec-progress-fill" style={{ width: '100%' }} />
-                        </div>
-                    </div>
-
-                    {/* Phase 2 */}
-                    <div className="dec-phase-card animate-on-scroll" style={{ transitionDelay: '120ms' }}>
-                        <div className="dec-phase-border" />
-                        <div className="dec-phase-content">
-                            <div className="dec-phase-logo">
-                                <div className="dec-phase-icon">
-                                    <span className="dec-phase-number">02</span>
-                                </div>
-                                <div className="dec-phase-title-reveal">
-                                    <h3>Decentralized Verification</h3>
-                                    <div className="dec-phase-badge progress">
-                                        In Progress
-                                    </div>
-                                </div>
-                                <span className="dec-phase-trail" />
-                            </div>
-                            <span className="dec-phase-subtitle">Independent Node Validation</span>
-                        </div>
-                        <div className="dec-phase-details">
-                            <p>Independent verification is introduced — shifting trust away from a single operator.</p>
-                            <ul className="dec-check-list compact">
-                                <li><CheckCircle2 size={16} /> Impressions &amp; clicks validated by nodes</li>
-                                <li><CheckCircle2 size={16} /> Distributed fraud detection</li>
-                                <li><CheckCircle2 size={16} /> Reduced reliance on self-reported metrics</li>
-                            </ul>
-                            <div className="dec-phase-quote">
-                                <Eye size={14} />
-                                Trust begins shifting from platform to protocol.
-                            </div>
-                        </div>
-                        <span className="dec-phase-bottom-label">Phase 2 — Decentralized Verification</span>
-                        <div className="dec-phase-progress">
-                            <div className="dec-progress-fill" style={{ width: '35%' }} />
-                        </div>
-                    </div>
-
-                    {/* Phase 3 */}
-                    <div className="dec-phase-card animate-on-scroll" style={{ transitionDelay: '240ms' }}>
-                        <div className="dec-phase-border" />
-                        <div className="dec-phase-content">
-                            <div className="dec-phase-logo">
-                                <div className="dec-phase-icon">
-                                    <span className="dec-phase-number">03</span>
-                                </div>
-                                <div className="dec-phase-title-reveal">
-                                    <h3>Settlement &amp; Governance</h3>
-                                    <div className="dec-phase-badge future">
-                                        Upcoming
-                                    </div>
-                                </div>
-                                <span className="dec-phase-trail" />
-                            </div>
-                            <span className="dec-phase-subtitle">Trust-Minimized Protocol</span>
-                        </div>
-                        <div className="dec-phase-details">
-                            <p>AdMandala becomes a trust-minimized protocol — resilient and community-governed.</p>
-                            <ul className="dec-check-list compact">
-                                <li><CheckCircle2 size={16} /> Deterministic pricing &amp; settlement</li>
-                                <li><CheckCircle2 size={16} /> Transparent, auditable event records</li>
-                                <li><CheckCircle2 size={16} /> Distributed governance</li>
-                                <li><CheckCircle2 size={16} /> Network resilience — no single point of failure</li>
-                            </ul>
-                            <div className="dec-phase-quote">
-                                <Network size={14} />
-                                If AdMandala disappears, the protocol continues.
-                            </div>
-                        </div>
-                        <span className="dec-phase-bottom-label">Phase 3 — Protocol Settlement</span>
-                        <div className="dec-phase-progress">
-                            <div className="dec-progress-fill" style={{ width: '0%' }} />
-                        </div>
-                    </div>
+                <div className="mt-12">
+                     <Expandable list={phases} autoPlay={true} />
                 </div>
             </div>
         </section>

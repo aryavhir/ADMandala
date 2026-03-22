@@ -24,7 +24,7 @@ const EcosystemSection = () => {
             ],
             image: p1,
             imageAlt: "Publisher Dashboard",
-            bgColor: "rgba(15, 74, 74, 0.03)"
+            bgColor: "rgba(99, 102, 241, 0.04)" // Light Indigo
         },
         {
             id: "advertisers",
@@ -37,7 +37,7 @@ const EcosystemSection = () => {
             ],
             image: p2,
             imageAlt: "Advertiser Dashboard",
-            bgColor: "rgba(255, 255, 255, 0.03)"
+            bgColor: "rgba(59, 130, 246, 0.04)" // Light Sapphire
         },
         {
             id: "infrastructure",
@@ -50,7 +50,7 @@ const EcosystemSection = () => {
             ],
             image: p3,
             imageAlt: "Infrastructure Node",
-            bgColor: "rgba(15, 74, 74, 0.03)"
+            bgColor: "rgba(14, 165, 233, 0.04)" // Light Sky Blue
         }
     ];
 

@@ -58,7 +58,8 @@
 .navbar-logo-text {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #1a1a1a; /* Darker for "Ad" */
+    color: #1a1a1a;
+    /* Darker for "Ad" */
     letter-spacing: -0.04em;
     font-family: "Inter Display", "Inter", sans-serif;
     display: flex;
@@ -67,7 +68,8 @@
 
 .text-mandala {
     font-weight: 400;
-    color: var(--brand-primary); /* Brand teal for "Mandala" */
+    color: var(--brand-primary);
+    /* Brand teal for "Mandala" */
     margin-left: 1px;
 }
 
@@ -95,7 +97,7 @@
     color: var(--brand-primary);
 }
 
-/* ── Dropdowns ── */
+/* ── Dropdowns — Mega Menu Style ── */
 .navbar-dropdown {
     position: relative;
     padding: 10px 0;
@@ -106,7 +108,7 @@
 }
 
 .dropdown-icon {
-    transition: transform 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .navbar-dropdown:hover .dropdown-icon {
@@ -115,41 +117,97 @@
 
 .navbar-dropdown-menu {
     position: absolute;
-    top: 100%;
+    top: calc(100% + 4px);
     left: 50%;
-    transform: translateX(-50%) translateY(10px);
-    background: white;
-    min-width: 220px;
-    border-radius: 16px;
-    padding: 12px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    transform: translateX(-50%) translateY(8px);
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 18px;
+    padding: 0;
+    box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.04),
+        0 8px 32px rgba(0, 0, 0, 0.08),
+        0 30px 60px rgba(0, 0, 0, 0.1);
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Mega menu specific width/padding */
+.navbar-dropdown-menu.megamenu {
+    min-width: 520px;
+    padding: 24px;
 }
 
 .navbar-dropdown:hover .navbar-dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+.megamenu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+
+.megamenu-column {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.megamenu-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    color: #94a3b8;
+    margin-bottom: 12px;
+    padding-left: 12px;
 }
 
 .dropdown-item {
-    display: block;
-    padding: 10px 16px;
-    color: #4b5563;
+    display: flex;
+    padding: 12px;
+    color: #374151;
     text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.dropdown-item-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.dropdown-item-label {
     font-size: 14px;
-    border-radius: 8px;
-    transition: all 0.2s ease;
+    font-weight: 600;
+    color: #0f172a;
+    transition: color 0.2s ease;
+}
+
+.dropdown-item-desc {
+    font-size: 12px;
+    color: #64748b;
+    line-height: 1.4;
 }
 
 .dropdown-item:hover {
-    background: #f3f4f6;
-    color: var(--brand-primary);
-    transform: translateX(4px);
+    background: rgba(15, 74, 74, 0.05);
+    transform: translateY(-1px);
 }
+
+.dropdown-item:hover .dropdown-item-label {
+    color: var(--brand-primary);
+}
+
 
 /* ── Actions ── */
 .navbar-actions-desktop {
@@ -326,4 +384,4 @@
     .site-navbar-container {
         padding: 0 24px;
     }
-}
+}

@@ -79,12 +79,45 @@ const Navbar: React.FC = () => {
                         <Link to="/publishers" className="navbar-link navbar-dropdown-toggle">
                             Publishers <ChevronDown size={14} className="dropdown-icon" />
                         </Link>
-                        <div className="navbar-dropdown-menu">
-                            <Link to="/publishers#why-publishers" className="dropdown-item" onClick={() => handleLinkClick('why-publishers')}>Why Publishers</Link>
-                            <Link to="/publishers#integration" className="dropdown-item" onClick={() => handleLinkClick('integration')}>Integration</Link>
-                            <Link to="/publishers#quality" className="dropdown-item" onClick={() => handleLinkClick('quality')}>Quality Control</Link>
-                            <Link to="/publishers#target-audience" className="dropdown-item" onClick={() => handleLinkClick('target-audience')}>Audience</Link>
-                            <Link to="/publishers#faqs" className="dropdown-item" onClick={() => handleLinkClick('faqs')}>FAQ</Link>
+                        <div className="navbar-dropdown-menu megamenu">
+                            <div className="megamenu-grid">
+                                <div className="megamenu-column">
+                                    <h4 className="megamenu-title">Platform Core</h4>
+                                    <Link to="/publishers#why-publishers" className="dropdown-item" onClick={() => handleLinkClick('why-publishers')}>
+                                        <div className="dropdown-item-content">
+                                            <span className="dropdown-item-label">Why Publishers</span>
+                                            <span className="dropdown-item-desc">Benefits of joining the AdMandala network.</span>
+                                        </div>
+                                    </Link>
+                                    <Link to="/publishers#integration" className="dropdown-item" onClick={() => handleLinkClick('integration')}>
+                                        <div className="dropdown-item-content">
+                                            <span className="dropdown-item-label">Integration</span>
+                                            <span className="dropdown-item-desc">Set up and sync in minutes.</span>
+                                        </div>
+                                    </Link>
+                                </div>
+                                <div className="megamenu-column">
+                                    <h4 className="megamenu-title">Growth & Quality</h4>
+                                    <Link to="/publishers#quality" className="dropdown-item" onClick={() => handleLinkClick('quality')}>
+                                        <div className="dropdown-item-content">
+                                            <span className="dropdown-item-label">Quality Control</span>
+                                            <span className="dropdown-item-desc">Advanced fraud detection and protection.</span>
+                                        </div>
+                                    </Link>
+                                    <Link to="/publishers#target-audience" className="dropdown-item" onClick={() => handleLinkClick('target-audience')}>
+                                        <div className="dropdown-item-content">
+                                            <span className="dropdown-item-label">Audience</span>
+                                            <span className="dropdown-item-desc">Connect with the right demand partners.</span>
+                                        </div>
+                                    </Link>
+                                    <Link to="/publishers#faqs" className="dropdown-item" onClick={() => handleLinkClick('faqs')}>
+                                        <div className="dropdown-item-content">
+                                            <span className="dropdown-item-label">Support & FAQ</span>
+                                            <span className="dropdown-item-desc">Common questions answered.</span>
+                                        </div>
+                                    </Link>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -97,15 +130,44 @@ const Navbar: React.FC = () => {
                         <Link to="/advertisers" className="navbar-link navbar-dropdown-toggle">
                             Advertisers <ChevronDown size={14} className="dropdown-icon" />
                         </Link>
-                        <div className="navbar-dropdown-menu">
-                            <Link to="/advertisers#why-advertisers" className="dropdown-item" onClick={() => handleLinkClick('why-advertisers')}>Why Advertisers</Link>
-                            <Link to="/advertisers#quality-control" className="dropdown-item" onClick={() => handleLinkClick('quality-control')}>Supply Quality</Link>
-                            <Link to="/advertisers#familiar-ui" className="dropdown-item" onClick={() => handleLinkClick('familiar-ui')}>UI & Workflows</Link>
-                            <Link to="/advertisers#target-audience" className="dropdown-item" onClick={() => handleLinkClick('target-audience')}>Who It's For</Link>
+                        <div className="navbar-dropdown-menu megamenu">
+                            <div className="megamenu-grid">
+                                <div className="megamenu-column">
+                                    <h4 className="megamenu-title">Buying Power</h4>
+                                    <Link to="/advertisers#why-advertisers" className="dropdown-item" onClick={() => handleLinkClick('why-advertisers')}>
+                                        <div className="dropdown-item-content">
+                                            <span className="dropdown-item-label">Why Advertisers</span>
+                                            <span className="dropdown-item-desc">Maximize your campaign reach and ROI.</span>
+                                        </div>
+                                    </Link>
+                                    <Link to="/advertisers#familiar-ui" className="dropdown-item" onClick={() => handleLinkClick('familiar-ui')}>
+                                        <div className="dropdown-item-content">
+                                            <span className="dropdown-item-label">UI & Workflows</span>
+                                            <span className="dropdown-item-desc">Powerful tools built for precision.</span>
+                                        </div>
+                                    </Link>
+                                </div>
+                                <div className="megamenu-column">
+                                    <h4 className="megamenu-title">Ecosystem</h4>
+                                    <Link to="/advertisers#quality-control" className="dropdown-item" onClick={() => handleLinkClick('quality-control')}>
+                                        <div className="dropdown-item-content">
+                                            <span className="dropdown-item-label">Supply Quality</span>
+                                            <span className="dropdown-item-desc">Access high-quality and verified supply.</span>
+                                        </div>
+                                    </Link>
+                                    <Link to="/advertisers#target-audience" className="dropdown-item" onClick={() => handleLinkClick('target-audience')}>
+                                        <div className="dropdown-item-content">
+                                            <span className="dropdown-item-label">Who It's For</span>
+                                            <span className="dropdown-item-desc">Brands, DSPs, and Ad Networks.</span>
+                                        </div>
+                                    </Link>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <Link to="/decentralization" className="navbar-link">Roadmap</Link>
+                    <Link to="/early-adopters" className="navbar-link">Early Access</Link>
                 </div>
 
                 {/* Mobile Toggle */}
@@ -160,6 +222,7 @@ const Navbar: React.FC = () => {
                     </div>
 
                     <Link to="/decentralization" className="mobile-link" onClick={() => setMobileOpen(false)}>Roadmap</Link>
+                    <Link to="/early-adopters" className="mobile-link" onClick={() => setMobileOpen(false)}>Early Access</Link>
                 </div>
             </div>
         </nav>
