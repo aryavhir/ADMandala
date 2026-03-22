@@ -3,6 +3,7 @@
   margin: 0 auto;
   perspective: 900px;
   overflow: visible;
+ transform: translateX(-230px);
 }
 
 .card {

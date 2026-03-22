@@ -1,6 +1,6 @@
 import React from 'react';
 import PremiumHero from '../../components/premium/PremiumHero';
-import roadmapImg from '../../assets/hero_roadmap_bg.png';
+import roadmapImg from '../../assets/roadmap.png';
 
 const HeroSection: React.FC = () => {
     return (

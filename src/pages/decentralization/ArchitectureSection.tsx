@@ -1,6 +1,8 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import Lottie from 'lottie-react';
 import roadmapAnimation from '../../assets/new/4-5.json';
+import '../../styles/Mockups.css';
 
 const ArchitectureSection: React.FC = () => {
     return (
@@ -8,7 +10,13 @@ const ArchitectureSection: React.FC = () => {
             <div className="content-wrapper">
                 <div className="dec-archi-layout-refined">
                     {/* LEFT: Consistent Typography */}
-                    <div className="dec-archi-content-refined">
+                    <motion.div 
+                        className="dec-archi-content-refined"
+                        initial={{ opacity: 0, x: -60 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8, ease: 'easeOut' }}
+                        viewport={{ once: true, margin: '-100px' }}
+                    >
                         <span className="prem-badge">System Protocol</span>
                         <h2 className="section-title">The Mandala Protocol Architecture</h2>
                         
@@ -45,16 +53,19 @@ const ArchitectureSection: React.FC = () => {
                         <div className="dec-archi-footer-quote">
                             <p>Together, these layers form a balanced, self-correcting system.</p>
                         </div>
-                    </div>
+                    </motion.div>
 
-                    {/* RIGHT: High-Scale Visual */}
+                    {/* RIGHT: Phone Mockup with Lottie */}
                     <div className="dec-archi-visual-large">
-                        <div className="lottie-full-wrap">
-                            <Lottie 
-                                animationData={roadmapAnimation} 
-                                loop={true} 
-                                className="archi-lottie-main"
-                            />
+                        <div className="mockup-phone" style={{ transform: 'none', maxWidth: '380px' }}>
+                            <div className="mockup-phone-display" style={{ background: 'linear-gradient(135deg, #f8fafb 0%, #ffffff 100%)' }}>
+                                <Lottie 
+                                    animationData={roadmapAnimation} 
+                                    loop={true} 
+                                    className="archi-lottie-main"
+                                    style={{ width: '100%', height: '100%' }}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>

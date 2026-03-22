@@ -54,10 +54,7 @@ const HeroSection: React.FC = () => {
             </div>
 
             <div className="eap-hero-content">
-                <div className="eap-hero-eyebrow animate-premium">
-                    <span className="eap-eyebrow-dot"></span>
-                    Limited Program
-                </div>
+              
 
                 <h1 className="prem-hero-h1 animate-premium">
                     Build with us.<br />

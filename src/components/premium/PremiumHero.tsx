@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import { ArrowRight } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import '../../styles/PremiumLayouts.css';
@@ -162,9 +161,11 @@ const PremiumHero: React.FC<PremiumHeroProps> = ({
 
                 <div className="prem-hero-actions">
                     {renderPrimaryCta()}
-                    <a href={secondaryCtaHref} className="prem-hero-cta-ghost">
-                        {secondaryCtaText}
-                        <ArrowRight size={16} />
+                    <a href={secondaryCtaHref} className="btn-premium-black">
+                        <div className="btn-premium-inner">
+                            <span className="btn-premium-text">{secondaryCtaText}</span>
+                            <span className="btn-premium-text-hover">{secondaryCtaText}</span>
+                        </div>
                     </a>
                 </div>
             </div>

@@ -488,6 +488,11 @@
 .dec-phil-item {
   position: relative;
   text-align: left;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  padding: 2rem;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .dec-phil-item-num {
@@ -516,67 +521,66 @@
 
 /* Warning Clean */
 .dec-phil-warning-clean {
-  max-width: 600px;
-  margin: 0 auto 6rem;
+  max-width: 700px;
+  margin: 3rem auto;
   text-align: center;
-  padding: 1.25rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 0;
+  background: transparent;
+  border: none;
 }
 
 .dec-phil-warning-clean p {
   margin: 0;
   font-size: 1rem;
-  color: #4b5563;
-  line-height: 1.6;
-  font-style: italic;
+  color: #6b7280;
+  line-height: 1.8;
+  font-weight: 400;
 }
 
 .dec-phil-warning-clean p span {
-  font-weight: 800;
-  color: #111827;
-  font-style: normal;
+  font-weight: 600;
+  color: #1f2937;
 }
 
 
-/* Principle Final */
+/* Principle Final - Conclusion */
 .dec-phil-principle-final {
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 5rem;
+  padding-top: 4rem;
+  border-top: 1px solid #e5e7eb;
 }
 
 .dec-phil-principle-box {
-  padding: 3rem;
-  border-top: 1px solid rgba(15, 74, 74, 0.08);
-  max-width: 900px;
+  padding: 0;
+  max-width: 750px;
   margin: 0 auto;
+  background: transparent;
+  border: none;
 }
 
 .dec-principle-eyebrow {
   display: block;
-  font-size: 0.7rem;
-  font-weight: 800;
+  font-size: 0.75rem;
+  font-weight: 600;
   text-transform: uppercase;
-  color: #0f4a4a;
+  color: #858585;
   margin-bottom: 1.5rem;
-  letter-spacing: 0.2em;
-  opacity: 0.6;
+  letter-spacing: 0.12em;
 }
 
 .dec-principle-text {
-  font-size: clamp(1.5rem, 3.5vw, 2rem);
-  font-weight: 600;
-  color: #101010;
-  line-height: 1.3;
-  letter-spacing: -0.04em;
+  font-size: clamp(1.3rem, 3.5vw, 1.75rem);
+  font-weight: 500;
+  color: #111827;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
   margin: 0;
 }
 
 .dec-principle-text span {
-  background: linear-gradient(to right, #0f4a4a, #1a7a7a);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #111827;
+  font-weight: 600;
 }
 
 /* ════════════════════════════
@@ -635,6 +639,8 @@
 .beam-container-wrapper {
   width: 100%;
   height: 100%;
+  background: white;
+  border: 1px solid rgba(1, 1, 1, 0.1);
 }
 
 .dec-approach-footer-note {
@@ -670,8 +676,7 @@
 .dec-archi-layout-refined {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 5rem;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .dec-archi-content-refined {
@@ -679,80 +684,114 @@
 }
 
 .dec-archi-points {
-  margin-top: 3.5rem;
+  margin-top: 2.5rem;
   display: flex;
   flex-direction: column;
-  gap: 2.2rem;
+  gap: 2rem;
 }
 
 .dec-archi-point {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 1.6rem;
+  align-items: start;
+  position: relative;
+}
+
+.dec-archi-point::before {
+  content: counter(point-counter);
+  counter-increment: point-counter;
   display: flex;
-  gap: 1.5rem;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 2px solid #000000;
+  border-radius: 50%;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+  flex-shrink: 0;
+  background: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.dec-archi-content-refined {
+  counter-reset: point-counter;
 }
 
 .point-marker {
-  width: 2px;
-  height: 48px;
-  background: #e2e8f0;
-  flex-shrink: 0;
-  position: relative;
-  transition: background 0.3s ease;
-}
-
-.dec-archi-point:hover .point-marker {
-  background: #3b82f6;
+  display: none;
 }
 
 .point-text h3 {
-  font-size: 1.15rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  color: #0f172a;
-  margin: 0 0 0.5rem;
+  color: #111827;
+  margin: 0 0 0.3rem;
   letter-spacing: -0.01em;
 }
 
 .point-text p {
-  font-size: 0.95rem;
-  color: #64748b;
-  line-height: 1.6;
+  font-size: 0.85rem;
+  color: #6b7280;
+  line-height: 1.5;
   margin: 0;
 }
 
 .dec-archi-footer-quote {
-  margin-top: 4rem;
-  padding-top: 2rem;
-  border-top: 1px solid #f1f5f9;
+  margin-top: 3.5rem;
+  padding: 2rem 0;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 .dec-archi-footer-quote p {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #1e293b;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1f2937;
   font-style: italic;
+  line-height: 1.7;
+  margin: 0;
 }
 
-/* Immersive Visual - FULL & UNCLIPPED */
+/* Immersive Visual - PHONE MOCKUP */
 .dec-archi-visual-large {
   position: relative;
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  padding: 0;
 }
 
-.lottie-full-wrap {
+.dec-archi-visual-large .mockup-phone {
+  transform: none !important;
+  max-width: 380px !important;
+  width: auto;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  margin: 0 auto;
+}
+
+.dec-archi-visual-large .mockup-phone-camera {
+  display: none;
+}
+
+.dec-archi-visual-large .mockup-phone::after {
+  display: none;
+}
+
+.dec-archi-visual-large .mockup-phone-display {
+  background: black !important;
+  border-radius: 38px;
+  overflow: hidden;
+}
+
+.dec-archi-visual-large .archi-lottie-main {
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.6s var(--ease);
-}
-
-.archi-lottie-main {
-  width: 100% !important;
-  height: auto !important;
-  max-width: 650px; /* Optional cap to prevent massive scaling on huge screens */
+  height: 100%;
+  display: block;
 }
 
 @media (max-width: 1024px) {

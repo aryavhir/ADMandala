@@ -65,7 +65,7 @@ const List = ({ item, className, index, activeItem, ...props }: ImageProps) => {
       {/* Expanded Content */}
       {isActive && (
         <div className="absolute inset-0 z-20 flex flex-col justify-start p-6 pt-12 text-white md:p-10 md:pt-20">
-          <div className="mb-8 flex items-center gap-4">
+          <div className="mb-10 flex items-center gap-4">
              {item.badge && (
                <div className={cn("rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider", item.badge.className)}>
                   {item.badge.text}
@@ -76,13 +76,13 @@ const List = ({ item, className, index, activeItem, ...props }: ImageProps) => {
 
           <WaveReveal
             duration="800ms"
-            className="items-start justify-start p-0 text-left text-2xl font-semibold leading-tight sm:text-3xl md:text-4xl lg:text-5xl"
+            className="items-start justify-start p-0 text-left text-lg font-semibold leading-tight sm:text-xl md:text-2xl lg:text-3xl"
             text={item.title}
             direction="up"
           />
           
-          <div className="mt-10 max-w-xl animate-in fade-in slide-in-from-bottom-4 duration-700">
-             {item.subtitle && <p className="mb-2 text-xl font-medium text-white/90">{item.subtitle}</p>}
+          <div className="mt-6 max-w-xl animate-in fade-in slide-in-from-bottom-4 duration-700 flex flex-col gap-6">
+             {item.subtitle && <p className="text-xl font-medium text-white/90">{item.subtitle}</p>}
              {item.description && <div className="text-sm leading-relaxed text-white/70 md:text-base">{item.description}</div>}
              
              {item.progress !== undefined && (

@@ -11,7 +11,7 @@ const WhatsLiveSection: React.FC = () => {
                 <div className="dsp-future-grid-lines"></div>
             </div>
             <div className="content-wrapper">
-                <div className="live-split-layout">
+                <div className="live-split-layout" style={{ minHeight: '600px', maxWidth: '1100px', padding: '0' }}>
                     <div className="live-left-content animate-on-scroll">
                         <div className="live-indicator"><span className="blink"></span> SYSTEM OPERATIONAL</div>
                         <h2 className="section-title animate-premium" style={{ color: "white " }}>What's Live Today</h2>

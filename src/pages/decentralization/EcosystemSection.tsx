@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { CheckCircle2 } from 'lucide-react';
+import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import p1 from '../../assets/new/fpub.png';
@@ -113,7 +114,13 @@ const EcosystemSection = () => {
                             style={{ padding: '60px 0', background: 'transparent' }}
                         >
                             <div className="prem-split-layout">
-                                <div className="prem-split-content">
+                                <motion.div 
+                                    className="prem-split-content"
+                                    initial={{ opacity: 0, x: role.id === 'advertisers' ? 60 : -60 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.8, ease: 'easeOut' }}
+                                    viewport={{ once: true, margin: '-100px' }}
+                                >
                                     <h2>{role.title}</h2>
                                     <p className="prem-split-desc">{role.description}</p>
                                     <ul className="prem-split-features">
@@ -124,7 +131,7 @@ const EcosystemSection = () => {
                                             </li>
                                         ))}
                                     </ul>
-                                </div>
+                                </motion.div>
                                 <div className="prem-split-visual" style={{ backgroundColor: role.bgColor }}>
                                     <div className="prem-split-visual-inner">
                                         <div className="prem-split-img-wrapper">

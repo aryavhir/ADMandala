@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { AnimatedBeamDemo } from '../../components/home/AnimatedBeamDemo';
 
 const ApproachSection: React.FC = () => {
@@ -6,7 +7,13 @@ const ApproachSection: React.FC = () => {
         <section id="approach" className="dec-section dec-approach-premium">
             <div className="content-wrapper">
                 <div className="dec-approach-layout">
-                    <div className="dec-approach-content">
+                    <motion.div 
+                        className="dec-approach-content"
+                        initial={{ opacity: 0, x: -60 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8, ease: 'easeOut' }}
+                        viewport={{ once: true, margin: '-100px' }}
+                    >
                         <span className="prem-badge">Philosophy</span>
                         <h2 className="section-title">The Mandala Approach</h2>
                         <p className="dec-sub-refined">
@@ -18,7 +25,7 @@ const ApproachSection: React.FC = () => {
                                 <p>Ad Mandala applies this principle by decentralizing only the layers that benefit from it — while keeping the system usable, scalable, and reliable at every stage.</p>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
 
                     <div className="dec-approach-visual">
                         <div className="beam-container-wrapper">
