@@ -115,9 +115,9 @@ const PremiumWhoIsItFor: React.FC<PremiumWhoIsItForProps> = ({
             </div>
 
             {footerText && (
-                <div className="prem-tabs-footer animate-on-scroll">
-                    <p>{footerText}</p>
-                </div>
+                <blockquote className="prem-tabs-footer animate-on-scroll">
+                    <p className="prem-tabs-footer-quote">{footerText}</p>
+                </blockquote>
             )}
         </section>
     );

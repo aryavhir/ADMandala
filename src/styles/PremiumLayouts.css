@@ -740,52 +740,47 @@
 }
 
 
-/* ── Premium Tabs Footer ── */
+/* ── Premium Tabs Footer (matches .prem-tabs-visual + .prem-tabs-subtitle) ── */
 .prem-tabs-footer {
     grid-column: 1 / -1;
-    margin-top: 60px;
-    padding: 40px;
-    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
-    border-radius: 24px;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    margin: 56px auto 0;
+    max-width: 1000px;
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid rgba(184, 184, 184, 0.2);
+    border-radius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
+    box-shadow: none;
 }
 
-.prem-tabs-footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 6px;
-    height: 100%;
-    background: var(--brand);
-}
-
-.prem-tabs-footer p {
+.prem-tabs-footer-quote {
+    font-family: "Inter Display", "Inter", system-ui, sans-serif;
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 1.4;
-    color: #101010;
+    color: #000000;
     margin: 0;
+    padding: 28px 32px;
     text-align: center;
-    max-width: 850px;
+    max-width: 800px;
     letter-spacing: -0.04em;
-    font-style: italic;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    text-wrap: balance;
 }
 
 @media (max-width: 768px) {
     .prem-tabs-footer {
-        padding: 30px 20px;
-        margin-top: 40px;
+        margin-top: 48px;
+        border-radius: 16px;
     }
 
-    .prem-tabs-footer p {
+    .prem-tabs-footer-quote {
+        padding: 24px 20px;
         font-size: 18px;
+        line-height: 1.45;
     }
 }
 

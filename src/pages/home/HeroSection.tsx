@@ -215,6 +215,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onIntroComplete }) => {
                     <div
                         className="prem-hero-circle"
                         ref={circleRef}
+                        style={{ backgroundColor: 'rgba(45, 189, 189, 0.15)' }}
                     ></div>
                 </div>
                 <div className="content-wrapper" style={{ position: 'relative', zIndex: 10 }}>

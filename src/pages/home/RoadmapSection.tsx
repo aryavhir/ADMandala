@@ -31,7 +31,7 @@ const RoadmapSection: React.FC = () => {
             description: "Avoid premature complexity. Decentralization is introduced only where it improves trust without degrading performance.",
             image: r4,
             icon: <Shield size={22} />,
-            bgColor: "rgb(240, 255, 240)"
+            bgColor: "rgb(245, 245, 247)"
         }
     ];
 

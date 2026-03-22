@@ -73,7 +73,7 @@ const WhatIsSection: React.FC = () => {
     const barBorder = dark ? '#3c4043' : '#e8eaed';
 
     return (
-        <section ref={sectionRef} id="what-is" className="prem-split-section" style={{ overflow: 'hidden', height: '100vh', background: '#f8f9fa' }}>
+        <section ref={sectionRef} id="what-is" className="prem-split-section" style={{ overflow: 'hidden', height: '100vh', background: 'white' }}>
             <div className="content-wrapper" style={{ height: '100vh', display: 'flex', alignItems: 'center' }}>
                 <div className="prem-split-layout what-is-split" style={{ position: 'relative', width: '100%' }}>
 
@@ -112,8 +112,7 @@ const WhatIsSection: React.FC = () => {
                                     <div className="status-time" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                                         00:04
                                         <div style={{ display: 'flex', gap: '2px', opacity: 0.8 }}>
-                                            <div style={{ width: '10px', height: '10px', background: '#25D366', borderRadius: '2px' }}></div>
-                                            <div style={{ width: '10px', height: '10px', background: '#E4405F', borderRadius: '2px' }}></div>
+
                                         </div>
                                     </div>
                                     <div className="status-icons">
