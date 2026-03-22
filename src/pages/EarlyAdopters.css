@@ -2,30 +2,9 @@
    EARLY ADOPTERS PAGE — Premium Design System
    ════════════════════════════════════════════════════ */
 
-/* ── HERO ── */
-.eap-hero {
-    position: relative;
-    padding: 12rem 2rem 6rem;
-    background: #ffffff;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    min-height: 70vh;
-    justify-content: center;
-}
-
-.eap-hero-content {
-    max-width: 700px;
-    margin: 0 auto;
-    z-index: 5;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-}
+/* ── HERO ──
+   Layout matches home: .hero-section > .home-hero > .content-wrapper > .prem-hero-content
+   (see App.css .home-hero + PremiumLayouts .prem-hero-*) */
 
 .eap-hero-eyebrow {
     display: inline-flex;
@@ -56,13 +35,6 @@
     50% { opacity: 0.4; transform: scale(0.7); }
 }
 
-@media (max-width: 768px) {
-    .eap-hero {
-        padding: 8rem 1.5rem 4rem;
-        min-height: auto;
-    }
-}
-
 /* ── SHARED SECTION ── */
 .eap-section {
     padding: 6rem 2rem;
@@ -75,9 +47,10 @@
     }
 }
 
-/* ── PROGRAM OVERVIEW ── */
-.eap-overview {
-    background: #fafbfc;
+/* ── PROGRAM OVERVIEW (Combined) ── */
+.eap-combined-overview {
+    background: #ffffff;
+    padding-bottom: 8rem;
 }
 
 .eap-overview-header {
@@ -96,157 +69,128 @@
     letter-spacing: -0.04em;
 }
 
-.eap-programs-grid {
+.eap-programs-grid.eap-pricing-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
     max-width: 1000px;
     margin: 0 auto;
+    align-items: stretch;
 }
 
 @media (max-width: 900px) {
-    .eap-programs-grid {
+    .eap-programs-grid.eap-pricing-grid {
         grid-template-columns: 1fr;
     }
 }
 
-/* ── PROGRAM CARDS ── */
-.eap-program-card {
+/* ── Program cards (pricing-style: flat, no shadows, sharp corners) ── */
+.eap-pricing-card {
     position: relative;
     background: #ffffff;
-    border: 1px solid rgba(15, 74, 74, 0.08);
-    border-radius: 20px;
-    padding: 2.5rem 2rem;
-    overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.eap-program-card:hover {
-    transform: translateY(-6px);
-    box-shadow:
-        0 20px 50px rgba(15, 74, 74, 0.08),
-        0 4px 12px rgba(15, 74, 74, 0.04);
-    border-color: rgba(15, 74, 74, 0.18);
-}
-
-.eap-card-accent {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #0f4a4a, #1a7a7a);
-    border-radius: 20px 20px 0 0;
-}
-
-.eap-card-accent.premium {
-    background: linear-gradient(90deg, #0f4a4a, #2dbdbd, #9333ea);
-}
-
-.eap-card-header {
+    border: 1px solid #e0e0e0;
+    border-radius: 0;
+    padding: 2.5rem 2rem 2.25rem;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1.5rem;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+    box-shadow: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
 }
 
-.eap-card-icon-wrap {
-    width: 52px;
-    height: 52px;
-    border-radius: 14px;
-    background: rgba(15, 74, 74, 0.08);
-    color: #0f4a4a;
-    display: grid;
-    place-items: center;
-    transition: all 0.4s ease;
+.eap-pricing-card:hover {
+    border-color: #000000;
 }
 
-.eap-card-icon-wrap.premium {
-    background: linear-gradient(135deg, rgba(15, 74, 74, 0.1), rgba(147, 51, 234, 0.1));
-    color: #0f4a4a;
-}
-
-.eap-program-card:hover .eap-card-icon-wrap {
-    transform: scale(1.1);
-}
-
-.eap-card-badge {
-    padding: 4px 12px;
-    background: rgba(15, 74, 74, 0.06);
-    color: #0f4a4a;
-    border: 1px solid rgba(15, 74, 74, 0.12);
-    border-radius: 100px;
-    font-size: 0.7rem;
+.eap-pricing-title {
+    font-size: 1.375rem;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-}
-
-.eap-card-badge.premium {
-    background: rgba(147, 51, 234, 0.06);
-    color: #6b46c1;
-    border-color: rgba(147, 51, 234, 0.15);
-}
-
-.eap-card-title {
-    font-size: 1.35rem;
-    font-weight: 600;
-    color: #101010;
+    color: #000000;
     margin: 0 0 1rem;
     letter-spacing: -0.03em;
-    line-height: 1.3;
+    line-height: 1.25;
 }
 
-.eap-card-desc {
-    font-size: 0.95rem;
+.eap-pricing-desc {
+    font-size: 0.9375rem;
     color: #4b5563;
     line-height: 1.65;
     margin: 0 0 0.75rem;
 }
 
-.eap-benefits-label {
+.eap-pricing-desc:last-of-type {
+    margin-bottom: 0;
+}
+
+.eap-pricing-benefits-label {
     font-size: 0.72rem;
-    font-weight: 800;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #0f4a4a;
+    color: #000000;
     margin-top: 1.5rem;
     margin-bottom: 0.75rem;
+}
+
+.eap-pricing-features {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.eap-pricing-features li {
+    position: relative;
+    padding-left: 1.35rem;
+    font-size: 0.9375rem;
+    color: #000000;
+    line-height: 1.45;
+}
+
+.eap-pricing-features li::before {
+    content: '\2713';
+    position: absolute;
+    left: 0;
+    top: 0.05em;
+    font-size: 0.95em;
+    font-weight: 600;
+    color: #000000;
+}
+
+/* ── SECTION DIVIDER ── */
+.eap-section-divider {
+    max-width: 1000px;
+    margin: 6rem auto;
+    display: flex;
+    justify-content: center;
     opacity: 0.6;
 }
 
-.eap-benefits-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
+.divider-line {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(0,0,0,0.05) 15%, 
+        rgba(0,0,0,0.1) 50%, 
+        rgba(0,0,0,0.05) 85%, 
+        transparent 100%
+    );
 }
 
-.eap-benefits-list li {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-size: 0.95rem;
-    color: #374151;
-    line-height: 1.5;
-}
-
-.eap-benefits-list li svg {
-    color: #0f4a4a;
-    flex-shrink: 0;
-}
-
-/* ── HOW IT WORKS ── */
-.eap-how-it-works {
-    background: #ffffff;
+/* ── INTEGRATED FLOW ── */
+.eap-integrated-flow {
+    margin-top: 2rem;
 }
 
 .eap-how-header {
     text-align: center;
     max-width: 700px;
-    margin: 0 auto 4rem;
+    margin: 0 auto 4.5rem;
 }
 
 .eap-how-subtitle {

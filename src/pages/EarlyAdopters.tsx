@@ -7,7 +7,6 @@ import Navbar from '../components/Navbar';
 // Sub-components
 import HeroSection from './early-adopters/HeroSection';
 import ProgramOverview from './early-adopters/ProgramOverview';
-import HowItWorks from './early-adopters/HowItWorks';
 import LimitedOpportunity from './early-adopters/LimitedOpportunity';
 
 import './EarlyAdopters.css';
@@ -41,7 +40,6 @@ function EarlyAdopters() {
 
             <HeroSection />
             <ProgramOverview />
-            <HowItWorks />
             <LimitedOpportunity />
 
             <Footer />
