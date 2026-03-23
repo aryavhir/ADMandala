@@ -60,7 +60,7 @@ const HeroSection: React.FC = () => {
                     <div
                         className="prem-hero-circle"
                         ref={circleRef}
-                        style={{ backgroundColor: 'rgb(14 139 194 / 20%)' }}
+                        style={{ backgroundColor: 'rgb(14 139 / 20%)' }}
                     ></div>
                 </div>
 
@@ -72,7 +72,7 @@ const HeroSection: React.FC = () => {
                         </h1>
 
                         <p className="prem-hero-desc animate-premium">
-                            Join AdMandala during its early phase and become <br />part of a select  group of publishers shaping a <br />high-quality advertising marketplace.
+                            Join AdMandala during its early phase and become <br />part of a select group of publishers shaping a <br />high-quality advertising marketplace.
                         </p>
 
                         <div className="prem-hero-actions animate-premium">
