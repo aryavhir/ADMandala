@@ -16,7 +16,6 @@ const WhatIsSection: React.FC = () => {
 
     const sectionRef = useRef<HTMLDivElement>(null);
     const whatTextRef = useRef<HTMLDivElement>(null);
-    const whyTextRef = useRef<HTMLDivElement>(null);
 
     // Scroll to top of page helper
     const scrollToTop = () => {
@@ -31,30 +30,20 @@ const WhatIsSection: React.FC = () => {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: "top top",
-                    end: "+=100%", // Scroll distance
-                    pin: true,
-                    scrub: 1,
-                    anticipatePin: 1,
+            // Simplified entry animation for WhatIs text
+            gsap.fromTo(whatTextRef.current,
+                { opacity: 0, x: -50 },
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 1,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: sectionRef.current,
+                        start: "top 80%",
+                    }
                 }
-            });
-
-            // Slide out WhatIs text to the left, Slide in WhyText from the left
-            tl.to(whatTextRef.current, {
-                opacity: 0,
-                x: -100,
-                duration: 1,
-                ease: "power2.inOut"
-            })
-                .fromTo(whyTextRef.current,
-                    { opacity: 0, x: -100 }, // Sliding in from the left
-                    { opacity: 1, x: 0, duration: 1, ease: "power2.inOut" },
-                    "-=0.5"
-                );
-
+            );
         }, sectionRef);
 
         return () => ctx.revert();
@@ -73,15 +62,15 @@ const WhatIsSection: React.FC = () => {
     const barBorder = dark ? '#3c4043' : '#e8eaed';
 
     return (
-        <section ref={sectionRef} id="what-is" className="prem-split-section" style={{ overflow: 'hidden', height: '100vh', background: 'white' }}>
-            <div className="content-wrapper" style={{ height: '100vh', display: 'flex', alignItems: 'center' }}>
+        <section ref={sectionRef} id="what-is" className="prem-split-section" style={{ overflow: 'visible', minHeight: '60vh', background: 'white', display: 'flex', alignItems: 'center', position: 'relative', zIndex: 5 }}>
+            <div className="content-wrapper">
                 <div className="prem-split-layout what-is-split" style={{ position: 'relative', width: '100%' }}>
 
                     {/* LEFT: Text Stack */}
-                    <div className="prem-split-content" style={{ position: 'relative', height: '400px', display: 'flex', alignItems: 'center' }}>
+                    <div className="prem-split-content" style={{ position: 'relative', minHeight: '300px', display: 'flex', alignItems: 'center', transform: 'translateY(160px)' }}>
 
                         {/* FIRST TEXT: What Is */}
-                        <div ref={whatTextRef} style={{ position: 'absolute', width: '100%' }}>
+                        <div ref={whatTextRef} style={{ width: '100%' }}>
                             <span className="prem-badge animate-premium">Context</span>
                             <h2 className="section-title animate-premium">What Is  <span className="dec-approach-word dec-approach-word-em">Admandala</span> ?</h2>
                             <p className="prem-subtext animate-premium">
@@ -89,21 +78,11 @@ const WhatIsSection: React.FC = () => {
                                 <br />     <br /> The platform enables efficient monetization and performance today, without forcing the ecosystem to adopt unproven infrastructure prematurely.
                             </p>
                         </div>
-
-                        {/* SECOND TEXT: Why */}
-                        <div ref={whyTextRef} style={{ position: 'absolute', width: '100%', opacity: 0 }}>
-                            <span className="prem-badge animate-premium">Strategic Mission</span>
-                            <h2 className="section-title animate-premium">Why <span className="dec-approach-word dec-approach-word-em">Admandala</span> Exists</h2>
-                            <p className="prem-subtext animate-premium">
-                                Advertising needs reliability <em>and</em> trust. Today's ecosystem forces a choice between them. We're building the infrastructure that refuses that tradeoff.
-                                <br />     <br />  AdMandala bridges this gap by delivering production-grade programmatic infrastructure now, while methodically decentralizing the layers that matter most — verification, settlement, and governance.
-                            </p>
-                        </div>
                     </div>
 
-                    {/* RIGHT: Phone Mockup (STAYS FIXED) */}
-                    <div className="what-is-visual-panel" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <div className="mockup-phone">
+                    {/* RIGHT: Phone Mockup (Upper part visible) */}
+                    <div className="what-is-visual-panel" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '400px', position: 'relative' }}>
+                        <div className="mockup-phone" style={{ transform: 'translateY(170px)', position: 'absolute', top: 0 }}>
                             <div className="mockup-phone-camera"></div>
                             <div className="mockup-phone-display" style={{ background: bg }}>
 
