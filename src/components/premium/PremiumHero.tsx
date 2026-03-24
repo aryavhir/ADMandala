@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import '../../styles/PremiumLayouts.css';
@@ -37,6 +37,15 @@ const PremiumHero: React.FC<PremiumHeroProps> = ({
 }) => {
     const mockupRef = useRef<HTMLDivElement>(null);
     const circleRef = useRef<HTMLDivElement>(null);
+    const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const isMobile = windowWidth <= 900;
 
     useEffect(() => {
         if (!circleRef.current || !mockupRef.current) return;
@@ -56,59 +65,76 @@ const PremiumHero: React.FC<PremiumHeroProps> = ({
             }
         );
 
-        ScrollTrigger.create({
-            trigger: ".prem-hero",
-            start: "top top",
-            end: transitionEnd,
-            pin: ".prem-hero-content",
-            pinSpacing: false,
-            scrub: true,
-            onUpdate: (self) => {
-                const heroContent = document.querySelector(".prem-hero-content");
-                if (heroContent) {
-                    gsap.set(heroContent, {
-                        opacity: 1 - self.progress
-                    });
+        // Keep pinning for content if desired, but user didn't mention it.
+        // However, if we disable mockup animation, pinning might feel weird.
+        // On mobile, pinning is generally avoided.
+        if (!isMobile) {
+            ScrollTrigger.create({
+                trigger: ".prem-hero",
+                start: "top top",
+                end: transitionEnd,
+                pin: ".prem-hero-content",
+                pinSpacing: false,
+                scrub: true,
+                onUpdate: (self) => {
+                    const heroContent = document.querySelector(".prem-hero-content");
+                    if (heroContent) {
+                        gsap.set(heroContent, {
+                            opacity: 1 - self.progress
+                        });
+                    }
                 }
-            }
-        });
+            });
 
-        gsap.fromTo(mockupRef.current,
-            {
-                rotateX: 30,
-                y: -120,
-                scale: 0.8,
-            },
-            {
-                rotateX: 0,
-                y: 0,
-                scale: 1,
+            gsap.fromTo(mockupRef.current,
+                {
+                    rotateX: 30,
+                    y: -120,
+                    scale: 0.8,
+                },
+                {
+                    rotateX: 0,
+                    y: 0,
+                    scale: 1,
+                    ease: 'none',
+                    scrollTrigger: {
+                        trigger: ".prem-hero",
+                        start: "top top",
+                        end: transitionEnd,
+                        scrub: 1,
+                    }
+                }
+            );
+
+            gsap.to(circleRef.current, {
+                scale: 2.5,
+                opacity: 0.1,
                 ease: 'none',
                 scrollTrigger: {
                     trigger: ".prem-hero",
                     start: "top top",
-                    end: transitionEnd,
+                    end: "top -40%",
                     scrub: 1,
                 }
-            }
-        );
-
-        gsap.to(circleRef.current, {
-            scale: 2.5,
-            opacity: 0.1,
-            ease: 'none',
-            scrollTrigger: {
-                trigger: ".prem-hero",
-                start: "top top",
-                end: "top -40%",
-                scrub: 1,
-            }
-        });
+            });
+        } else {
+            // Mobile: No scroll animations for mockup/content
+            gsap.set(mockupRef.current, {
+                rotateX: 0,
+                y: 0,
+                scale: 1,
+                opacity: 1
+            });
+            gsap.set(circleRef.current, {
+                scale: 1.5,
+                opacity: 0.15
+            });
+        }
 
         return () => {
             ScrollTrigger.getAll().forEach(st => st.kill());
         };
-    }, []);
+    }, [isMobile]);
 
     const renderPrimaryCta = () => {
         if (primaryCtaHref) {
