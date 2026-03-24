@@ -63,7 +63,7 @@ function Home() {
             </div>
 
             <Link to="/early-adopters" className="hero-premium-black-btn">
-              <span className="btn-pulse-amber"></span>
+              <span className="btn-premium-glint"></span>
               <span>Join Early Access</span>
               <ArrowRight size={18} className="btn-arrow" />
             </Link>

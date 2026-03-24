@@ -58,6 +58,7 @@ const AccordionItem = ({ title, icon: Icon, children, isOpen, onClick }: any) =>
 
 function EarlyAdopters() {
     useScrollAnimation();
+    const registrationUrl = (import.meta as any).env.VITE_PUBLISHER_REGISTRATION_URL ?? '#';
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     return (
@@ -76,6 +77,10 @@ function EarlyAdopters() {
                     <Link to="/" className="back-link">&larr; Back Home</Link>
                 </div>
             </nav>
+
+            {/* Decorative Background Elements */}
+            <div className="decorative-blob-1"></div>
+            <div className="decorative-blob-2"></div>
 
             <div className="eap-precision-section">
 
@@ -97,6 +102,9 @@ function EarlyAdopters() {
                                     The Early Adopter Program will run for approximately 6–9 months following the launch of the AdMandala Exchange Layer.
                                     Publishers who register during this phase and successfully pass the platform’s verification and operational requirements will be admitted into the Early Adopter Program.
                                 </p>
+                                <a href={registrationUrl} target="_blank" rel="noopener noreferrer" className="btn-premium-white">
+                                    Apply as a Publisher
+                                </a>
                             </div>
                             <div className="overview-right">
                                 <div className="benefits-label">PROGRAM BENEFITS</div>
@@ -219,7 +227,7 @@ function EarlyAdopters() {
                                 <p className="lo-desc">
                                     The Early Adopter Program is available for a limited time, and the Founding Publisher Partners group is selective and capped. Secure your position early.
                                 </p>
-                                <a href="https://forms.gle/your-link" className="lo-button">
+                                <a href={registrationUrl} target="_blank" rel="noopener noreferrer" className="lo-button">
                                     Apply as a Publisher
                                 </a>
                             </div>
