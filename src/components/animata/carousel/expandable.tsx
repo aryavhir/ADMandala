@@ -30,10 +30,10 @@ const List = ({ item, className, index, activeItem, ...props }: ImageProps) => {
   return (
     <div
       className={cn(
-        "relative flex h-full min-w-16 cursor-pointer overflow-hidden rounded-2xl transition-all duration-500 ease-in-out",
+        "relative flex h-full w-full cursor-pointer overflow-hidden rounded-2xl transition-all duration-500 ease-in-out md:min-w-16",
         {
-          "flex-[3]": isActive,
-          "flex-1": !isActive,
+          "flex-[3] md:flex-[3]": isActive,
+          "flex-1 md:flex-1": !isActive,
         },
         className,
       )}
@@ -53,10 +53,10 @@ const List = ({ item, className, index, activeItem, ...props }: ImageProps) => {
         })} />
       </div>
 
-      {/* Vertical Title (when collapsed) */}
+      {/* Title Placeholder (when collapsed) */}
       {!isActive && (
         <div className="absolute inset-0 z-10 flex items-center justify-center p-2">
-           <span className="rotate-180 whitespace-nowrap text-lg font-bold text-white/60 [writing-mode:vertical-lr]">
+           <span className="whitespace-nowrap text-lg font-bold text-white/60 md:rotate-180 md:[writing-mode:vertical-lr]">
               {item.title}
            </span>
         </div>
@@ -65,11 +65,11 @@ const List = ({ item, className, index, activeItem, ...props }: ImageProps) => {
       {/* Expanded Content */}
       {isActive && (
         <div className="absolute inset-0 z-20 flex flex-col justify-start p-6 pt-12 text-white md:p-10 md:pt-20">
-          <div className="mb-10 flex items-center gap-4">
+          <div className="mb-4 flex items-center gap-4 md:mb-10">
              {item.badge && (
-               <div className={cn("rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider", item.badge.className)}>
-                  {item.badge.text}
-               </div>
+                <div className={cn("rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider md:text-xs", item.badge.className)}>
+                   {item.badge.text}
+                </div>
              )}
              {item.icon && <div className="text-white/80">{item.icon}</div>}
           </div>
@@ -81,23 +81,23 @@ const List = ({ item, className, index, activeItem, ...props }: ImageProps) => {
             direction="up"
           />
           
-          <div className="mt-6 max-w-xl animate-in fade-in slide-in-from-bottom-4 duration-700 flex flex-col gap-6">
-             {item.subtitle && <p className="text-xl font-medium text-white/90">{item.subtitle}</p>}
-             {item.description && <div className="text-sm leading-relaxed text-white/70 md:text-base">{item.description}</div>}
+          <div className="mt-4 max-w-xl animate-in fade-in slide-in-from-bottom-4 duration-700 flex flex-col gap-4 md:mt-6 md:gap-6">
+             {item.subtitle && <p className="text-base font-medium text-white/90 md:text-xl">{item.subtitle}</p>}
+             {item.description && <div className="text-xs leading-relaxed text-white/70 md:text-base">{item.description}</div>}
              
              {item.progress !== undefined && (
-               <div className="mt-6 flex flex-col gap-2">
-                 <div className="flex justify-between text-xs font-bold uppercase tracking-widest text-white/40">
-                   <span>Progress</span>
-                   <span>{item.progress}%</span>
-                 </div>
-                 <div className="h-1 w-full overflow-hidden rounded-full bg-white/10">
-                   <div 
-                    className="h-full bg-white transition-all duration-1000 ease-out" 
-                    style={{ width: `${item.progress}%` }} 
-                   />
-                 </div>
-               </div>
+                <div className="mt-2 flex flex-col gap-2 md:mt-6">
+                  <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest text-white/40 md:text-xs">
+                    <span>Progress</span>
+                    <span>{item.progress}%</span>
+                  </div>
+                  <div className="h-1 w-full overflow-hidden rounded-full bg-white/10">
+                    <div 
+                     className="h-full bg-white transition-all duration-1000 ease-out" 
+                     style={{ width: `${item.progress}%` }} 
+                    />
+                  </div>
+                </div>
              )}
           </div>
         </div>
@@ -123,13 +123,14 @@ export default function Expandable({ list, autoPlay = true, className }: Expanda
   }, [autoPlay, list.length, isHovering]);
 
   return (
-    <div className={cn("flex h-[600px] w-full gap-2", className)}>
+    <div className={cn("flex flex-col h-[700px] w-full gap-2 md:flex-row md:h-[600px]", className)}>
       {list.map((item, index) => (
         <List
           key={item.title}
           item={item}
           index={index}
           activeItem={activeItem}
+          onClick={() => setActiveItem(index)}
           onMouseEnter={() => {
             setActiveItem(index);
             setIsHovering(true);

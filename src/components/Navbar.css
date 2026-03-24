@@ -323,11 +323,28 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--nav-text);
-    padding: 12px 0;
+    width: 100%;
+}
+
+.mobile-dropdown-header .mobile-link {
+    flex: 1;
+    border-bottom: none;
+}
+
+.mobile-dropdown-arrow {
+    background: none;
+    border: none;
+    padding: 12px;
+    padding-right: 0;
+    color: #64748b;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-dropdown-header .icon-rotate {
+    transform: rotate(180deg);
 }
 
 .icon-rotate {

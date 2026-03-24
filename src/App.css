@@ -1623,7 +1623,7 @@ h2 {
 /* New centered showcase layout */
 .card-swap-wrapper {
   position: relative;
-  transform: perspective(1200px) scale(1.2) translateX(150px) translateY(80px);
+  transform: perspective(1200px) scale(1.2) translateX(28px) translateY(80px);
   transform-origin: bottom right;
   overflow: visible;
 }

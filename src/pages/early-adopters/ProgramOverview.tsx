@@ -4,10 +4,8 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
     ChevronDown,
-    Check,
     TrendingUp,
     Zap,
-    Clock,
     Gem,
     Settings,
     HelpCircle,
@@ -15,19 +13,13 @@ import {
     UserCircle,
     ShieldCheck,
     Unlock,
-    Rocket
+    Rocket,
+    ArrowDown
 } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 // ── DATA DEFINITIONS ──
-
-const PROGRESS_STEPS = [
-    { title: "Register", icon: UserCircle },
-    { title: "Verification", icon: ShieldCheck },
-    { title: "Early Adopter", icon: Unlock },
-    { title: "Founding Partner", icon: Rocket }
-];
 
 const EAP_BENEFITS = [
     "Fee Advantage during the phase",
@@ -144,6 +136,15 @@ const BenefitAccordion = ({ benefit }: { benefit: typeof FPP_BENEFITS[0] }) => {
 
 const ProgramOverview: React.FC = () => {
     const containerRef = useRef<HTMLDivElement>(null);
+    const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const isMobile = windowWidth <= 900;
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -167,9 +168,9 @@ const ProgramOverview: React.FC = () => {
 
     return (
         <section ref={containerRef} id="program-overview" className="eap-precision-section">
-            <div className="content-wrapper">
+            <div className="content-wrapper" style={{ padding: isMobile ? '0 1rem' : undefined }}>
                 {/* 1. HEADER SECTION (Neutral High-Contrast) */}
-                <div className="eap-header-refined-tight text-center mb-24 reveal-item">
+                <div className="eap-header-refined-tight text-center mb-12 md:mb-24 reveal-item">
                     <span className="prem-badge mb-4">AdMandala Partnership</span>
                     <h2 className="section-title">Program Overview</h2>
                     <p className="prem-subtext mx-auto">
@@ -180,8 +181,8 @@ const ProgramOverview: React.FC = () => {
                 {/* 2. TIGHT MILESTONE TILES (High Contrast B&W) */}
                 
                 {/* EAP Tile (DARK - INVERTED) */}
-                <div className="milestone-tile-precision dark mb-12 reveal-item">
-                    <div className="flex flex-col lg:flex-row gap-16 items-start">
+                <div className="milestone-tile-precision dark mb-12 reveal-item" style={{ padding: isMobile ? '2rem' : undefined }}>
+                    <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start">
                         <div className="flex-1">
                             <h3 className="milestone-precision-title mb-8">Early Adopter Program (EAP)</h3>
                             <div className="milestone-precision-body space-y-6">
@@ -208,7 +209,7 @@ const ProgramOverview: React.FC = () => {
                 </div>
 
                 {/* FPP Tile (LIGHT - INVERTED) */}
-                <div className="milestone-tile-precision light mb-48 reveal-item">
+                <div className="milestone-tile-precision light mb-24 md:mb-48 reveal-item" style={{ padding: isMobile ? '2rem' : undefined }}>
                     <div className="fpp-hero-area mb-16">
                         <div className="flex items-center gap-5 mb-8">
                             <div className="fpp-icon-square">
@@ -237,8 +238,8 @@ const ProgramOverview: React.FC = () => {
                 </div>
 
                 {/* 3. ROADMAP SECTION (Preserved) */}
-                <div className="roadmap-merged-summary pt-24 border-t border-zinc-100 reveal-item">
-                    <div className="text-center mb-16">
+                <div className="roadmap-merged-summary pt-12 md:pt-24 border-t border-zinc-100 reveal-item">
+                    <div className="text-center mb-12 md:mb-16">
                         <h4 className="section-title !text-3xl mb-4">The Operational Path</h4>
                         <p className="prem-subtext mx-auto">
                             A clear path from registration to founding partner status.
@@ -247,7 +248,7 @@ const ProgramOverview: React.FC = () => {
 
                     <div className="roadmap-steps-grid">
                         {HOW_IT_WORKS_STEPS.map((step, i) => (
-                            <div key={i} className="roadmap-step-card">
+                            <div key={i} className="roadmap-step-card" style={{ padding: isMobile ? '1.5rem' : undefined }}>
                                 <div className="step-card-num">0{i + 1}</div>
                                 <h5>{step.title}</h5>
                                 <p>{step.description}</p>
@@ -255,15 +256,38 @@ const ProgramOverview: React.FC = () => {
                         ))}
                     </div>
 
-                    <div className="roadmap-flow-string mt-16 text-center">
-                        <div className="flow-string-inner">
-                            <span>Register a website</span>
-                            <div className="flow-arrow px-4">→</div>
-                            <span>Verified Publishers</span>
-                            <div className="flow-arrow px-4">→</div>
-                            <span>Early Adopter Program</span>
-                            <div className="flow-arrow px-4">→</div>
-                            <span>Founding Publisher Partners</span>
+                    <div className="roadmap-flow-string mt-12 md:mt-16 text-center">
+                        <div className="flow-string-inner" style={{ 
+                            flexDirection: isMobile ? 'column' : 'row', 
+                            borderRadius: isMobile ? '24px' : '100px',
+                            gap: isMobile ? '12px' : '0',
+                            padding: isMobile ? '2rem' : undefined
+                        }}>
+                            <div className="flex items-center gap-3">
+                                <UserCircle size={18} className="text-black/70" />
+                                <span className="text-black/90">Register a website</span>
+                            </div>
+                            
+                            {isMobile ? <ArrowDown size={14} className="text-black/40 my-1" /> : <div className="flow-arrow px-4 text-black/40">→</div>}
+                            
+                            <div className="flex items-center gap-3">
+                                <ShieldCheck size={18} className="text-black/70" />
+                                <span className="text-black/90">Verified Publishers</span>
+                            </div>
+                            
+                            {isMobile ? <ArrowDown size={14} className="text-black/40 my-1" /> : <div className="flow-arrow px-4 text-black/40">→</div>}
+                            
+                            <div className="flex items-center gap-3">
+                                <Unlock size={18} className="text-black/70" />
+                                <span className="text-black/90">Early Adopter Program</span>
+                            </div>
+                            
+                            {isMobile ? <ArrowDown size={14} className="text-black/40 my-1" /> : <div className="flow-arrow px-4 text-black/40">→</div>}
+                            
+                            <div className="flex items-center gap-3">
+                                <Rocket size={18} className="text-black/70" />
+                                <span className="text-black/90">Founding Publisher Partners</span>
+                            </div>
                         </div>
                     </div>
                 </div>
