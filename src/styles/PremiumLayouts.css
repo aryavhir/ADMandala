@@ -342,7 +342,7 @@
 
 /* ── Premium Feature Splits ── */
 .prem-split-section {
-    padding: 80px 2rem;
+    padding: 0px 2rem;
     background: #ffffff;
     display: flex;
     justify-content: center;
@@ -485,7 +485,7 @@
 .what-is-split,
 .why-split {
     max-width: 1100px;
-    height: 700px;
+    height: 450px;
     align-items: center;
 }
 
@@ -515,7 +515,7 @@
 /* Tighten split content padding for these larger sections */
 .what-is-split .prem-split-content,
 .why-split .prem-split-content {
-    padding-top: 100px;
+    padding-top: 40px;
     gap: 20px;
 }
 
@@ -541,7 +541,7 @@
 
 /* ── Premium Tabbing (Who Is It For) ── */
 .prem-who-tabs-section {
-    padding: 80px 2rem;
+    padding: 100px 2rem;
     background: #ffffff;
     display: flex;
     flex-direction: column;

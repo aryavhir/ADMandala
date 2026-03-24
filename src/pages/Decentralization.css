@@ -2511,26 +2511,6 @@
 }
 
 
-/* ════════════════════════════
-   CTAs & BUTTONS — Levitating Style
-   ════════════════════════════ */
-.dec-page .btn-premium-primary {
-  position: relative !important;
-  overflow: visible !important;
-  background: var(--brand) !important;
-  z-index: 1;
-}
-
-.dec-page .btn-premium-primary::before {
-  content: '';
-  position: absolute;
-  inset: -4px;
-  border: 2px solid rgb(14, 99, 99);
-  border-radius: 12px;
-  pointer-events: none;
-  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-  z-index: -1;
-}
 
 
 

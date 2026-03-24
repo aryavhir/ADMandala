@@ -24,6 +24,29 @@
         rgba(0, 0, 0, 0.13) 0.301px 0.602px 0.673px -0.833px,
         rgba(0, 0, 0, 0.13) 1.144px 2.289px 2.559px -1.667px,
         rgba(0, 0, 0, 0.13) 5px 10px 11.18px -2.5px;
+
+    z-index: 1;
+}
+
+/* Premium Border "Thingy" (Levitating Style) */
+.btn-premium-primary::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border: 2px solid #0e6363;
+    /* Slightly lighter/vibrant teal */
+    border-radius: 12px;
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: -1;
+    opacity: 0.7;
+}
+
+
+
+.btn-premium-primary:active::before {
+    inset: -2px;
+    opacity: 0.5;
 }
 
 .btn-premium-inner {
@@ -96,13 +119,7 @@
         rgba(0, 0, 0, 0.13) 5px 10px 11.18px -2.5px;
 }
 
-.btn-premium-black:hover {
-    background-color: #1a1a1a;
-    transform: translateY(-2px);
-    box-shadow: 
-        rgba(0, 0, 0, 0.2) 0px 4px 12px,
-        rgba(0, 0, 0, 0.12) 0px 10px 20px;
-}
+
 
 .btn-premium-black:hover .btn-premium-text {
     transform: translateY(-100%);
@@ -110,4 +127,4 @@
 
 .btn-premium-black:hover .btn-premium-text-hover {
     transform: translateY(-100%);
-}
+}

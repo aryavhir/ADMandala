@@ -235,7 +235,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onIntroComplete }) => {
                                     <span className="btn-premium-text-hover">Publisher Access</span>
                                 </div>
                             </Link>
-                            <Link to="/advertisers" className="btn-premium-primary" style={{ backgroundColor: '#000000ff' }}>
+                            <Link to="/advertisers" className="btn-premium-black">
                                 <div className="btn-premium-inner">
                                     <span className="btn-premium-text">Advertiser Access</span>
                                     <span className="btn-premium-text-hover">Advertiser Access</span>

@@ -4,14 +4,14 @@ import CardSwap, { Card } from '../../components/Live today/CardSwap';
 
 const WhatsLiveSection: React.FC = () => {
     return (
-        <section className="section whats-live whats-live-dark" style={{ position: 'relative', zIndex: 10 }}>
+        <section className="section whats-live whats-live-dark" style={{ position: 'relative', zIndex: 10, padding: '20px 0' }}>
             <div className="dsp-future-bg">
                 <div className="dsp-future-orb orb-1"></div>
                 <div className="dsp-future-orb orb-2"></div>
                 <div className="dsp-future-grid-lines"></div>
             </div>
             <div className="content-wrapper">
-                <div className="live-split-layout" style={{ minHeight: '600px', maxWidth: '1100px', padding: '0' }}>
+                <div className="live-split-layout" style={{ minHeight: '450px', maxWidth: '1100px', padding: '0' }}>
                     <div className="live-left-content animate-on-scroll">
                         <div className="live-indicator"><span className="blink"></span> SYSTEM OPERATIONAL</div>
                         <h2 className="section-title animate-premium" style={{ color: "white " }}>What's Live Today</h2>

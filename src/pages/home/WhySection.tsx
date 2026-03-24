@@ -47,12 +47,12 @@ const WhySection: React.FC = () => {
     const barBorder = dark ? '#3c4043' : '#e8eaed';
 
     return (
-        <section ref={sectionRef} id="why-exists" className="prem-split-section why-split-section" style={{ overflow: 'visible', minHeight: '60vh', background: 'white', display: 'flex', alignItems: 'center', position: 'relative', zIndex: 5 }}>
+        <section ref={sectionRef} id="why-exists" className="prem-split-section why-split-section" style={{ overflow: 'visible', minHeight: '40vh', background: 'white', display: 'flex', alignItems: 'flex-start', position: 'relative', zIndex: 5, padding: '0 2rem' }}>
             <div className="content-wrapper">
                 <div className="prem-split-layout why-split" style={{ position: 'relative', width: '100%', display: 'grid', gridTemplateColumns: '1fr 1fr', alignItems: 'center' }}>
 
                     {/* LEFT: Text Stack */}
-                    <div ref={whyTextRef} className="prem-split-content" style={{ transform: 'translateY(-170px)', paddingTop: '0px' }} >
+                    <div ref={whyTextRef} className="prem-split-content" style={{ transform: 'translateY(40px)', paddingTop: '0px', gap: '0px' }} >
                         <span className="prem-badge animate-premium">Strategic Mission</span>
                         <h2 className="section-title animate-premium">Why <span className="dec-approach-word dec-approach-word-em">Admandala</span> Exists</h2>
                         <p className="prem-subtext animate-premium">
@@ -63,7 +63,7 @@ const WhySection: React.FC = () => {
 
                     {/* RIGHT: Phone Mockup (Lower part) */}
                     <div className="why-visual-panel" style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-start', height: '400px', position: 'relative' }}>
-                        <div ref={phoneRef} className="mockup-phone" style={{ transform: 'translate3d(0px, -700.895px, 0px)', opacity: 1, position: 'absolute', top: 0 }}>
+                        <div ref={phoneRef} className="mockup-phone" style={{ transform: 'translate3d(0px, -493.895px, 0px)', opacity: 1, position: 'absolute', top: 0 }}>
                             <div className="mockup-phone-camera"></div>
                             <div className="mockup-phone-display" style={{ background: bg }}>
 

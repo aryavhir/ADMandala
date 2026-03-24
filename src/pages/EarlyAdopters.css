@@ -1,414 +1,149 @@
 /* ════════════════════════════════════════════════════
-   EARLY ADOPTERS PAGE — Premium Design System
+   EARLY ADOPTERS — Precision Minimalist (Inverted)
    ════════════════════════════════════════════════════ */
 
-/* ── HERO ──
-   Layout matches home: .hero-section > .home-hero > .content-wrapper > .prem-hero-content
-   (see App.css .home-hero + PremiumLayouts .prem-hero-*) */
-
-.eap-hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 18px;
-    background: rgba(15, 74, 74, 0.06);
-    border: 1px solid rgba(15, 74, 74, 0.12);
-    border-radius: 100px;
-    font-size: 0.78rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--brand, #0f4a4a);
-    margin-bottom: 1rem;
+.eap-precision-section {
+    padding: 120px 0;
+    background: #ffffff;
+    position: relative;
 }
 
-.eap-eyebrow-dot {
+.eap-header-refined-tight {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ── PRECISION MILESTONE TILES (B&W 24px/16px) ── */
+.milestone-tile-precision {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem;
+    border-radius: 40px;
+    border: 1px solid transparent;
+}
+
+.milestone-tile-precision.light {
+    background: #ffffff;
+    border-color: #f1f5f9; /* Subtle Zinc Border */
+}
+
+.milestone-tile-precision.dark {
+    background: #000000; /* Pure Black */
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.milestone-precision-title {
+    font-family: "Inter Display", sans-serif;
+    font-size: 24px !important;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.light .milestone-precision-title { color: #111827; }
+.dark .milestone-precision-title { color: #ffffff; }
+
+.milestone-precision-body {
+    font-size: 16px !important;
+    line-height: 1.6;
+}
+
+.light .milestone-precision-body { color: #4b5563; }
+.dark .milestone-precision-body { color: #a1a1aa; }
+
+.milestone-tag-tight {
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #64748b;
+}
+
+/* Checklist (High Contrast) */
+.milestone-checklist-tight {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.milestone-checklist-tight li {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.light .milestone-checklist-tight li { color: #374151; }
+.dark .milestone-checklist-tight li { color: #f4f4f5; }
+
+.bullet-tight {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: var(--brand, #0f4a4a);
-    animation: eap-pulse 2s ease-in-out infinite;
-}
-
-@keyframes eap-pulse {
-
-    0%,
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    50% {
-        opacity: 0.4;
-        transform: scale(0.7);
-    }
-}
-
-/* ── SHARED SECTION ── */
-.eap-section {
-    padding: 6rem 2rem;
-    position: relative;
-}
-
-@media (max-width: 768px) {
-    .eap-section {
-        padding: 4rem 1.5rem;
-    }
-}
-
-/* ── PROGRAM OVERVIEW (Combined) ── */
-.eap-combined-overview {
-    background: #ffffff;
-    padding-bottom: 8rem;
-}
-
-.eap-overview-header {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 4rem;
-}
-
-.eap-overview-intro {
-    font-size: 20px;
-    color: #000000;
-    max-width: 600px;
-    margin: 0.5rem auto 0;
-    line-height: 1.4;
-    font-weight: 400;
-    letter-spacing: -0.04em;
-}
-
-.eap-programs-grid.eap-pricing-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    max-width: 1000px;
-    margin: 0 auto;
-    align-items: stretch;
-}
-
-@media (max-width: 900px) {
-    .eap-programs-grid.eap-pricing-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* ── Program cards (pricing-style: flat, no shadows, sharp corners) ── */
-.eap-pricing-card {
-    position: relative;
-    background: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 0;
-    padding: 2.5rem 2rem 2.25rem;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    text-align: left;
-    box-shadow: none;
-    box-sizing: border-box;
-    transition: border-color 0.2s ease;
-}
-
-.eap-pricing-card:hover {
-    border-color: #000000;
-}
-
-.eap-pricing-title {
-    font-size: 1.375rem;
-    font-weight: 700;
-    color: #000000;
-    margin: 0 0 1rem;
-    letter-spacing: -0.03em;
-    line-height: 1.25;
-}
-
-.eap-pricing-desc {
-    font-size: 0.9375rem;
-    color: #4b5563;
-    line-height: 1.65;
-    margin: 0 0 0.75rem;
-}
-
-.eap-pricing-desc:last-of-type {
-    margin-bottom: 0;
-}
-
-.eap-pricing-benefits-label {
-    font-size: 0.72rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #000000;
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
-}
-
-.eap-pricing-features {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-.eap-pricing-features li {
-    position: relative;
-    padding-left: 1.35rem;
-    font-size: 0.9375rem;
-    color: #000000;
-    line-height: 1.45;
-}
-
-.eap-pricing-features li::before {
-    content: '\2713';
-    position: absolute;
-    left: 0;
-    top: 0.05em;
-    font-size: 0.95em;
-    font-weight: 600;
-    color: #000000;
-}
-
-/* ── SECTION DIVIDER ── */
-.eap-section-divider {
-    max-width: 1000px;
-    margin: 6rem auto;
-    display: flex;
-    justify-content: center;
-    opacity: 0.6;
-}
-
-.divider-line {
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(90deg,
-            transparent 0%,
-            rgba(0, 0, 0, 0.05) 15%,
-            rgba(0, 0, 0, 0.1) 50%,
-            rgba(0, 0, 0, 0.05) 85%,
-            transparent 100%);
-}
-
-/* ── INTEGRATED FLOW ── */
-.eap-integrated-flow {
-    margin-top: 2rem;
-}
-
-.eap-how-header {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 4.5rem;
-}
-
-.eap-how-subtitle {
-    font-size: 20px;
-    color: #000000;
-    max-width: 500px;
-    margin: 0.5rem auto 0;
-    line-height: 1.4;
-    font-weight: 400;
-    letter-spacing: -0.04em;
-}
-
-/* Flow Track — horizontal steps */
-.eap-flow-track {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 0;
-    max-width: 1000px;
-    margin: 0 auto 3rem;
-}
-
-.eap-flow-step {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 200px;
-    position: relative;
-}
-
-.eap-step-num {
-    font-size: 0.65rem;
-    font-weight: 900;
-    color: #0f4a4a;
-    letter-spacing: 0.1em;
-    margin-bottom: 1rem;
-    opacity: 0.4;
-}
-
-.eap-step-icon-wrap {
-    width: 64px;
-    height: 64px;
-    border-radius: 18px;
-    background: rgba(15, 74, 74, 0.06);
-    border: 1px solid rgba(15, 74, 74, 0.1);
-    display: grid;
-    place-items: center;
-    color: #0f4a4a;
-    margin-bottom: 1.25rem;
-    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.eap-flow-step:hover .eap-step-icon-wrap {
-    transform: translateY(-6px) scale(1.08);
-    background: rgba(15, 74, 74, 0.1);
-    box-shadow: 0 12px 30px rgba(15, 74, 74, 0.1);
-}
-
-.eap-step-title {
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: #101010;
-    margin: 0 0 0.4rem;
-    letter-spacing: -0.02em;
-}
-
-.eap-step-desc {
-    font-size: 0.85rem;
-    color: #6b7280;
-    line-height: 1.5;
-    margin: 0;
-    max-width: 160px;
-}
-
-/* Connector */
-.eap-flow-connector {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 56px;
-    /* align with icon center */
-    width: 60px;
     flex-shrink: 0;
 }
 
-.eap-connector-line {
-    width: 36px;
-    height: 2px;
-    background: linear-gradient(90deg, rgba(15, 74, 74, 0.15), rgba(15, 74, 74, 0.3));
-    border-radius: 2px;
-    position: relative;
-}
+.light .bullet-tight { background: #d1d5db; }
+.dark .bullet-tight { background: #3f3f46; }
 
-.eap-connector-arrow {
-    width: 0;
-    height: 0;
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-    border-left: 6px solid rgba(15, 74, 74, 0.3);
-    margin-left: -2px;
-}
-
-/* Flow Summary Bar */
-.eap-flow-summary {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 1.25rem 2rem;
-    background: linear-gradient(135deg, #fafbfc, #f0fafa);
-    border: 1px solid rgba(15, 74, 74, 0.08);
-    border-radius: 16px;
-    text-align: center;
-}
-
-.eap-flow-summary-inner {
+/* ── FPP ICON BOX ── */
+.fpp-icon-square {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: #374151;
-    letter-spacing: -0.02em;
+    border: 1px solid transparent;
 }
 
-.eap-flow-arrow {
-    color: #0f4a4a;
-    font-weight: 700;
-    font-size: 1.1rem;
+.light .fpp-icon-square {
+    background: #f8fafc;
+    color: #111827;
+    border-color: #e2e8f0;
 }
 
-.eap-flow-highlight {
-    font-weight: 700;
-    color: #0f4a4a;
-    background: rgba(15, 74, 74, 0.08);
-    padding: 4px 12px;
-    border-radius: 8px;
+.dark .fpp-icon-square {
+    background: rgba(255, 255, 255, 0.06);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.05);
 }
 
-/* ── RESPONSIVE — HOW IT WORKS ── */
-@media (max-width: 900px) {
-    .eap-flow-track {
-        flex-direction: column;
-        align-items: center;
-        gap: 0;
-    }
-
-    .eap-flow-step {
-        width: 100%;
-        max-width: 280px;
-    }
-
-    .eap-flow-connector {
-        padding-top: 0;
-        width: auto;
-        height: 40px;
-        flex-direction: column;
-    }
-
-    .eap-connector-line {
-        width: 2px;
-        height: 24px;
-        background: linear-gradient(180deg, rgba(15, 74, 74, 0.15), rgba(15, 74, 74, 0.3));
-    }
-
-    .eap-connector-arrow {
-        border-left: 5px solid transparent;
-        border-right: 5px solid transparent;
-        border-top: 6px solid rgba(15, 74, 74, 0.3);
-        border-bottom: none;
-        margin-left: 0;
-        margin-top: -2px;
-    }
-
-    .eap-flow-summary-inner {
-        flex-direction: column;
-        gap: 0.4rem;
-    }
-
-    .eap-flow-arrow {
-        transform: rotate(90deg);
-    }
-}
-
-/* ── MODERN FPP SECTION (Accordions) ── */
-.fpp-benefits-container {
-    max-width: 900px;
-    margin: 3rem auto 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.fpp-benefit-card {
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 16px;
+/* ── ACCORDIONS (Context Aware) ── */
+.fpp-accordions-group-tight {
+    border-radius: 24px;
     overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
 }
 
-.fpp-benefit-card:hover {
-    border-color: #000000;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+.light .fpp-accordions-group-tight {
+    background: #fcfcfc;
+    border-color: #f1f5f9;
 }
 
-.fpp-benefit-header {
+.dark .fpp-accordions-group-tight {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.06);
+}
+
+.fpp-tight-accordion {
+    border-bottom: 1px solid transparent;
+}
+
+.light .fpp-tight-accordion { border-bottom-color: #f1f5f9; }
+.dark .fpp-tight-accordion { border-bottom-color: rgba(255, 255, 255, 0.05); }
+
+.fpp-tight-accordion:last-child {
+    border-bottom: none;
+}
+
+.fpp-accordion-header {
     width: 100%;
-    padding: 1.5rem 2rem;
+    padding: 1.75rem 2.25rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -418,190 +153,125 @@
     text-align: left;
 }
 
-.fpp-benefit-title-wrap {
-    display: flex;
-    align-items: center;
-    gap: 1.25rem;
-}
+.light .fpp-accordion-header { color: #111827; }
+.dark .fpp-accordion-header { color: #ffffff; }
 
-.fpp-benefit-icon {
-    color: #000000;
+.fpp-accordion-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: #f9fafb;
-    border-radius: 10px;
 }
 
-.fpp-benefit-title {
-    font-size: 1.125rem;
+.light .fpp-accordion-icon {
+    background: #f1f5f9;
+    color: #64748b;
+}
+
+.dark .fpp-accordion-icon {
+    background: rgba(255, 255, 255, 0.04);
+    color: #71717a;
+}
+
+.fpp-accordion-title {
+    font-size: 16px;
     font-weight: 600;
-    color: #000000;
-    letter-spacing: -0.02em;
 }
 
-.fpp-benefit-arrow {
-    color: #9ca3af;
-    transition: transform 0.3s ease;
+.light .fpp-accordion-title { color: #1e293b; }
+.dark .fpp-accordion-title { color: #fafafa; }
+
+.fpp-accordion-content {
+    padding: 0 2.25rem 2.5rem 5.5rem;
 }
 
-.fpp-benefit-content {
-    padding: 0 2rem 1.5rem 5.25rem;
-}
-
-.fpp-benefit-text {
-    font-size: 0.9375rem;
-    color: #4b5563;
+.fpp-accordion-text {
+    font-size: 15px;
     line-height: 1.6;
-    margin: 0;
 }
 
-.fpp-sub-features {
-    margin: 1rem 0 0;
-    padding: 0;
+.light .fpp-accordion-text { color: #64748b; }
+.dark .fpp-accordion-text { color: #a1a1aa; }
+
+.fpp-accordion-sub-features {
     list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 0.75rem;
+    gap: 1.25rem;
 }
 
-.fpp-sub-feature {
+.fpp-accordion-sub-features li {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 0.875rem;
-    color: #374151;
-    font-weight: 500;
+    gap: 0.75rem;
+    font-size: 14px;
 }
+
+.light .fpp-accordion-sub-features li { color: #475569; }
+.dark .fpp-accordion-sub-features li { color: #d1d1d6; }
 
 .fpp-sub-feature-dot {
-    width: 5px;
-    height: 5px;
+    width: 4px;
+    height: 4px;
     border-radius: 50%;
-    background: #000000;
-    opacity: 0.3;
 }
 
-/* ── MODERN TIMELINE (Vertical) ── */
-.modern-timeline {
-    max-width: 800px;
-    margin: 4rem auto 0;
-    position: relative;
-    padding-left: 2rem;
-}
+.light .fpp-sub-feature-dot { background: #cbd5e1; }
+.dark .fpp-sub-feature-dot { background: rgba(255, 255, 255, 0.3); }
 
-.timeline-track {
-    position: absolute;
-    left: 2rem;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: #f3f4f6;
-}
-
-.timeline-progress {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    background: #000000;
-    transform-origin: top;
-    height: 0;
-}
-
-.timeline-item {
-    position: relative;
-    padding-bottom: 4rem;
-    padding-left: 3rem;
-}
-
-.timeline-item:last-child {
-    padding-bottom: 0;
-}
-
-.timeline-dot-wrap {
-    position: absolute;
-    left: -1rem;
-    top: 0;
-    width: 34px;
-    height: 34px;
+/* ── ROADMAP SECTION (Preserved) ── */
+.roadmap-steps-grid {
     display: grid;
-    place-items: center;
-    z-index: 2;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
 }
 
-.timeline-dot {
-    width: 12px;
-    height: 12px;
+.roadmap-step-card {
     background: #ffffff;
-    border: 2px solid #e5e7eb;
-    border-radius: 50%;
-    transition: all 0.4s ease;
+    border: 1px solid #f1f5f9;
+    padding: 2.5rem;
+    border-radius: 20px;
 }
 
-.timeline-item.active .timeline-dot {
-    background: #000000;
-    border-color: #000000;
-    transform: scale(1.2);
-    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.05);
+.step-card-num {
+    font-size: 12px;
+    font-weight: 900;
+    color: #94a3b8;
+    margin-bottom: 1rem;
 }
 
-.timeline-content {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.timeline-item.active .timeline-content {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.timeline-step-num {
-    font-size: 0.75rem;
+.roadmap-step-card h5 {
+    font-size: 16px;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #9ca3af;
-    margin-bottom: 0.5rem;
+    color: #111827;
+    margin-bottom: 0.75rem;
 }
 
-.timeline-step-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #000000;
-    margin-bottom: 0.5rem;
-    letter-spacing: -0.02em;
-}
-
-.timeline-step-desc {
-    font-size: 1rem;
-    color: #4b5563;
+.roadmap-step-card p {
+    font-size: 14px;
+    color: #64748b;
     line-height: 1.5;
-    margin: 0;
+}
+
+.flow-string-inner {
+    display: inline-flex;
+    align-items: center;
+    background: #f8fafc;
+    padding: 1.25rem 3rem;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #1e293b;
+    border: 1px solid #f1f5f9;
 }
 
 /* ── RESPONSIVE ── */
-@media (max-width: 640px) {
-    .fpp-benefit-header {
-        padding: 1.25rem 1.5rem;
-    }
-
-    .fpp-benefit-content {
-        padding: 0 1.5rem 1.25rem 4.5rem;
-    }
-
-    .modern-timeline {
-        padding-left: 1rem;
-    }
-
-    .timeline-track {
-        left: 1rem;
-    }
-
-    .timeline-dot-wrap {
-        left: -1rem;
+@media (max-width: 1024px) {
+    .milestone-tile-precision {
+        padding: 3rem;
     }
 }

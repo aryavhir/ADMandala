@@ -62,12 +62,12 @@ const WhatIsSection: React.FC = () => {
     const barBorder = dark ? '#3c4043' : '#e8eaed';
 
     return (
-        <section ref={sectionRef} id="what-is" className="prem-split-section" style={{ overflow: 'visible', minHeight: '60vh', background: 'white', display: 'flex', alignItems: 'center', position: 'relative', zIndex: 5 }}>
+        <section ref={sectionRef} id="what-is" className="prem-split-section" style={{ overflow: 'visible', minHeight: '60vh', background: 'white', display: 'flex', alignItems: 'flex-end', position: 'relative', zIndex: 5, padding: '0 2rem' }}>
             <div className="content-wrapper">
                 <div className="prem-split-layout what-is-split" style={{ position: 'relative', width: '100%' }}>
 
                     {/* LEFT: Text Stack */}
-                    <div className="prem-split-content" style={{ position: 'relative', minHeight: '300px', display: 'flex', alignItems: 'center', transform: 'translateY(160px)' }}>
+                    <div className="prem-split-content" style={{ position: 'relative', minHeight: '300px', display: 'flex', alignItems: 'center', transform: 'translateY(-30px)' }}>
 
                         {/* FIRST TEXT: What Is */}
                         <div ref={whatTextRef} style={{ width: '100%' }}>
@@ -82,7 +82,7 @@ const WhatIsSection: React.FC = () => {
 
                     {/* RIGHT: Phone Mockup (Upper part visible) */}
                     <div className="what-is-visual-panel" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '400px', position: 'relative' }}>
-                        <div className="mockup-phone" style={{ transform: 'translateY(170px)', position: 'absolute', top: 0 }}>
+                        <div className="mockup-phone" style={{ transform: 'translateY(2px)', position: 'absolute', top: 0 }}>
                             <div className="mockup-phone-camera"></div>
                             <div className="mockup-phone-display" style={{ background: bg }}>
 
