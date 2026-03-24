@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import Footer from '../components/Footer';
@@ -18,7 +18,7 @@ import img1 from '../assets/AdMandala dashboard overview for John.png';
 import l7 from '../assets/new/ChatGPT Image Mar 21, 2026, 05_25_31 PM.png';
 import l6 from '../assets/new/familiar.png';
 import l5 from '../assets/new/progressive.png';
-import l1 from '../assets/new/DSP.png';
+import l1 from '../assets/new/dsp.png';
 import l2 from '../assets/new/perform.png';
 import l4 from '../assets/new/media.png';
 
