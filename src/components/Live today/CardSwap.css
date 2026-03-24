@@ -3,13 +3,12 @@
   margin: 0 auto;
   perspective: 900px;
   overflow: visible;
- transform: translateX(-230px);
 }
 
 .card {
- position: absolute;
-  top: 85%;
-  left: 55%;
+  position: absolute;
+  top: 50%; /* Changed from 85% to 50% for better centering */
+  left: 50%; /* Changed from 55% to 50% for better centering */
   border-radius: 12px;
   padding: 2px; /* to make room for the border */
 
@@ -32,12 +31,9 @@
 
 @media (max-width: 768px) {
   .card-swap-container {
-    transform: scale(0.75) translate(25%, 25%);
-  }
-}
-
-@media (max-width: 480px) {
-  .card-swap-container {
-    transform: scale(0.55) translate(25%, 25%);
+    transform: none; /* Remove scaling */
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
   }
 }

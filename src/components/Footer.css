@@ -176,18 +176,39 @@
 
 @media (max-width: 1024px) {
     .footer-top {
-        grid-template-columns: 1fr 1fr 1fr;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .footer-links-side {
+        justify-content: flex-start;
+        gap: 32px;
     }
 }
 
 @media (max-width: 768px) {
-    .footer-top {
-        grid-template-columns: 1fr 1fr;
+    .footer-convert {
+        padding: 60px 24px;
     }
 
-    .footer-brand-col {
-        grid-column: span 2;
-        margin-bottom: 20px;
+    .footer-top {
+        gap: 48px;
+    }
+
+    .footer-brand-side {
+        flex: none;
+        width: 100%;
+    }
+
+    .footer-links-side {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 20px;
+        width: 100%;
+    }
+
+    .footer-links-col {
+        max-width: none;
     }
 
     .footer-bottom {

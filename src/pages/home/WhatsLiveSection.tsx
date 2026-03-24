@@ -1,17 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Network, Users, Shield, BarChart3 } from 'lucide-react';
 import CardSwap, { Card } from '../../components/Live today/CardSwap';
 
 const WhatsLiveSection: React.FC = () => {
+    const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const isMobile = windowWidth <= 768;
+    // Make cards take almost full screen width on mobile, and increase height.
+    const cardWidth = isMobile ? Math.min(windowWidth - 40, 360) : 420;
+    const cardHeight = isMobile ? 500 : 520;
+
     return (
-        <section className="section whats-live whats-live-dark" style={{ position: 'relative', zIndex: 10, padding: '20px 0' }}>
+        <section className="section whats-live whats-live-dark" style={{ position: 'relative', zIndex: 10, padding: isMobile ? '40px 0' : '20px 0' }}>
             <div className="dsp-future-bg">
                 <div className="dsp-future-orb orb-1"></div>
                 <div className="dsp-future-orb orb-2"></div>
                 <div className="dsp-future-grid-lines"></div>
             </div>
             <div className="content-wrapper">
-                <div className="live-split-layout" style={{ minHeight: '450px', maxWidth: '1100px', padding: '0' }}>
+                <div className="live-split-layout whats-live-split-root" style={{ minHeight: isMobile ? 'auto' : '450px', maxWidth: '1100px', padding: isMobile ? '0 1rem' : '0' }}>
                     <div className="live-left-content animate-on-scroll">
                         <div className="live-indicator"><span className="blink"></span> SYSTEM OPERATIONAL</div>
                         <h2 className="section-title animate-premium" style={{ color: "white " }}>What's Live Today</h2>
@@ -23,22 +36,22 @@ const WhatsLiveSection: React.FC = () => {
                         </p>
                     </div>
 
-                    <div className="live-right-animation animate-on-scroll delay-1">
-                        <div className="card-swap-wrapper">
+                    <div className="live-right-animation animate-on-scroll delay-1" style={{ height: isMobile ? '550px' : '500px', marginTop: isMobile ? '20px' : '0' }}>
+                        <div className="card-swap-wrapper" style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
                             <CardSwap
-                                width={420}
-                                height={520}
-                                cardDistance={55}
-                                verticalDistance={65}
+                                width={cardWidth}
+                                height={cardHeight}
+                                cardDistance={isMobile ? 30 : 55}
+                                verticalDistance={isMobile ? 40 : 65}
                                 delay={5000}
                                 pauseOnHover={true}
-                                skewAmount={3}
+                                skewAmount={isMobile ? 1 : 3}
                                 easing="elastic"
                             >
                                 <Card>
                                     <div className="system-card-inner">
                                         <div className="card-icon-wrapper">
-                                            <Network size={44} className="card-main-icon" strokeWidth={1.5} />
+                                            <Network size={isMobile ? 36 : 44} className="card-main-icon" strokeWidth={1.5} />
                                         </div>
                                         <div className="card-text-content">
                                             <h3 className="card-title">Centralized Programmatic Exchange</h3>
@@ -54,7 +67,7 @@ const WhatsLiveSection: React.FC = () => {
                                 <Card>
                                     <div className="system-card-inner">
                                         <div className="card-icon-wrapper">
-                                            <Users size={44} className="card-main-icon" strokeWidth={1.5} />
+                                            <Users size={isMobile ? 36 : 44} className="card-main-icon" strokeWidth={1.5} />
                                         </div>
                                         <div className="card-text-content">
                                             <h3 className="card-title">Publisher &amp; Demand-Side Integrations</h3>
@@ -70,7 +83,7 @@ const WhatsLiveSection: React.FC = () => {
                                 <Card>
                                     <div className="system-card-inner">
                                         <div className="card-icon-wrapper">
-                                            <Shield size={44} className="card-main-icon" strokeWidth={1.5} />
+                                            <Shield size={isMobile ? 36 : 44} className="card-main-icon" strokeWidth={1.5} />
                                         </div>
                                         <div className="card-text-content">
                                             <h3 className="card-title">Traffic Quality Enforcement</h3>
@@ -86,7 +99,7 @@ const WhatsLiveSection: React.FC = () => {
                                 <Card>
                                     <div className="system-card-inner">
                                         <div className="card-icon-wrapper">
-                                            <BarChart3 size={44} className="card-main-icon" strokeWidth={1.5} />
+                                            <BarChart3 size={isMobile ? 36 : 44} className="card-main-icon" strokeWidth={1.5} />
                                         </div>
                                         <div className="card-text-content">
                                             <h3 className="card-title">Performance Reporting &amp; Monetization</h3>

@@ -13,6 +13,15 @@ gsap.registerPlugin(ScrollTrigger);
 const WhatIsSection: React.FC = () => {
     const [browserPage, setBrowserPage] = useState<'app' | 'google'>('app');
     const [isIncognito, setIsIncognito] = useState(false);
+    const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const isMobile = windowWidth <= 900;
 
     const sectionRef = useRef<HTMLDivElement>(null);
     const whatTextRef = useRef<HTMLDivElement>(null);
@@ -32,10 +41,11 @@ const WhatIsSection: React.FC = () => {
         const ctx = gsap.context(() => {
             // Simplified entry animation for WhatIs text
             gsap.fromTo(whatTextRef.current,
-                { opacity: 0, x: -50 },
+                { opacity: 0, x: isMobile ? 0 : -50, y: isMobile ? 40 : 0 },
                 {
                     opacity: 1,
                     x: 0,
+                    y: 0,
                     duration: 1,
                     ease: "power2.out",
                     scrollTrigger: {
@@ -47,7 +57,7 @@ const WhatIsSection: React.FC = () => {
         }, sectionRef);
 
         return () => ctx.revert();
-    }, []);
+    }, [isMobile]);
 
     // Dynamic theme
     const dark = isIncognito;
@@ -62,18 +72,18 @@ const WhatIsSection: React.FC = () => {
     const barBorder = dark ? '#3c4043' : '#e8eaed';
 
     return (
-        <section ref={sectionRef} id="what-is" className="prem-split-section" style={{ overflow: 'visible', minHeight: '60vh', background: 'white', display: 'flex', alignItems: 'flex-end', position: 'relative', zIndex: 5, padding: '0 2rem' }}>
+        <section ref={sectionRef} id="what-is" className="prem-split-section what-is-section-root" style={{ overflow: 'visible', background: 'white', display: 'flex', alignItems: 'flex-end', position: 'relative', zIndex: 5, padding: '0 2rem' }}>
             <div className="content-wrapper">
                 <div className="prem-split-layout what-is-split" style={{ position: 'relative', width: '100%' }}>
 
                     {/* LEFT: Text Stack */}
-                    <div className="prem-split-content" style={{ position: 'relative', minHeight: '300px', display: 'flex', alignItems: 'center', transform: 'translateY(-30px)' }}>
+                    <div className="prem-split-content" style={{ position: 'relative', minHeight: isMobile ? 'auto' : '300px', display: 'flex', alignItems: 'center', transform: isMobile ? 'none' : 'translateY(-30px)', textAlign: isMobile ? 'center' : 'left', alignSelf: isMobile ? 'center' : 'auto', paddingBottom: isMobile ? '40px' : '0' }}>
 
                         {/* FIRST TEXT: What Is */}
-                        <div ref={whatTextRef} style={{ width: '100%' }}>
+                        <div ref={whatTextRef} style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: isMobile ? 'center' : 'flex-start' }}>
                             <span className="prem-badge animate-premium">Context</span>
-                            <h2 className="section-title animate-premium">What Is  <span className="dec-approach-word dec-approach-word-em">Admandala</span> ?</h2>
-                            <p className="prem-subtext animate-premium">
+                            <h2 className="section-title animate-premium" style={{ textAlign: isMobile ? 'center' : 'left' }}>What Is  <span className="dec-approach-word dec-approach-word-em">Admandala</span> ?</h2>
+                            <p className="prem-subtext animate-premium" style={{ textAlign: isMobile ? 'center' : 'left' }}>
                                 AdMandala is a programmatic advertising exchange that connects publishers and demand partners through a reliable, centralized system — while preparing the foundation for a more transparent, decentralized future.
                                 <br />     <br /> The platform enables efficient monetization and performance today, without forcing the ecosystem to adopt unproven infrastructure prematurely.
                             </p>
@@ -81,8 +91,8 @@ const WhatIsSection: React.FC = () => {
                     </div>
 
                     {/* RIGHT: Phone Mockup (Upper part visible) */}
-                    <div className="what-is-visual-panel" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '400px', position: 'relative' }}>
-                        <div className="mockup-phone" style={{ transform: 'translateY(2px)', position: 'absolute', top: 0 }}>
+                    <div className="what-is-visual-panel" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: isMobile ? '500px' : '400px', position: 'relative' }}>
+                        <div className="mockup-phone" style={{ transform: `translateY(${isMobile ? 93 : 2}px)`, position: 'absolute', top: 0 }}>
                             <div className="mockup-phone-camera"></div>
                             <div className="mockup-phone-display" style={{ background: bg }}>
 
