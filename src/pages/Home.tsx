@@ -31,6 +31,7 @@ function Home() {
           content="AdMandala aims to help publishers and advertisers maximize revenue through decentralized ad infrastructure."
         />
       </Helmet>
+      
       <div className="scroll-progress" style={{ width: `${scrollProgress * 100}%` }}></div>
 
       <header className="hero-section">
@@ -45,17 +46,26 @@ function Home() {
           <p className="hero-subheadline animate-on-scroll delay-1">
             Ad Mandala is a live, centralized programmatic advertising exchange — designed from day one to transition into a decentralized, verifiable protocol.
           </p>
-          <div className="decentralization-link-wrapper animate-on-scroll delay-2">
-            <Link to="/decentralization" className="explore-button">
-              <span className="explore-button__icon-wrapper" aria-hidden="true">
-                <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="explore-button__icon-svg" width={12}>
-                  <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" fill="currentColor" />
-                </svg>
-                <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="explore-button__icon-svg explore-button__icon-svg--copy" width={12}>
-                  <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" fill="currentColor" />
-                </svg>
-              </span>
-              <span className="explore-button__label">Explore the decentralization roadmap</span>
+          
+          <div className="hero-actions-container animate-on-scroll delay-2">
+            <div className="decentralization-link-wrapper">
+              <Link to="/decentralization" className="explore-button">
+                <span className="explore-button__icon-wrapper" aria-hidden="true">
+                  <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="explore-button__icon-svg" width={12}>
+                    <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" fill="currentColor" />
+                  </svg>
+                  <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="explore-button__icon-svg explore-button__icon-svg--copy" width={12}>
+                    <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" fill="currentColor" />
+                  </svg>
+                </span>
+                <span className="explore-button__label">Explore the decentralization roadmap</span>
+              </Link>
+            </div>
+
+            <Link to="/early-adopters" className="hero-premium-black-btn">
+              <span className="btn-pulse-amber"></span>
+              <span>Join Early Access</span>
+              <ArrowRight size={18} className="btn-arrow" />
             </Link>
           </div>
 

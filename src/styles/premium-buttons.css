@@ -1,0 +1,80 @@
+/* ── Premium Buttons ── */
+.btn-premium-primary {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    background: #111827;
+    color: #ffffff;
+    border-radius: 100px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s var(--ease-premium);
+    z-index: 1;
+}
+
+.btn-premium-primary.inverted {
+    background: #ffffff;
+    color: #111827;
+}
+
+.btn-premium-inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 1.2em;
+    overflow: hidden;
+}
+
+.btn-premium-text {
+    display: block;
+    transition: transform 0.5s var(--ease-premium);
+}
+
+.btn-premium-text-hover {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: block;
+    transition: transform 0.5s var(--ease-premium);
+}
+
+.btn-premium-primary:hover {
+    transform: translateY(-2px);
+}
+
+.btn-premium-primary:hover .btn-premium-text {
+    transform: translateY(-100%);
+}
+
+.btn-premium-primary:hover .btn-premium-text-hover {
+    transform: translateY(-100%);
+}
+
+.btn-premium-black {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    background: transparent;
+    color: #111827;
+    border-radius: 100px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s var(--ease-premium);
+}
+
+.btn-premium-black:hover {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.2);
+}
