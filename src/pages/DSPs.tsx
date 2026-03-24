@@ -14,7 +14,7 @@ import PremiumWhoIsItFor from '../components/premium/PremiumWhoIsItFor';
 import PremiumCTA from '../components/premium/PremiumCTA';
 
 // Assets
-import img1 from '../assets/12.png';
+import img1 from '../assets/AdMandala dashboard overview for John.png';
 import l7 from '../assets/new/ChatGPT Image Mar 21, 2026, 05_25_31 PM.png';
 import l6 from '../assets/new/familiar.png';
 import l5 from '../assets/new/progressive.png';

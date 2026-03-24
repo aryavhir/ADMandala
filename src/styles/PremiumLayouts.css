@@ -207,7 +207,7 @@
         width: 100%;
     }
 
-    .prem-hero-actions > * {
+    .prem-hero-actions>* {
         width: 100%;
         max-width: 320px;
     }

@@ -48,7 +48,6 @@ function Footer() {
                 <Link to="/advertisers#why-advertisers">Why AdMandala</Link>
                 <Link to="/advertisers#target-audience">Target Audience</Link>
                 <Link to="/advertisers#future-view">Future View</Link>
-                <Link to="/advertisers#faqs">Queries</Link>
               </div>
             </div>
 
