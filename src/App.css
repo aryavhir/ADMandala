@@ -1880,6 +1880,8 @@
   padding-left: 2rem;
   position: relative;
   font-size: 1.1rem;
+  margin: 0;
+  font-weight: 500;
 }
 
 .benefits-list li::before {

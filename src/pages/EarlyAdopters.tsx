@@ -90,8 +90,8 @@ function EarlyAdopters() {
 
                     {/* ── 01. PROGRAM OVERVIEW (BLACK CARD) ── */}
                     <section className="program-overview-section animate-on-scroll">
-                        <h2 className="section-title-alt">Early Adapters<br />Program Overview</h2>
-                        <p className="section-subtitle-alt" style={{ maxWidth: '800px', margin: '0 auto 64px' }}>
+                        <h2 className="section-title-alt">Early Adapters Program</h2>
+                        <p className="section-subtitle-alt" style={{ maxWidth: '800px', margin: '0 auto 34px', fontSize: '18px', color: '#64748b' }}>
                             AdMandala is launching a structured onboarding program to build a high-quality publisher ecosystem during the early phase of the platform.
                         </p>
 
@@ -102,10 +102,9 @@ function EarlyAdopters() {
                                     The Early Adopter Program will run for approximately 6–9 months following the launch of the AdMandala Exchange Layer.
                                     Publishers who register during this phase and successfully pass the platform’s verification and operational requirements will be admitted into the Early Adopter Program.
                                 </p>
-                                <a href={registrationUrl} target="_blank" rel="noopener noreferrer" className="lo-button">
-                                    Apply as a Publisher
-                                </a>
+
                             </div>
+
                             <div className="overview-right">
                                 <div className="benefits-label">PROGRAM BENEFITS</div>
                                 <ul className="benefits-list">
@@ -114,6 +113,9 @@ function EarlyAdopters() {
                                     <li><div className="benefit-dot"></div> Dedicated Support</li>
                                     <li><div className="benefit-dot"></div> Pathway to Founding Publisher Status</li>
                                 </ul>
+                                <a href={registrationUrl} target="_blank" rel="noopener noreferrer" className="lo-button">
+                                    Register Me For EAP
+                                </a>
                             </div>
                         </div>
                     </section>
