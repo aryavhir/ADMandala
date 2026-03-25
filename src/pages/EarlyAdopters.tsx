@@ -113,7 +113,7 @@ function EarlyAdopters() {
                                     <li><div className="benefit-dot"></div> Dedicated Support</li>
                                     <li><div className="benefit-dot"></div> Pathway to Founding Publisher Status</li>
                                 </ul>
-                                <a href={registrationUrl} target="_blank" rel="noopener noreferrer" className="lo-button">
+                                <a href={registrationUrl} target="_blank" rel="noopener noreferrer" className="lo-button" style={{ marginTop: '40px', marginLeft: '100px' }}>
                                     Register Me For EAP
                                 </a>
                             </div>
