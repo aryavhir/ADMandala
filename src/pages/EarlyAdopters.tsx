@@ -90,7 +90,7 @@ function EarlyAdopters() {
 
                     {/* ── 01. PROGRAM OVERVIEW (BLACK CARD) ── */}
                     <section className="program-overview-section animate-on-scroll">
-                        <h2 className="section-title-alt">Program Overview</h2>
+                        <h2 className="section-title-alt">Early Adapters<br />Program Overview</h2>
                         <p className="section-subtitle-alt" style={{ maxWidth: '800px', margin: '0 auto 64px' }}>
                             AdMandala is launching a structured onboarding program to build a high-quality publisher ecosystem during the early phase of the platform.
                         </p>
@@ -102,7 +102,7 @@ function EarlyAdopters() {
                                     The Early Adopter Program will run for approximately 6–9 months following the launch of the AdMandala Exchange Layer.
                                     Publishers who register during this phase and successfully pass the platform’s verification and operational requirements will be admitted into the Early Adopter Program.
                                 </p>
-                                <a href={registrationUrl} target="_blank" rel="noopener noreferrer" className="btn-premium-white">
+                                <a href={registrationUrl} target="_blank" rel="noopener noreferrer" className="lo-button">
                                     Apply as a Publisher
                                 </a>
                             </div>

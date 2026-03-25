@@ -6979,74 +6979,58 @@ strong {
   margin-top: 40px;
 }
 
-.hero-premium-black-btn {
+.hero-premium-blue-btn {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  background: #000000;
+  background: #0f4a4a;
   color: #ffffff;
-  padding: 14px 28px;
+  padding: 16px 36px;
   border-radius: 100px;
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 750;
   text-decoration: none;
-  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.hero-premium-black-btn:hover {
-  transform: translateY(-4px);
-  background: #111111;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-  border-color: rgba(255, 255, 255, 0.2);
-}
-
-.hero-premium-black-btn {
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 10px 40px rgba(15, 23, 42, 0.2),
+    0 0 20px rgba(59, 130, 246, 0.15);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
-  /* Subtle Aura */
-  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.hero-premium-black-btn:hover {
-  box-shadow: 0 0 40px rgba(255, 255, 255, 0.12);
-  /* Brighter on hover */
-  transform: translateY(-4px) scale(1.02);
+.hero-premium-blue-btn:hover {
+  transform: translateY(-6px) scale(1.03);
+  background: #0f4a4a;
+  box-shadow: 
+ none;
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
-.btn-premium-glint {
+.hero-premium-blue-btn .btn-premium-glint {
   position: absolute;
   top: 0;
   left: -150%;
-  width: 60%;
+  width: 70%;
   height: 100%;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(255, 255, 255, 0.5) 50%,
-      transparent);
+  background: #0f4a4a;
   transform: skewX(-30deg);
-  animation: glint-sweep 3.5s infinite cubic-bezier(0.19, 1, 0.22, 1);
+  animation: glint-sweep 3s infinite cubic-bezier(0.19, 1, 0.22, 1);
   pointer-events: none;
 }
 
 @keyframes glint-sweep {
-  0% {
-    left: -150%;
-  }
-
-  15% {
-    left: 150%;
-  }
-
-  100% {
-    left: 150%;
-  }
+  0% { left: -150%; }
+  20% { left: 150%; }
+  100% { left: 150%; }
 }
 
-.hero-premium-black-btn .btn-arrow {
-  transition: transform 0.3s ease;
+.hero-premium-blue-btn .btn-arrow {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-premium-blue-btn:hover .btn-arrow {
+  transform: translateX(6px) scale(1.1);
 }
 
 .hero-premium-black-btn:hover .btn-arrow {
