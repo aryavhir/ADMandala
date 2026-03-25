@@ -143,7 +143,7 @@ function EarlyAdopters() {
                                     isOpen={openIndex === 0}
                                     onClick={() => setOpenIndex(openIndex === 0 ? null : 0)}
                                 >
-                                    Lifetime preferential revenue share models reserved exclusively for our founding partners, reflecting your status as an early ecosystem builder.
+                                    Founding Publishers receive a permanently improved revenue share, up to 7% higher than standard publishers.
                                 </AccordionItem>
                                 <AccordionItem
                                     title="Priority Access to Demand"
@@ -151,7 +151,7 @@ function EarlyAdopters() {
                                     isOpen={openIndex === 1}
                                     onClick={() => setOpenIndex(openIndex === 1 ? null : 1)}
                                 >
-                                    Your inventory receives top-tier placement and priority bidding from our premium DSP partners and direct demand channels.
+                                    Founding Publishers receive priority access to selected demand opportunities, including participation in private demand pools and early demand integrations as the marketplace expands.
                                 </AccordionItem>
                                 <AccordionItem
                                     title="Early Access to New Platform Features"
@@ -159,7 +159,14 @@ function EarlyAdopters() {
                                     isOpen={openIndex === 2}
                                     onClick={() => setOpenIndex(openIndex === 2 ? null : 2)}
                                 >
-                                    Be the first to integrate and benefit from new protocol modules, verification layers, and monetization tools.
+                                    Founding Publishers gain early access to new capabilities on the platform, including:
+                                    <ul style={{ marginTop: '12px', paddingLeft: '18px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                                        <li style={{ listStyleType: 'disc' }}>Advanced optimization tools</li>
+                                        <li style={{ listStyleType: 'disc' }}>Enhanced analytics features</li>
+                                        <li style={{ listStyleType: 'disc' }}>New monetization opportunities</li>
+                                        <li style={{ listStyleType: 'disc' }}>Beta access to our phase 2, decentralised revolution.</li>
+                                    </ul>
+                                    This allows founding partners to benefit from innovations before broader rollout.
                                 </AccordionItem>
                                 <AccordionItem
                                     title="Priority Support"
@@ -167,7 +174,7 @@ function EarlyAdopters() {
                                     isOpen={openIndex === 3}
                                     onClick={() => setOpenIndex(openIndex === 3 ? null : 3)}
                                 >
-                                    Access to a dedicated account management team and priority technical response for all operational needs.
+                                    Founding Publishers receive priority operational support, including faster assistance, optimization guidance, and closer collaboration with the AdMandala team to improve monetization performance
                                 </AccordionItem>
                                 <AccordionItem
                                     title="Influence on Platform Evolution"
@@ -175,7 +182,7 @@ function EarlyAdopters() {
                                     isOpen={openIndex === 4}
                                     onClick={() => setOpenIndex(openIndex === 4 ? null : 4)}
                                 >
-                                    Direct participation in roadmap discussions and early governance structures as the protocol transitions to decentralization.
+                                    As long-term partners, Founding Publishers may be invited to participate in discussions that help shape the future direction of the ecosystem, particularly as AdMandala evolves towards the Open Trust Ads Infrastructure.
                                 </AccordionItem>
                             </div>
                         </div>
