@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import '../../styles/PremiumLayouts.css';
@@ -37,45 +37,133 @@ const PremiumHero: React.FC<PremiumHeroProps> = ({
 }) => {
     const mockupRef = useRef<HTMLDivElement>(null);
     const circleRef = useRef<HTMLDivElement>(null);
-    const [isMobile, setIsMobile] = useState(false);
+    const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
 
     useEffect(() => {
-        const checkMobile = () => setIsMobile(window.innerWidth <= 900);
-        checkMobile();
-        window.addEventListener('resize', checkMobile);
-        return () => window.removeEventListener('resize', checkMobile);
+        const handleResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
     }, []);
+
+    const isMobile = windowWidth <= 900;
 
     useEffect(() => {
         if (!circleRef.current || !mockupRef.current) return;
 
+        const transitionEnd = "top -80%";
+
         const textElements = document.querySelectorAll('.prem-hero-content > *');
         gsap.fromTo(textElements,
             { opacity: 0, y: 30 },
-            { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power2.out', delay: 0.2 }
+            {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                stagger: 0.1,
+                ease: 'power2.out',
+                delay: 0.2
+            }
         );
 
+        // Keep pinning for content if desired, but user didn't mention it.
+        // However, if we disable mockup animation, pinning might feel weird.
+        // On mobile, pinning is generally avoided.
         if (!isMobile) {
+            ScrollTrigger.create({
+                trigger: ".prem-hero",
+                start: "top top",
+                end: transitionEnd,
+                pin: ".prem-hero-content",
+                pinSpacing: false,
+                scrub: true,
+                onUpdate: (self) => {
+                    const heroContent = document.querySelector(".prem-hero-content");
+                    if (heroContent) {
+                        gsap.set(heroContent, {
+                            opacity: 1 - self.progress
+                        });
+                    }
+                }
+            });
+
             gsap.fromTo(mockupRef.current,
-                { rotateX: 30, y: -120, scale: 0.8 },
                 {
-                    rotateX: 0, y: 0, scale: 1,
+                    rotateX: 30,
+                    y: -120,
+                    scale: 0.8,
+                },
+                {
+                    rotateX: 0,
+                    y: 0,
+                    scale: 1,
+                    ease: 'none',
                     scrollTrigger: {
                         trigger: ".prem-hero",
                         start: "top top",
-                        end: "top -80%",
+                        end: transitionEnd,
                         scrub: 1,
                     }
                 }
             );
+
+            gsap.to(circleRef.current, {
+                scale: 2.5,
+                opacity: 0.1,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: ".prem-hero",
+                    start: "top top",
+                    end: "top -40%",
+                    scrub: 1,
+                }
+            });
         } else {
-            gsap.set(mockupRef.current, { rotateX: 0, y: 0, scale: 1 });
+            // Mobile: No scroll animations for mockup/content
+            gsap.set(mockupRef.current, {
+                rotateX: 0,
+                y: 0,
+                scale: 1,
+                opacity: 1
+            });
+            gsap.set(circleRef.current, {
+                scale: 1.5,
+                opacity: 0.15
+            });
         }
 
         return () => {
             ScrollTrigger.getAll().forEach(st => st.kill());
         };
     }, [isMobile]);
+
+    const renderPrimaryCta = () => {
+        if (primaryCtaHref) {
+            return (
+                <a
+                    href={primaryCtaHref}
+                    className="btn-premium-primary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <div className="btn-premium-inner">
+                        <span className="btn-premium-text">{primaryCtaText}</span>
+                        <span className="btn-premium-text-hover">{primaryCtaText}</span>
+                    </div>
+                </a>
+            );
+        }
+        return (
+            <button
+                className="btn-premium-primary"
+                onClick={onPrimaryCtaClick}
+            >
+                <div className="btn-premium-inner">
+                    <span className="btn-premium-text">{primaryCtaText}</span>
+                    <span className="btn-premium-text-hover">{primaryCtaText}</span>
+                </div>
+            </button>
+        );
+    };
 
     return (
         <header className="prem-hero">
@@ -98,21 +186,7 @@ const PremiumHero: React.FC<PremiumHeroProps> = ({
                 </p>
 
                 <div className="prem-hero-actions">
-                    {primaryCtaHref ? (
-                        <a href={primaryCtaHref} className="btn-premium-primary">
-                            <div className="btn-premium-inner">
-                                <span className="btn-premium-text">{primaryCtaText}</span>
-                                <span className="btn-premium-text-hover">{primaryCtaText}</span>
-                            </div>
-                        </a>
-                    ) : (
-                        <button className="btn-premium-primary" onClick={onPrimaryCtaClick}>
-                            <div className="btn-premium-inner">
-                                <span className="btn-premium-text">{primaryCtaText}</span>
-                                <span className="btn-premium-text-hover">{primaryCtaText}</span>
-                            </div>
-                        </button>
-                    )}
+                    {renderPrimaryCta()}
                     <a href={secondaryCtaHref} className="btn-premium-black">
                         <div className="btn-premium-inner">
                             <span className="btn-premium-text">{secondaryCtaText}</span>
@@ -125,9 +199,15 @@ const PremiumHero: React.FC<PremiumHeroProps> = ({
             <div className="prem-hero-mockup-wrap">
                 <div className="prem-hero-mockup" ref={mockupRef}>
                     <div className="prem-mockup-inner">
-                        {mockupContent ? mockupContent : (
+                        {mockupContent ? (
+                            mockupContent
+                        ) : (
                             <div className="prem-mockup-img-container">
-                                <img src={mockupImage} alt={mockupAlt} className="prem-mockup-img" />
+                                <img
+                                    src={mockupImage}
+                                    alt={mockupAlt}
+                                    className="prem-mockup-img"
+                                />
                             </div>
                         )}
                     </div>

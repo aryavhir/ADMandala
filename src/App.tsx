@@ -7,13 +7,26 @@ import Publishers from './pages/Publishers';
 import DSPs from './pages/DSPs';
 import Decentralization from './pages/Decentralization';
 import EarlyAdopters from './pages/EarlyAdopters';
+import ReferralProgram from './pages/ReferralProgram';
 
 // Wrapper to scroll to top on route change
 const ScrollToTop = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
+
   useLayoutEffect(() => {
-    document.documentElement.scrollTo(0, 0);
-  }, [location.pathname]);
+    if (!location.hash) {
+      document.documentElement.scrollTo(0, 0);
+    } else {
+      setTimeout(() => {
+        const id = location.hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, [location.pathname, location.hash]);
+
   return children;
 };
 
@@ -21,7 +34,7 @@ function App() {
   return (
     <Router>
       <div className="app-background">
-         {/* Background Animation Elements exist globally */}
+        {/* Background Animation Elements exist globally */}
         <div className="bg-orb orb-1"></div>
         <div className="bg-orb orb-2"></div>
       </div>
@@ -33,6 +46,7 @@ function App() {
           <Route path="/advertisers" element={<DSPs />} />
           <Route path="/decentralization" element={<Decentralization />} />
           <Route path="/early-adopters" element={<EarlyAdopters />} />
+          <Route path="/referral-program" element={<ReferralProgram />} />
         </Routes>
       </ScrollToTop>
     </Router>

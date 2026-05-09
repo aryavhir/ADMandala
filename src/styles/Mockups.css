@@ -1,0 +1,300 @@
+/* ── iPhone Mockup (daisyUI Inspired) ── */
+.mockup-phone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 54px;
+    background-color: #000;
+    padding: 10px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 550px;
+    aspect-ratio: 9 / 16;
+    position: relative;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.1);
+    transform: translateY(340px);
+    z-index: 1;
+    margin: 0 auto;
+}
+
+.mockup-phone::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 35%;
+    height: 30px;
+    background: #1a1a1a;
+    border-radius: 0 0 18px 18px;
+    z-index: 10;
+}
+
+.mockup-phone-camera {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #000;
+    height: 6px;
+    width: 40px;
+    border-radius: 10px;
+    z-index: 11;
+}
+
+.mockup-phone-display {
+    border-radius: 38px;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Status Bar ── */
+.mockup-phone-status-bar {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    z-index: 20;
+    font-size: 11px;
+    font-weight: 700;
+    color: #000;
+    pointer-events: none;
+    flex-shrink: 0;
+}
+
+.status-icons {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* ── Chrome Toolbar ── */
+.mockup-chrome-bar {
+    width: 100%;
+    height: 48px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    gap: 8px;
+    border-bottom: 1px solid #e8eaed;
+    flex-shrink: 0;
+}
+
+.chrome-controls-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* ── Address Bar ── */
+.chrome-address-bar {
+    flex: 1;
+    min-width: 0;
+    background-color: #f1f3f4;
+    height: 34px;
+    border-radius: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    gap: 6px;
+    color: #202124;
+    transition: background 0.2s ease;
+    cursor: pointer;
+}
+
+.chrome-address-bar:hover {
+    background-color: #e8eaed;
+}
+
+.ntp-address-bar {
+    justify-content: flex-start;
+}
+
+.address-url-wrap {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+    flex: 1;
+}
+
+.domain-text {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ── Right Controls ── */
+.chrome-controls-right {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.tabs-count-box {
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid #5f6368;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.tabs-count-box span {
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+/* ── Content Area ── */
+.chrome-content-area {
+    width: 100%;
+    flex: 1;
+    overflow-y: auto;
+    background: #fff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.chrome-content-area::-webkit-scrollbar {
+    display: none;
+}
+
+/* ── Chrome New Tab Page (NTP) ── */
+.chrome-ntp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: #f8f9fa;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    position: relative;
+    overflow-y: auto;
+    scrollbar-width: none;
+    padding-bottom: 40px;
+}
+
+.chrome-ntp::-webkit-scrollbar {
+    display: none;
+}
+
+/* Google Logo */
+.ntp-google-logo {
+    margin-top: 28px;
+    margin-bottom: 20px;
+    font-size: 34px;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    line-height: 1;
+    user-select: none;
+}
+
+.g-blue {
+    color: #4285F4;
+}
+
+.g-red {
+    color: #EA4335;
+}
+
+.g-yellow {
+    color: #FBBC05;
+}
+
+.g-green {
+    color: #34A853;
+}
+
+/* Search Pill */
+.ntp-search-pill {
+    width: 90%;
+    max-width: 560px;
+    height: 48px;
+    background: #fff;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    gap: 12px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+    border: 1px solid #dfe1e5;
+}
+
+.ntp-search-pill:hover {
+    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.18);
+    border-color: rgba(223, 225, 229, 0);
+}
+
+.ntp-search-placeholder {
+    flex: 1;
+    font-size: 14px;
+    color: #5f6368;
+    font-weight: 400;
+}
+
+.ntp-search-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Extra Buttons */
+.ntp-extra-btn {
+    transition: transform 0.1s, opacity 0.15s;
+}
+
+.ntp-extra-btn:hover {
+    opacity: 0.85;
+}
+
+.ntp-extra-btn:active {
+    transform: scale(0.97);
+}
+
+/* Shortcut Circles */
+.ntp-shortcut-circle {
+    transition: transform 0.15s, box-shadow 0.2s;
+}
+
+.ntp-shortcut:hover .ntp-shortcut-circle {
+    transform: scale(1.08);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 768px) {
+    .mockup-phone {
+        max-width: 320px;
+    }
+
+    .ntp-google-logo {
+        font-size: 28px;
+        margin-top: 20px;
+    }
+
+    .ntp-search-pill {
+        height: 44px;
+    }
+}

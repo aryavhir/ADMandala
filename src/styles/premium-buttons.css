@@ -1,51 +1,87 @@
-/* ── Premium Buttons ── */
+/* premium-buttons.css - Reusable High-Fidelity Button Styles */
+
 .btn-premium-primary {
-    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 14px 32px;
-    background: #111827;
-    color: #ffffff;
-    border-radius: 100px;
-    font-size: 16px;
+    padding: 10px 26px;
     font-weight: 500;
+    background-color: var(--brand, #0f4a4a);
+    color: #ffffff;
+    font-size: 18px;
+    letter-spacing: -.04em;
+    border-radius: 8px;
+    font-family: "Inter Display", "Inter", sans-serif;
     text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
     border: none;
     cursor: pointer;
-    overflow: hidden;
-    transition: transform 0.3s var(--ease-premium);
+    position: relative;
+    overflow: visible;
+
+    /* Framer Outer Shadows */
+    box-shadow:
+        rgba(0, 0, 0, 0.13) 0.301px 0.602px 0.673px -0.833px,
+        rgba(0, 0, 0, 0.13) 1.144px 2.289px 2.559px -1.667px,
+        rgba(0, 0, 0, 0.13) 5px 10px 11.18px -2.5px;
+
     z-index: 1;
 }
 
-.btn-premium-primary.inverted {
-    background: #ffffff;
-    color: #111827;
+/* Premium Border "Thingy" (Levitating Style) */
+.btn-premium-primary::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border: 2px solid #0e6363;
+    /* Slightly lighter/vibrant teal */
+    border-radius: 12px;
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: -1;
+    opacity: 0.7;
+}
+
+
+
+.btn-premium-primary:active::before {
+    inset: -2px;
+    opacity: 0.5;
 }
 
 .btn-premium-inner {
     position: relative;
-    display: flex;
-    flex-direction: column;
     height: 1.2em;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 6px;
+
+    /* Framer Inset Shadows */
+    box-shadow:
+        rgba(0, 0, 0, 0.16) 0px -0.361px 0.939px -1.083px inset,
+        rgba(0, 0, 0, 0.15) 0px -1.373px 3.570px -2.167px inset,
+        rgba(0, 0, 0, 0.09) 0px -6px 15.6px -3.25px inset;
 }
 
-.btn-premium-text {
+.btn-premium-text,
+.btn-premium-text-hover {
     display: block;
-    transition: transform 0.5s var(--ease-premium);
+    font-family: "Inter Display", "Inter", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 1.1em;
+    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+    white-space: nowrap;
 }
 
 .btn-premium-text-hover {
     position: absolute;
     top: 100%;
     left: 0;
-    display: block;
-    transition: transform 0.5s var(--ease-premium);
-}
-
-.btn-premium-primary:hover {
-    transform: translateY(-2px);
+    width: 100%;
 }
 
 .btn-premium-primary:hover .btn-premium-text {
@@ -56,25 +92,39 @@
     transform: translateY(-100%);
 }
 
+/* Black Variant */
 .btn-premium-black {
-    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 14px 32px;
-    background: transparent;
-    color: #111827;
-    border-radius: 100px;
-    font-size: 16px;
+    padding: 10px 26px;
     font-weight: 500;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 18px;
+    letter-spacing: -.04em;
+    border-radius: 8px;
+    font-family: "Inter Display", "Inter", sans-serif;
     text-decoration: none;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    border: none;
     cursor: pointer;
-    overflow: hidden;
-    transition: all 0.3s var(--ease-premium);
+    position: relative;
+    overflow: visible;
+
+    /* Framer Outer Shadows */
+    box-shadow:
+        rgba(0, 0, 0, 0.13) 0.301px 0.602px 0.673px -0.833px,
+        rgba(0, 0, 0, 0.13) 1.144px 2.289px 2.559px -1.667px,
+        rgba(0, 0, 0, 0.13) 5px 10px 11.18px -2.5px;
 }
 
-.btn-premium-black:hover {
-    background: rgba(0, 0, 0, 0.05);
-    border-color: rgba(0, 0, 0, 0.2);
+
+
+.btn-premium-black:hover .btn-premium-text {
+    transform: translateY(-100%);
+}
+
+.btn-premium-black:hover .btn-premium-text-hover {
+    transform: translateY(-100%);
 }

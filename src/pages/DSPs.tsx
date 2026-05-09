@@ -1,21 +1,148 @@
-﻿import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import { Shield, BarChart3, Lock, Target, CheckCircle2 } from 'lucide-react';
 import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
 import ContactForm from '../components/ContactForm';
-import img1 from '../assets/img1.png';
-import imgs1 from '../assets/l1.png';
-import img2 from '../assets/l2.png';
-import img3 from '../assets/l3.png';
-import img4 from '../assets/l4.png';
-import imgX from '../assets/l5.png';
-import imgY from '../assets/l6.png';
-import imgZ from '../assets/l7.png';
+import LookingAhead from '../components/LookingAhead';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+// Premium Components
+
+import PremiumWhyGrid from '../components/premium/PremiumWhyGrid';
+import PremiumFeatureSplits from '../components/premium/PremiumFeatureSplits';
+import PremiumWhoIsItFor from '../components/premium/PremiumWhoIsItFor';
+import PremiumCTA from '../components/premium/PremiumCTA';
+
+// Assets
+
+import l7 from '../assets/new/ChatGPT Image Mar 21, 2026, 05_25_31 PM.png';
+import l6 from '../assets/new/familiar.png';
+import l5 from '../assets/new/progressive.png';
+import l1 from '../assets/new/dsp.png';
+import l2 from '../assets/new/perform.png';
+import l4 from '../assets/new/media.png';
+
+// Icons
+import { Users, BarChart, Layout } from 'lucide-react';
+
 function DSPs() {
   useScrollAnimation();
   const [showContactModal, setShowContactModal] = useState(false);
+  const circleRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!circleRef.current) return;
+
+    gsap.to(circleRef.current, {
+      scale: 2.5,
+      opacity: 0.1,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: ".prem-hero",
+        start: "top top",
+        end: "top -40%",
+        scrub: 1,
+      }
+    });
+  }, []);
+
+  const whyReasons = [
+    {
+      title: "Quality Publisher Inventory",
+      content: "Access curated, continuously-ranked supply from verified publishers. Every impression is vetted for quality—no remnant inventory.",
+      bgColor: "rgb(230, 230, 250)", // Lavender
+    },
+    {
+      title: "Fraud & Quality Enforcement",
+      content: "Sophisticated IVT filtering protects every bid request before it reaches your DSP. Reduce wasted spend and improve performance.",
+      bgColor: "rgb(250, 240, 230)", // Peach
+    },
+    {
+      title: "Brand-Safe Environments",
+      content: "Advanced inventory suitability scoring ensures your campaigns run only in contextually appropriate, brand-safe environments.",
+      bgColor: "rgb(230, 245, 255)", // Sky
+    },
+    {
+      title: "Standard Buying Workflows",
+      content: "No experimental models. Plug into standard RTB workflows and optimize with your existing tools and strategies.",
+      bgColor: "rgb(230, 250, 240)", // Mint
+    }
+  ];
+
+  const features = [
+    {
+      id: "quality-control",
+      title: "Quality-Controlled Supply",
+      description: "Performance over volume. AdMandala prioritizes traffic quality and advertiser outcomes.",
+      listItems: [
+        "Enforcing centralized quality checks",
+        "Actively filtering invalid traffic",
+        "Monitoring performance signals across the exchange"
+      ],
+      image: l7,
+      imageAlt: "Quality Dashboard",
+      bgColor: 'rgb(230, 230, 250)'
+    },
+    {
+      id: "familiar-ui",
+      title: "Familiar Buying Experience",
+      description: "No learning curve required. Integrate using standard programmatic mechanisms.",
+      listItems: [
+        "Quick onboarding through RTB",
+        "Existing optimization strategies apply",
+        "Seamless campaign execution"
+      ],
+      image: l6,
+      imageAlt: "API Integration",
+      bgColor: 'rgb(250, 240, 230)'
+    },
+    {
+      id: "transparency",
+      title: "Progressive Transparency",
+      description: "While the exchange operates centrally today, AdMandala is designed to progressively reduce trust assumptions.",
+      listItems: [
+        "Independently verifiable ad events",
+        "Increased confidence in delivery and performance",
+        "Greater clarity in how value is created and settled"
+      ],
+      image: l5,
+      imageAlt: "Transparency Roadmap",
+      bgColor: 'rgb(230, 245, 255)'
+    }
+  ];
+
+  const categories = [
+    {
+      id: 0,
+      title: "DSPs & Trading Desks",
+      description: "Seeking quality-focused supply with transparent bidding, low fraud rates, and access to premium publisher inventory.",
+      image: l1,
+      icon: <Layout size={22} />,
+      bgColor: "rgb(230, 230, 250)"
+    },
+    {
+      id: 1,
+      title: "Performance Advertisers",
+      description: "Tired of opaque delivery and wasted spend. Get clear reporting, verifiable metrics, and a path toward independently validated ad delivery.",
+      image: l2,
+      icon: <BarChart size={22} />,
+      bgColor: "rgb(250, 240, 230)"
+    },
+
+    {
+      id: 3,
+      title: "Media Buyers & Agencies",
+      description: "Value stability, clear reporting, and a future-proof supply path. Leverage production-grade infrastructure today.",
+      image: l4,
+      icon: <Users size={22} />,
+      bgColor: "rgb(230, 250, 240)"
+    }
+  ];
 
   return (
     <div className="landing-page advertisers-page">
@@ -26,285 +153,95 @@ function DSPs() {
           content="Access premium publisher inventory and scale campaigns with performance-driven optimization."
         />
       </Helmet>
-      <nav className="top-nav">
-        <div className="content-wrapper nav-flex">
-          <Link to="/" className="back-link">&larr; Back Home</Link>
+
+      <Navbar />
+
+      <header className="prem-hero" style={{ minHeight: '85vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', paddingBottom: '5rem' }}>
+        <div className="prem-hero-circle-wrap">
+          <div
+            className="prem-hero-circle"
+            ref={circleRef}
+            style={{ backgroundColor: "rgba(30, 41, 150, 0.15)" }}
+          ></div>
         </div>
-      </nav>
 
-      {/* HERO */}
-      <header className="hero-section advertisers-hero">
-        <div className="content-wrapper adv-hero-grid">
-          <div className="adv-hero-copy">
+        <div className="prem-hero-content" style={{ opacity: 1, transform: 'none' }}>
+          <h1 className="prem-hero-h1">
+            Buy Media<br />
+            <span>You Can Trust</span>
+          </h1>
 
-            <h1 className="hero-headline-new animate-on-scroll">
-              Buy Media<br />You Can Trust
-            </h1>
-            <p className="hero-subheadline animate-on-scroll delay-1">
-              Access programmatic supply through a centralized exchange with strong quality controls — and a clear path toward verifiable delivery.
-            </p>
-            <div className="adv-cta-row animate-on-scroll delay-2">
-              <button className="btn btn-primary" onClick={() => setShowContactModal(true)}>Register as a DSP / Advertiser</button>
-              <a href="mailto:partners@admandala.com" className="btn btn-ghost">Contact our partnerships team</a>
-            </div>
+          <p className="prem-hero-desc">
+            Access programmatic supply through a centralized exchange with strong quality controls — and a clear path toward verifiable delivery.
+          </p>
+
+          <div className="prem-hero-actions">
+            <button
+              className="btn-premium-primary"
+              onClick={() => setShowContactModal(true)}
+            >
+              <div className="btn-premium-inner">
+                <span className="btn-premium-text">Register as a DSP / Advertiser</span>
+                <span className="btn-premium-text-hover">Register as a DSP / Advertiser</span>
+              </div>
+            </button>
+            <a href="mailto:partners@admandala.com" className="btn-premium-black">
+              <div className="btn-premium-inner">
+                <span className="btn-premium-text">Contact our partnerships team</span>
+                <span className="btn-premium-text-hover">Contact our partnerships team</span>
+              </div>
+            </a>
           </div>
-          <div className="adv-hero-visual-new animate-on-scroll delay-2" aria-hidden="true">
-            <img src={img1} alt="Dashboard preview" className="hero-dashboard-image" />
+
+          <div className="early-adopters-wrapper animate-premium" style={{ marginTop: '1.2rem' }}>
+            <Link to="/decentralization" className="early-adopters-btn">
+              <span className="icon-wrapper" aria-hidden="true">
+                <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" width={12} className="arrow-svg">
+                  <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" fill="currentColor" />
+                </svg>
+                <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" width={12} className="arrow-svg arrow-svg--copy">
+                  <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" fill="currentColor" />
+                </svg>
+              </span>
+              <span className="label">Explore our decentralization roadmap</span>
+            </Link>
           </div>
         </div>
       </header>
 
-      {/* SECTION 1: WHY DSPs - Minimalistic Clean Design */}
-      <section className="section dsp-why-section-minimal">
-        <div className="content-wrapper">
-          <div className="why-minimal-header animate-on-scroll">
-            <h2>Why DSPs Choose<br />Ad Mandala</h2>
-            <p className="why-subtitle">Ad Mandala is built for advertisers and demand partners who care about performance today — and trust tomorrow.</p>
-          </div>
+      <PremiumWhyGrid
+        id="why-advertisers"
+        badge="Why AdMandala"
+        title={<>Why DSPs Choose <span className="text-teal">AdMandala</span></>}
+        subtitle="AdMandala is built for demand partners who care about performance today — and trust tomorrow."
+        reasons={whyReasons}
+      />
 
-          <div className="why-minimal-list">
-            <div className="why-list-item animate-on-scroll">
-              <div className="why-item-icon">
-                <Shield size={24} />
-              </div>
-              <div className="why-item-content">
-                <h3>Quality Publisher Inventory</h3>
-                <p>Access curated, continuously-ranked supply from verified publishers. Every impression is vetted for quality—no remnant inventory.</p>
-              </div>
-            </div>
+      <PremiumFeatureSplits features={features} />
 
-            <div className="why-list-item animate-on-scroll" style={{ transitionDelay: '100ms' }}>
-              <div className="why-item-icon">
-                <Lock size={24} />
-              </div>
-              <div className="why-item-content">
-                <h3>Centralized Fraud & Traffic Quality Enforcement</h3>
-                <p>Sophisticated IVT filtering protects every bid request before it reaches your DSP. Reduce wasted spend and improve campaign performance.</p>
-              </div>
-            </div>
+      <PremiumWhoIsItFor
+        id="target-audience"
+        badge="Audience"
+        title="Who This Is For"
+        subtitle="Built for demand partners who prioritize quality, transparency, and measurable outcomes."
+        categories={categories}
+      />
 
-            <div className="why-list-item animate-on-scroll" style={{ transitionDelay: '200ms' }}>
-              <div className="why-item-icon">
-                <Target size={24} />
-              </div>
-              <div className="why-item-content">
-                <h3>Brand-Safe Environments</h3>
-                <p>Advanced inventory suitability scoring ensures your campaigns run only in contextually appropriate, brand-safe environments.</p>
-              </div>
-            </div>
+      <LookingAhead
+        id="future-view"
+        description="AdMandala is evolving into a verifiable advertising protocol. See how our roadmap leads to a future where every impression and click is independently validated."
+      />
 
-            <div className="why-list-item animate-on-scroll" style={{ transitionDelay: '300ms' }}>
-              <div className="why-item-icon">
-                <BarChart3 size={24} />
-              </div>
-              <div className="why-item-content">
-                <h3>Familiar Programmatic Buying Workflows</h3>
-                <p>No experimental models. No workflow disruption. Plug into standard RTB workflows and optimize with your existing tools and strategies.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 2: QUALITY SUPPLY - Split Layout */}
-      <section className="section dsp-split-section">
-        <div className="content-wrapper">
-          <div className="split-layout split-left animate-on-scroll">
-            <div className="split-content">
-              <h2>Quality-Controlled Supply</h2>
-              <p className="split-subtitle">Performance over volume</p>
-              <p className="split-description">Ad Mandala prioritizes traffic quality and advertiser outcomes by:</p>
-              <ul className="split-features">
-                <li>
-                  <CheckCircle2 size={20} />
-                  <span>Enforcing centralized quality checks</span>
-                </li>
-                <li>
-                  <CheckCircle2 size={20} />
-                  <span>Actively filtering invalid traffic</span>
-                </li>
-                <li>
-                  <CheckCircle2 size={20} />
-                  <span>Monitoring performance signals across the exchange</span>
-                </li>
-              </ul>
-              <p className="split-closing">This reduces wasted spend and protects campaign integrity.</p>
-            </div>
-            <div className="split-visual purple-accent">
-              <img src={imgZ} alt="Quality Dashboard" className="split-visual-image" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 3: FAMILIAR - Split Layout (Mirrored) */}
-      <section className="section dsp-split-section">
-        <div className="content-wrapper">
-          <div className="split-layout split-right animate-on-scroll">
-            <div className="split-visual blue-accent">
-              <img src={imgY} alt="API Integration" className="split-visual-image" />
-            </div>
-            <div className="split-content">
-              <h2>Familiar Buying Experience</h2>
-              <p className="split-subtitle">No learning curve required</p>
-              <p className="split-description">DSPs and advertisers integrate using standard programmatic mechanisms, enabling:</p>
-              <ul className="split-features">
-                <li>
-                  <CheckCircle2 size={20} />
-                  <span>Quick onboarding</span>
-                </li>
-                <li>
-                  <CheckCircle2 size={20} />
-                  <span>Existing optimization strategies</span>
-                </li>
-                <li>
-                  <CheckCircle2 size={20} />
-                  <span>Seamless campaign execution</span>
-                </li>
-              </ul>
-              <p className="split-closing">Ad Mandala fits into your current media buying stack.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 4: TRANSPARENCY - Split Layout */}
-      <section className="section dsp-split-section">
-        <div className="content-wrapper">
-          <div className="split-layout split-left animate-on-scroll">
-            <div className="split-content">
-              <h2>Transparency That Increases Over Time</h2>
-              <p className="split-description">While the exchange operates centrally today, Ad Mandala is designed to progressively reduce trust assumptions.</p>
-              <p className="split-subheading">What this means for advertisers:</p>
-              <ul className="split-features">
-                <li>
-                  <CheckCircle2 size={20} />
-                  <span>Moving from self-reported metrics to independently verifiable ad events</span>
-                </li>
-                <li>
-                  <CheckCircle2 size={20} />
-                  <span>Increased confidence in delivery and performance</span>
-                </li>
-                <li>
-                  <CheckCircle2 size={20} />
-                  <span>Greater clarity in how value is created and settled</span>
-                </li>
-              </ul>
-            </div>
-            <div className="split-visual green-accent">
-              <img src={imgX} alt="Transparency Roadmap" className="split-visual-image" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 5: WHO THIS IS FOR */}
-      <section className="section dsp-who-section">
-        <div className="content-wrapper">
-          <div className="who-header animate-on-scroll">
-            <h2>Who This Is For</h2>
-            <p className="who-header-subtitle">Built for demand-side partners who prioritize quality, transparency, and measurable outcomes.</p>
-          </div>
-          <div className="who-cards-grid">
-            <div className="who-card-pro animate-on-scroll">
-              <div className="who-card-visual">
-                <img src={imgs1} alt="DSPs & Trading Desks" className="who-visual-image" />
-              </div>
-              <div className="who-card-content">
-                <h3>DSPs & Trading Desks</h3>
-                <p>Seeking quality-focused supply with transparent bidding, low fraud rates, and access to premium publisher inventory. Connect your existing seats and start buying within minutes.</p>
-                <div className="who-card-meta">
-                  <span>Programmatic Buying</span>
-                  <span>Quality Supply</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="who-card-pro animate-on-scroll" style={{ transitionDelay: '100ms' }}>
-              <div className="who-card-visual">
-                <img src={img2} alt="Performance Advertisers" className="who-visual-image" />
-              </div>
-              <div className="who-card-content">
-                <h3>Performance Advertisers</h3>
-                <p>Tired of opaque delivery and wasted spend on unverified impressions. Get clear reporting, verifiable metrics, and a path toward independently validated ad delivery.</p>
-                <div className="who-card-meta">
-                  <span>ROAS Focus</span>
-                  <span>Verified Metrics</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="who-card-pro animate-on-scroll" style={{ transitionDelay: '200ms' }}>
-              <div className="who-card-visual">
-                <img src={img3} alt="Brand Advertisers" className="who-visual-image" />
-              </div>
-              <div className="who-card-content">
-                <h3>Brand Advertisers</h3>
-                <p>Prioritizing long-term trust, brand safety, and accurate measurement. Ensure your campaigns run in appropriate environments with comprehensive suitability scoring.</p>
-                <div className="who-card-meta">
-                  <span>Brand Safety</span>
-                  <span>Trust & Transparency</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="who-card-pro animate-on-scroll" style={{ transitionDelay: '300ms' }}>
-              <div className="who-card-visual">
-                <img src={img4} alt="Media Buyers & Agencies" className="who-visual-image" />
-              </div>
-              <div className="who-card-content">
-                <h3>Media Buyers & Agencies</h3>
-                <p>Who value stability, clear reporting, and a future-proof supply path. Leverage production-grade infrastructure today with a clear roadmap toward decentralized verification.</p>
-                <div className="who-card-meta">
-                  <span>Clear Roadmap</span>
-                  <span>Stable Infrastructure</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 6: LOOKING AHEAD - Full-bleed Dark */}
-      <section className="section dsp-future-section">
-        <div className="dsp-future-bg">
-          <div className="dsp-future-orb orb-1"></div>
-          <div className="dsp-future-orb orb-2"></div>
-          <div className="dsp-future-grid-lines"></div>
-        </div>
-        <div className="content-wrapper">
-          <div className="dsp-future-content animate-on-scroll">
-            <h2 className="dsp-future-title">Looking Ahead</h2>
-            <p className="dsp-future-desc">Ad Mandala is evolving from a centralized exchange into a verifiable advertising protocol. See how verification and settlement decentralize — without disrupting your buying workflows.</p>
-            <div className="decentralization-link-wrapper animate-on-scroll delay-2">
-              <Link to="/decentralization" className="explore-button">
-                <span className="explore-button__icon-wrapper" aria-hidden="true">
-                  <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="explore-button__icon-svg" width={12}>
-                    <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" fill="currentColor" />
-                  </svg>
-                  <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="explore-button__icon-svg explore-button__icon-svg--copy" width={12}>
-                    <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" fill="currentColor" />
-                  </svg>
-                </span>
-                <span className="explore-button__label">Explore the decentralization roadmap</span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 7: CTA */}
-      <section className="section dsp-cta-section">
-        <div className="content-wrapper">
-          <div className="dsp-cta-box animate-on-scroll">
-            <h2 className="dsp-cta-headline">Access Quality Supply Today</h2>
-            <p className="dsp-cta-sub">Join as a DSP or Advertiser and grow with verifiable delivery.</p>
-            <button className="dsp-cta-button" onClick={() => setShowContactModal(true)}>Register as a DSP / Advertiser</button>
-          </div>
-        </div>
-      </section>
+      <PremiumCTA
+        badge="Join Other Demand Partners"
+        title="Access Quality Supply Today"
+        description="Join as a DSP or Advertiser and grow with verifiable delivery and premium publisher inventory."
+        buttonText="Register as a DSP / Advertiser"
+        onButtonClick={() => setShowContactModal(true)}
+      />
 
       <Footer />
+
       {showContactModal && (
         <div className="modal-overlay" onClick={() => setShowContactModal(false)}>
           <div className="modal" onClick={(e) => e.stopPropagation()}>
@@ -319,3 +256,5 @@ function DSPs() {
 }
 
 export default DSPs;
+
+

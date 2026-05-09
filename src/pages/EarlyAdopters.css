@@ -1,0 +1,309 @@
+/* ════════════════════════════════════════════════════
+   EARLY ADOPTERS — Precision Minimalist (Inverted)
+   ════════════════════════════════════════════════════ */
+
+.eap-precision-section {
+    padding: 120px 0;
+    background: #ffffff;
+    position: relative;
+}
+
+.eap-header-refined-tight {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ── PRECISION MILESTONE TILES (B&W 24px/16px) ── */
+.milestone-tile-precision {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem;
+    border-radius: 40px;
+    border: 1px solid transparent;
+}
+
+.milestone-tile-precision.light {
+    background: #ffffff;
+    border-color: #f1f5f9; /* Subtle Zinc Border */
+}
+
+.milestone-tile-precision.dark {
+    background: #000000; /* Pure Black */
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.milestone-precision-title {
+    font-family: "Inter Display", sans-serif;
+    font-size: 24px !important;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.light .milestone-precision-title { color: #111827; }
+.dark .milestone-precision-title { color: #ffffff; }
+
+.milestone-precision-body {
+    font-size: 16px !important;
+    line-height: 1.6;
+}
+
+.light .milestone-precision-body { color: #4b5563; }
+.dark .milestone-precision-body { color: #a1a1aa; }
+
+.milestone-tag-tight {
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #64748b;
+}
+
+/* Checklist (High Contrast) */
+.milestone-checklist-tight {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.milestone-checklist-tight li {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.light .milestone-checklist-tight li { color: #374151; }
+.dark .milestone-checklist-tight li { color: #f4f4f5; }
+
+.bullet-tight {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.light .bullet-tight { background: #d1d5db; }
+.dark .bullet-tight { background: #3f3f46; }
+
+/* ── FPP ICON BOX ── */
+.fpp-icon-square {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+}
+
+.light .fpp-icon-square {
+    background: #f8fafc;
+    color: #111827;
+    border-color: #e2e8f0;
+}
+
+.dark .fpp-icon-square {
+    background: rgba(255, 255, 255, 0.06);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+/* ── ACCORDIONS (Context Aware) ── */
+.fpp-accordions-group-tight {
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid transparent;
+}
+
+.light .fpp-accordions-group-tight {
+    background: #fcfcfc;
+    border-color: #f1f5f9;
+}
+
+.dark .fpp-accordions-group-tight {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.06);
+}
+
+.fpp-tight-accordion {
+    border-bottom: 1px solid transparent;
+}
+
+.light .fpp-tight-accordion { border-bottom-color: #f1f5f9; }
+.dark .fpp-tight-accordion { border-bottom-color: rgba(255, 255, 255, 0.05); }
+
+.fpp-tight-accordion:last-child {
+    border-bottom: none;
+}
+
+.fpp-accordion-header {
+    width: 100%;
+    padding: 1.75rem 2.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.light .fpp-accordion-header { color: #111827; }
+.dark .fpp-accordion-header { color: #ffffff; }
+
+.fpp-accordion-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.light .fpp-accordion-icon {
+    background: #f1f5f9;
+    color: #64748b;
+}
+
+.dark .fpp-accordion-icon {
+    background: rgba(255, 255, 255, 0.04);
+    color: #71717a;
+}
+
+.fpp-accordion-title {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.light .fpp-accordion-title { color: #1e293b; }
+.dark .fpp-accordion-title { color: #fafafa; }
+
+.fpp-accordion-content {
+    padding: 0 2.25rem 2.5rem 5.5rem;
+}
+
+.fpp-accordion-text {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.light .fpp-accordion-text { color: #64748b; }
+.dark .fpp-accordion-text { color: #a1a1aa; }
+
+.fpp-accordion-sub-features {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+}
+
+.fpp-accordion-sub-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 14px;
+}
+
+.light .fpp-accordion-sub-features li { color: #475569; }
+.dark .fpp-accordion-sub-features li { color: #d1d1d6; }
+
+.fpp-sub-feature-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+}
+
+.light .fpp-sub-feature-dot { background: #cbd5e1; }
+.dark .fpp-sub-feature-dot { background: rgba(255, 255, 255, 0.3); }
+
+/* ── ROADMAP SECTION (Preserved) ── */
+.roadmap-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+}
+
+.roadmap-step-card {
+    background: #ffffff;
+    border: 1px solid #f1f5f9;
+    padding: 2.5rem;
+    border-radius: 20px;
+}
+
+.step-card-num {
+    font-size: 12px;
+    font-weight: 900;
+    color: #94a3b8;
+    margin-bottom: 1rem;
+}
+
+.roadmap-step-card h5 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.75rem;
+}
+
+.roadmap-step-card p {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+.flow-string-inner {
+    display: inline-flex;
+    align-items: center;
+    background: #f8fafc;
+    padding: 1.25rem 3rem;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #1e293b;
+    border: 1px solid #f1f5f9;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+    .milestone-tile-precision {
+        padding: 3rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .milestone-tile-precision {
+        padding: 2rem !important;
+        border-radius: 24px;
+    }
+
+    .milestone-precision-title {
+        font-size: 20px !important;
+    }
+
+    .fpp-accordion-header {
+        padding: 1.25rem 1.5rem;
+    }
+
+    .fpp-accordion-content {
+        padding: 0 1.5rem 1.5rem 4rem;
+    }
+
+    .fpp-accordion-sub-features {
+        grid-template-columns: 1fr;
+    }
+
+    .eap-precision-section {
+        padding: 60px 0;
+    }
+
+    .flow-string-inner {
+        padding: 1.5rem !important;
+        font-size: 13px;
+    }
+}
