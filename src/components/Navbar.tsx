@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import logoImg from '../assets/logow.jpg';
 import './Navbar.css';
 
 const Navbar: React.FC = () => {
@@ -61,6 +62,7 @@ const Navbar: React.FC = () => {
             <div className="site-navbar-background"></div>
             <div className="site-navbar-container">
                 <Link to="/" className="navbar-logo">
+                    <img src={logoImg} alt="AdMandala Logo" style={{ height: '32px', marginRight: '10px' }} />
                     <span className="navbar-logo-text">Ad<span className="text-mandala">Mandala</span></span>
                 </Link>
 
@@ -243,6 +245,7 @@ const Navbar: React.FC = () => {
             <div className={`navbar-mobile-menu ${mobileOpen ? 'is-open' : ''}`}>
                 <div className="mobile-menu-header">
                     <Link to="/" className="navbar-logo" onClick={() => setMobileOpen(false)}>
+                        <img src={logoImg} alt="AdMandala Logo" style={{ height: '32px', marginRight: '10px' }} />
                         <span className="navbar-logo-text">Ad<span className="text-mandala">Mandala</span></span>
                     </Link>
                     <button className="mobile-close" onClick={() => setMobileOpen(false)}><X size={24} /></button>
