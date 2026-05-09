@@ -7479,6 +7479,76 @@ strong {
   opacity: 1;
 }
 
+.home-hero .early-adopters-btn {
+  line-height: 1;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: #ffffff;
+  color: #0f4a4a;
+  border-radius: 10rem;
+  font-weight: 700;
+  padding: 0.8rem 1.5rem;
+  padding-left: 18px;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  margin-top: 1.5rem;
+  font-size: 15px;
+}
+
+.home-hero .early-adopters-btn:hover {
+  background-color: #0f4a4a;
+  color: #ffffff;
+  border-color: #0f4a4a;
+}
+
+.home-hero .early-adopters-btn .icon-wrapper {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  position: relative;
+  color: #0f4a4a;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(15, 74, 74, 0.1);
+  transition: all 0.25s ease;
+}
+
+.home-hero .early-adopters-btn:hover .icon-wrapper {
+  background-color: #ffffff !important;
+  color: #0f4a4a !important;
+}
+
+/* Arrow animation */
+.home-hero .early-adopters-btn .arrow-svg {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.home-hero .early-adopters-btn .arrow-svg--copy {
+  position: absolute;
+  transform: translate(-150%, 150%);
+}
+
+.home-hero .early-adopters-btn:hover .arrow-svg:first-child {
+  transform: translate(150%, -150%);
+}
+
+.home-hero .early-adopters-btn:hover .arrow-svg--copy {
+  transform: translate(0, 0);
+  transition-delay: 0.05s;
+}
+
+.home-hero .early-adopters-btn:hover .icon-wrapper {
+  background-color: #0f4a4a;
+  color: #ffffff;
+}
+
 @media (max-width: 900px) {
   .audience-panels {
     grid-template-columns: 1fr;

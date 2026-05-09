@@ -243,19 +243,19 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onIntroComplete }) => {
                             </Link>
                         </div>
 
-                        {/* <div className="decentralization-link-wrapper animate-premium" style={{ marginTop: '0.5rem' }}>
-                            <Link to="/decentralization" className="explore-button">
-                                <span className="explore-button__icon-wrapper" aria-hidden="true">
-                                    <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="explore-button__icon-svg" width={12}>
+                        <div className="early-adopters-wrapper animate-premium">
+                            <Link to="/early-adopters" className="early-adopters-btn">
+                                <span className="icon-wrapper" aria-hidden="true">
+                                    <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" width={12} className="arrow-svg">
                                         <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" fill="currentColor" />
                                     </svg>
-                                    <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="explore-button__icon-svg explore-button__icon-svg--copy" width={12}>
+                                    <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" width={12} className="arrow-svg arrow-svg--copy">
                                         <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" fill="currentColor" />
                                     </svg>
                                 </span>
-                                <span className="explore-button__label">Explore the decentralized roadmap</span>
+                                <span className="label">Join our early adopters program</span>
                             </Link>
-                        </div> */}
+                        </div>
                     </div>
                 </div>
 

@@ -7,6 +7,7 @@ import Publishers from './pages/Publishers';
 import DSPs from './pages/DSPs';
 import Decentralization from './pages/Decentralization';
 import EarlyAdopters from './pages/EarlyAdopters';
+import ReferralProgram from './pages/ReferralProgram';
 
 // Wrapper to scroll to top on route change
 const ScrollToTop = ({ children }: { children: React.ReactNode }) => {
@@ -45,6 +46,7 @@ function App() {
           <Route path="/advertisers" element={<DSPs />} />
           <Route path="/decentralization" element={<Decentralization />} />
           <Route path="/early-adopters" element={<EarlyAdopters />} />
+          <Route path="/referral-program" element={<ReferralProgram />} />
         </Routes>
       </ScrollToTop>
     </Router>

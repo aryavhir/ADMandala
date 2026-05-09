@@ -221,7 +221,11 @@ const Navbar: React.FC = () => {
                         </div>
                     </div>
 
-                    <Link to="/early-adopters" className="navbar-link">Early Access</Link>
+                    <Link to="/early-adopters" className="navbar-link" style={{ position: 'relative' }}>
+                        Early Access
+                        <span className="navbar-new-tag">New</span>
+                    </Link>
+                    <Link to="/referral-program" className="navbar-link">Referral</Link>
                 </div>
 
                 {/* Mobile Toggle */}
@@ -300,7 +304,11 @@ const Navbar: React.FC = () => {
                         )}
                     </div>
 
-                    <Link to="/early-adopters" className="mobile-link" onClick={() => setMobileOpen(false)}>Early Access</Link>
+                    <Link to="/early-adopters" className="mobile-link" onClick={() => setMobileOpen(false)} style={{ position: 'relative' }}>
+                        Early Access
+                        <span className="navbar-new-tag" style={{ right: '0', top: '16px' }}>New</span>
+                    </Link>
+                    <Link to="/referral-program" className="mobile-link" onClick={() => setMobileOpen(false)}>Referral</Link>
                 </div>
             </div>
         </nav>
