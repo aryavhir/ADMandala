@@ -7479,7 +7479,7 @@ strong {
   opacity: 1;
 }
 
-.home-hero .early-adopters-btn {
+.early-adopters-btn {
   line-height: 1;
   text-decoration: none;
   display: inline-flex;
@@ -7499,13 +7499,13 @@ strong {
   font-size: 15px;
 }
 
-.home-hero .early-adopters-btn:hover {
+.early-adopters-btn:hover {
   background-color: #0f4a4a;
   color: #ffffff;
   border-color: #0f4a4a;
 }
 
-.home-hero .early-adopters-btn .icon-wrapper {
+.early-adopters-btn .icon-wrapper {
   flex-shrink: 0;
   width: 28px;
   height: 28px;
@@ -7520,33 +7520,28 @@ strong {
   transition: all 0.25s ease;
 }
 
-.home-hero .early-adopters-btn:hover .icon-wrapper {
+.early-adopters-btn:hover .icon-wrapper {
   background-color: #ffffff !important;
   color: #0f4a4a !important;
 }
 
 /* Arrow animation */
-.home-hero .early-adopters-btn .arrow-svg {
+.early-adopters-btn .arrow-svg {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.home-hero .early-adopters-btn .arrow-svg--copy {
+.early-adopters-btn .arrow-svg--copy {
   position: absolute;
   transform: translate(-150%, 150%);
 }
 
-.home-hero .early-adopters-btn:hover .arrow-svg:first-child {
+.early-adopters-btn:hover .arrow-svg:first-child {
   transform: translate(150%, -150%);
 }
 
-.home-hero .early-adopters-btn:hover .arrow-svg--copy {
+.early-adopters-btn:hover .arrow-svg--copy {
   transform: translate(0, 0);
   transition-delay: 0.05s;
-}
-
-.home-hero .early-adopters-btn:hover .icon-wrapper {
-  background-color: #0f4a4a;
-  color: #ffffff;
 }
 
 @media (max-width: 900px) {

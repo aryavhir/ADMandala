@@ -1,20 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import ContactForm from '../components/ContactForm';
 import LookingAhead from '../components/LookingAhead';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 // Premium Components
-import PremiumHero from '../components/premium/PremiumHero';
+
 import PremiumWhyGrid from '../components/premium/PremiumWhyGrid';
 import PremiumFeatureSplits from '../components/premium/PremiumFeatureSplits';
 import PremiumWhoIsItFor from '../components/premium/PremiumWhoIsItFor';
 import PremiumCTA from '../components/premium/PremiumCTA';
 
 // Assets
-import img1 from '../assets/AdMandala dashboard overview for John.png';
+
 import l7 from '../assets/new/ChatGPT Image Mar 21, 2026, 05_25_31 PM.png';
 import l6 from '../assets/new/familiar.png';
 import l5 from '../assets/new/progressive.png';
@@ -28,6 +33,23 @@ import { Users, BarChart, Layout } from 'lucide-react';
 function DSPs() {
   useScrollAnimation();
   const [showContactModal, setShowContactModal] = useState(false);
+  const circleRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!circleRef.current) return;
+
+    gsap.to(circleRef.current, {
+      scale: 2.5,
+      opacity: 0.1,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: ".prem-hero",
+        start: "top top",
+        end: "top -40%",
+        scrub: 1,
+      }
+    });
+  }, []);
 
   const whyReasons = [
     {
@@ -134,18 +156,58 @@ function DSPs() {
 
       <Navbar />
 
-      <PremiumHero
-        title={<>Buy Media</>}
-        subtitle={<>You Can Trust</>}
-        description="Access programmatic supply through a centralized exchange with strong quality controls — and a clear path toward verifiable delivery."
-        primaryCtaText="Register as a DSP / Advertiser"
-        onPrimaryCtaClick={() => setShowContactModal(true)}
-        secondaryCtaText="Contact our partnerships team"
-        secondaryCtaHref="mailto:partners@admandala.com"
-        mockupImage={img1}
-        mockupAlt="Advertiser Dashboard"
-        accentColor="rgba(30, 41, 150, 0.15)"
-      />
+      <header className="prem-hero" style={{ minHeight: '85vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', paddingBottom: '5rem' }}>
+        <div className="prem-hero-circle-wrap">
+          <div
+            className="prem-hero-circle"
+            ref={circleRef}
+            style={{ backgroundColor: "rgba(30, 41, 150, 0.15)" }}
+          ></div>
+        </div>
+
+        <div className="prem-hero-content" style={{ opacity: 1, transform: 'none' }}>
+          <h1 className="prem-hero-h1">
+            Buy Media<br />
+            <span>You Can Trust</span>
+          </h1>
+
+          <p className="prem-hero-desc">
+            Access programmatic supply through a centralized exchange with strong quality controls — and a clear path toward verifiable delivery.
+          </p>
+
+          <div className="prem-hero-actions">
+            <button
+              className="btn-premium-primary"
+              onClick={() => setShowContactModal(true)}
+            >
+              <div className="btn-premium-inner">
+                <span className="btn-premium-text">Register as a DSP / Advertiser</span>
+                <span className="btn-premium-text-hover">Register as a DSP / Advertiser</span>
+              </div>
+            </button>
+            <a href="mailto:partners@admandala.com" className="btn-premium-black">
+              <div className="btn-premium-inner">
+                <span className="btn-premium-text">Contact our partnerships team</span>
+                <span className="btn-premium-text-hover">Contact our partnerships team</span>
+              </div>
+            </a>
+          </div>
+
+          <div className="early-adopters-wrapper animate-premium" style={{ marginTop: '1.2rem' }}>
+            <Link to="/decentralization" className="early-adopters-btn">
+              <span className="icon-wrapper" aria-hidden="true">
+                <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" width={12} className="arrow-svg">
+                  <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" fill="currentColor" />
+                </svg>
+                <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" width={12} className="arrow-svg arrow-svg--copy">
+                  <path d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z" fill="currentColor" />
+                </svg>
+              </span>
+              <span className="label">Explore our decentralization roadmap</span>
+            </Link>
+          </div>
+        </div>
+      </header>
 
       <PremiumWhyGrid
         id="why-advertisers"

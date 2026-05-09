@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import PremiumCTA from '../components/premium/PremiumCTA';
 import PremiumHero from '../components/premium/PremiumHero';
-import mockupImg from '../assets/Screenshot 2026-02-23 173259.png';
+import mockupImg from '../assets/Screenshot 2026-05-09 111654.png';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
