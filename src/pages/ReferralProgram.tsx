@@ -123,11 +123,34 @@ function ReferralProgram() {
     return (
         <div className="landing-page eap-page" ref={containerRef}>
             <Helmet>
-                <title>Referral Program | AdMandala</title>
+                <title>Referral Program | AdMandala — Earn Recurring Rewards</title>
                 <meta
                     name="description"
-                    content="Invite fellow publishers to AdMandala and earn recurring rewards while helping grow the network. The AdMandala Referral Program is now live."
+                    content="Invite publishers to AdMandala and earn recurring rewards: $2 on approval, $3 after 7 days of active traffic, plus 2-5% recurring revenue share for up to 1 year. The AdMandala Referral Program is now live."
                 />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://admandala.com/referral-program" />
+                <meta property="og:title" content="Referral Program | AdMandala — Earn Recurring Rewards" />
+                <meta property="og:description" content="Invite publishers to AdMandala and earn $2 on approval, $3 after 7 days, plus 2-5% recurring revenue share for up to 1 year." />
+                <meta property="og:site_name" content="AdMandala" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Referral Program | AdMandala — Earn Recurring Rewards" />
+                <meta name="twitter:description" content="Invite publishers to AdMandala and earn $2 on approval, $3 after 7 days, plus 2-5% recurring revenue share for up to 1 year." />
+                <link rel="canonical" href="https://admandala.com/referral-program" />
+                <script type="application/ld+json">{`
+                  {
+                    "@context": "https://schema.org",
+                    "@type": "WebPage",
+                    "name": "AdMandala Referral Program",
+                    "url": "https://admandala.com/referral-program",
+                    "description": "Invite fellow publishers to AdMandala and earn recurring rewards including $2 on approval, $3 after 7 days of active traffic, and 2-5% recurring revenue share for up to 1 year.",
+                    "isPartOf": {
+                      "@type": "WebSite",
+                      "name": "AdMandala",
+                      "url": "https://admandala.com"
+                    }
+                  }
+                `}</script>
             </Helmet>
 
             <Navbar />
