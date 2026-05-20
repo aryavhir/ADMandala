@@ -128,6 +128,7 @@ function Publishers() {
           name="description"
           content="Monetize your website traffic with AdMandala's programmatic exchange. Access quality DSP demand, IVT filtering, brand-safe environments, and transparent revenue reporting for independent publishers, media networks, and SSPs."
         />
+        <meta name="keywords" content="monetize website traffic, sell website traffic, get advertisements on website, easy website advertisement integration, how to monetize traffic, banner ad integration, publisher ad network, SSP programmatic demand" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://admandala.com/publishers" />
         <meta property="og:title" content="Monetize With Confidence | AdMandala for Publishers" />
@@ -141,9 +142,9 @@ function Publishers() {
           {
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "AdMandala Publisher Monetization",
+            "name": "AdMandala Website Advertisement Integration & Monetization",
             "url": "https://admandala.com/publishers",
-            "description": "Programmatic advertising exchange for publishers offering demand access, IVT filtering, brand safety, and transparent revenue reporting.",
+            "description": "Programmatic ad exchange providing the easiest website advertisement integration to sell website traffic and monetize traffic with high CPMs.",
             "provider": {
               "@type": "Organization",
               "name": "AdMandala",
@@ -151,9 +152,9 @@ function Publishers() {
             },
             "audience": {
               "@type": "Audience",
-              "audienceType": "Independent Publishers, Media Networks, SSPs"
+              "audienceType": "Webmasters, Website Owners, Independent Publishers, Media Networks"
             },
-            "serviceType": "Publisher Monetization Platform"
+            "serviceType": "Publisher Traffic Monetization"
           }
         `}</script>
       </Helmet>

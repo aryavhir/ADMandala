@@ -152,6 +152,7 @@ function DSPs() {
           name="description"
           content="Access curated, quality-controlled publisher inventory through AdMandala's programmatic exchange. Standard RTB workflows, IVT filtering, brand safety scoring, and a path toward verifiable ad delivery for DSPs, trading desks, and performance advertisers."
         />
+        <meta name="keywords" content="DSP integration, programmatic demand, OpenRTB SSP, buy website traffic, advertiser ad exchange, programmatic ad inventory, brand safe traffic, media buying" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://admandala.com/advertisers" />
         <meta property="og:title" content="Buy Media You Can Trust | AdMandala for DSPs & Advertisers" />
@@ -165,9 +166,9 @@ function DSPs() {
           {
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "AdMandala Demand-Side Access",
+            "name": "AdMandala Programmatic Demand Integration & Traffic Supply",
             "url": "https://admandala.com/advertisers",
-            "description": "Programmatic advertising exchange for DSPs and advertisers offering quality-controlled publisher inventory, IVT filtering, and brand-safe supply.",
+            "description": "Programmatic ad exchange offering DSP integration via OpenRTB to buy website traffic from quality-controlled, brand-safe publishers.",
             "provider": {
               "@type": "Organization",
               "name": "AdMandala",
@@ -175,9 +176,9 @@ function DSPs() {
             },
             "audience": {
               "@type": "Audience",
-              "audienceType": "DSPs, Trading Desks, Performance Advertisers, Media Buyers"
+              "audienceType": "DSPs, Trading Desks, Agency Media Buyers, Direct Advertisers"
             },
-            "serviceType": "Programmatic Supply Access"
+            "serviceType": "Programmatic Traffic Supply & DSP Access"
           }
         `}</script>
       </Helmet>
