@@ -36,11 +36,34 @@ function Decentralization() {
   return (
     <div className="landing-page dec-page">
       <Helmet>
-        <title>AdMandala: Architectural Evolution Protocol</title>
+        <title>Decentralization Roadmap | AdMandala Architectural Evolution Protocol</title>
         <meta
           name="description"
-          content="Learn how AdMandala leverages decentralized systems to improve transparency and efficiency in digital advertising."
+          content="Explore how AdMandala is evolving from a centralized programmatic exchange to a verifiable advertising protocol — with on-chain ad event logging, transparent settlement, and independently validated impressions and clicks."
         />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://admandala.com/decentralization" />
+        <meta property="og:title" content="Decentralization Roadmap | AdMandala" />
+        <meta property="og:description" content="How AdMandala evolves from centralized exchange to verifiable advertising protocol with on-chain settlement and transparent ad delivery." />
+        <meta property="og:site_name" content="AdMandala" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Decentralization Roadmap | AdMandala" />
+        <meta name="twitter:description" content="How AdMandala evolves from centralized exchange to verifiable advertising protocol with on-chain settlement and transparent ad delivery." />
+        <link rel="canonical" href="https://admandala.com/decentralization" />
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "AdMandala Decentralization Roadmap",
+            "url": "https://admandala.com/decentralization",
+            "description": "AdMandala's architectural evolution from centralized programmatic exchange to a verifiable advertising protocol with on-chain ad event logging and transparent settlement.",
+            "isPartOf": {
+              "@type": "WebSite",
+              "name": "AdMandala",
+              "url": "https://admandala.com"
+            }
+          }
+        `}</script>
       </Helmet>
 
       <Navbar />

@@ -45,8 +45,31 @@ function Home() {
         <title>AdMandala | Programmatic Advertising. Built to Evolve.</title>
         <meta
           name="description"
-          content="AdMandala aims to help publishers and advertisers maximize revenue through decentralized ad infrastructure."
+          content="AdMandala is a programmatic advertising exchange connecting publishers and DSPs through quality-focused, centralized infrastructure — with a clear roadmap toward decentralized, verifiable ad delivery."
         />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://admandala.com/" />
+        <meta property="og:title" content="AdMandala | Programmatic Advertising. Built to Evolve." />
+        <meta property="og:description" content="A programmatic advertising exchange connecting publishers and DSPs with quality-focused infrastructure and a decentralization roadmap." />
+        <meta property="og:site_name" content="AdMandala" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="AdMandala | Programmatic Advertising. Built to Evolve." />
+        <meta name="twitter:description" content="A programmatic advertising exchange connecting publishers and DSPs with quality-focused infrastructure and a decentralization roadmap." />
+        <link rel="canonical" href="https://admandala.com/" />
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "AdMandala — Programmatic Advertising Exchange",
+            "url": "https://admandala.com/",
+            "description": "AdMandala is a programmatic advertising exchange that connects publishers and demand-side platforms (DSPs) through a centralized, quality-focused system while building the foundation for decentralized, verifiable ad infrastructure.",
+            "isPartOf": {
+              "@type": "WebSite",
+              "name": "AdMandala",
+              "url": "https://admandala.com"
+            }
+          }
+        `}</script>
       </Helmet>
 
       {!isIntroActive && <Navbar />}

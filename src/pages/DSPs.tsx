@@ -147,11 +147,40 @@ function DSPs() {
   return (
     <div className="landing-page advertisers-page">
       <Helmet>
-        <title>Buy Media You Can Trust | AdMandala</title>
+        <title>Buy Media You Can Trust | AdMandala for DSPs & Advertisers</title>
         <meta
           name="description"
-          content="Access premium publisher inventory and scale campaigns with performance-driven optimization."
+          content="Access curated, quality-controlled publisher inventory through AdMandala's programmatic exchange. Standard RTB workflows, IVT filtering, brand safety scoring, and a path toward verifiable ad delivery for DSPs, trading desks, and performance advertisers."
         />
+        <meta name="keywords" content="DSP integration, programmatic demand, OpenRTB SSP, buy website traffic, advertiser ad exchange, programmatic ad inventory, brand safe traffic, media buying" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://admandala.com/advertisers" />
+        <meta property="og:title" content="Buy Media You Can Trust | AdMandala for DSPs & Advertisers" />
+        <meta property="og:description" content="Access programmatic supply through a centralized exchange with strong quality controls — and a clear path toward verifiable delivery." />
+        <meta property="og:site_name" content="AdMandala" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Buy Media You Can Trust | AdMandala for DSPs & Advertisers" />
+        <meta name="twitter:description" content="Access programmatic supply through a centralized exchange with strong quality controls — and a clear path toward verifiable delivery." />
+        <link rel="canonical" href="https://admandala.com/advertisers" />
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "AdMandala Programmatic Demand Integration & Traffic Supply",
+            "url": "https://admandala.com/advertisers",
+            "description": "Programmatic ad exchange offering DSP integration via OpenRTB to buy website traffic from quality-controlled, brand-safe publishers.",
+            "provider": {
+              "@type": "Organization",
+              "name": "AdMandala",
+              "url": "https://admandala.com"
+            },
+            "audience": {
+              "@type": "Audience",
+              "audienceType": "DSPs, Trading Desks, Agency Media Buyers, Direct Advertisers"
+            },
+            "serviceType": "Programmatic Traffic Supply & DSP Access"
+          }
+        `}</script>
       </Helmet>
 
       <Navbar />

@@ -123,11 +123,40 @@ function Publishers() {
   return (
     <div className="landing-page publishers-page">
       <Helmet>
-        <title>Monetize With Confidence | AdMandala</title>
+        <title>Monetize With Confidence | AdMandala for Publishers</title>
         <meta
           name="description"
-          content="Monetize your traffic with high performance demand partners and transparent revenue optimization."
+          content="Monetize your website traffic with AdMandala's programmatic exchange. Access quality DSP demand, IVT filtering, brand-safe environments, and transparent revenue reporting for independent publishers, media networks, and SSPs."
         />
+        <meta name="keywords" content="monetize website traffic, sell website traffic, get advertisements on website, easy website advertisement integration, how to monetize traffic, banner ad integration, publisher ad network, SSP programmatic demand" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://admandala.com/publishers" />
+        <meta property="og:title" content="Monetize With Confidence | AdMandala for Publishers" />
+        <meta property="og:description" content="Connect your inventory to a programmatic exchange built for performance today — with transparent reporting, IVT filtering, and brand safety." />
+        <meta property="og:site_name" content="AdMandala" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Monetize With Confidence | AdMandala for Publishers" />
+        <meta name="twitter:description" content="Connect your inventory to a programmatic exchange built for performance today — with transparent reporting, IVT filtering, and brand safety." />
+        <link rel="canonical" href="https://admandala.com/publishers" />
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "AdMandala Website Advertisement Integration & Monetization",
+            "url": "https://admandala.com/publishers",
+            "description": "Programmatic ad exchange providing the easiest website advertisement integration to sell website traffic and monetize traffic with high CPMs.",
+            "provider": {
+              "@type": "Organization",
+              "name": "AdMandala",
+              "url": "https://admandala.com"
+            },
+            "audience": {
+              "@type": "Audience",
+              "audienceType": "Webmasters, Website Owners, Independent Publishers, Media Networks"
+            },
+            "serviceType": "Publisher Traffic Monetization"
+          }
+        `}</script>
       </Helmet>
 
       <Navbar />
