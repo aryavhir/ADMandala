@@ -45,16 +45,16 @@ function Home() {
         <title>AdMandala | Programmatic Advertising. Built to Evolve.</title>
         <meta
           name="description"
-          content="AdMandala is a programmatic advertising exchange connecting publishers and DSPs through quality-focused, centralized infrastructure — with a clear roadmap toward decentralized, verifiable ad delivery."
+          content="AdMandala is a programmatic advertising exchange connecting publishers and DSPs through quality-focused, centralized infrastructure — built to evolve toward decentralized, verifiable ad delivery."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://admandala.com/" />
         <meta property="og:title" content="AdMandala | Programmatic Advertising. Built to Evolve." />
-        <meta property="og:description" content="A programmatic advertising exchange connecting publishers and DSPs with quality-focused infrastructure and a decentralization roadmap." />
+        <meta property="og:description" content="A programmatic advertising exchange connecting publishers and DSPs with quality-focused infrastructure, evolving toward verifiable ad delivery." />
         <meta property="og:site_name" content="AdMandala" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="AdMandala | Programmatic Advertising. Built to Evolve." />
-        <meta name="twitter:description" content="A programmatic advertising exchange connecting publishers and DSPs with quality-focused infrastructure and a decentralization roadmap." />
+        <meta name="twitter:description" content="A programmatic advertising exchange connecting publishers and DSPs with quality-focused infrastructure, evolving toward verifiable ad delivery." />
         <link rel="canonical" href="https://admandala.com/" />
         <script type="application/ld+json">{`
           {

@@ -172,56 +172,6 @@ const Navbar: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* Roadmap (Decentralization) Dropdown */}
-                    <div
-                        className={`navbar-dropdown ${activeDropdown === 'roadmap' ? 'is-active' : ''}`}
-                        onMouseEnter={() => setActiveDropdown('roadmap')}
-                        onMouseLeave={() => setActiveDropdown(null)}
-                    >
-                        <Link to="/decentralization" className="navbar-link navbar-dropdown-toggle">
-                            Roadmap <ChevronDown size={14} className="dropdown-icon" />
-                        </Link>
-                        <div className="navbar-dropdown-menu megamenu">
-                            <div className="megamenu-grid">
-                                <div className="megamenu-column">
-                                    <h4 className="megamenu-title">Vision & Strategy</h4>
-                                    <Link to="/decentralization#philosophy" className="dropdown-item" onClick={() => handleLinkClick('philosophy')}>
-                                        <div className="dropdown-item-content">
-                                            <span className="dropdown-item-label">Mandala Philosophy</span>
-                                            <span className="dropdown-item-desc">Why decentralization matters.</span>
-                                        </div>
-                                    </Link>
-                                    <Link to="/decentralization#approach" className="dropdown-item" onClick={() => handleLinkClick('approach')}>
-                                        <div className="dropdown-item-content">
-                                            <span className="dropdown-item-label">Mandala Approach</span>
-                                            <span className="dropdown-item-desc">Our balanced, structured system.</span>
-                                        </div>
-                                    </Link>
-                                    <Link to="/decentralization#evolution" className="dropdown-item" onClick={() => handleLinkClick('evolution')}>
-                                        <div className="dropdown-item-content">
-                                            <span className="dropdown-item-label">Evolution of Network</span>
-                                            <span className="dropdown-item-desc">Three planned phases of growth.</span>
-                                        </div>
-                                    </Link>
-                                </div>
-                                <div className="megamenu-column">
-                                    <h4 className="megamenu-title">Technical Path</h4>
-                                    <Link to="/decentralization#architecture" className="dropdown-item" onClick={() => handleLinkClick('architecture')}>
-                                        <div className="dropdown-item-content">
-                                            <span className="dropdown-item-label">Architecture</span>
-                                            <span className="dropdown-item-desc">Immutable records of ad events.</span>
-                                        </div>
-                                    </Link>
-                                    <Link to="/decentralization#ecosystem" className="dropdown-item" onClick={() => handleLinkClick('ecosystem')}>
-                                        <div className="dropdown-item-content">
-                                            <span className="dropdown-item-label">What This Means for You</span>
-                                            <span className="dropdown-item-desc">Participation Across the Map.</span>
-                                        </div>
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
                     <Link to="/early-adopters" className="navbar-link" style={{ position: 'relative' }}>
                         Early Access
@@ -289,23 +239,6 @@ const Navbar: React.FC = () => {
                         )}
                     </div>
 
-                    <div className="mobile-dropdown-section">
-                        <div className="mobile-dropdown-header">
-                            <Link to="/decentralization" className="mobile-link !p-0 border-none" onClick={() => setMobileOpen(false)}>Roadmap</Link>
-                            <button className="mobile-dropdown-arrow" onClick={() => toggleDropdown('roadmap')}>
-                                <ChevronDown size={18} className={activeDropdown === 'roadmap' ? 'icon-rotate' : ''} />
-                            </button>
-                        </div>
-                        {activeDropdown === 'roadmap' && (
-                            <div className="mobile-dropdown-items">
-                                <Link to="/decentralization#philosophy" className="mobile-submenu-link" onClick={() => handleLinkClick('philosophy')}>Mandala Philosophy</Link>
-                                <Link to="/decentralization#approach" className="mobile-submenu-link" onClick={() => handleLinkClick('approach')}>Mandala Approach</Link>
-                                <Link to="/decentralization#evolution" className="mobile-submenu-link" onClick={() => handleLinkClick('evolution')}>Evolution of Network</Link>
-                                <Link to="/decentralization#architecture" className="mobile-submenu-link" onClick={() => handleLinkClick('architecture')}>Architecture</Link>
-                                <Link to="/decentralization#ecosystem" className="mobile-submenu-link" onClick={() => handleLinkClick('ecosystem')}>What This Means for You</Link>
-                            </div>
-                        )}
-                    </div>
 
                     <Link to="/early-adopters" className="mobile-link" onClick={() => setMobileOpen(false)} style={{ position: 'relative' }}>
                         Early Access
