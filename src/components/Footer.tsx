@@ -32,15 +32,7 @@ function Footer() {
               </div>
             </div>
 
-            <div className="footer-links-col">
-              <h6>Roadmap</h6>
-              <div className="footer-links-list">
-                <Link to="/decentralization#philosophy">Philosophy</Link>
-                <Link to="/decentralization#approach">Approach</Link>
-                <Link to="/decentralization#architecture">Architecture</Link>
-                <Link to="/decentralization#ecosystem">Ecosystem</Link>
-              </div>
-            </div>
+
 
             <div className="footer-links-col">
               <h6>Advertisers</h6>

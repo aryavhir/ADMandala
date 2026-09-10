@@ -16,7 +16,7 @@ const LookingAhead: React.FC<LookingAheadProps> = ({
     description = "AdMandala is evolving from a centralized exchange into a verifiable advertising protocol. See how verification and settlement decentralize — without disrupting your buying workflows.",
     buttonText = "Explore the decentralization roadmap",
     buttonLink = "/decentralization",
-    showButton = true
+    showButton = false
 }) => {
     return (
         <section id={id} className="section dsp-future-section">
